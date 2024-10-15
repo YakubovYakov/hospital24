@@ -1,0 +1,52 @@
+.moscow-logo {
+	width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #c82e3e;
+  min-height: 48px;
+}
+
+.moscow-logo__logo {
+	max-width: 218px;
+  min-height: 28px;
+	padding: 0 0  0 64px;
+}
+
+.moscow-logo__button-version {
+	border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: "Cera Round Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	padding: 0 64px;
+}
+
+.moscow-logo__button-version::before {
+	padding: 4px;
+	margin-right: 8px;
+	content: url(../../images/moscow-medecine/eye.svg);
+}
+
+@media (max-width: 988px) {
+	.moscow-logo__button-version {
+		display: none;
+	}
+}
+
+@media (max-width: 580px) {
+	.moscow-logo {
+		justify-content: flex-start;
+	}
+
+	.moscow-logo__logo {
+		padding: 0 0 0 33px;
+	}
+}
