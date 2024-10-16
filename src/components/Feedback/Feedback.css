@@ -1,8 +1,11 @@
+
+
 .feedback {
   display: flex;
   flex-direction: column;
   margin-bottom: 24px;
 }
+
 
 .feedback__title {
   color: #1e1e1e;
@@ -52,6 +55,7 @@
 }
 
 .feedback__card {
+	min-width: 330px;
   box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid #d9d9d9;
@@ -76,7 +80,7 @@
 .feedback__card-text {
   color: #1e1e1e;
   max-height: 102px;
-  font-family: "Cera Round Variable";
+  font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

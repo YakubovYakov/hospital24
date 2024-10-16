@@ -158,6 +158,14 @@ details[open] .doctor-card__details-marker {
   line-height: 140%;
 }
 
+summary::marker {
+  display: none !important;
+}
+
+summary {
+  list-style: none;
+}
+
 @media (max-width: 1211px) {
   .doctor-card__container {
     gap: 30px;
