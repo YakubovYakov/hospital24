@@ -3,10 +3,6 @@ import "./Feedback.css";
 import icon1 from "../../images/icon-feedback/icon1.png";
 import icon2 from "../../images/icon-feedback/icon2.png";
 import icon3 from "../../images/icon-feedback/icon3.png";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 
 function Feedback() {
@@ -143,62 +139,72 @@ function Feedback() {
 	
 	return (
 		<section className="feedback">
-  <h1 className="feedback__title">Отзывы</h1>
-  <div className="feedback__table_button-container">
-    <button
-      className="feedback__prev_table-button"
-      onClick={handlePrevClick}
-    />
-    <button
-      className="feedback__next_table-button"
-      onClick={handleNextClick}
-    />
-  </div>
-  <div className="feedback__wrapper">
-    <div className="feedback__carousel">
-      <Slider {...settings}>
-        {feedbacks.map((feedback, index) => (
-          <div key={index} className="feedback__card">
-            <div className="feedback__card-icon">
-              <img
-                className="feedback__card-icon"
-                alt={`Иконка для ${feedback.title}`}
-                src={feedback.icon}
-              />
-              <h2 className="feedback__card-title">{feedback.title}</h2>
-            </div>
-            <p
-              className={`feedback__card-text ${
-                expanded[index] ? "expanded" : ""
-              }`}
-            >
-              {expanded[index] ? feedback.fullText : feedback.shortText}
-            </p>
-            <button
-              className="feedback__more_button"
-              onClick={() => toggleExpanded(index)}
-            >
-              {expanded[index] ? "Скрыть" : "Ещё"}
-            </button>
-            <p className="feedback__card-author">{feedback.author}</p>
-            <span className="feedback__card-date">{feedback.date}</span>
+			<h1 className="feedback__title">Отзывы</h1>
+			<div className="feedback__table_button-container">
+				<button
+					className="feedback__prev_table-button"
+					onClick={handlePrevClick}
+				/>
+				<button
+					className="feedback__next_table-button"
+					onClick={handleNextClick}
+				/>
+			</div>
+			<div className="feedback__wrapper">
+				<button className="feedback__prev-button" onClick={handlePrevClick} />
+				<div className="feedback__carousel" ref={carouselRef}>
+					<div
+						className="feedback__track"
+						style={{
+							transform: isMobile
+								? "none"
+								: `translateX(-${currentSlide * cardTotalWidth}px)`,
+							width: `${trackWidth}px`, // Устанавливаем ширину трека в зависимости от количества карточек
+						}}
+					>
+            {feedbacks.map((feedback, index) => (
+              <div key={index} className="feedback__card">
+                <div className="feedback__card-icon">
+                  <img
+                    className="feedback__card-icon"
+                    alt={`Иконка для ${feedback.title}`}
+                    src={feedback.icon}
+                  />
+                  <h2 className="feedback__card-title">{feedback.title}</h2>
+                </div>
+                <p
+                  className={`feedback__card-text ${
+                    expanded[index] ? "expanded" : ""
+                  }`}
+                >
+                  {expanded[index] ? feedback.fullText : feedback.shortText}
+                </p>
+                <button
+                  className="feedback__more_button"
+                  onClick={() => toggleExpanded(index)}
+                >
+                  {expanded[index] ? "Скрыть" : "Ещё"}
+                </button>
+                <p className="feedback__card-author">{feedback.author}</p>
+                <span className="feedback__card-date">{feedback.date}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </Slider>
-    </div>
-  </div>
-  <div className="feedback__buttons-container">
-    <h2 className="feedback__buttons-title">Оставить отзыв</h2>
-    <p className="feedback__buttons-text">
-      Cергей Александрович будет вам очень благодарен!
-    </p>
-    <div className="feedback__buttons-bar">
-      <button className="feedback__button">Яндекс.Карты</button>
-      <button className="feedback__button">Про Докторов</button>
-      <button className="feedback__button active">Написать здесь</button>
-    </div>
-  </div>
-</section>
+        </div>
+        <button className="feedback__next-button" onClick={handleNextClick} />
+      </div>
+      <div className="feedback__buttons-container">
+        <h2 className="feedback__buttons-title">Оставить отзыв</h2>
+        <p className="feedback__buttons-text">
+          Cергей Александрович будет вам очень благодарен!
+        </p>
+        <div className="feedback__buttons-bar">
+          <button className="feedback__button">Яндекс.Карты</button>
+          <button className="feedback__button">Про Докторов</button>
+          <button className="feedback__button active">Написать здесь</button>
+        </div>
+      </div>
+    </section>
   );
 }
 
