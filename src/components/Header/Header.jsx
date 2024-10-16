@@ -7,6 +7,7 @@ import logo1 from "../../images/Лог1.svg";
 import logo2 from "../../images/Лог2.svg";
 import map from "../../images/Map.svg";
 import eye from "../../images/Eye.svg";
+import burger from "../../images/burger.png";
 
 function Header() {
   const location = useLocation();
@@ -26,21 +27,7 @@ function Header() {
           <img src={logo2} alt="logo" />
         </Link>
         <div className="header__menu-button">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14 20H26M14 16H26M14 24H26"
-              stroke="#1E1E1E"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <img className="menu-img" src={burger} alt="Кнопка меню" />
         </div>
         <div className="header__buttons-bar">
           <Link

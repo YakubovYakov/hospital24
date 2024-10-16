@@ -4,6 +4,9 @@
   justify-content: center;
   padding: 34px 0;
 }
+.header__menu-button {
+	display: none;
+}
 
 .header__container {
   display: flex;
@@ -162,6 +165,10 @@
 	.header__container {
 		width: 100%;
 		justify-content: space-around;
+	}
+
+	.header__menu-button {
+		display: block;
 	}
 }
 
