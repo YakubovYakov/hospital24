@@ -124,24 +124,23 @@
 
   .thumbnail-container {
     flex-direction: row;
-		justify-content: start;
+    justify-content: start;
     gap: 16px;
     user-select: none;
     scroll-snap-type: x;
     overflow-x: auto;
     scroll-behavior: smooth;
     scrollbar-width: none;
-		/* margin: 0 auto; */
   }
 
-	.thumbnail-photo {
-		min-width: 82px;
-		height: 61px;
-	}
+  .thumbnail-photo {
+    min-width: 82px;
+    height: 61px;
+  }
 
-	.main-photo-container {
-		margin: 0 auto;
-	}
+  .main-photo-container {
+    margin: 0 auto;
+  }
 
   .main-photo {
     max-width: 327px;

@@ -9,6 +9,7 @@
 
 .dynamic-route__link-home {
 	color: #757575;
+	font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -38,6 +39,7 @@
 
 .dynamic-route__link-our-doctors {
 	color: #757575;
+	font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -59,6 +61,7 @@
 
 .dynamic-route__doctor {
 	color: #757575;
+	font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

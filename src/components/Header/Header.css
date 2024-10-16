@@ -16,7 +16,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  */
   background-color: #fff;
 }
 
@@ -29,6 +28,7 @@
 
 .header__number {
   color: #1e1e1e;
+	font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -50,7 +50,7 @@
 
 .header__address-time {
   color: #1e1e1e;
-  /* font-family: "Cera Round Variable"; */
+  font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -60,7 +60,7 @@
 
 .header__address {
   color: #1348ba;
-  /* font-family: "Cera Round Variable"; */
+  font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -77,7 +77,7 @@
 
 .header__button {
   color: #1e1e1e;
-  /* font-family: "Cera Round Variable"; */
+  font-family: 'Cera Round', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -123,7 +123,7 @@
 
 .header__another-v-text {
   color: #1348ba;
-  /* font-family: "Cera Round Variable"; */
+  font-family: 'Cera Round', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
