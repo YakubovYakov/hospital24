@@ -6,6 +6,9 @@
   align-items: center;
   background: #c82e3e;
   min-height: 48px;
+	position: sticky;
+	top: 0;
+	z-index: 1;
 }
 
 .moscow-logo__logo {

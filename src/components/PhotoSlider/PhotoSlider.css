@@ -13,7 +13,7 @@
   height: auto;
   max-width: 544px;
   height: 504px;
-  border-radius: 8px;
+  border-radius: 32px;
   object-fit: cover;
 }
 
@@ -123,27 +123,40 @@
   }
 
   .thumbnail-container {
-    flex-direction: row;
-    justify-content: start;
-    gap: 16px;
-    user-select: none;
-    scroll-snap-type: x;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+    display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 16px;
+  user-select: none;
+  overflow-x: auto; /* Оставляем прокрутку */
+  scroll-snap-type: x mandatory; /* Прокрутка по элементам */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Убираем стандартный скроллбар */
+  -ms-overflow-style: none; /* Для IE и Edge */
+	touch-action: pan-x;
   }
 
+	.thumbnail-container::-webkit-scrollbar {
+		display: none; /* Убираем скроллбар в WebKit */
+	}
+
   .thumbnail-photo {
-    min-width: 82px;
-    height: 61px;
+		min-width: 82px;
+		height: 61px;
+		object-fit: cover; /* Убираем выход изображения за рамки */
+		flex-shrink: 0; /* Предотвращаем сжатие */
+		scroll-snap-align: start; /* Привязка миниатюры к началу при скролле */
+		pointer-events: auto;
   }
 
   .main-photo-container {
     margin: 0 auto;
+		overflow: hidden;
   }
 
   .main-photo {
     max-width: 327px;
     height: 327px;
+
   }
 }
