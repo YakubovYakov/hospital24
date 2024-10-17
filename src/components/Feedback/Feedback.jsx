@@ -146,10 +146,10 @@ function Feedback() {
           setCurrentIndex(newIndex);
           track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
 
-          // void track.offsetWidth;
-          setTimeout(() => {
-            track.style.transition = "";
-          }, 0);
+          void track.offsetWidth;
+          // setTimeout(() => {
+          //   track.style.transition = "";
+          // }, 0);
 
           track.style.transition = "";
           setIsTransitioning(false);
@@ -158,10 +158,10 @@ function Feedback() {
           const newIndex = extendedFeedbacks.length - slidesToShow * 2;
           setCurrentIndex(newIndex);
           track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
-          // void track.offsetWidth;
-          setTimeout(() => {
-            track.style.transition = "";
-          }, 0);
+          void track.offsetWidth;
+          // setTimeout(() => {
+          //   track.style.transition = "";
+          // }, 0);
 
           track.style.transition = "";
           setIsTransitioning(false);

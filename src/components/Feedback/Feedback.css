@@ -132,10 +132,12 @@
 
 .feedback__prev-button {
   background: url(../../images/button-prev.svg);
+	background-repeat: no-repeat;
 }
 
 .feedback__next-button {
-  background: url(../../images/button-next.svg);
+	background: url(../../images/button-next.svg);
+	background-repeat: no-repeat;
 }
 
 .feedback__buttons-container {

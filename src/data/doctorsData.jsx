@@ -7,6 +7,9 @@ export const doctors = [
       "Заместитель главного врача по хирургии",
       "Кандидат медицинских наук",
     ],
+		position_main: [
+			"Хирург"
+		],
     description: [
       {
         text: "Специализируется на малоинвазивной хирургии и ",
@@ -92,6 +95,7 @@ export const doctors = [
         text: "— врач - хирург Кваркенской районной больницы, Оренбургская область",
       },
     ],
+    main_photo: "https://i.postimg.cc/QxqHj5jL/Image.png",
     photos: [
       "https://i.postimg.cc/DwbgpG1h/1.png",
       "https://i.postimg.cc/fTMk2NCB/IMAGE-2024-09-22-15-01-04.jpg",
@@ -99,5 +103,23 @@ export const doctors = [
       "https://i.postimg.cc/q767hMBM/5B1A0220.jpg",
       "https://i.postimg.cc/QChNyQQH/5B1A0065.jpg",
     ],
+  },
+  {
+    id: 2,
+    full_name: "Корнев Леонид Владимирович",
+    position_main: "Заведующий, Колопроктология 3",
+    main_photo: "https://i.postimg.cc/HsnCxXtf/Image.png",
+  },
+  {
+    id: 3,
+    full_name: "Козаева Татьяна Зауровна",
+    position_main: "Гинеколог, Гинекология",
+    main_photo: "https://i.postimg.cc/XqV4xPdJ/Image.png",
+  },
+  {
+    id: 4,
+    full_name: "Бут Оксана Александровна",
+    position_main: "Эндоскопист, Эндоскопия",
+    main_photo: "https://i.postimg.cc/Y23pjpBm/Image.png",
   },
 ];
