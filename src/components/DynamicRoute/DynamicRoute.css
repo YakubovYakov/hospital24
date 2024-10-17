@@ -1,15 +1,16 @@
 .dynamic-route {
-  margin-left: 64px;
 }
 
 .dynamic-route__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 64px;
   display: flex;
-  flex-direction: row;
 }
 
 .dynamic-route__link-home {
-	color: #757575;
-	font-family: 'Cera Round', sans-serif;
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -38,8 +39,8 @@
 }
 
 .dynamic-route__link-our-doctors {
-	color: #757575;
-	font-family: 'Cera Round', sans-serif;
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -51,7 +52,7 @@
 }
 
 .dynamic-route__link-our-doctors::after {
-	content: "";
+  content: "";
   display: inline-block;
   background: url(../../images/arrow-right.svg) no-repeat center;
   width: 16px;
@@ -60,17 +61,17 @@
 }
 
 .dynamic-route__doctor {
-	color: #757575;
-	font-family: 'Cera Round', sans-serif;
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
-	margin: 0 12px;
+  margin: 0 12px;
 }
 
 @media (max-width: 988px) {
-	.dynamic-route {
-		display: none;
-	}
+  .dynamic-route {
+    display: none;
+  }
 }

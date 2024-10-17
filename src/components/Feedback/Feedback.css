@@ -8,7 +8,7 @@
 .feedback__container {
 	min-width: 1200px;
   margin: 0 auto;
-  padding: 0 64px;
+  /* padding: 0 64px; */
 }
 
 .feedback__title {

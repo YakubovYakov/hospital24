@@ -7,7 +7,7 @@ function HelpMain() {
       <div className="help-main__container">
         <img
           className="help-main__banner"
-          src={"https://i.postimg.cc/XYfJsCD1/Image.png"}
+          src={"https://i.postimg.cc/qqhdtP36/image-37.png"}
           alt="Баннер блока для родственников"
         />
         <div className="help-main__text-container">
