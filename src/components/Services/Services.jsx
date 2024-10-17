@@ -4,6 +4,7 @@ import "./Services.css";
 function Services() {
   return (
     <section className="services">
+			<div className="services__container">
       <div className="services__top">
         <h1 className="services__title">Наши услуги</h1>
         <button className="services__button">Посмотреть все</button>
@@ -63,6 +64,7 @@ function Services() {
               Пройти лечение
             </button>
           </div>
+					</div>
         </div>
       </div>
     </section>

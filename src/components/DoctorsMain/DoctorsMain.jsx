@@ -7,33 +7,40 @@ function DoctorsMain({ doctors }) {
 
   return (
     <section className="doctors-main">
-      <div className="services__top">
-        <h1 className="services__title">Наши врачи</h1>
-        <button className="services__button">Посмотреть всех</button>
-      </div>
+      <div className="services__container">
+        <div className="services__top">
+          <h1 className="services__title">Наши врачи</h1>
+          <button className="services__button">Посмотреть всех</button>
+        </div>
+        <div className="departments__wrapper">
+          <button className="feedback__prev-button" />
+          <div className="doctors__cards-container">
+            {doctorsToDisplay.map((doctor) => (
+              <div key={doctor.id} className="doctors__card">
+                <img
+                  className="doctors__card-image"
+                  src={doctor.main_photo}
+                  alt={`Фото ${doctor.full_name}`}
+                />
+                <h2 className="doctors__card-title">{doctor.full_name}</h2>
+                <p className="doctors__card-position">
+                  {Array.isArray(doctor.position)
+                    ? doctor.position_main.join(", ")
+                    : doctor.position_main}
+                </p>
 
-      <div className="doctors__cards-container">
-      <button className="feedback__prev-button" />
-        {doctorsToDisplay.map((doctor) => (
-          <div key={doctor.id} className="doctors__card">
-            <img
-              className="doctors__card-image"
-              src={doctor.main_photo}
-              alt={`Фото ${doctor.full_name}`}
-            />
-            <h2 className="doctors__card-title">{doctor.full_name}</h2>
-            <p className="doctors__card-position">
-              {Array.isArray(doctor.position)
-                ? doctor.position_main.join(", ")
-                : doctor.position_main}
-            </p>
-
-            <Link to={`/doctor/${doctor.id}`} className="doctors__card-button" type="button">
-              Подробнее
-            </Link>
+                <Link
+                  to={`/doctor/${doctor.id}`}
+                  className="doctors__card-button"
+                  type="button"
+                >
+                  Подробнее
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      <button className="feedback__next-button" />
+          <button className="feedback__next-button" />
+        </div>
       </div>
     </section>
   );

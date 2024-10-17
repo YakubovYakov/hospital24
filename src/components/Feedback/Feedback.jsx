@@ -202,78 +202,80 @@ function Feedback() {
 
   return (
     <section className="feedback">
-      <h1 className="feedback__title">Отзывы</h1>
-      <div className="feedback__table_button-container">
-        <button
-          className="feedback__prev_table-button"
-          onClick={handlePrevClick}
-        />
-        <button
-          className="feedback__next_table-button"
-          onClick={handleNextClick}
-        />
-      </div>
-      <div className="feedback__wrapper">
-        <button className="feedback__prev-button" onClick={handlePrevClick} />
-        <div className="feedback__carousel" ref={carouselRef}>
-          <div
-            className="feedback__track"
-            ref={trackRef}
-            style={{
-              transform: isMobile
-                ? "none"
-                : `translateX(-${currentIndex * cardTotalWidth}px)`,
-              width: isMobile
-                ? "auto"
-                : `${extendedFeedbacks.length * cardTotalWidth}px`,
-            }}
-          >
-            {extendedFeedbacks.map((feedback, index) => {
-              const originalIndex =
-                (index - slidesToShow + feedbacks.length) % feedbacks.length;
-              return (
-                <div key={index} className="feedback__card">
-                  <div className="feedback__card-icon">
-                    <img
-                      className="feedback__card-icon"
-                      alt={`Иконка для ${feedback.title}`}
-                      src={feedback.icon}
-                    />
-                    <h2 className="feedback__card-title">{feedback.title}</h2>
-                  </div>
-                  <p
-                    className={`feedback__card-text ${
-                      expanded[originalIndex] ? "expanded" : ""
-                    }`}
-                  >
-                    {expanded[originalIndex]
-                      ? feedback.fullText
-                      : feedback.shortText}
-                  </p>
-                  <button
-                    className="feedback__more_button"
-                    onClick={() => toggleExpanded(originalIndex)}
-                  >
-                    {expanded[originalIndex] ? "Скрыть" : "Ещё"}
-                  </button>
-                  <p className="feedback__card-author">{feedback.author}</p>
-                  <span className="feedback__card-date">{feedback.date}</span>
-                </div>
-              );
-            })}
-          </div>
+      <div className="feedback__container">
+        <h1 className="feedback__title">Отзывы</h1>
+        <div className="feedback__table_button-container">
+          <button
+            className="feedback__prev_table-button"
+            onClick={handlePrevClick}
+          />
+          <button
+            className="feedback__next_table-button"
+            onClick={handleNextClick}
+          />
         </div>
-        <button className="feedback__next-button" onClick={handleNextClick} />
-      </div>
-      <div className="feedback__buttons-container">
-        <h2 className="feedback__buttons-title">Оставить отзыв</h2>
-        <p className="feedback__buttons-text">
-          Cергей Александрович будет вам очень благодарен!
-        </p>
-        <div className="feedback__buttons-bar">
-          <button className="feedback__button">Яндекс.Карты</button>
-          <button className="feedback__button">Про Докторов</button>
-          <button className="feedback__button active">Написать здесь</button>
+        <div className="feedback__wrapper">
+          <button className="feedback__prev-button" onClick={handlePrevClick} />
+          <div className="feedback__carousel" ref={carouselRef}>
+            <div
+              className="feedback__track"
+              ref={trackRef}
+              style={{
+                transform: isMobile
+                  ? "none"
+                  : `translateX(-${currentIndex * cardTotalWidth}px)`,
+                width: isMobile
+                  ? "auto"
+                  : `${extendedFeedbacks.length * cardTotalWidth}px`,
+              }}
+            >
+              {extendedFeedbacks.map((feedback, index) => {
+                const originalIndex =
+                  (index - slidesToShow + feedbacks.length) % feedbacks.length;
+                return (
+                  <div key={index} className="feedback__card">
+                    <div className="feedback__card-icon">
+                      <img
+                        className="feedback__card-icon"
+                        alt={`Иконка для ${feedback.title}`}
+                        src={feedback.icon}
+                      />
+                      <h2 className="feedback__card-title">{feedback.title}</h2>
+                    </div>
+                    <p
+                      className={`feedback__card-text ${
+                        expanded[originalIndex] ? "expanded" : ""
+                      }`}
+                    >
+                      {expanded[originalIndex]
+                        ? feedback.fullText
+                        : feedback.shortText}
+                    </p>
+                    <button
+                      className="feedback__more_button"
+                      onClick={() => toggleExpanded(originalIndex)}
+                    >
+                      {expanded[originalIndex] ? "Скрыть" : "Ещё"}
+                    </button>
+                    <p className="feedback__card-author">{feedback.author}</p>
+                    <span className="feedback__card-date">{feedback.date}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <button className="feedback__next-button" onClick={handleNextClick} />
+        </div>
+        <div className="feedback__buttons-container">
+          <h2 className="feedback__buttons-title">Оставить отзыв</h2>
+          <p className="feedback__buttons-text">
+            Cергей Александрович будет вам очень благодарен!
+          </p>
+          <div className="feedback__buttons-bar">
+            <button className="feedback__button">Яндекс.Карты</button>
+            <button className="feedback__button">Про Докторов</button>
+            <button className="feedback__button active">Написать здесь</button>
+          </div>
         </div>
       </div>
     </section>

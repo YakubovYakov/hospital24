@@ -10,6 +10,12 @@
 	align-items: start;
 }
 
+.departments__wrapper {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
 .departments__card {
   display: flex;
   flex-direction: column;
@@ -62,3 +68,4 @@
   padding: 12px;
   cursor: pointer;
 }
+
