@@ -76,6 +76,7 @@
 .doctor-card__button {
   border-radius: 8px;
   background: #1348ba;
+	color: #D8EDFF;
   padding: 12px;
   max-width: 504px;
   border: 0;
