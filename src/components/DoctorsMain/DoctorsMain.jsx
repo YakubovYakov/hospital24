@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./DoctorsMain.css";
 
 function DoctorsMain({ doctors }) {
@@ -27,9 +28,9 @@ function DoctorsMain({ doctors }) {
                 : doctor.position_main}
             </p>
 
-            <button className="doctors__card-button" type="button">
+            <Link to={`/doctor/${doctor.id}`} className="doctors__card-button" type="button">
               Подробнее
-            </button>
+            </Link>
           </div>
         ))}
       <button className="feedback__next-button" />

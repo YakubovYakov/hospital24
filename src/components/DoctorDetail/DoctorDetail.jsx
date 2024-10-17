@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { doctors } from "../../data/doctorsData";
 import DynamicRoute from "../DynamicRoute/DynamicRoute";
 import DoctorCard from "../DoctorCard/DoctorCard";
 
 function DoctorDetail({ id: propId }) {
-  const { id: paramId } = useParams();
-  const doctorId = propId || paramId;
+  const { id } = useParams();
+  const doctorId = parseInt(id, 10)
 
-  const doctor = doctors.find((doc) => doc.id === parseInt(doctorId, 10));
+  const doctor = doctors.find((doc) => doc.id === doctorId);
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [id])
 
   if (!doctor) {
     return <div>Доктор не найден</div>;
