@@ -4,15 +4,15 @@
 }
 
 .help-main__container {
-	min-width: 1152px;
+	min-width: 1024px;
 	border-radius: 8px;
 	border: 1px solid #D9D9D9;
 	background: #FFF;
   display: flex;
   flex-direction: row;
-	padding: 24px;
-	gap: 24px;
-	justify-content: center;
+	padding: 24px 64px;
+	/* gap: 24px; */
+	justify-content: space-between;
 }
 
 .help-main__banner {

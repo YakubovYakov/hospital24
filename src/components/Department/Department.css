@@ -1,0 +1,277 @@
+.department {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+	margin-top: 48px;
+}
+
+.department__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 1152px;
+  justify-content: space-between;
+}
+
+.department__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 66px;
+}
+
+.department__top {
+  display: flex;
+  align-items: start;
+  width: 100%;
+  text-align: start;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+.department__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.department__text-container {
+  display: flex;
+  flex-direction: column;
+  /* text-wrap: balance; */
+  max-width: 736px;
+}
+
+.department__location {
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 8px;
+}
+
+.department__detailed-location {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-bottom: 48px;
+}
+
+.department__description {
+  max-width: 736px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.department__description-item {
+  color: #1348ba;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.department__description-item::before {
+  content: url("../../images/svg/arrow-right.svg");
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.departments__select-wrapper {
+  display: flex;
+  min-width: 1152px; 
+	margin-bottom: 24px;
+}
+
+.departments__select {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #767676;
+  align-items: start;
+  max-width: fit-content; 
+}
+
+.departments__select-button {
+  border: 0;
+  background: transparent;
+  color: #767676;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease, transform 0.3s ease;
+}
+
+.active_select {
+  color: #303030;
+  border-bottom: 1px solid #303030;
+	transform: scale(1.05);
+}
+
+.department__head-doctor-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 24px;
+}
+
+.department__head-doctor-card-title {
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.department__head-doctor-card-img-wrapper {
+  width: 100%;
+  max-width: 304px;
+  height: 304px;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin: 16px 0;
+  border-radius: 32px;
+}
+
+.department__head-doctor-card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-top: -20px;
+}
+
+.department__head-doctor-card-name {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+
+.department__head-doctor-card-description {
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 24px;
+}
+
+.department__head-doctor-card-button {
+  border-radius: 8px;
+  border: 0;
+  background: #1348ba;
+  color: #d8edff;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.department__doctor_cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+}
+
+.department__doctor-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 16px;
+  width: 238px;
+  justify-content: space-between;
+}
+
+.department__doctor-card-img-wrapper {
+  width: 100%;
+  max-width: 238px;
+  height: 238px;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin: 16px 0;
+  border-radius: 32px;
+}
+
+.department__doctor-card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-top: -10px;
+}
+
+.department__doctor-card-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 16px 0 8px;
+}
+
+.department__doctor-card-description {
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 52px;
+  flex-grow: 1;
+}
+
+.department__doctor-card-button {
+  border-radius: 8px;
+  background: #e3e3e3;
+  border: 1px solid #b2b2b2;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  padding: 12px;
+  min-width: 238px;
+  cursor: pointer;
+}
+
+.department__button-container {
+  display: flex;
+  justify-content: center;
+}

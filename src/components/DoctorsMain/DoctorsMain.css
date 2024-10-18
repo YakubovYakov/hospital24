@@ -1,6 +1,7 @@
 .doctors-main {
   background: #d8edff;
-  padding: 48px 64px;
+  /* padding: 48px 64px; */
+  padding: 48px;
 }
 
 .doctors__cards-container {
@@ -60,4 +61,5 @@
 	padding: 12px;
 	cursor: pointer;
 	text-decoration: none;
+	text-align: center;
 }

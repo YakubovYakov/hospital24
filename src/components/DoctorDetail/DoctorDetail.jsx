@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { doctors } from "../../data/doctorsData";
 import DynamicRoute from "../DynamicRoute/DynamicRoute";
 import DoctorCard from "../DoctorCard/DoctorCard";
+import Feedback from "../Feedback/Feedback";
 
 function DoctorDetail({ id: propId }) {
   const { id } = useParams();
@@ -21,7 +22,6 @@ function DoctorDetail({ id: propId }) {
   return (
     <section className="doctor-detail">
       <div className="doctor-detail__container">
-        <DynamicRoute doctorName={doctor.full_name} />
         <DoctorCard
           full_name={doctor.full_name}
           position={doctor.position}
@@ -32,6 +32,7 @@ function DoctorDetail({ id: propId }) {
           photos={doctor.photos}
         />
       </div>
+			<Feedback />
     </section>
   );
 }

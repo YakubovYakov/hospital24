@@ -17,7 +17,9 @@ function Header() {
     setActivePath(location.pathname);
   }, [location]);
 
-  const isActive = (path) => activePath === path;
+  const isActive = (path) => {
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <section className="header">
@@ -33,18 +35,21 @@ function Header() {
           <Link
             to="/our-doctors"
             className={`header__button ${
-              isActive("/our-doctors") ? "active-button" : ""
+              isActive("/our-doctors") || isActive("/doctor")
+                ? "active-button"
+                : ""
             }`}
           >
             Врачи
           </Link>
-          <button
+          <Link
+            to="/departments"
             className={`header__button ${
               isActive("/departments") ? "active-button" : ""
             }`}
           >
             Отделения
-          </button>
+          </Link>
           <button
             className={`header__button ${
               isActive("/services") ? "active-button" : ""

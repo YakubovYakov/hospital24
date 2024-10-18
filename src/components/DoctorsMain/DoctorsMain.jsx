@@ -12,7 +12,7 @@ function DoctorsMain({ doctors }) {
           <h1 className="services__title">Наши врачи</h1>
           <button className="services__button">Посмотреть всех</button>
         </div>
-        <div className="departments__wrapper">
+        <div className="departments-main__wrapper">
           <button className="feedback__prev-button" />
           <div className="doctors__cards-container">
             {doctorsToDisplay.map((doctor) => (

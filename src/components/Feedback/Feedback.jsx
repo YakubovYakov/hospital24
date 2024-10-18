@@ -78,13 +78,18 @@ function Feedback() {
   const carouselRef = useRef(null);
   const trackRef = useRef(null);
 
-  const cardGap = 24;
-  const cardWidth = 330;
+  const cardGap = 48;
+  const cardWidth = 352;
   const cardTotalWidth = cardWidth + cardGap;
 
-  const [slidesToShow, setSlidesToShow] = useState(1);
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
+  const currentIndexRef = useRef(currentIndex);
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
 
   useEffect(() => {
     const updateContainerWidth = () => {
@@ -128,9 +133,9 @@ function Feedback() {
     const track = trackRef.current;
     if (track) {
       if (isTransitioning) {
-        track.style.transition = "transform 0.5s ease-in-out";
+        track.classList.remove("no-transition");
       } else {
-        track.style.transition = "none";
+        track.classList.add("no-transition");
       }
       track.style.transform = `translateX(-${currentIndex * cardTotalWidth}px)`;
     }
@@ -141,30 +146,24 @@ function Feedback() {
     if (track) {
       const handleTransitionEnd = () => {
         if (currentIndex >= extendedFeedbacks.length - slidesToShow) {
-          track.style.transition = "none";
+          track.classList.add("no-transition");
           const newIndex = slidesToShow;
           setCurrentIndex(newIndex);
           track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
 
-          void track.offsetWidth;
-          // setTimeout(() => {
-          //   track.style.transition = "";
-          // }, 0);
-
-          track.style.transition = "";
-          setIsTransitioning(false);
+          requestAnimationFrame(() => {
+            track.classList.remove("no-transition");
+            setIsTransitioning(false);
+          });
         } else if (currentIndex <= slidesToShow - 1) {
-          track.style.transition = "none";
+          track.classList.add("no-transition");
           const newIndex = extendedFeedbacks.length - slidesToShow * 2;
           setCurrentIndex(newIndex);
           track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
-          void track.offsetWidth;
-          // setTimeout(() => {
-          //   track.style.transition = "";
-          // }, 0);
-
-          track.style.transition = "";
-          setIsTransitioning(false);
+          requestAnimationFrame(() => {
+            track.classList.remove("no-transition");
+            setIsTransitioning(false);
+          });
         } else {
           setIsTransitioning(false);
         }
@@ -176,7 +175,13 @@ function Feedback() {
         track.removeEventListener("transitionend", handleTransitionEnd);
       };
     }
-  }, [currentIndex, extendedFeedbacks.length, slidesToShow, cardTotalWidth]);
+  }, [
+    currentIndex,
+    extendedFeedbacks.length,
+    slidesToShow,
+    cardTotalWidth,
+    isMobile,
+  ]);
 
   const handleNextClick = () => {
     if (!isTransitioning) {
@@ -203,7 +208,13 @@ function Feedback() {
   return (
     <section className="feedback">
       <div className="feedback__container">
-        <h1 className="feedback__title">Отзывы</h1>
+        <div className="feedback__top">
+          <h1 className="feedback__title">Отзывы</h1>
+					<div className="feedback__buttons-carousel-container">
+					<button className="feedback__prev-button" onClick={handlePrevClick} />
+					<button className="feedback__next-button" onClick={handleNextClick} />
+					</div>
+        </div>
         <div className="feedback__table_button-container">
           <button
             className="feedback__prev_table-button"
@@ -214,8 +225,9 @@ function Feedback() {
             onClick={handleNextClick}
           />
         </div>
+          {/* <button className="feedback__prev-button" onClick={handlePrevClick} /> */}
         <div className="feedback__wrapper">
-          <button className="feedback__prev-button" onClick={handlePrevClick} />
+					
           <div className="feedback__carousel" ref={carouselRef}>
             <div
               className="feedback__track"
@@ -264,8 +276,8 @@ function Feedback() {
               })}
             </div>
           </div>
-          <button className="feedback__next-button" onClick={handleNextClick} />
         </div>
+          {/* <button className="feedback__next-button" onClick={handleNextClick} /> */}
         <div className="feedback__buttons-container">
           <h2 className="feedback__buttons-title">Оставить отзыв</h2>
           <p className="feedback__buttons-text">

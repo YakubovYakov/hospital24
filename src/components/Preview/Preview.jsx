@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Preview.css";
 
 function Preview() {
   const [selectedOption, setSelectedOption] = useState("services");
   const [isButtonFocused, setIsButtonFocused] = useState(false);
+  const [isSummaryVisible, setIsSummaryVisible] = useState(true);
+  const searchButtonRef = useRef(null);
 
-  const handleOptionChange = () => {
+  const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+    setIsButtonFocused(false); // Сбрасываем фокус при смене радиокнопки
+    setIsSummaryVisible(true); // Показываем summary при смене радиокнопки
   };
+
+  useEffect(() => {
+    if (selectedOption === "on-the-website") {
+      searchButtonRef.current.focus();
+      setIsButtonFocused(true);
+      setTimeout(() => {
+        setIsSummaryVisible(false); // Скрываем summary через 300ms
+      }, 300);
+    } else {
+      setIsButtonFocused(false);
+      setIsSummaryVisible(true); // Возвращаем summary для остальных опций
+    }
+  }, [selectedOption]);
 
   const getPlaceholder = () => {
     switch (selectedOption) {
@@ -39,12 +56,13 @@ function Preview() {
     }
   };
 
-  const handleFocus = () => {
-    setIsButtonFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsButtonFocused(false);
+  const handleButtonClick = () => {
+    if (selectedOption === "on-the-website") {
+      setIsButtonFocused(true);
+      setTimeout(() => {
+        setIsSummaryVisible(false); // Скрываем summary через 300ms
+      }, 300);
+    }
   };
 
   return (
@@ -106,9 +124,13 @@ function Preview() {
                 placeholder={getPlaceholder()}
               />
               {!isButtonFocused && (
-                <details className="preview__details">
+                <details
+                  className={`preview__details ${
+                    !isSummaryVisible ? "hidden" : ""
+                  }`}
+                >
                   <summary className="preview__summary">
-                    {getSummaryText()}
+                    <span className="summary-text">{getSummaryText()}</span>
                     <span className="preview__details-marker"></span>
                   </summary>
                 </details>
@@ -118,8 +140,8 @@ function Preview() {
                   isButtonFocused ? "expanded" : ""
                 }`}
                 type="submit"
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                ref={searchButtonRef}
+                onClick={handleButtonClick}
               >
                 Найти
               </button>

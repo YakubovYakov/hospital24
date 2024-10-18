@@ -3,9 +3,9 @@
 }
 
 .services__container {
-  max-width: 1200px;
+  max-width: 1152px;
   margin: 0 auto;
-  padding: 0 64px;
+  /* padding: 0 64px; */
 }
 
 .services__top {
