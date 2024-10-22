@@ -4,12 +4,18 @@ import { doctors } from "../../data/doctorsData";
 import DynamicRoute from "../DynamicRoute/DynamicRoute";
 import DoctorCard from "../DoctorCard/DoctorCard";
 import Feedback from "../Feedback/Feedback";
+import FeedbackButtons from "../Feedback/FeedbackButtons/FeedbackButtons";
+import { feedbacks } from "../../feedbacks/doctorReviews";
 
 function DoctorDetail({ id: propId }) {
   const { id } = useParams();
   const doctorId = parseInt(id, 10);
 
   const doctor = doctors.find((doc) => doc.id === doctorId);
+  const doctorFeedbacks =
+    feedbacks.filter((fb) => fb.docId === parseInt(doctorId, 10)) || [];
+
+  console.log("doctorFeedbacks:", doctorFeedbacks);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,7 +38,13 @@ function DoctorDetail({ id: propId }) {
           photos={doctor.photos}
         />
       </div>
-			<Feedback />
+      <Feedback feedbacks={doctorFeedbacks} />
+      <FeedbackButtons
+        title="Оставить отзыв"
+        description={`${
+          doctor ? doctor.full_name : ""
+        } будет вам очень благодарен!`}
+      />
     </section>
   );
 }

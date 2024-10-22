@@ -2,12 +2,12 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Header.css";
-import search from "../../images/Search.svg";
-import logo1 from "../../images/Лог1.svg";
-import logo2 from "../../images/Лог2.svg";
-import map from "../../images/Map.svg";
-import eye from "../../images/Eye.svg";
-import burger from "../../images/burger.png";
+import search from "../../images/svg/Search.svg";
+import logo1 from "../../images/svg/Лог1.svg";
+import logo2 from "../../images/svg/Лог2.svg";
+import map from "../../images/svg/Map.svg";
+import eye from "../../images/svg/Eye.svg";
+
 
 function Header() {
   const location = useLocation();
@@ -24,54 +24,61 @@ function Header() {
   return (
     <section className="header">
       <div className="header__container">
-        <Link className="header__logo" to="/">
-          <img src={logo1} alt="logo" />
-          <img src={logo2} alt="logo" />
-        </Link>
+        <div>
+          <Link className="header__logo" to="/">
+            <img src={logo1} alt="logo" />
+            <img src={logo2} alt="logo" />
+          </Link>
+        </div>
         <div className="header__menu-button">
-          <img className="menu-img" src={burger} alt="Кнопка меню" />
+					<span></span>
+					<span></span>
+					<span></span>
         </div>
-        <div className="header__buttons-bar">
-          <Link
-            to="/our-doctors"
-            className={`header__button ${
-              isActive("/our-doctors") || isActive("/doctor")
-                ? "active-button"
-                : ""
-            }`}
-          >
-            Врачи
-          </Link>
-          <Link
-            to="/departments"
-            className={`header__button ${
-              isActive("/departments") ? "active-button" : ""
-            }`}
-          >
-            Отделения
-          </Link>
-          <button
-            className={`header__button ${
-              isActive("/services") ? "active-button" : ""
-            }`}
-          >
-            Услуги
-          </button>
-          <button
-            className={`header__button ${
-              isActive("/contacts") ? "active-button" : ""
-            }`}
-          >
-            Контакты
-          </button>
-          <button
-            className={`header__button ${
-              isActive("/about") ? "active-button" : ""
-            }`}
-          >
-            О больнице
-          </button>
+        <div>
+          <div className="header__buttons-bar">
+            <Link
+              to="/our-doctors"
+              className={`header__button ${
+                isActive("/our-doctors") || isActive("/doctor")
+                  ? "active-button"
+                  : ""
+              }`}
+            >
+              Врачи
+            </Link>
+            <Link
+              to="/departments"
+              className={`header__button ${
+                isActive("/departments") ? "active-button" : ""
+              }`}
+            >
+              Отделения
+            </Link>
+            <button
+              className={`header__button ${
+                isActive("/services") ? "active-button" : ""
+              }`}
+            >
+              Услуги
+            </button>
+            <button
+              className={`header__button ${
+                isActive("/contacts") ? "active-button" : ""
+              }`}
+            >
+              Контакты
+            </button>
+            <button
+              className={`header__button ${
+                isActive("/about") ? "active-button" : ""
+              }`}
+            >
+              О больнице
+            </button>
+          </div>
         </div>
+				<div className="header__date-content">
         <div className="header__numbers-phone">
           <span className="header__number">+ 7 495 685-17-94</span>
           <span className="header__number">+ 7 495 613-63-10</span>
@@ -85,6 +92,7 @@ function Header() {
           <p className="header__address-time">Круглосуточно</p>
           <p className="header__address">ул. Писцовая 10</p>
         </div>
+				</div>
       </div>
     </section>
   );

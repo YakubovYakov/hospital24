@@ -122,4 +122,34 @@ export const doctors = [
     position_main: "Эндоскопист, Эндоскопия",
     main_photo: "https://i.postimg.cc/Y23pjpBm/Image.png",
   },
+  {
+    id: 5,
+    full_name: "Гололобов Григорий Юрьевич",
+    position_main: "----",
+    main_photo: "https://i.postimg.cc/LXrfbrfw/2024-09-2619503-1.jpg",
+  },
+  {
+    id: 6,
+    full_name: "Попова Екатерина Валериевна",
+    position_main: "----",
+    main_photo: "https://i.postimg.cc/wvcHCNsz/Image.png",
+  },
+  {
+    id: 7,
+    full_name: "Воленко Роман Александрович",
+    position_main: "Колопроктолог",
+    main_photo: "https://i.postimg.cc/7YBFtwNG/IMAGE-2024-10-14-22-22-03.jpg",
+  },
+  {
+    id: 8,
+    full_name: "Горшков Кирилл Станиславович",
+    position_main: "Колопроктолог",
+    main_photo: "https://i.postimg.cc/mknHHKZ8/Image6.png",
+  },
+  {
+    id: 9,
+    full_name: "Колпаков Михаил Викторович",
+    position_main: "Колопроктолог",
+    main_photo: "https://i.postimg.cc/Cx3stngm/Image5.png",
+  },
 ];

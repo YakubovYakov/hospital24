@@ -1,77 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import "./Feedback.css";
-import icon1 from "../../images/icon-feedback/icon1.png";
-import icon2 from "../../images/icon-feedback/icon2.png";
-import icon3 from "../../images/icon-feedback/icon3.png";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Button from "../Button/Button";
 
-function Feedback() {
-  const feedbacks = [
-    {
-      title: "Яндекс Карты",
-      shortText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны. 6 мая моей мамe...",
-      fullText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны. 6 мая моей маме Нине Фаиновне",
-      author: "Нина Фаиновна",
-      date: "12.10.2023",
-      icon: icon1,
-    },
-    {
-      title: "Сайт gkb-24.ru",
-      shortText:
-        "Большеое спасибо Сергею Александровичу за заботу и внимание. Врачи спасли мне жизнь после трагедии в Крокусе. И Артём Анатольевич , каждый день...",
-      fullText:
-        "Большеое спасибо Сергею Александровичу за заботу и внимание. Врачи спасли мне жизнь после трагедии в Крокусе. И Артём Анатольевич , каждый день...",
-      author: "Данила Олегович",
-      date: "02.03.2021",
-      icon: icon2,
-    },
-    {
-      title: "ПроДокторов",
-      shortText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны.",
-      fullText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны. 6 мая моей маме...",
-      author: "Елизавета Евгеньевна",
-      date: "01.04.2020",
-      icon: icon3,
-    },
-    {
-      title: "Яндекс 4",
-      shortText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения...",
-      fullText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны. 6 мая моей маме...",
-      author: "Нина Фаиновна",
-      date: "12.10.2023",
-      icon: icon2,
-    },
-    {
-      title: "Яндекс 5",
-      shortText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения...",
-      fullText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны. 6 мая моей маме...",
-      author: "Нина Фаиновна",
-      date: "12.10.2023",
-      icon: icon3,
-    },
-    {
-      title: "Яндекс 6",
-      shortText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения...",
-      fullText:
-        "Выражаю огромную благодарность Сергею Александровичу за быструю помощь в продолжении лечения моей мамы Барановой Нины Петровны. 6 мая моей маме...",
-      author: "Нина Фаиновна",
-      date: "12.10.2023",
-      icon: icon1,
-    },
-  ];
-
-  const [expanded, setExpanded] = useState(Array(feedbacks.length).fill(false));
+function Feedback({ feedbacks = [] }) {
+  const [expanded, setExpanded] = useState([]);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -86,6 +18,10 @@ function Feedback() {
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
   const currentIndexRef = useRef(currentIndex);
+
+  useEffect(() => {
+		setExpanded(Array(feedbacks.length).fill(false));
+	}, [feedbacks.length]); 
 
   useEffect(() => {
     currentIndexRef.current = currentIndex;
@@ -115,19 +51,23 @@ function Feedback() {
   }, []);
 
   useEffect(() => {
-    const slides = Math.max(
-      Math.floor((containerWidth + cardGap) / cardTotalWidth),
-      1
-    );
-    setSlidesToShow(slides);
-    setCurrentIndex(slides);
-  }, [containerWidth, cardGap, cardTotalWidth]);
+		const slides = Math.max(
+			Math.floor((containerWidth + cardGap) / cardTotalWidth),
+			1
+		);
+		if (slides !== slidesToShow) {
+			setSlidesToShow(slides);
+			setCurrentIndex(slides);
+		}
+	}, [containerWidth]); 
 
-  const extendedFeedbacks = [
-    ...feedbacks.slice(-slidesToShow),
-    ...feedbacks,
-    ...feedbacks.slice(0, slidesToShow),
-  ];
+	const extendedFeedbacks = useMemo(() => {
+		return [
+			...feedbacks.slice(-slidesToShow),
+			...feedbacks,
+			...feedbacks.slice(0, slidesToShow),
+		];
+	}, [feedbacks, slidesToShow]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -177,9 +117,9 @@ function Feedback() {
     }
   }, [
     currentIndex,
-    extendedFeedbacks.length,
+    
     slidesToShow,
-    cardTotalWidth,
+    
     isMobile,
   ]);
 
@@ -210,10 +150,16 @@ function Feedback() {
       <div className="feedback__container">
         <div className="feedback__top">
           <h1 className="feedback__title">Отзывы</h1>
-					<div className="feedback__buttons-carousel-container">
-					<button className="feedback__prev-button" onClick={handlePrevClick} />
-					<button className="feedback__next-button" onClick={handleNextClick} />
-					</div>
+          <div className="feedback__buttons-carousel-container">
+            <button
+              className="feedback__prev-button"
+              onClick={handlePrevClick}
+            />
+            <button
+              className="feedback__next-button"
+              onClick={handleNextClick}
+            />
+          </div>
         </div>
         <div className="feedback__table_button-container">
           <button
@@ -225,9 +171,8 @@ function Feedback() {
             onClick={handleNextClick}
           />
         </div>
-          {/* <button className="feedback__prev-button" onClick={handlePrevClick} /> */}
+
         <div className="feedback__wrapper">
-					
           <div className="feedback__carousel" ref={carouselRef}>
             <div
               className="feedback__track"
@@ -277,18 +222,8 @@ function Feedback() {
             </div>
           </div>
         </div>
-          {/* <button className="feedback__next-button" onClick={handleNextClick} /> */}
-        <div className="feedback__buttons-container">
-          <h2 className="feedback__buttons-title">Оставить отзыв</h2>
-          <p className="feedback__buttons-text">
-            Cергей Александрович будет вам очень благодарен!
-          </p>
-          <div className="feedback__buttons-bar">
-            <button className="feedback__button">Яндекс.Карты</button>
-            <button className="feedback__button">Про Докторов</button>
-            <button className="feedback__button active">Написать здесь</button>
-          </div>
-        </div>
+
+        
       </div>
     </section>
   );

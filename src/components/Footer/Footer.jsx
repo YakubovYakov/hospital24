@@ -46,7 +46,7 @@ function Footer() {
           <Link className="footer__link" to="/our-doctors">
             Врачи
           </Link>
-          <Link className="footer__link">Отделения</Link>
+          <Link className="footer__link" to="/departments">Отделения</Link>
           <Link className="footer__link">Услуги</Link>
           <Link className="footer__link">Контакты</Link>
           <Link className="footer__link">О больнице</Link>
@@ -56,7 +56,7 @@ function Footer() {
           <Link className="footer__link">Нормативные документы</Link>
           <Link className="footer__link">Образование</Link>
           <Link className="footer__link">Вакансии</Link>
-          <Link className="footer__link">
+          <Link to="/privacy-policy" className="footer__link">
             Политика обработки
             <br /> персональных данных
           </Link>

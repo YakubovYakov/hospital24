@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Preview.css";
+import Button from "../Button/Button";
 
 function Preview() {
   const [selectedOption, setSelectedOption] = useState("services");

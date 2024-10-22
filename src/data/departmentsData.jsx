@@ -35,7 +35,7 @@ export const departments = [
       },
       {
         doctor_card_photo:
-          "https://i.postimg.cc/hPCgd9zd/IMAGE-2024-10-14-22-22-00.jpg",
+          "https://i.postimg.cc/Cx3stngm/Image5.png",
         doctor_card_title: "Колпаков Михаил Викторович",
         doctor_card_description: "Колопроктолог",
       },

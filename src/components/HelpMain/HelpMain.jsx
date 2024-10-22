@@ -1,5 +1,6 @@
 import React from "react";
 import "./HelpMain.css";
+import Button from "../Button/Button";
 
 function HelpMain() {
   return (
@@ -19,7 +20,8 @@ function HelpMain() {
             anecdotes, or even a very very short story. Body text for whatever
             you d like to say.
           </p>
-          <button className="help-main__button">Узнать</button>
+					<Button color="secondary" maxWidth={true}> Узнать</Button>
+          {/* <button className="help-main__button">Узнать</button> */}
         </div>
       </div>
     </section>

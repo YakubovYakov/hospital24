@@ -24,7 +24,13 @@ import DoctorList from "./components/DoctorList/DoctorList";
 import DepartmentsList from "./components/DepartmentsList/DepartmentsList";
 import Department from "./components/Department/Department";
 import Footer from "./components/Footer/Footer";
+
+// --- Информационные страницы
+import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy.jsx";
 import { departments } from "./data/departmentsData";
+import { departmentFeedbacks } from "./feedbacks/departmentReviews";
+import FeedbackButtons from "./components/Feedback/FeedbackButtons/FeedbackButtons";
+
 
 function App() {
   return (
@@ -42,7 +48,10 @@ function App() {
                 <DoctorsMain doctors={doctors} />
                 <DepartmentsMain />
                 <HelpMain />
-                <Feedback />
+                <Feedback feedbacks={departmentFeedbacks} />
+								<FeedbackButtons
+									title="Оставить отзыв"
+									/>
               </>
             }
           />
@@ -79,6 +88,15 @@ function App() {
               <>
                 <DynamicRoute />
                 <Department />
+              </>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <>
+                <DynamicRoute />
+                <PrivacyPolicy />
               </>
             }
           />

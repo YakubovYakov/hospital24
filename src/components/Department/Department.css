@@ -45,7 +45,6 @@
 .department__text-container {
   display: flex;
   flex-direction: column;
-  /* text-wrap: balance; */
   max-width: 736px;
 }
 
@@ -212,7 +211,7 @@
   border: 1px solid #d9d9d9;
   background: #fff;
   padding: 16px;
-  width: 238px;
+  max-width: 238px;
   justify-content: space-between;
 }
 

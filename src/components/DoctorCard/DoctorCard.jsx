@@ -1,6 +1,7 @@
 import React from "react";
 import "./DoctorCard.css";
 import PhotoSlider from "../../components/PhotoSlider/PhotoSlider";
+import Button from "../Button/Button";
 
 function DoctorCard({
   full_name,
@@ -37,7 +38,8 @@ function DoctorCard({
             Стаж работы:
             <span className="doctor-card__experience-number">{experience}</span>
           </p>
-          <button className="doctor-card__button">Записаться на прием</button>
+					
+          <Button>Записаться на прием</Button>
           <div className="doctor-card__details-wrapper">
             <details className="doctor-card__details">
               <summary className="doctor-card__details-title">

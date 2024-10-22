@@ -5,15 +5,27 @@ import "./Department.css";
 import { doctors } from "../../data/doctorsData";
 import DynamicRoute from "../DynamicRoute/DynamicRoute";
 import Feedback from "../Feedback/Feedback";
+import { departmentFeedbacks } from "../../feedbacks/departmentReviews";
+
+import Button from "../Button/Button";
+import FeedbackButtons from "../Feedback/FeedbackButtons/FeedbackButtons";
 
 function Department() {
-  const { id } = useParams();
-  const department = departments.find((dept) => dept.id === parseInt(id, 10));
   const [activeButton, setActiveButton] = useState("doctors");
 
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
+  const { id } = useParams();
+	const departmentId = parseInt(id, 10);
+
+  const department = departments.find((dept) => dept.id === departmentId);
+
+
+	const currentDepartmentFeedbacks = departmentFeedbacks.filter(
+		(fb) => fb.depId === departmentId
+	);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleButtonClick = (buttonType) => {
     setActiveButton(buttonType);
@@ -24,7 +36,6 @@ function Department() {
   }
   return (
     <section className="department">
-			
       <div className="department__wrapper">
         <div className="department__top">
           <h1 className="department__title">{department.title}</h1>
@@ -60,9 +71,9 @@ function Department() {
             <p className="department__head-doctor-card-description">
               {department.head_doctor_description}
             </p>
-            <button className="department__head-doctor-card-button">
+            <Button to="/" color="primary">
               Записаться на прием
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -103,14 +114,18 @@ function Department() {
               {doctor.doctor_card_description}
             </p>
             <div className="department__button-container">
-              <button className="department__doctor-card-button">
+              <Button to="/" color="secondary" minWidth={true}>
                 Подробнее
-              </button>
+              </Button>
             </div>
           </div>
         ))}
       </div>
-      <Feedback />
+      <Feedback feedbacks={currentDepartmentFeedbacks} />
+			<FeedbackButtons 
+				title="Оставить отзыв"
+				description={`${department ? department.title : ''} будет вам очень благодарно!`} 
+				/>
     </section>
   );
 }

@@ -1,5 +1,8 @@
 import React from "react";
 import "./Services.css";
+import Button from "../Button/Button";
+import { Link } from "react-router-dom";
+
 
 function Services() {
   return (
@@ -18,9 +21,9 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <button className="services__card-button" type="button">
+              <Button to="/" color="secondary">
                 Записаться по направлению
-              </button>
+              </Button>
             </div>
           </div>
           <div className="services__card">
@@ -37,9 +40,9 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <button className="services__card-button" type="button">
+              <Button to="/" color="secondary">
                 Лечиться по ОМС
-              </button>
+              </Button>
             </div>
           </div>
           <div className="services__card">
@@ -56,9 +59,9 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <button className="services__card-button" type="button">
+              <Button to="/" color="secondary">
                 Пройти лечение
-              </button>
+              </Button>
             </div>
           </div>
         </div>

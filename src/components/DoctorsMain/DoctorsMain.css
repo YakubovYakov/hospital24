@@ -1,7 +1,36 @@
 .doctors-main {
   background: #d8edff;
-  /* padding: 48px 64px; */
   padding: 48px;
+}
+
+.doctors-main__container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.doctors-main__top {
+	display: flex;
+  flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 24px 0;
+}
+
+.doctors-main__button-container {
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+}
+
+.doctors-main__title {
+	color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.48px;
 }
 
 .doctors__cards-container {
@@ -16,7 +45,7 @@
   background: #fff;
   border-radius: 8px;
   border: 1px solid #d9d9d9;
-  max-width: 238px;
+  /* max-width: 238px; */
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -26,6 +55,8 @@
   max-width: 238px;
   height: 238px;
 	border-radius: 32px;
+	object-fit: cover;
+	object-position: top;
 }
 
 .doctors__card-title {
@@ -45,21 +76,54 @@
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+	margin-bottom: 66px;
 }
 
-.doctors__card-button {
-  border-radius: 8px;
-  border: 1px solid #b2b2b2;
-  background: #e3e3e3;
-  color: #1e1e1e;
-  font-family: "Cera Round", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%;
-	margin-top: 66px;
-	padding: 12px;
-	cursor: pointer;
-	text-decoration: none;
-	text-align: center;
+/* Контейнер для карусели */
+.doctors-main__wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Карусель */
+.doctors-main__carousel {
+  overflow: hidden;
+}
+
+/* Трек с карточками */
+.doctors-main__track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  gap: 24px; /* Должно совпадать с cardGap в JS */
+}
+
+.doctors-main__track.no-transition {
+  transition: none;
+}
+
+/* Кнопки навигации */
+.doctors-main__prev-button,
+.doctors-main__next-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.doctors-main__prev-button {
+  background: url('../../images/button-prev.svg') no-repeat;
+}
+
+.doctors-main__next-button {
+  background: url('../../images/button-next.svg') no-repeat;
+}
+
+/* Карточки врачей */
+.doctors__card {
+  box-sizing: border-box;
+  width: 270px;
+  /* Остальные стили карточки */
 }

@@ -1,14 +1,11 @@
 .feedback {
-  /* display: flex; */
   flex-direction: column;
   margin-bottom: 24px;
-	/* padding: 0 64px; */
 }
 
 .feedback__container {
 	max-width: 1152px;
   margin: 0 auto;
-  /* padding: 0 64px; */
 }
 
 .feedback__top {
@@ -20,7 +17,7 @@
 
 .feedback__buttons-carousel-container {
 	display: flex;
-	gap: 15px;
+	gap: 16px;
 }
 
 .feedback__title {
@@ -32,7 +29,6 @@
   line-height: 120%;
   letter-spacing: -0.48px;
   margin: 66px 0 32px 0;
-  /* margin: 66px 0 32px 23px; */
 }
 
 .feedback__wrapper {
@@ -40,12 +36,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  /* gap: 15px; */
 }
 
 .feedback__carousel {
   overflow: hidden;
-  /* max-width: 1029px; */
 }
 
 .feedback__track {
@@ -53,6 +47,7 @@
   transition: transform 0.5s ease-in-out;
   will-change: transform;
   gap: 48px;
+	align-items: flex-start;
 }
 
 .feedback__track.no-transition {
@@ -83,6 +78,7 @@
   background: #fff;
   padding: 25px;
 	width: 352px;
+	flex: 0 0 auto;
 }
 
 .feedback__card:last-child {
@@ -110,7 +106,10 @@
   max-height: 85px;
   overflow: hidden;
   transition: max-height 0.4s ease-in-out;
-  /* max-width: 277px; */
+	color: #1e1e1e;
+  max-height: 85px; 
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .feedback__card-text.expanded {
@@ -127,6 +126,13 @@
   border: 0;
   background: transparent;
   margin: 4px 0 24px;
+	opacity: 1;
+	transition: 0.7s;
+	cursor: pointer;
+}
+
+.feedback__more_button:hover {
+	opacity: 0.7;
 }
 
 .feedback__card-author {
@@ -149,23 +155,33 @@
 
 .feedback__prev-button,
 .feedback__next-button {
-  /* transform: translateY(140px); */
   cursor: pointer;
   background-repeat: no-repeat;
   border: 0;
   padding: 10px;
+	transition: 0.7s;
+	
 }
 
+
 .feedback__prev-button {
-  background: url(../../images/button-prev.svg);
+	background: url(../../images/button-prev.svg);
 	background-repeat: no-repeat;
-	/* margin-right: 15px; */
+	opacity: 0.8;
 }
 
 .feedback__next-button {
 	background: url(../../images/button-next.svg);
 	background-repeat: no-repeat;
-	/* margin-left: 15px; */
+	opacity: 0.8;
+}
+
+.feedback__prev-button:hover {
+	opacity: 1;
+}
+
+.feedback__next-button:hover {
+	opacity: 1;
 }
 
 .feedback__buttons-container {

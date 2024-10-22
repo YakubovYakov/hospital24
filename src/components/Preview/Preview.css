@@ -9,8 +9,8 @@
 	min-width: 1280px;
 	display: flex;
 	flex-direction: column-reverse;
-	background: url("https://i.postimg.cc/FHjNVXnj/image-4.png");
-	background: linear-gradient(0deg, rgba(30, 30, 30, 0.14) 0%, rgba(30, 30, 30, 0.14) 100%), url("https://i.postimg.cc/FHjNVXnj/image-4.png") lightgray 50% / cover no-repeat;
+	/* background: url("https://i.postimg.cc/FHjNVXnj/image-4.png"); */
+	background: linear-gradient(0deg, rgba(30, 30, 30, 0.14) 0%, rgba(30, 30, 30, 0.14) 100%), url("https://i.postimg.cc/sgjqvSW1/image.png") lightgray 50% / cover no-repeat;
 	height: 547px;
 	background-repeat: no-repeat;
 	object-fit: cover;
@@ -67,7 +67,6 @@
 }
 
 .preview__radio {
-  /* height: 16px; */
   width: 16px;
   background-color: #fff !important;
   border: 2px solid #c82e3e;
@@ -109,7 +108,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url("../../images/arrow-down.svg");
+  background-image: url("../../images/svg/arrow-down.svg");
   background-repeat: no-repeat;
   background-size: contain;
   transition: transform 0.3s ease;
@@ -118,7 +117,7 @@
 details[open] .preview__details-marker {
   width: 20px;
   height: 20px;
-  background-image: url("../../images/arrow-up.svg");
+  background-image: url("../../images/svg/arrow-up.svg");
 }
 
 .preview__details {
@@ -163,8 +162,14 @@ details[open] .preview__details-marker {
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+	opacity: 1;
+	transition: 0.7s;
 	cursor: pointer;
 	transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.preview__search-button:hover {
+	background: #164194;
 }
 
 .preview__search-button.expanded {
@@ -186,11 +191,11 @@ details[open] .preview__details-marker {
 }
 
 .preview__input-container {
-  transition: all 1s ease; /* Добавляем плавный переход для контейнера */
+  transition: all 1s ease;
 }
 
 .preview__summary.hidden {
   opacity: 0;
-  transform: translateY(-20px); /* Subtle movement up when hidden */
-  pointer-events: none; /* Avoids clicking on hidden elements */
+  transform: translateY(-20px); 
+  pointer-events: none;
 }

@@ -71,3 +71,108 @@
 	text-decoration: none;
 }
 
+.departments-main {
+  padding: 48px 64px;
+}
+
+.departments-main__container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.departments-main__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.departments-main__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.48px;
+  margin: 0;
+}
+
+.departments-main__button-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.departments-main__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.departments-main__carousel {
+  overflow: hidden;
+}
+
+.departments-main__track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  gap: 48px; /* Должно совпадать с cardGap в JS */
+}
+
+.departments-main__track.no-transition {
+  transition: none;
+}
+
+.departments-main__card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  background: #f5f5f5;
+  width: 352px; /* Должно совпадать с cardWidth в JS */
+  box-sizing: border-box;
+}
+
+.departments-main__card-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+
+.departments-main__card-text {
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 29px;
+  text-wrap: balance;
+}
+
+.departments-main__card-button_container {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.departments-main__prev-button,
+.departments-main__next-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.departments-main__prev-button {
+  background: url('../../images/button-prev.svg') no-repeat;
+}
+
+.departments-main__next-button {
+  background: url('../../images/button-next.svg') no-repeat;
+}

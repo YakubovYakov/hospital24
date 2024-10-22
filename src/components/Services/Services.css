@@ -5,25 +5,14 @@
 .services__container {
   max-width: 1152px;
   margin: 0 auto;
-  /* padding: 0 64px; */
 }
 
 .services__top {
   display: flex;
   flex-direction: row;
+	align-items: center;
   gap: 16px;
   margin: 0 0 24px 0;
-  /* padding-left: 64px; */
-}
-
-.services__title {
-  color: #1e1e1e;
-  font-family: "Cera Round", sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  letter-spacing: -0.48px;
 }
 
 .services__button {
