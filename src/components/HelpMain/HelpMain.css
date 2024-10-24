@@ -1,49 +1,52 @@
 .help-main {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 64px 24px 64px;
 }
 
 .help-main__container {
-	min-width: 1024px;
-	border-radius: 8px;
-	border: 1px solid #D9D9D9;
-	background: #FFF;
+  width: 100%;
+  max-width: 1152px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
   display: flex;
   flex-direction: row;
-	padding: 24px 64px;
-	justify-content: space-between;
+  padding: 24px 64px;
+  justify-content: space-between;
 }
 
 .help-main__banner {
   max-width: 500px;
-  height: 213px;
+  max-height: 213px;
 }
 
 .help-main__text-container {
-	display: flex;
+  display: flex;
   flex-direction: column;
 }
 
 .help-main__title {
-	color: #1e1e1e;
-	font-family: "Cera Round", sans-serif;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 120%;
-	letter-spacing: -0.48px;
-	margin-bottom: 8px;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.48px;
+  margin-bottom: 8px;
 }
 
 .help-main__text {
-	color: #757575;
+  color: #757575;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-	max-width: 500px;
-	margin-bottom: 16px;
+  max-width: 500px;
+  margin-bottom: 16px;
 }
 
 .help-main__button {
@@ -56,6 +59,54 @@
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
-	max-width: 75px;
-	padding: 12px;
+  max-width: 75px;
+  padding: 12px;
+}
+
+@media (max-width: 768px) {
+  .help-main {
+    padding: 24px;
+  }
+  .help-main__container {
+    padding: 24px;
+  }
+
+  .help-main__banner {
+    max-width: 100%; /* Сужаем изображение до 100% на планшетах */
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .help-main {
+    display: flex;
+        justify-content: center;
+  }
+  .help-main__container {
+    min-width: auto;
+    flex-direction: column;
+    padding: 0;
+    max-width: 327px;
+  }
+
+  .help-main__button-container {
+    width: 327px;
+  }
+
+  .help-main__text {
+    max-width: 327px;
+  }
+
+  .help-main__banner {
+    max-width: 327px;
+  }
+
+  .hidden-button {
+    display: none;
+  }
+
+  .help-main__button {
+    max-width: none;
+    width: 100%;
+  }
 }

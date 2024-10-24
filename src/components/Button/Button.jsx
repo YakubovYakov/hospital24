@@ -9,11 +9,13 @@ function Button({
   size = "medium",
   minWidth = false,
   maxWidth = false,
+  hiddenButton = false,
   children,
 }) {
-  const className = `btn btn--${color} btn--${size} ${
-    minWidth ? "btn--min-width" : ""
-  } ${maxWidth ? "btn--max-width" : ""}`;
+  const className = `btn btn--${color} btn--${size} 
+	${minWidth ? "btn--min-width" : ""}
+	${maxWidth ? "btn--max-width" : ""}
+	${hiddenButton ? "btn--hidden-button" : ""}`;
 
   if (to) {
     return (

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import "./DepartmentsMain.css";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
-import { departments } from "../../data/departmentsData";
+import Button from "../../Button/Button";
+import { departments } from "../../../data/departmentsData";
 
 function DepartmentsMain() {
   const departments = [

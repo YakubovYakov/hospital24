@@ -1,6 +1,6 @@
 .doctors-main {
   background: #d8edff;
-  padding: 48px;
+  padding: 48px 64px;
 }
 
 .doctors-main__container {
@@ -9,22 +9,22 @@
 }
 
 .doctors-main__top {
-	display: flex;
+  display: flex;
   flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
   margin: 0 0 24px 0;
 }
 
 .doctors-main__button-container {
-	display: flex;
-	flex-direction: row;
-	gap: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 
 .doctors-main__title {
-	color: #1e1e1e;
+  color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -38,14 +38,13 @@
   flex-direction: row;
   gap: 24px;
   justify-content: center;
-	align-items: start;
+  align-items: start;
 }
 
 .doctors__card {
   background: #fff;
   border-radius: 8px;
   border: 1px solid #d9d9d9;
-  /* max-width: 238px; */
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -54,9 +53,9 @@
 .doctors__card-image {
   max-width: 238px;
   height: 238px;
-	border-radius: 32px;
-	object-fit: cover;
-	object-position: top;
+  border-radius: 32px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .doctors__card-title {
@@ -76,33 +75,29 @@
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
-	margin-bottom: 66px;
+  margin-bottom: 66px;
 }
 
-/* Контейнер для карусели */
 .doctors-main__wrapper {
   overflow: hidden;
   position: relative;
 }
 
-/* Карусель */
 .doctors-main__carousel {
   overflow: hidden;
 }
 
-/* Трек с карточками */
 .doctors-main__track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
-  gap: 24px; /* Должно совпадать с cardGap в JS */
+  gap: 24px;
 }
 
 .doctors-main__track.no-transition {
   transition: none;
 }
 
-/* Кнопки навигации */
 .doctors-main__prev-button,
 .doctors-main__next-button {
   cursor: pointer;
@@ -114,16 +109,54 @@
 }
 
 .doctors-main__prev-button {
-  background: url('../../images/button-prev.svg') no-repeat;
+  background: url("../../../images/button-prev.svg") no-repeat;
 }
 
 .doctors-main__next-button {
-  background: url('../../images/button-next.svg') no-repeat;
+  background: url("../../../images/button-next.svg") no-repeat;
 }
 
-/* Карточки врачей */
 .doctors__card {
   box-sizing: border-box;
   width: 270px;
-  /* Остальные стили карточки */
+}
+
+@media (max-width: 768px) {
+	.doctors-main {
+		padding: 48px 32px;
+	}
+  .doctors-main__list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+		max-width: 1152px;
+		margin: 0 auto;
+		user-select: none;
+		scroll-snap-type: x;
+		overflow-x: auto;
+		scroll-behavior: smooth;
+		scrollbar-width: none;
+  }
+
+  .doctors__card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .doctors-main__list {
+  }
+
+  .doctors__card-image {
+    min-width: 238px;
+  }
+}
+
+@media (max-width: 576px) {
+	.doctors-main {
+		padding: 24px;
+	}
 }

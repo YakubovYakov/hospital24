@@ -152,4 +152,5 @@ export const doctors = [
     position_main: "Колопроктолог",
     main_photo: "https://i.postimg.cc/Cx3stngm/Image5.png",
   },
+
 ];

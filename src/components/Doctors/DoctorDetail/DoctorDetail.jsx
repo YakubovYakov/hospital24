@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { doctors } from "../../data/doctorsData";
-import DynamicRoute from "../DynamicRoute/DynamicRoute";
+import { doctors } from "../../../data/doctorsData";
+import DynamicRoute from "../../DynamicRoute/DynamicRoute";
 import DoctorCard from "../DoctorCard/DoctorCard";
-import Feedback from "../Feedback/Feedback";
-import FeedbackButtons from "../Feedback/FeedbackButtons/FeedbackButtons";
-import { feedbacks } from "../../feedbacks/doctorReviews";
+import Feedback from "../../Feedback/Feedback";
+import FeedbackButtons from "../../Feedback/FeedbackButtons/FeedbackButtons";
+import { feedbacks } from "../../../feedbacks/doctorReviews";
 
 function DoctorDetail({ id: propId }) {
   const { id } = useParams();
@@ -14,8 +14,6 @@ function DoctorDetail({ id: propId }) {
   const doctor = doctors.find((doc) => doc.id === doctorId);
   const doctorFeedbacks =
     feedbacks.filter((fb) => fb.docId === parseInt(doctorId, 10)) || [];
-
-  console.log("doctorFeedbacks:", doctorFeedbacks);
 
   useEffect(() => {
     window.scrollTo(0, 0);

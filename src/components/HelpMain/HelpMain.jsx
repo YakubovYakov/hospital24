@@ -12,7 +12,7 @@ function HelpMain() {
           alt="Баннер блока для родственников"
         />
         <div className="help-main__text-container">
-          <h1 className="help-main__title">Если ваш близкий находится у нас</h1>
+          <h1 className="help-main__title">Если ваш близкий у нас</h1>
           <p className="help-main__text">
             Body text for whatever you d like to say. Add main takeaway points,
             quotes, anecdotes, or even a very very short story. Body text for
@@ -20,7 +20,10 @@ function HelpMain() {
             anecdotes, or even a very very short story. Body text for whatever
             you d like to say.
           </p>
-					<Button color="secondary" maxWidth={true}> Узнать</Button>
+					<div className="help-main__button-container">
+
+					<button className="help-main__button"> Узнать</button>
+					</div>
           {/* <button className="help-main__button">Узнать</button> */}
         </div>
       </div>

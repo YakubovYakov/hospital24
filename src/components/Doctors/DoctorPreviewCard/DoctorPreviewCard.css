@@ -1,0 +1,34 @@
+.doctor-preview-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 16px;
+}
+
+.doctor-preview-card__photo {
+  width: 238px;
+  height: 238px;
+	border-radius: 32px;
+  object-position: top;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.doctor-preview-card__name {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom: 88px;
+	width: 238px;
+}
+
+.doctor-preview-card__button {
+}
+
+.doctor-preview-card__photo-placeholder {
+}

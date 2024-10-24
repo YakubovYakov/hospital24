@@ -161,7 +161,7 @@ function Feedback({ feedbacks = [] }) {
             />
           </div>
         </div>
-        <div className="feedback__table_button-container">
+        {/* <div className="feedback__table_button-container">
           <button
             className="feedback__prev_table-button"
             onClick={handlePrevClick}
@@ -170,7 +170,7 @@ function Feedback({ feedbacks = [] }) {
             className="feedback__next_table-button"
             onClick={handleNextClick}
           />
-        </div>
+        </div> */}
 
         <div className="feedback__wrapper">
           <div className="feedback__carousel" ref={carouselRef}>

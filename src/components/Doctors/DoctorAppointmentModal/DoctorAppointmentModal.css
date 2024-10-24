@@ -1,0 +1,262 @@
+.appointment-modal {
+  /* background-color: #fff; */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.appointment-modal__container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  width: 576px;
+  padding: 24px 24px 32px 24px;
+  border-radius: 8px;
+  /* width: 400px; */
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.appointment-modal__close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 0;
+  background-color: #1348ba;
+  background-repeat: no-repeat;
+  display: flex;
+  border-radius: 12px;
+  background-image: url("../../../images/svg/close-button.png");
+  width: 100%;
+  max-width: 16px;
+  height: 16px;
+  padding: 10px;
+  opacity: 1;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.appointment-modal__close-button:hover {
+  opacity: 0.7;
+}
+
+.appointment-modal__text-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.appointment-modal__title {
+  color: #1e1e1e;
+  font-size: 24px;
+  font-family: "Cera Round", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-bottom: 16px;
+}
+
+.appointment-modal__text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.appointment-modal__image {
+}
+
+.appointment-modal__buttons-container {
+}
+
+.appointment-modal__button {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid #d9d9d9;
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 8px 12px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: 0.7s;
+  opacity: 1;
+}
+
+.appointment-modal__button:hover {
+  opacity: 0.7;
+}
+
+.active-modal {
+  color: #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.appointment-modal__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.appointment-modal__input {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.appointment-modal__textarea {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.appointment-modal__label-checkbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgba(117, 117, 117, 0.8);
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin: 8px 0 24px;
+}
+
+.appointment-modal__label-link {
+  color: rgba(19, 72, 186, 0.8);
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+.appointment-modal__checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.appointment-modal__custom-checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  margin-right: 8px;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+}
+
+.appointment-modal__checkbox:checked + .appointment-modal__custom-checkbox {
+  background-color: #1348ba;
+  border-color: #1348ba;
+}
+
+.appointment-modal__custom-checkbox::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(30deg);
+}
+
+.appointment-modal__checkbox:checked
+  + .appointment-modal__custom-checkbox::after {
+  display: block;
+}
+
+.appointment-modal__button-container {
+  width: 100%;
+}
+
+.appointment-modal__contacts {
+  display: flex;
+  flex-direction: column;
+	gap: 16px;
+}
+
+.appointment-modal__contacts-subtitle {
+  color: #000;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 16px;
+}
+
+.appointment-modal__contacts-paragraph {
+  color: #000;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.appointment-modal__contacts-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phone-paragraph {
+	margin-bottom: 8px;
+}
+
+.appointment-modal__contacts-ul {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.list-paragraph::before {
+	content: url(../../../images/svg/marker.svg);
+	width: 8px;height: 8px;
+	margin-right: 8px;
+}

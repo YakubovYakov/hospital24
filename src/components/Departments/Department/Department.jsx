@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { departments } from "../../data/departmentsData";
+import { departments } from "../../../data/departmentsData";
 import "./Department.css";
-import { doctors } from "../../data/doctorsData";
-import DynamicRoute from "../DynamicRoute/DynamicRoute";
-import Feedback from "../Feedback/Feedback";
-import { departmentFeedbacks } from "../../feedbacks/departmentReviews";
+import { doctors } from "../../../data/doctorsData";
+import DynamicRoute from "../../DynamicRoute/DynamicRoute";
+import Feedback from "../../Feedback/Feedback";
+import { departmentFeedbacks } from "../../../feedbacks/departmentReviews";
 
-import Button from "../Button/Button";
-import FeedbackButtons from "../Feedback/FeedbackButtons/FeedbackButtons";
+import Button from "../../Button/Button";
+import FeedbackButtons from "../../Feedback/FeedbackButtons/FeedbackButtons";
 
 function Department() {
   const [activeButton, setActiveButton] = useState("doctors");

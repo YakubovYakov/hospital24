@@ -8,28 +8,21 @@ import "./App.css";
 import MoscowLogo from "./components/MoscowLogo/MoscowLogo";
 import Header from "./components/Header/Header";
 // --- Главная
-import Preview from "./components/Preview/Preview";
-import Services from "./components/Services/Services";
-import DoctorsMain from "./components/DoctorsMain/DoctorsMain";
-import DepartmentsMain from "./components/DepartmentsMain/DepartmentsMain";
-import HelpMain from "./components/HelpMain/HelpMain";
-import Feedback from "./components/Feedback/Feedback";
+import Main from "./components/Main/Main";
+
 // ---
 import DynamicRoute from "./components/DynamicRoute/DynamicRoute";
 // --- Доктор
-import DoctorCard from "./components/DoctorCard/DoctorCard";
-import DoctorDetail from "./components/DoctorDetail/DoctorDetail";
-import DoctorList from "./components/DoctorList/DoctorList";
+import DoctorCard from "./components/Doctors/DoctorCard/DoctorCard";
+import DoctorDetail from "./components/Doctors/DoctorDetail/DoctorDetail";
+import DoctorList from "./components/Doctors/DoctorList/DoctorList";
 // --- Отделение
-import DepartmentsList from "./components/DepartmentsList/DepartmentsList";
-import Department from "./components/Department/Department";
+import DepartmentsList from "./components/Departments/DepartmentsList/DepartmentsList";
+import Department from "./components/Departments/Department/Department";
 import Footer from "./components/Footer/Footer";
 
 // --- Информационные страницы
 import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy.jsx";
-import { departments } from "./data/departmentsData";
-import { departmentFeedbacks } from "./feedbacks/departmentReviews";
-import FeedbackButtons from "./components/Feedback/FeedbackButtons/FeedbackButtons";
 
 
 function App() {
@@ -43,15 +36,7 @@ function App() {
             path="/"
             element={
               <>
-                <Preview />
-                <Services />
-                <DoctorsMain doctors={doctors} />
-                <DepartmentsMain />
-                <HelpMain />
-                <Feedback feedbacks={departmentFeedbacks} />
-								<FeedbackButtons
-									title="Оставить отзыв"
-									/>
+                <Main doctors={doctors}/>
               </>
             }
           />
@@ -59,7 +44,7 @@ function App() {
             path="/our-doctors"
             element={
               <>
-                <DynamicRoute />
+                {/* <DynamicRoute /> */}
                 <DoctorList />
               </>
             }

@@ -21,9 +21,9 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <Button to="/" color="secondary">
+              <Link to="/" className="services__card-button" color="secondary">
                 Записаться по направлению
-              </Button>
+              </Link>
             </div>
           </div>
           <div className="services__card">
@@ -40,9 +40,9 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <Button to="/" color="secondary">
+              <Link to="/"  className="services__card-button" color="secondary">
                 Лечиться по ОМС
-              </Button>
+              </Link>
             </div>
           </div>
           <div className="services__card">
@@ -59,9 +59,9 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <Button to="/" color="secondary">
+              <Link to="/" className="services__card-button" color="secondary">
                 Пройти лечение
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import { Link } from "react-router-dom";
 import "./DoctorsMain.css";
 

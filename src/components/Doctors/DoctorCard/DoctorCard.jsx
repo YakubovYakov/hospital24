@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DoctorCard.css";
-import PhotoSlider from "../../components/PhotoSlider/PhotoSlider";
-import Button from "../Button/Button";
+import PhotoSlider from "../../../components/PhotoSlider/PhotoSlider";
+import Button from "../../Button/Button";
+import DoctorAppointmentModal from "../DoctorAppointmentModal/DoctorAppointmentModal";
 
 function DoctorCard({
   full_name,
@@ -13,6 +14,16 @@ function DoctorCard({
   professional_experience,
   photos,
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section className="doctor-card">
       <div className="doctor-card__container">
@@ -38,8 +49,10 @@ function DoctorCard({
             Стаж работы:
             <span className="doctor-card__experience-number">{experience}</span>
           </p>
-					
-          <Button>Записаться на прием</Button>
+          <div>
+            <Button size="big" onClick={openModal}>Записаться на прием</Button>
+            {isModalOpen && <DoctorAppointmentModal onClose={closeModal} />}
+          </div>
           <div className="doctor-card__details-wrapper">
             <details className="doctor-card__details">
               <summary className="doctor-card__details-title">
