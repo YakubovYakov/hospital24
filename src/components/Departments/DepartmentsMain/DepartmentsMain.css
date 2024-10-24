@@ -209,12 +209,16 @@
 
 @media (max-width: 576px) {
   .departments__main-mobile {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     padding: 24px;
   }
 
   .department-main__list-mobile {
     flex-direction: column;
   }
+
+	.departments-main__card {
+		max-width: none;
+	}
 }
