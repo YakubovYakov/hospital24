@@ -33,16 +33,12 @@
 .services__cards {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: end;
   gap: 64px;
 }
 
 .services__card {
   max-width: 341px;
-}
-
-.services__card-image {
 }
 
 .services__card-title {
@@ -88,7 +84,7 @@
 	text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 932px) {
 	.services {
 		padding: 48px 32px;
 	}

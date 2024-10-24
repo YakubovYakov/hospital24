@@ -12,9 +12,10 @@ function Footer() {
         <div className="footer__container">
           <div className="footer__content">
             <img className="footer__logo" src={logo} alt="Логотип больницы" />
-            <p className="footer__address">
-              +7 (495) 685-17-94 г.Москва, ул.Писцовая, д.10
-            </p>
+            <div className="footer__text-container">
+              <p className="footer__address">+7 (495) 685-17-94</p>
+              <p className="footer__address">г.Москва, ул.Писцовая, д.10</p>
+            </div>
             <div className="footer__social-links">
               <Link
                 className="footer__social-link tg"
@@ -46,7 +47,9 @@ function Footer() {
           <Link className="footer__link" to="/our-doctors">
             Врачи
           </Link>
-          <Link className="footer__link" to="/departments">Отделения</Link>
+          <Link className="footer__link" to="/departments">
+            Отделения
+          </Link>
           <Link className="footer__link">Услуги</Link>
           <Link className="footer__link">Контакты</Link>
           <Link className="footer__link">О больнице</Link>

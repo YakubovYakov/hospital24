@@ -1,27 +1,26 @@
 .header {
   width: 100%;
   display: flex;
-	flex-direction: row;
+  flex-direction: row;
   justify-content: center;
   padding: 20px 16px;
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 .header__container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	max-width: 1200px;
-	width: 100%;
-	padding: 0 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
 .header__menu-button {
-	display: none;
+  display: none;
 }
-
 
 .header__logo {
   display: flex;
@@ -40,7 +39,7 @@
 
 .header__number {
   color: #1e1e1e;
-	font-family: 'Cera Round', sans-serif;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -50,7 +49,7 @@
 .header__address-container {
   display: flex;
   flex-direction: column;
-  /* margin: 0 27px 0 0; */
+
   gap: 4px;
 }
 
@@ -62,7 +61,7 @@
 
 .header__address-time {
   color: #1e1e1e;
-  font-family: 'Cera Round', sans-serif;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -72,7 +71,7 @@
 
 .header__address {
   color: #1348ba;
-  font-family: 'Cera Round', sans-serif;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -83,15 +82,13 @@
 .header__buttons-bar {
   display: flex;
   flex-direction: row;
-	flex-wrap: wrap;
-	gap: 4px;
-  /* gap: 4px;
-  margin: 0 16px 0 0; */
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .header__button {
   color: #1e1e1e;
-  font-family: 'Cera Round', sans-serif;
+  font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -101,12 +98,12 @@
   padding: 8px;
   cursor: pointer;
   text-decoration: none;
-	opacity: 1;
-	transition: 0.7s;
+  opacity: 1;
+  transition: 0.7s;
 }
 
 .header__button:hover {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .active-button {
@@ -143,7 +140,7 @@
 
 .header__another-v-text {
   color: #1348ba;
-  font-family: 'Cera Round', sans-serif;
+  font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -152,43 +149,42 @@
 }
 
 .header__date-content {
-	display: flex;
+  display: flex;
 }
 
-@media (max-width: 930px) {
-	.header {
-		padding: 20px 0;
-	}
-	.header__container {
+@media (max-width: 932px) {
+  .header {
+    padding: 20px 0;
+  }
+  .header__container {
     flex-direction: row;
     justify-content: space-between;
-		align-items: center;
+    align-items: center;
     padding: 0 16px;
   }
 
-	.header__menu-button {
-		margin-left: auto;
-		display: flex;
-		flex-direction: column;
-	}
+  .header__menu-button {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+  }
 
   .header__menu-button span {
     display: flex;
-		flex-direction: column;
+    flex-direction: column;
     width: 25px;
-    height: 3px; 
-    margin: 2px 0; 
-    background-color: #1e1e1e; 
-    transition: all 0.3s ease; 
+    height: 3px;
+    margin: 2px 0;
+    background-color: #1e1e1e;
+    transition: all 0.3s ease;
   }
 
-  
   .header__menu-button.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
 
   .header__menu-button.active span:nth-child(2) {
-    opacity: 0; 
+    opacity: 0;
   }
 
   .header__menu-button.active span:nth-child(3) {
@@ -207,21 +203,13 @@
   }
 
   .header__menu-button {
-		display: flex;
+    display: flex;
   }
 }
 
 @media (max-width: 576px) {
-	.header {
-		
-		/* padding: 24px 0; */
-	}
-
-	.header__container {
-		width: 100%;
-		justify-content: space-around;
-	}
-
-	
+  .header__container {
+    width: 100%;
+    justify-content: space-around;
+  }
 }
-

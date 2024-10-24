@@ -124,7 +124,7 @@ function Department() {
       <Feedback feedbacks={currentDepartmentFeedbacks} />
 			<FeedbackButtons 
 				title="Оставить отзыв"
-				description={`${department ? department.title : ''} будет вам очень благодарно!`} 
+				description={`${department ? department.title : ''} будет вам очень благодарна!`} 
 				/>
     </section>
   );
