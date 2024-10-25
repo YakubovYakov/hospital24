@@ -3,9 +3,17 @@
 }
 
 .services__container {
-  max-width: 1152px;
-  margin: 0 auto;
-  
+	
+}
+
+.services__container {
+	max-width: 1152px;
+	margin: 0 auto;
+	user-select: none;
+	scroll-snap-type: x;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
 }
 
 .services__top {
@@ -88,13 +96,7 @@
 	.services {
 		padding: 48px 32px;
 	}
-  .services__container {
-    user-select: none;
-    scroll-snap-type: x;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-  }
+  
 }
 
 @media (max-width: 576px) {

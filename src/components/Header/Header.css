@@ -152,7 +152,7 @@
   display: flex;
 }
 
-@media (max-width: 932px) {
+@media (max-width: 962px) {
   .header {
     padding: 20px 0;
   }

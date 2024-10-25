@@ -45,7 +45,6 @@ function Main({ doctors }) {
       ) : (
         <Feedback feedbacks={departmentFeedbacks} />
       )}
-      {/* <FeedbackButtons title="Оставить отзыв" /> */}
     </>
   );
 }

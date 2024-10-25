@@ -3,4 +3,7 @@
 	padding: 0;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 /* Отключаем эффекты hover для планшетов и телефонов */
