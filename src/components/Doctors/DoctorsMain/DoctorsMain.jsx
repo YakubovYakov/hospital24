@@ -139,12 +139,12 @@ function DoctorsMain({ doctors = [] }) {
             </Button>
           </div>
           <div className="doctors-main__button-container">
-            <button
-              className="doctors-main__prev-button"
+					<button
+              className="feedback__prev-button"
               onClick={handlePrevClick}
             />
             <button
-              className="doctors-main__next-button"
+              className="feedback__next-button"
               onClick={handleNextClick}
             />
           </div>

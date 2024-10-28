@@ -22,8 +22,8 @@ import Department from "./components/Departments/Department/Department";
 import Footer from "./components/Footer/Footer";
 
 // --- Информационные страницы
+import Contacts from "./components/Contacts/Contacts";
 import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy.jsx";
-
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             path="/"
             element={
               <>
-                <Main doctors={doctors}/>
+                <Main doctors={doctors} />
               </>
             }
           />
@@ -73,6 +73,15 @@ function App() {
               <>
                 <DynamicRoute />
                 <Department />
+              </>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <>
+                <DynamicRoute />
+                <Contacts />
               </>
             }
           />

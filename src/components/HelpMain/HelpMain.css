@@ -61,6 +61,24 @@
   line-height: 100%;
   max-width: 75px;
   padding: 12px;
+  cursor: pointer;
+  opacity: 1;
+  transition: background-color 0.6s ease, color 0.6s ease,
+    border-color 0.3s ease;
+}
+
+.help-main__button:hover {
+  background-color: #767676;
+  color: #000000;
+  border-color: #5a5a5a;
+}
+
+@media (hover: none) {
+  .help-main__button:hover {
+    background-color: inherit;
+    color: inherit;
+    border-color: inherit;
+  }
 }
 
 @media (max-width: 768px) {
@@ -72,7 +90,7 @@
   }
 
   .help-main__banner {
-    max-width: 100%; 
+    max-width: 100%;
     height: auto;
   }
 }

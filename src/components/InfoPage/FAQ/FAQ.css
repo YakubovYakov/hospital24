@@ -1,0 +1,149 @@
+.faq {
+  background: rgba(19, 18, 17, 0.04);
+}
+
+.faq__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 120%;
+  margin-bottom: 24px;
+}
+
+.faq__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.faq__details-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+  align-items: start;
+}
+
+.faq__details {
+  border-radius: 8px;
+  background: #fff;
+  padding: 32px;
+  cursor: pointer;
+  position: relative;
+  align-self: start;
+}
+
+.faq__details-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
+  font-family: "Cera Round", sans-serif;
+  color: #1e1e1e;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.faq__details-marker {
+  margin-left: 8px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../../../images/svg/arrow-down.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.faq__details-marker.open {
+  transform: rotate(180deg);
+}
+
+.faq__details-text {
+  margin-top: 16px;
+  font-family: "Cera Round", sans-serif;
+  color: #1e1e1e;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.faq__details-year {
+  display: block;
+  margin-top: 8px;
+  color: #b2b2b2;
+  font-size: 14px;
+}
+
+.faq__details-marker {
+}
+
+.faq__details-year {
+}
+
+.faq__modal {
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 42px 32px;
+  margin-top: 24px;
+}
+
+.faq__subtitle {
+  color: #131211;
+  font-family: "Cera Round", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.48px;
+}
+
+.faq__buttons__container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.faq__button {
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: #1348ba;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.35px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.7s;
+}
+
+.white-btn {
+  color: #757575;
+  border: 1px solid #D9D9D9;
+background: #FFF;
+}
+
+
+.faq__button:hover {
+  background: #164194;
+}
+
+.white-btn:hover {
+	border: 1px solid #d9d9d9;
+	background: rgba(255, 255, 255, 0.8);
+}
+.white-btn:active {
+	border: 1px solid #1e1e1e;
+	background: #fff;
+}

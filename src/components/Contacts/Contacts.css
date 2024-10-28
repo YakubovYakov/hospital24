@@ -1,0 +1,211 @@
+.contacts {
+  margin-bottom: 48px;
+}
+
+.contacts__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 48px 0 56px;
+}
+
+.contacts__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.contacts__cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+	margin-bottom: 48px;
+}
+
+.contacts__card {
+  border-radius: 16px;
+  background: #f6f6f6;
+  display: flex;
+  width: 552px;
+  padding: 32px 0 32px 32px;
+  height: 640px;
+}
+
+.contacts__card-container {
+  padding-right: 214px;
+}
+
+.contacts__card-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-bottom: 24px;
+}
+
+.contacts__card-text {
+  color: #fff;
+  font-family: "Cera Round", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.contacts__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacts__information {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contacts__card-info-subtitle {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 4px;
+}
+
+.contacts__card-info-text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.contacts__card-subtitle {
+  min-width: 300px;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin: 24px 0;
+}
+
+.contacts__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contacts__card-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacts__button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.contacts__button {
+  border: 0;
+  border-radius: 8px;
+  background: #1348ba;
+  color: #d8edff;
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.7s;
+  margin-top: 24px;
+}
+
+.contacts__button:hover {
+  background: #164194;
+}
+
+.second-button {
+	color: #757575;
+  background: #fff;
+}
+
+.second-button:hover {
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.second-button:active {
+	background: #fff;
+	color: #1e1e1e;
+	
+}
+
+.white-text {
+  color: #fff;
+}
+
+.phones {
+  margin-bottom: 8px;
+}
+
+.contacts__director-card-subtitle {
+  color: #fff;
+  font-family: "Cera Round", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin: 24px 0;
+}
+
+.card-2 {
+  background: linear-gradient(rgba(51, 62, 79, 0.7), rgba(51, 62, 79, 0.7)),
+    url("https://i.postimg.cc/YSGMnm2d/hosp-image.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-3 {
+}
+
+.card-6 {
+  background: linear-gradient(rgba(30, 30, 30, 0.62), rgba(30, 30, 30, 0.62)),
+    url("https://i.postimg.cc/28H4n3HH/contacts-image-2.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.title-card-3 {
+  min-width: 328px;
+}
+
+.title-card-4 {
+  min-width: 373px;
+}
+
+.title-card-5 {
+  width: 154px;
+}
+
+.card-container-3 {
+  padding-right: 192px;
+}
+
+.card-container-4 {
+  padding-right: 147px;
+}

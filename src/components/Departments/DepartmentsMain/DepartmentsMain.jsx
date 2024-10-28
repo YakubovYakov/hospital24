@@ -156,12 +156,12 @@ function DepartmentsMain() {
             </Button>
           </div>
           <div className="departments-main__button-container">
-            <button
-              className="departments-main__prev-button"
+					<button
+              className="feedback__prev-button"
               onClick={handlePrevClick}
             />
             <button
-              className="departments-main__next-button"
+              className="feedback__next-button"
               onClick={handleNextClick}
             />
           </div>

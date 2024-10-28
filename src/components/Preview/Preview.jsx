@@ -9,21 +9,17 @@ function Preview() {
   const [isSummaryVisible, setIsSummaryVisible] = useState(true);
   const [isMobileView, setIsMobileView] = useState(false);
 
-	useEffect(() => {
+  useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
 
-    // Обработчик для изменения состояния при изменении медиа-запроса
     const handleMediaQueryChange = (e) => {
-      setIsMobileView(e.matches); // Устанавливаем true, если ширина <= 768px
+      setIsMobileView(e.matches);
     };
 
-    // Изначально проверяем состояние экрана
     handleMediaQueryChange(mediaQuery);
 
-    // Добавляем слушатель изменений
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-    // Очищаем слушатель при размонтировании
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
@@ -31,8 +27,8 @@ function Preview() {
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
-    setIsButtonFocused(false); // Сбрасываем фокус при смене радиокнопки
-    setIsSummaryVisible(true); // Показываем summary при смене радиокнопки
+    setIsButtonFocused(false);
+    setIsSummaryVisible(true);
   };
 
   useEffect(() => {
@@ -40,11 +36,11 @@ function Preview() {
       searchButtonRef.current.focus();
       setIsButtonFocused(true);
       setTimeout(() => {
-        setIsSummaryVisible(false); // Скрываем summary через 300ms
+        setIsSummaryVisible(false);
       }, 300);
     } else {
       setIsButtonFocused(false);
-      setIsSummaryVisible(true); // Возвращаем summary для остальных опций
+      setIsSummaryVisible(true);
     }
   }, [selectedOption]);
 
@@ -82,7 +78,7 @@ function Preview() {
     if (selectedOption === "on-the-website") {
       setIsButtonFocused(true);
       setTimeout(() => {
-        setIsSummaryVisible(false); // Скрываем summary через 300ms
+        setIsSummaryVisible(false);
       }, 300);
     }
   };
@@ -92,7 +88,6 @@ function Preview() {
       {isMobileView ? (
         <div className="preview__mobile">
           <div className="preview__background-mobile">
-           
             <div className="preview__image-mobile"></div>
           </div>
           <div className="preview__search-mobile">

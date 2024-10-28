@@ -52,7 +52,7 @@ function DoctorList() {
             className="doctor-list__form"
             onSubmit={(e) => e.preventDefault()}
           >
-            <div class="doctor-list__search-wrapper">
+            <div className="doctor-list__search-wrapper">
               <input
                 className="doctor-list__search-input"
                 placeholder="Поиск"
@@ -62,7 +62,7 @@ function DoctorList() {
               <img
                 src={search}
                 alt="Search Icon"
-                class="doctor-list__search-icon"
+                className="doctor-list__search-icon"
               />
             </div>
           </form>

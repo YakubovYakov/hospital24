@@ -238,6 +238,7 @@
   padding: 16px;
   max-width: 238px;
   justify-content: space-between;
+	/* box-sizing: border-box; */
 }
 
 .department__doctor-card-img-wrapper {

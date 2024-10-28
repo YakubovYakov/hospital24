@@ -8,7 +8,6 @@ import logo2 from "../../images/svg/Лог2.svg";
 import map from "../../images/svg/Map.svg";
 import eye from "../../images/svg/Eye.svg";
 
-
 function Header() {
   const location = useLocation();
   const [activePath, setActivePath] = useState(location.pathname);
@@ -31,9 +30,9 @@ function Header() {
           </Link>
         </div>
         <div className="header__menu-button">
-					<span></span>
-					<span></span>
-					<span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         <div>
           <div className="header__buttons-bar">
@@ -62,13 +61,14 @@ function Header() {
             >
               Услуги
             </button>
-            <button
+            <Link
+							to="/contacts"
               className={`header__button ${
                 isActive("/contacts") ? "active-button" : ""
               }`}
             >
               Контакты
-            </button>
+            </Link>
             <button
               className={`header__button ${
                 isActive("/about") ? "active-button" : ""
@@ -78,21 +78,21 @@ function Header() {
             </button>
           </div>
         </div>
-				<div className="header__date-content">
-        <div className="header__numbers-phone">
-          <span className="header__number">+ 7 495 685-17-94</span>
-          <span className="header__number">+ 7 495 613-63-10</span>
+        <div className="header__date-content">
+          <div className="header__numbers-phone">
+            <span className="header__number">+ 7 495 685-17-94</span>
+            <span className="header__number">+ 7 495 613-63-10</span>
+          </div>
+          <img
+            className="header__address-img"
+            src={map}
+            alt="Указатель времени работы больницы"
+          />
+          <div className="header__address-container">
+            <p className="header__address-time">Круглосуточно</p>
+            <p className="header__address">ул. Писцовая 10</p>
+          </div>
         </div>
-        <img
-          className="header__address-img"
-          src={map}
-          alt="Указатель времени работы больницы"
-        />
-        <div className="header__address-container">
-          <p className="header__address-time">Круглосуточно</p>
-          <p className="header__address">ул. Писцовая 10</p>
-        </div>
-				</div>
       </div>
     </section>
   );

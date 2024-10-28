@@ -13,9 +13,9 @@
 	align-items: center;
 	justify-content: start;
 	flex-wrap: wrap;
-	max-width: 1200px;
+	max-width: 1152px;
 	width: 100%;
-	padding: 0 16px;
+	/* padding: 0 16px; */
   box-sizing: border-box;
 }
 
@@ -35,7 +35,7 @@
 .dynamic-route__link-home::before {
   content: "";
   display: inline-block;
-  background: url(../../images/Home.svg) no-repeat center;
+  background: url(../../images/svg/Home.svg) no-repeat center;
   width: 16px;
   height: 16px;
   margin-right: 12px;

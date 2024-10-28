@@ -11,16 +11,20 @@
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.6s ease, color 0.6s ease,
-  border-color 0.3s ease;
+    border-color 0.3s ease;
 }
 
 .btn--small {
   padding: 8px;
 }
 
+.btn--medium {
+	padding: 8px 16px;
+}
+
 .btn--big {
-	min-width: 528px;
-	width: 100%;
+  min-width: 528px;
+  width: 100%;
 }
 
 .btn--min-width {
@@ -31,15 +35,12 @@
   max-width: 75px;
 }
 
+
+
 .btn--primary {
   background-color: #1348ba;
   color: #d8edff;
   border: 1px solid #1348ba;
-}
-
-.btn--primary:hover {
-  border: 1px solid #1348ba;
-  background: #164194;
 }
 
 .btn--secondary {
@@ -48,19 +49,40 @@
   border: 1px solid #767676;
 }
 
-.btn--secondary:hover {
-  background-color: #cccccc;
-  background-color: #767676;
-  color: #000000;
-  border-color: #5a5a5a;
+.btn--third {
+  background-color: #d8edff;
+  color: #2d90ff;
+  border: 0;
 }
 
-.btn--third {
-	background-color: #D8EDFF;
-	color: #2D90FF;
-	border: 0;
+.btn--fourth {
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000000;
 }
 
 .hidden-button {
-	display: none;
+  display: none;
+}
+
+@media (hover: hover) {
+  .btn--secondary:hover {
+    background-color: #767676;
+    color: #000000;
+    border-color: #5a5a5a;
+  }
+
+  .btn--primary:hover {
+    border: 1px solid #1348ba;
+    background: #164194;
+  }
+}
+
+@media (hover: none) {
+  .btn--secondary:hover,
+  .btn--primary:hover {
+    background-color: inherit;
+    color: inherit;
+    border-color: inherit;
+  }
 }
