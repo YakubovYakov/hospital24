@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+.header__logo-img {
+	width: 240px;
+}
+
 .header__menu-button {
   display: none;
 }
@@ -49,7 +53,6 @@
 .header__address-container {
   display: flex;
   flex-direction: column;
-
   gap: 4px;
 }
 
@@ -57,7 +60,7 @@
   padding: 4px;
   width: 20px;
   height: 20px;
-	box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 .header__address-time {
@@ -151,7 +154,7 @@
 
 .header__date-content {
   display: flex;
-	box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 @media (max-width: 962px) {

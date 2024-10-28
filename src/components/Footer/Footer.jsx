@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 import tgIcon from "../../images/footer-img/tg.svg";
 import vkIcon from "../../images/footer-img/vk.svg";
-import logo from "../../images/footer-img/logo.svg";
+import logo from "../../images/Logotype.png";
 
 function Footer() {
   return (

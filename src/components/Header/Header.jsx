@@ -3,8 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Header.css";
 import search from "../../images/svg/Search.svg";
-import logo1 from "../../images/svg/Лог1.svg";
-import logo2 from "../../images/svg/Лог2.svg";
+import logo from "../../images/Logotype.png";
 import map from "../../images/svg/Map.svg";
 import eye from "../../images/svg/Eye.svg";
 
@@ -25,8 +24,7 @@ function Header() {
       <div className="header__container">
         <div>
           <Link className="header__logo" to="/">
-            <img src={logo1} alt="logo" />
-            <img src={logo2} alt="logo" />
+            <img className="header__logo-img" src={logo} alt="logo" />
           </Link>
         </div>
         <div className="header__menu-button">
@@ -62,7 +60,7 @@ function Header() {
               Услуги
             </button>
             <Link
-							to="/contacts"
+              to="/contacts"
               className={`header__button ${
                 isActive("/contacts") ? "active-button" : ""
               }`}

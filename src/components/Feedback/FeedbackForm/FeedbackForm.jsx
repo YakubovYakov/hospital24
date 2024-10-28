@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FeedbackForm.css";
 import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
-import logo from "../../../images/svg/logotype.svg";
+import logo from "../../../images/Logotype.png";
 
 function FeedbackForm({ onClose }) {
   const [activeButton, setActiveButton] = useState("thanks");
