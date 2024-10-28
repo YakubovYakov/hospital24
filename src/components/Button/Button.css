@@ -23,7 +23,7 @@
 }
 
 .btn--big {
-  min-width: 528px;
+  max-width: 528px;
   width: 100%;
 }
 

@@ -1,6 +1,14 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
-function MapCard({ title, address, coordinates, description, cardStyle }) {
+function MapCard({
+  title,
+  address,
+  coordinates,
+  description,
+  cardStyle,
+  link,
+}) {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
 
@@ -13,7 +21,6 @@ function MapCard({ title, address, coordinates, description, cardStyle }) {
           controls: ["zoomControl", "routeButtonControl"],
         });
 
-        // Кнопка построения маршрута
         const routeButton = new window.ymaps.control.RouteButton({
           options: { float: "right" },
         });
@@ -47,7 +54,9 @@ function MapCard({ title, address, coordinates, description, cardStyle }) {
           <h3 className="map__card-address">Адрес</h3>
           <span className="map__card-span">{address}</span>
         </div>
-        <button className="map__card-button">Построить маршрут</button>
+        <a href={link} className="map__card-button" target="_blank">
+          Построить маршрут
+        </a>
       </div>
       <div className="map__card-container">
         <div

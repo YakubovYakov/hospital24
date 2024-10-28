@@ -8,13 +8,12 @@ function DynamicRoute() {
   const { id } = useParams();
   const location = useLocation();
 
-  // Проверяем, на какой странице находится пользователь
   const isDoctorPage = location.pathname.includes("/doctor");
   const isOurDoctorsPage = location.pathname === "/our-doctors";
   const isDepartmentPage = location.pathname.includes("/departments");
   const isPrivacyPolicyPage = location.pathname.includes("/privacy-policy");
+  const isContactsPage = location.pathname.includes("/contacts");
 
-  // Поиск врача или отделения по id
   const doctor = isDoctorPage
     ? doctors.find((doc) => doc.id === parseInt(id, 10))
     : null;
@@ -61,6 +60,14 @@ function DynamicRoute() {
               to="/privacy-policy"
             >
               Политика обработки персональных данных
+            </Link>
+          </>
+        )}
+
+        {isContactsPage && (
+          <>
+            <Link className="dynamic-route__link-privacy-policy" to="/contacts">
+              Контакты
             </Link>
           </>
         )}

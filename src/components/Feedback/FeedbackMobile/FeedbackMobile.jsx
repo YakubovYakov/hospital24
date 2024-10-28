@@ -19,7 +19,7 @@ function FeedbackMobile({ feedbacks = [] }) {
         </div>
 				<div className="feedback__mobile-card-container">
         {feedbacks.map((feedback, index) => (
-          <div className="feedback__card">
+          <div className="feedback__card" key={feedback.id || index}>
             <div className="feedback__card-icon">
               <img
                 className="feedback__card-icon"
