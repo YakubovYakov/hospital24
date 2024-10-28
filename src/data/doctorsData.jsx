@@ -132,7 +132,7 @@ export const doctors = [
     id: 6,
     full_name: "Попова Екатерина Валериевна",
     position_main: "----",
-    main_photo: "https://i.postimg.cc/wvcHCNsz/Image.png",
+    main_photo: "https://i.postimg.cc/kXK8v1CX/2024-09-2518278.jpg",
   },
   {
     id: 7,

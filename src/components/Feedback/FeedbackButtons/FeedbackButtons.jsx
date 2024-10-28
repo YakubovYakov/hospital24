@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Button/Button";
+import FeedbackForm from "../FeedbackForm/FeedbackForm";
 
 function FeedbackButtons({ title, description }) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+	
   return (
     <div className="feedback__buttons-container">
       <h2 className="feedback__buttons-title">{title}</h2>
@@ -19,7 +31,8 @@ function FeedbackButtons({ title, description }) {
         >
           Про Докторов
         </Button>
-        <Button>Написать здесь</Button>
+        <Button onClick={openModal}>Написать здесь</Button>
+        {isModalOpen && <FeedbackForm onClose={closeModal} />}
       </div>
     </div>
   );

@@ -9,6 +9,8 @@ function Preview() {
   const [isSummaryVisible, setIsSummaryVisible] = useState(true);
   const [isMobileView, setIsMobileView] = useState(false);
 
+  const [transitioning, setTransitioning] = useState(false);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
 
@@ -26,9 +28,11 @@ function Preview() {
   }, []);
 
   const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-    setIsButtonFocused(false);
-    setIsSummaryVisible(true);
+    setTransitioning(true);
+    setTimeout(() => {
+      setSelectedOption(event.target.value);
+      setTransitioning(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -74,13 +78,9 @@ function Preview() {
     }
   };
 
-  const handleButtonClick = () => {
-    if (selectedOption === "on-the-website") {
-      setIsButtonFocused(true);
-      setTimeout(() => {
-        setIsSummaryVisible(false);
-      }, 300);
-    }
+	const handleButtonClick = () => {
+    setIsButtonFocused(true);
+    setTimeout(() => setIsButtonFocused(false), 500);
   };
 
   return (
@@ -175,81 +175,101 @@ function Preview() {
           <div className="preview__search">
             <form action="/submit" className="preview__form">
               <h1 className="preview__title">Хочу найти</h1>
+
               <fieldset className="preview__options">
-                <label className="preview__label">
+                <div className="preview__radio-group">
                   <input
                     type="radio"
+                    id="services"
                     name="searchOption"
                     value="services"
-                    className="preview__radio"
+                    className="preview__radio-input"
                     checked={selectedOption === "services"}
                     onChange={handleOptionChange}
                   />
-                  Услугу
-                </label>
-                <label className="preview__label">
+                  <label htmlFor="services" className="preview__label">
+                    Услугу
+                  </label>
+                </div>
+
+                <div className="preview__radio-group">
                   <input
                     type="radio"
+                    id="doctors"
                     name="searchOption"
                     value="doctors"
-                    className="preview__radio"
+                    className="preview__radio-input"
                     checked={selectedOption === "doctors"}
                     onChange={handleOptionChange}
                   />
-                  Врача
-                </label>
-                <label className="preview__label">
+                  <label htmlFor="doctors" className="preview__label">
+                    Врача
+                  </label>
+                </div>
+
+                <div className="preview__radio-group">
                   <input
                     type="radio"
+                    id="department"
                     name="searchOption"
                     value="department"
-                    className="preview__radio"
+                    className="preview__radio-input"
                     checked={selectedOption === "department"}
                     onChange={handleOptionChange}
                   />
-                  Отделение
-                </label>
-                <label className="preview__label">
+                  <label htmlFor="department" className="preview__label">
+                    Отделение
+                  </label>
+                </div>
+
+                <div className="preview__radio-group">
                   <input
                     type="radio"
+                    id="on-the-website"
                     name="searchOption"
                     value="on-the-website"
-                    className="preview__radio"
+                    className="preview__radio-input"
                     checked={selectedOption === "on-the-website"}
                     onChange={handleOptionChange}
                   />
-                  На сайте
-                </label>
+                  <label htmlFor="on-the-website" className="preview__label">
+                    На сайте
+                  </label>
+                </div>
               </fieldset>
 
-              <div className="preview__input-container">
-                <input
-                  className="preview__input"
-                  placeholder={getPlaceholder()}
-                />
-                {!isButtonFocused && (
-                  <details
-                    className={`preview__details ${
-                      !isSummaryVisible ? "hidden" : ""
-                    }`}
-                  >
-                    <summary className="preview__summary">
-                      <span className="summary-text">{getSummaryText()}</span>
-                      <span className="preview__details-marker"></span>
-                    </summary>
-                  </details>
-                )}
-                <button
-                  className={`preview__search-button ${
-                    isButtonFocused ? "expanded" : ""
-                  }`}
-                  type="submit"
-                  ref={searchButtonRef}
-                  onClick={handleButtonClick}
-                >
-                  Найти
-                </button>
-              </div>
+              <div
+            className={`preview__input-container ${
+              transitioning ? "transitioning" : ""
+            }`}
+          >
+            <input
+              className="preview__input"
+              placeholder={getPlaceholder()}
+            />
+            {!isButtonFocused && (
+              <details
+                className={`preview__details ${
+                  !isSummaryVisible ? "hidden" : ""
+                }`}
+              >
+                <summary className="preview__summary">
+                  <span className="summary-text">{getSummaryText()}</span>
+                  <span className="preview__details-marker"></span>
+                </summary>
+              </details>
+            )}
+            <button
+              className={`preview__search-button ${
+                isButtonFocused ? "expanded" : ""
+              }`}
+              type="submit"
+              ref={searchButtonRef}
+              onClick={handleButtonClick}
+            >
+              Найти
+            </button>
+          </div>
             </form>
           </div>
         </div>

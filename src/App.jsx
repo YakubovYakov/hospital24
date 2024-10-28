@@ -44,7 +44,7 @@ function App() {
             path="/our-doctors"
             element={
               <>
-                {/* <DynamicRoute /> */}
+                <DynamicRoute />
                 <DoctorList />
               </>
             }

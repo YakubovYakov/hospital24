@@ -30,7 +30,11 @@ function DynamicRoute() {
         </Link>
 
         {isOurDoctorsPage && (
-          <p className="dynamic-route__current">Наши врачи</p>
+          <>
+            <Link className="dynamic-route__link-privacy-policy" to="/contacts">
+              Врачи
+            </Link>
+          </>
         )}
 
         {isDoctorPage && doctor && (
