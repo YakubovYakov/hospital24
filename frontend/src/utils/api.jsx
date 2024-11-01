@@ -49,13 +49,12 @@ export async function fetchDepartmentDoctors(departmentId) {
     throw new Error("Ошибка загрузки данных врачей отдела");
   }
 
-  const text = await response.text(); 
-  console.log("ответ сервера:", text); 
+  const text = await response.text();
+  console.log("ответ сервера:", text);
 
   try {
-    return JSON.parse(text); 
+    return JSON.parse(text);
   } catch (e) {
-    console.error("Ошибка парсинга JSON:", e);
     throw new Error("Ошибка обработки ответа сервера");
   }
 }
