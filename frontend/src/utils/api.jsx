@@ -1,35 +1,35 @@
+const API_URL = "http://62.3.58.57:3002/api";
+
 export async function fetchDoctors() {
-  const response = await fetch("http://localhost:3002/api/employers");
+  const response = await fetch(`${API_URL}/employers`);
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
   return data;
 }
 
 export async function fetchDoctorById(id) {
-  const response = await fetch(`http://localhost:3002/api/employers/${id}`);
+  const response = await fetch(`${API_URL}/employers/${id}`);
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
   return data;
 }
 
 export async function fetchDepartments() {
-  const response = await fetch("http://localhost:3002/api/departments");
+  const response = await fetch(`${API_URL}/departments`);
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
   return data;
 }
 
 export async function fetchDepartmentsById(id) {
-  const response = await fetch(`http://localhost:3002/api/departments/${id}`);
+  const response = await fetch(`${API_URL}/departments/${id}`);
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
   return data;
 }
 
 export async function fetchDepartmentHead(departmentId) {
-  const response = await fetch(
-    `http://localhost:3002/api/departments/${departmentId}/head`
-  );
+  const response = await fetch(`${API_URL}/departments/${departmentId}/head`);
   if (!response.ok) throw new Error("Ошибка загрузки главного врача");
   const data = await response.json();
   return data;
@@ -37,7 +37,7 @@ export async function fetchDepartmentHead(departmentId) {
 
 export async function fetchDepartmentDoctors(departmentId) {
   const response = await fetch(
-    `http://localhost:3002/api/departments/${departmentId}/doctors`
+    `${API_URL}/departments/${departmentId}/doctors`
   );
 
   if (!response.ok) {
@@ -49,11 +49,11 @@ export async function fetchDepartmentDoctors(departmentId) {
     throw new Error("Ошибка загрузки данных врачей отдела");
   }
 
-  const text = await response.text(); // Получите текст ответа
-  console.log("Сырой ответ сервера:", text); // Логируем сырой текст ответа
+  const text = await response.text(); 
+  console.log("ответ сервера:", text); 
 
   try {
-    return JSON.parse(text); // Преобразуем в JSON только если текст непустой
+    return JSON.parse(text); 
   } catch (e) {
     console.error("Ошибка парсинга JSON:", e);
     throw new Error("Ошибка обработки ответа сервера");
