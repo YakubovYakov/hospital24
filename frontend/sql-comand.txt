@@ -1,0 +1,2 @@
+delete from employers_education
+where employers_id is null
