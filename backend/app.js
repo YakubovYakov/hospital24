@@ -6,11 +6,14 @@ const app = express();
 const employersRoutes = require("./routes/employersRoutes");
 const departmentsRoutes = require("./routes/departmentsRoutes");
 
-app.use(cors({
-  origin: 'http://62.3.58.57', // Ваш IP или домен фронтенда
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://62.3.58.57"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.use("/api/employers", employersRoutes);

@@ -1,0 +1,306 @@
+.visitor-info {
+}
+
+.visitor-info__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 49px 0 48px;
+}
+
+.visitor-info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.visitor-info__cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.visitor-info__card {
+  border-radius: 16px;
+  background: #f6f6f6;
+  display: flex;
+  width: 552px;
+  padding: 32px 32px 32px 32px;
+  height: 640px;
+}
+
+.visitor-info__card-2 {
+  background: url("https://i.postimg.cc/rm1RZwzz/map-doctors.png");
+}
+
+.visitor-info__card-container {
+}
+
+.visitor-info__card-title {
+  width: 351px;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin: 0 0 24px 0;
+}
+
+.visitor-info__card-content-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 4px;
+}
+
+.visitor-info__text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 24px 0;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.visitor-info__info__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.visitor-info__info-container-title {
+  margin-bottom: 4px;
+}
+
+.visitor-info__info-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.visitor-info__footer {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  border-top: 1px solid #000;
+  padding: 16px 0 0;
+  margin-top: 48px;
+}
+
+.visitor-info__details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.visitor-info__details {
+  border-radius: 8px;
+  background: #f6f6f6;
+  padding: 32px;
+  cursor: pointer;
+  position: relative;
+  align-self: start;
+  width: 100%;
+}
+
+.visitor-info__details-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
+  font-family: "Cera Round", sans-serif;
+  color: #1e1e1e;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.visitor-info__details-marker {
+  margin-left: 8px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../../images/svg/arrow-down.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.visitor-info__details-marker.open {
+  transform: rotate(180deg);
+}
+
+.visitor-info_details-text {
+  margin-top: 16px;
+  font-family: "Cera Round", sans-serif;
+  color: #1e1e1e;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.visitor-info__modal {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 48px 0;
+}
+
+.visitor-info__modal-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 495px;
+}
+
+.visitor-info__modal-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-bottom: 32px;
+}
+
+.visitor-info__modal-text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.visitor-info__select-wrapper {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.visitor-info__select {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #767676;
+  align-items: start;
+  max-width: fit-content;
+}
+
+.visitor-info__select-button {
+  border: 0;
+  background: transparent;
+  color: #767676;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease, transform 0.2s ease;
+}
+
+.active_select {
+  color: #303030;
+  border-bottom: 1px solid #303030;
+  transform: scale(1.05);
+}
+
+.visitor-info__rules-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 48px;
+}
+
+.visitor-info__rules-text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 24px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.visitor-info__rules-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.visitor-info__rules-button {
+  border: 0;
+  border-radius: 8px;
+  background: #1348ba;
+  color: #d8edff;
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.7s;
+  margin-top: 24px;
+}
+
+.visitor-info__rules-button:hover {
+  background: #164194;
+}
+
+.second-button {
+  color: #757575;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+}
+
+.second-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.second-button:active {
+  background: #fff;
+  color: #1e1e1e;
+}
+
+.visitor-info__window {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: #F6F6F6;
+	padding: 48px 64px;
+	margin-bottom: 48px;
+
+}
+
+.visitor-info__window-text {
+	max-width: 1152px;
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; 
+}

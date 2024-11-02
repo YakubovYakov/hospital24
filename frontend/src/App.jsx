@@ -20,10 +20,10 @@ import DoctorList from "./components/Doctors/DoctorList/DoctorList";
 import DepartmentsList from "./components/Departments/DepartmentsList/DepartmentsList";
 import Department from "./components/Departments/Department/Department";
 import Footer from "./components/Footer/Footer";
-
 // --- Информационные страницы
 import Contacts from "./components/Contacts/Contacts";
 import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy.jsx";
+import VisitorInfo from "./components/VisitorInfo/VisitorInfo";
 
 function App() {
   return (
@@ -73,6 +73,14 @@ function App() {
               <>
                 <DynamicRoute />
                 <Department />
+              </>
+            }
+          />
+          <Route
+            path="/visitors"
+            element={
+              <>
+                <VisitorInfo />
               </>
             }
           />

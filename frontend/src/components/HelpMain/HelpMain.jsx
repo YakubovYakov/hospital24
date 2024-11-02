@@ -1,6 +1,7 @@
 import React from "react";
 import "./HelpMain.css";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 function HelpMain() {
   return (
@@ -21,10 +22,8 @@ function HelpMain() {
             you d like to say.
           </p>
 					<div className="help-main__button-container">
-
-					<button className="help-main__button"> Узнать</button>
+					<Link to="/visitors" className="help-main__button">Узнать</Link>
 					</div>
-          {/* <button className="help-main__button">Узнать</button> */}
         </div>
       </div>
     </section>

@@ -51,19 +51,16 @@ function Department() {
   }, [departmentId]);
 
   useEffect(() => {
-    // Определяем вид для мобильных устройств
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleMediaQueryChange = (e) => setIsMobileView(e.matches);
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-    handleMediaQueryChange(mediaQuery); // Установка начального значения
-
+    handleMediaQueryChange(mediaQuery); 
     return () =>
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
   }, []);
 
   useEffect(() => {
-    // Прокрутка страницы наверх при загрузке
     window.scrollTo(0, 0);
   }, []);
 

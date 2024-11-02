@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FAQ.css"; // Подключите ваши стили
+import "./FAQ.css"; 
 
 function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);

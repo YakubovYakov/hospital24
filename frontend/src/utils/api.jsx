@@ -1,4 +1,4 @@
-const API_URL = "http://62.3.58.57:3002/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchDoctors() {
   const response = await fetch(`${API_URL}/employers`);
