@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./PatientInfoPanel.css";
 import exclamation_mark from "../../images/svg/exclamation-mark-2.svg";
 
 function PatientInfoPanel() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="patient-info">
       <div className="patient-info__container">
