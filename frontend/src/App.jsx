@@ -24,6 +24,7 @@ import Footer from "./components/Footer/Footer";
 import Contacts from "./components/Contacts/Contacts";
 import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy.jsx";
 import VisitorInfo from "./components/VisitorInfo/VisitorInfo";
+import PatientInfoPanel from "./components/PatientInfoPanel/PatientInfoPanel";
 
 function App() {
   return (
@@ -80,7 +81,17 @@ function App() {
             path="/visitors"
             element={
               <>
+                <DynamicRoute />
                 <VisitorInfo />
+              </>
+            }
+          />
+          <Route
+            path="/patient-info"
+            element={
+              <>
+                <DynamicRoute />
+                <PatientInfoPanel />
               </>
             }
           />

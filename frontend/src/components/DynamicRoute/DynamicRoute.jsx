@@ -14,6 +14,8 @@ function DynamicRoute() {
   const isDepartmentPage = location.pathname.includes("/departments");
   const isPrivacyPolicyPage = location.pathname.includes("/privacy-policy");
   const isContactsPage = location.pathname.includes("/contacts");
+  const isVisitorPage = location.pathname.includes("/visitors");
+	const isPatientInfoPage = location.pathname.includes("/patient-info")
 
   const [doctorName, setDoctorName] = useState("");
 
@@ -88,6 +90,20 @@ function DynamicRoute() {
           <>
             <Link className="dynamic-route__link-privacy-policy" to="/contacts">
               Контакты
+            </Link>
+          </>
+        )}
+        {isVisitorPage && (
+          <>
+            <Link className="dynamic-route__link-privacy-policy" to="/visitors">
+              Посетителям
+            </Link>
+          </>
+        )}
+        {isPatientInfoPage && (
+          <>
+            <Link className="dynamic-route__link-privacy-policy" to="/patient-info">
+              Пациентам
             </Link>
           </>
         )}

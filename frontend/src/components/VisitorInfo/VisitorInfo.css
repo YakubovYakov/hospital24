@@ -95,15 +95,25 @@
 }
 
 .visitor-info__footer {
+  display: flex;
+  align-items: flex-start; /* Выровнять значок и текст по верхнему краю */
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
-  border-top: 1px solid #000;
+  border-top: 1px solid #d9d9d9;
   padding: 16px 0 0;
   margin-top: 48px;
+}
+
+.visitor-info__footer::before {
+  content: url("../../images/svg/exclamation-mark.png");
+  margin-right: 8px; /* Отступ справа для отдаления иконки от текста */
+  flex-shrink: 0; /* Оставить размер иконки неизменным */
+  width: 20px;
+  height: 30px;
 }
 
 .visitor-info__details-container {
@@ -286,21 +296,20 @@
 }
 
 .visitor-info__window {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	background: #F6F6F6;
-	padding: 48px 64px;
-	margin-bottom: 48px;
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #f6f6f6;
+  padding: 48px 64px;
+  margin-bottom: 48px;
 }
 
 .visitor-info__window-text {
-	max-width: 1152px;
+  max-width: 1152px;
   color: #757575;
   font-family: "Cera Round", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 140%; 
+  line-height: 140%;
 }

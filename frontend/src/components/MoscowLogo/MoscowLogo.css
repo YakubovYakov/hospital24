@@ -38,6 +38,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+	cursor: pointer;
 }
 
 .moscow-logo__button-version::before {
