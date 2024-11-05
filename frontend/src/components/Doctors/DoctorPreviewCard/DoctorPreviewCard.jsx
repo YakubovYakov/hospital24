@@ -4,11 +4,13 @@ import "./DoctorPreviewCard.css";
 import Button from "../../Button/Button";
 
 function DoctorPreviewCard({ doctor }) {
+	console.log("Фотографии врача:", doctor.photos);
+
   return (
     <div className="doctor-preview-card">
-      {doctor.photo_url ? (
+      {doctor.photos ? (
         <img
-          src={doctor.photo_url}
+          src={doctor.photos}
           alt={doctor.full_name}
           className="doctor-preview-card__photo"
         />

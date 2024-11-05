@@ -109,9 +109,9 @@
 }
 
 .visitor-info__footer::before {
-  content: url("../../images/svg/exclamation-mark.png");
-  margin-right: 8px; /* Отступ справа для отдаления иконки от текста */
-  flex-shrink: 0; /* Оставить размер иконки неизменным */
+  content: url("../../images/svg/attention.svg");
+  margin-right: 8px;
+  flex-shrink: 0;
   width: 20px;
   height: 30px;
 }

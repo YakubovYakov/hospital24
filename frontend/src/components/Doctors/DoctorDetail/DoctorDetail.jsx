@@ -24,7 +24,7 @@ function DoctorDetail() {
     setLoading(true);
     fetchDoctorById(id)
       .then((data) => {
-        console.log("Данные, полученные в DoctorDetail:", data); // Для проверки
+        console.log("Данные, полученные в DoctorDetail:", data);
         setDoctor(data);
         setLoading(false);
       })
@@ -48,7 +48,7 @@ function DoctorDetail() {
         <DoctorCard
           full_name={doctor.full_name}
           position={doctor.positions}
-          description={doctor.description}
+          description={doctor.descriptions}
           experience={doctor.start_experience}
           education={doctor.education}
           professional_experience={doctor.experiences}

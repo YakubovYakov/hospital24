@@ -254,7 +254,7 @@ function PatientInfoPanel() {
               <span className="patient-info__marker">
                 <img src={exclamation_mark} alt="!" />
               </span>
-              <p>Документы можно предоставить электронном виде </p>
+              <p>Необходимо иметь оригинал документов</p>
             </div>
           </div>
         </div>

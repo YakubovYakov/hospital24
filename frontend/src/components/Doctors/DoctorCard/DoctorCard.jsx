@@ -18,9 +18,10 @@ function DoctorCard({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Вычисление стажа работы в годах
   const yearsOfExperience =
     new Date().getFullYear() - new Date(experience).getFullYear();
+
+		console.log("Описание:", description);
 
   return (
     <section className="doctor-card">
@@ -38,7 +39,7 @@ function DoctorCard({
           </ul>
           <p className="doctor-card__description">{description}</p>
           <p className="doctor-card__experience">
-            Стаж работы:{" "}
+            Стаж работы:
             <span className="doctor-card__experience-number">
               {yearsOfExperience} лет
             </span>
