@@ -3,7 +3,7 @@ import "./DynamicRoute.css";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { doctors } from "../../data/doctorsData";
 import { departments } from "../../data/departmentsData";
-import { fetchDoctorById } from "../../utils/api";
+import { fetchDepartmentsById, fetchDoctorById } from "../../utils/api";
 
 function DynamicRoute() {
   const { id } = useParams();
@@ -15,9 +15,10 @@ function DynamicRoute() {
   const isPrivacyPolicyPage = location.pathname.includes("/privacy-policy");
   const isContactsPage = location.pathname.includes("/contacts");
   const isVisitorPage = location.pathname.includes("/visitors");
-	const isPatientInfoPage = location.pathname.includes("/patient-info")
+  const isPatientInfoPage = location.pathname.includes("/patient-info");
 
   const [doctorName, setDoctorName] = useState("");
+  const [departmentName, setDepartmentName] = useState("");
 
   const doctor = isDoctorPage
     ? doctors.find((doc) => doc.id === parseInt(id, 10))
@@ -28,16 +29,28 @@ function DynamicRoute() {
       : null;
 
   useEffect(() => {
-    if (isDoctorPage && id) {
-      fetchDoctorById(id)
-        .then((data) => {
-          if (data && data.full_name) {
-            setDoctorName(data.full_name);
-          }
-        })
-        .catch((error) => console.error("Ошибка при загрузке врача:", error));
+    if (id) {
+      if (isDoctorPage) {
+        fetchDoctorById(id)
+          .then((data) => {
+            if (data && data.full_name) {
+              setDoctorName(data.full_name);
+            }
+          })
+          .catch((error) => console.error("Ошибка при загрузке врача:", error));
+      } else if (isDepartmentPage) {
+        fetchDepartmentsById(id)
+          .then((data) => {
+            if (data && data.name) {
+              setDepartmentName(data.name);
+            }
+          })
+          .catch((error) =>
+            console.error("Ошибка при загрузке отделения:", error)
+          );
+      }
     }
-  }, [isDoctorPage, id]);
+  }, [isDoctorPage, isDepartmentPage, id]);
 
   return (
     <section className="dynamic-route">
@@ -69,8 +82,10 @@ function DynamicRoute() {
             <Link className="dynamic-route__link-departments" to="/departments">
               Отделения
             </Link>
-            {department && (
-              <p className="dynamic-route__current">{department.title}</p>
+            {departmentName ? (
+              <span className="dynamic-route__current">{departmentName}</span>
+            ) : (
+              <span>Загрузка...</span>
             )}
           </>
         )}
@@ -102,7 +117,10 @@ function DynamicRoute() {
         )}
         {isPatientInfoPage && (
           <>
-            <Link className="dynamic-route__link-privacy-policy" to="/patient-info">
+            <Link
+              className="dynamic-route__link-privacy-policy"
+              to="/patient-info"
+            >
               Пациентам
             </Link>
           </>

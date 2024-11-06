@@ -4,7 +4,6 @@ import {
   Routes,
   Route,
   useLocation,
-	
 } from "react-router-dom";
 import { doctors } from "./data/doctorsData";
 import "./App.css";
@@ -24,6 +23,7 @@ import Contacts from "./components/Contacts/Contacts";
 import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy";
 import VisitorInfo from "./components/VisitorInfo/VisitorInfo";
 import PatientInfoPanel from "./components/PatientInfoPanel/PatientInfoPanel";
+import OutOfTownPatients from "./components/OutOfTownPatients/OutOfTownPatients";
 
 // Основная логика для маршрутизации и адаптации
 function App() {
@@ -119,6 +119,15 @@ function App() {
             <>
               <DynamicRoute />
               <PrivacyPolicy />
+            </>
+          }
+        />
+        <Route
+          path="/out-of-town-patients"
+          element={
+            <>
+              <DynamicRoute />
+              <OutOfTownPatients />
             </>
           }
         />

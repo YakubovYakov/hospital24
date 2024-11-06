@@ -16,7 +16,7 @@ function DoctorList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Запрос данных с бэкенда при загрузке компонента
+  
   useEffect(() => {
     const loadDoctors = async () => {
       setLoading(true);
@@ -25,6 +25,7 @@ function DoctorList() {
         setDoctors(data);
         setFilteredDoctors(data);
         setLoading(false);
+				console.log('Полученные данные врачей:', data);
       } catch (err) {
         setError("Ошибка при загрузке данных врачей.");
         setLoading(false);
@@ -34,7 +35,7 @@ function DoctorList() {
     loadDoctors();
   }, []);
 
-  // Фильтрация врачей при изменении `searchTerm`
+  
   useEffect(() => {
     const filtered = doctors.filter((doctor) =>
       doctor.full_name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -43,10 +44,10 @@ function DoctorList() {
     setCurrentPage(1);
   }, [searchTerm, doctors]);
 
-  // Подсчёт страниц
+  
   const totalPages = Math.ceil(filteredDoctors.length / ITEMS_PER_PAGE);
 
-  // Выборка врачей для текущей страницы
+  
   const currentDoctors = filteredDoctors.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE

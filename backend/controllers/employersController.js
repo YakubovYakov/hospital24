@@ -4,16 +4,28 @@ const pool = require("../config/db");
 const getAllEmployers = async (req, res) => {
   try {
     const result = await pool.query(`
-		SELECT 
-		e.id, 
-		e.full_name, 
-		e.start_experience, 
-		d.name AS department_name,
-		ARRAY_AGG(ep.photo_url) AS photos -- Собираем фото в массив
-	FROM employers e
-	LEFT JOIN dept d ON e.dept_id = d.id
-	LEFT JOIN employers_photo ep ON e.id = ep.employers_id
-	GROUP BY e.id, d.name;
+      SELECT 
+        e.id, 
+        e.full_name, 
+        e.start_experience, 
+        d.name AS department_name,
+
+        -- Photos: Get photos in the correct order
+        COALESCE(
+          (
+            SELECT ARRAY_AGG(ep.photo_url ORDER BY ep.is_main DESC, ep.id ASC)
+            FROM employers_photo ep
+            WHERE ep.employers_id = e.id
+          ),
+          '{}'
+        ) AS photos
+
+      FROM employers e
+      LEFT JOIN dept d ON e.dept_id = d.id
+
+      WHERE e.archived = false -- Exclude archived records
+      GROUP BY e.id, d.name
+      ORDER BY e.id;
     `);
 
     res.json(result.rows);
@@ -22,6 +34,8 @@ const getAllEmployers = async (req, res) => {
     res.status(500).json({ error: "Ошибка при получении списка врачей" });
   }
 };
+
+
 
 const getEmployerById = async (req, res) => {
   const { id } = req.params;
@@ -37,55 +51,59 @@ const getEmployerById = async (req, res) => {
 
         -- Photos
         COALESCE(
-          ARRAY_AGG(DISTINCT ep.photo_url) 
-          FILTER (WHERE ep.photo_url IS NOT NULL), 
+          (
+            SELECT ARRAY_AGG(ep.photo_url ORDER BY ep.is_main DESC, ep.id ASC)
+            FROM employers_photo ep
+            WHERE ep.employers_id = e.id
+          ),
           '{}'
         ) AS photos,
 
         -- Positions
         COALESCE(
-          ARRAY_AGG(DISTINCT p.name) 
-          FILTER (WHERE p.name IS NOT NULL), 
+          (
+            SELECT ARRAY_AGG(p.name ORDER BY ep2.ord)
+            FROM employers_post ep2
+            JOIN post p ON p.id = ep2.post_id
+            WHERE ep2.employers_id = e.id
+          ),
           '{}'
         ) AS positions,
 
         -- Descriptions
         COALESCE(
-          ARRAY_AGG(DISTINCT ed.description) 
-          FILTER (WHERE ed.description IS NOT NULL), 
+          (
+            SELECT ARRAY_AGG(ed.description)
+            FROM employers_description ed
+            WHERE ed.employers_id = e.id
+          ),
           '{}'
         ) AS descriptions,
 
         -- Education
-        COALESCE((
-          SELECT 
-            ARRAY_AGG(JSON_BUILD_OBJECT('year', ee_sub.years, 'text', ee_sub.education))
-          FROM (
-            SELECT DISTINCT ee.years, ee.education
+        COALESCE(
+          (
+            SELECT ARRAY_AGG(JSON_BUILD_OBJECT('year', ee.years, 'text', ee.education) ORDER BY ee.years)
             FROM employers_education ee
-            WHERE ee.employers_id = e.id AND ee.education IS NOT NULL
-          ) ee_sub
-        ), '{}') AS education,
+            WHERE ee.employers_id = e.id
+          ),
+          '{}'
+        ) AS education,
 
         -- Experiences
-        COALESCE((
-          SELECT 
-            ARRAY_AGG(JSON_BUILD_OBJECT('date', ex_sub.date_period, 'text', ex_sub.experience))
-          FROM (
-            SELECT DISTINCT ex.date_period, ex.experience
+        COALESCE(
+          (
+            SELECT ARRAY_AGG(JSON_BUILD_OBJECT('date', ex.date_period, 'text', ex.experience) ORDER BY ex.date_period)
             FROM employers_experience ex
-            WHERE ex.employers_id = e.id AND ex.experience IS NOT NULL
-          ) ex_sub
-        ), '{}') AS experiences
+            WHERE ex.employers_id = e.id
+          ),
+          '{}'
+        ) AS experiences
 
       FROM employers e
       LEFT JOIN dept d ON e.dept_id = d.id
-      LEFT JOIN employers_post ep2 ON e.id = ep2.employers_id
-      LEFT JOIN post p ON p.id = ep2.post_id
-      LEFT JOIN employers_photo ep ON e.id = ep.employers_id
-      LEFT JOIN employers_description ed ON e.id = ed.employers_id
 
-      WHERE e.id = $1
+      WHERE e.id = $1 AND e.archived = false -- Exclude archived records
       GROUP BY e.id, d.name;
       `,
       [id]
@@ -101,5 +119,7 @@ const getEmployerById = async (req, res) => {
     res.status(500).json({ message: "Ошибка на сервере" });
   }
 };
+
+
 
 module.exports = { getEmployerById, getAllEmployers };

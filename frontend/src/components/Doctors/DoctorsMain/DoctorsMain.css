@@ -60,6 +60,7 @@
 }
 
 .doctors__card-title {
+	max-width: 219px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 20px;

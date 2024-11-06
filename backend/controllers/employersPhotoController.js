@@ -1,4 +1,3 @@
-// controllers/employersPhotoController.js
 const pool = require("../config/db");
 
 const getEmployerPhotosById = async (req, res) => {

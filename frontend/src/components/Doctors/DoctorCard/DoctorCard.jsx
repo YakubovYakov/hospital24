@@ -21,7 +21,7 @@ function DoctorCard({
   const yearsOfExperience =
     new Date().getFullYear() - new Date(experience).getFullYear();
 
-		console.log("Описание:", description);
+  console.log("Position:", position);
 
   return (
     <section className="doctor-card">
@@ -70,24 +70,23 @@ function DoctorCard({
             </details>
 
             {/* Профессиональный опыт */}
-            <details className="doctor-card__details">
-              <summary className="doctor-card__details-title">
-                Профессиональный опыт
-                <span className="doctor-card__details-marker"></span>
-              </summary>
-              {professional_experience && professional_experience.length > 0 ? (
-                professional_experience.map((exp, index) => (
+            {professional_experience && professional_experience.length > 0 && (
+              <details className="doctor-card__details">
+                <summary className="doctor-card__details-title">
+                  Профессиональный опыт
+                  <span className="doctor-card__details-marker"></span>
+                </summary>
+
+                {professional_experience.map((exp, index) => (
                   <p key={index} className="doctor-card__details-text">
                     <span className="doctor-card__details-year">
                       {exp.date}
                     </span>
                     {exp.text}
                   </p>
-                ))
-              ) : (
-                <p>Информация о профессиональном опыте отсутствует</p>
-              )}
-            </details>
+                ))}
+              </details>
+            )}
           </div>
         </div>
       </div>

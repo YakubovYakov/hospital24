@@ -48,19 +48,18 @@ function PhotoSlider({ photos, full_name }) {
 
   return (
     <div className="photo-slider">
-      {/* Главная фотография */}
       <div className="main-photo-container">
         <img
           src={photos[currentIndex]}
           alt={`Фото ${currentIndex + 1}`}
           className="main-photo"
-          onClick={isMobile ? handleImageClick : undefined} // Переключение кликом на изображение на мобильной версии
+          onClick={isMobile ? handleImageClick : undefined}
         />
       </div>
 
-      {/* Миниатюры и кнопки */}
       <div className="thumbnail-container">
-        {!isMobile && ( // Кнопки отображаются только на десктопной версии
+        {/* Проверка на наличие более одной фотографии */}
+        {!isMobile && photos.length > 1 && (
           <button
             className="slider-button prev-button"
             onClick={handleButtonPrevClick}
@@ -79,7 +78,7 @@ function PhotoSlider({ photos, full_name }) {
           />
         ))}
 
-        {!isMobile && ( // Кнопки отображаются только на десктопной версии
+        {!isMobile && photos.length > 1 && (
           <button
             className="slider-button next-button"
             onClick={handleButtonNextClick}

@@ -19,6 +19,29 @@
   box-sizing: border-box;
 }
 
+.dynamic-route__link {
+	color: #757575;
+	font-family: "Cera Round", sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 14px;
+	text-decoration: none;
+	position: relative;
+	align-items: center;
+	display: flex;
+	
+}
+
+.dynamic-route__link::after {
+	content: "";
+  display: inline-block;
+  background: url(../../images/svg/arrow-right-gray.svg) no-repeat center;
+  width: 16px;
+  height: 16px;
+	margin: 0 12px;
+}
+
 .dynamic-route__link-home {
   color: #757575;
   font-family: "Cera Round", sans-serif;

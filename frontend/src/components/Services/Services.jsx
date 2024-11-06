@@ -40,7 +40,7 @@ function Services() {
               points, quotes, anecdotes, or even a very very short story.
             </p>
             <div className="services__card-button_container">
-              <Link to="/"  className="services__card-button" color="secondary">
+              <Link to="/out-of-town-patients"  className="services__card-button" color="secondary">
                 Лечиться по ОМС
               </Link>
             </div>

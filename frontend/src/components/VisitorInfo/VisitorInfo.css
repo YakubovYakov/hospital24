@@ -96,7 +96,7 @@
 
 .visitor-info__footer {
   display: flex;
-  align-items: flex-start; /* Выровнять значок и текст по верхнему краю */
+  align-items: flex-start; 
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;

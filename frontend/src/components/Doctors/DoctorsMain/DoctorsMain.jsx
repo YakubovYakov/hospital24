@@ -174,15 +174,14 @@ function DoctorsMain() {
               }}
             >
               {extendedDoctors.map((doctor, index) => {
-                // Проверяем, что фото пришли как массив
-                const mainPhoto = doctor.photos?.[0]; // Берем первое фото в массиве как главное
+                const mainPhoto = doctor.photos?.[0];
 
                 return (
                   <div key={index} className="doctors__card">
                     {mainPhoto ? (
                       <img
                         className="doctors__card-image"
-                        src={mainPhoto} // Подставляем URL главного фото
+                        src={mainPhoto}
                         alt={`Фото ${doctor.full_name}`}
                       />
                     ) : (

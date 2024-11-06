@@ -9,9 +9,9 @@
 }
 
 .main-photo {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  max-width: 544px;
+  min-width: 544px;
   height: 504px;
   border-radius: 32px;
   object-fit: cover;
