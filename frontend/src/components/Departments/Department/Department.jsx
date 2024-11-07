@@ -114,11 +114,26 @@ function Department() {
 
   // Получение данных о врачах и отделении
   useEffect(() => {
-    fetchDepartmentHead(departmentId)
-      .then((data) => setHeadDoctor(data))
-      .catch((error) =>
-        console.error("Ошибка при загрузке главного врача:", error)
-      );
+    let isMounted = true;
+
+    const fetchHeadDoctorData = async () => {
+      try {
+        const data = await fetchDepartmentHead(departmentId);
+        if (isMounted) {
+          setHeadDoctor(data);
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error("Ошибка при загрузке главного врача:", error);
+        }
+      }
+    };
+
+    fetchHeadDoctorData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [departmentId]);
 
   useEffect(() => {
@@ -185,25 +200,36 @@ function Department() {
               </div>
             </div>
             <div className="department__head-doctor-card">
-              <h2 className="department__head-doctor-card-title">
-                Заведующий отделением
-              </h2>
-              <div className="department__head-doctor-card-img-wrapper">
-                <img
-                  className="department__head-doctor-card-image"
-                  src={headDoctor.head_doctor_photo}
-                  alt={headDoctor.head_doctor_title}
-                />
-              </div>
-              <h3 className="department__head-doctor-card-name">
-                {headDoctor.head_doctor_title}
-              </h3>
-              <p className="department__head-doctor-card-description">
-                {headDoctor.head_doctor_positions?.join(", ")}
-              </p>
-              <Button to="/" color="primary">
-                Записаться на прием
-              </Button>
+              {headDoctor ? (
+                <>
+                  <h2 className="department__head-doctor-card-title">
+                    Заведующий отделением
+                  </h2>
+                  {headDoctor.head_doctor_photo ? (
+                    <div className="department__head-doctor-card-img-wrapper">
+                      <img
+                        className="department__head-doctor-card-image"
+                        src={headDoctor.head_doctor_photo}
+                        alt={headDoctor.head_doctor_title || "Фото отсутствует"}
+                      />
+                    </div>
+                  ) : (
+                    <p className="no-photo-placeholder">Фото отсутствует</p>
+                  )}
+                  <h3 className="department__head-doctor-card-name">
+                    {headDoctor.head_doctor_title || "Данные отсутствуют"}
+                  </h3>
+                  <p className="department__head-doctor-card-description">
+                    {headDoctor.head_doctor_positions?.join(", ") ||
+                      "Данные отсутствуют"}
+                  </p>
+                  <Button to="/" color="primary">
+                    Записаться на прием
+                  </Button>
+                </>
+              ) : (
+                <p>Информация о заведующем отделением временно недоступна</p>
+              )}
             </div>
           </div>
         </div>

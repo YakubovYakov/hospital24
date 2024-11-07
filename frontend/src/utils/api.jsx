@@ -28,10 +28,17 @@ export async function fetchDepartmentsById(id) {
 }
 
 export async function fetchDepartmentHead(departmentId) {
-  const response = await fetch(`${API_URL}/departments/${departmentId}/head`);
-  if (!response.ok) throw new Error("Ошибка загрузки главного врача");
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(`${API_URL}/departments/${departmentId}/head`);
+    if (!response.ok) {
+      throw new Error("Ошибка загрузки главного врача");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Ошибка при выполнении запроса:", error);
+    throw error;
+  }
 }
 
 export async function fetchDepartmentDoctors(departmentId) {

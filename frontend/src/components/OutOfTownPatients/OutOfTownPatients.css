@@ -485,7 +485,7 @@
   line-height: 140%;
   padding: 12px;
 	cursor: pointer;
-	transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);;
+	transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 	opacity: 1;
 }
 
