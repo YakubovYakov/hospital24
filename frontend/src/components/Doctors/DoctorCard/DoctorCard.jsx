@@ -21,8 +21,6 @@ function DoctorCard({
   const yearsOfExperience =
     new Date().getFullYear() - new Date(experience).getFullYear();
 
-  console.log("Position:", position);
-
   return (
     <section className="doctor-card">
       <div className="doctor-card__container">

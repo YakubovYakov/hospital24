@@ -24,7 +24,6 @@ function DoctorDetail() {
     setLoading(true);
     fetchDoctorById(id)
       .then((data) => {
-        console.log("Данные, полученные в DoctorDetail:", data);
         setDoctor(data);
         setLoading(false);
       })

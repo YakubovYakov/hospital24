@@ -10,7 +10,6 @@ export async function fetchDoctorById(id) {
   const response = await fetch(`${API_URL}/employers/${id}`);
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
-	console.log("API Response:", data);
   return data;
 }
 
@@ -50,8 +49,6 @@ export async function fetchDepartmentDoctors(departmentId) {
   }
 
   const text = await response.text();
-  console.log("ответ сервера:", text);
-
   try {
     return JSON.parse(text);
   } catch (e) {

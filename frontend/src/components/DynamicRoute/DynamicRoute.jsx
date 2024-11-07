@@ -85,11 +85,6 @@ function DynamicRoute() {
             <Link className="dynamic-route__link-departments" to="/departments">
               Отделения
             </Link>
-            {departmentName ? (
-              <span className="dynamic-route__current">{departmentName}</span>
-            ) : (
-              <span>Загрузка...</span>
-            )}
           </>
         )}
 

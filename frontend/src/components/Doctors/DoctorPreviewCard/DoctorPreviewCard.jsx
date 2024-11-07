@@ -4,8 +4,6 @@ import "./DoctorPreviewCard.css";
 import Button from "../../Button/Button";
 
 function DoctorPreviewCard({ doctor }) {
-  console.log("Данные врача:", doctor);
-
   return (
     <div className="doctor-preview-card">
       {doctor.photos && doctor.photos.length > 0 ? (
