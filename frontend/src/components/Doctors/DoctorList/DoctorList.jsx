@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./DoctorList.css";
 import Button from "../../Button/Button";
 import DoctorPreviewCard from "../../Doctors/DoctorPreviewCard/DoctorPreviewCard";
@@ -6,23 +6,40 @@ import search from "../../../images/svg/Search.svg";
 
 import { fetchDoctors } from "../../../utils/api";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 3;
 
 function DoctorList() {
   const [doctors, setDoctors] = useState([]);
-  const [filteredDoctors, setFilteredDoctors] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true); // Флаг наличия дополнительных данных
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const observerRef = useRef();
+  const lastDoctorRef = useRef();
 
   useEffect(() => {
     const loadDoctors = async () => {
       setLoading(true);
       try {
-        const data = await fetchDoctors();
-        setDoctors(data);
-        setFilteredDoctors(data);
+        const result = await fetchDoctors(currentPage, ITEMS_PER_PAGE);
+        const data = result.data;
+
+        setDoctors((prevDoctors) => {
+          const uniqueDoctors = [
+            ...prevDoctors,
+            ...data.filter(
+              (newDoctor) => !prevDoctors.some((doc) => doc.id === newDoctor.id)
+            ),
+          ];
+          return uniqueDoctors;
+        });
+
+        // Проверяем, есть ли еще данные для загрузки
+        const totalLoaded = currentPage * ITEMS_PER_PAGE;
+        if (totalLoaded >= result.totalItems) {
+          setHasMore(false);
+        }
+
         setLoading(false);
       } catch (err) {
         setError("Ошибка при загрузке данных врачей.");
@@ -31,100 +48,54 @@ function DoctorList() {
     };
 
     loadDoctors();
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
-    const filtered = doctors.filter((doctor) =>
-      doctor.full_name.toLowerCase().includes(searchTerm.toLowerCase())
+    if (loading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setCurrentPage((prevPage) => prevPage + 1);
+        }
+      },
+      { threshold: 1.0 }
     );
-    setFilteredDoctors(filtered);
-    setCurrentPage(1);
-  }, [searchTerm, doctors]);
 
-  const totalPages = Math.ceil(filteredDoctors.length / ITEMS_PER_PAGE);
-
-  const currentDoctors = filteredDoctors.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+    if (lastDoctorRef.current) {
+      observer.observe(lastDoctorRef.current);
     }
-  };
 
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+    return () => {
+      if (lastDoctorRef.current) {
+        observer.unobserve(lastDoctorRef.current);
+      }
+    };
+  }, [doctors, loading, hasMore]);
 
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
-
-  if (loading) return <div>Загрузка данных...</div>;
   if (error) return <div>{error}</div>;
 
   return (
     <section className="doctor-list">
       <div className="doctor-list__container">
-        <div className="doctor-list__top">
-          <form
-            className="doctor-list__form"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="doctor-list__search-wrapper">
-              <input
-                className="doctor-list__search-input"
-                placeholder="Поиск"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <img
-                src={search}
-                alt="Search Icon"
-                className="doctor-list__search-icon"
-              />
-            </div>
-          </form>
-        </div>
         <div className="doctor-list__card-container">
-          {currentDoctors.length > 0 ? (
-            currentDoctors.map((doctor) => (
-              <DoctorPreviewCard key={doctor.id} doctor={doctor} />
-            ))
-          ) : (
-            <p>Врачи не найдены</p>
-          )}
+          {doctors.map((doctor, index) => {
+            const isLastDoctor = index === doctors.length - 1;
+            return (
+              <div
+                key={doctor.id}
+                ref={isLastDoctor ? lastDoctorRef : null}
+              >
+                <DoctorPreviewCard doctor={doctor} />
+              </div>
+            );
+          })}
         </div>
-        <div className="doctor-list__page-numbers">
-          <button
-            onClick={handlePrevPage}
-            disabled={currentPage === 1}
-            className="doctor-list__prev-button"
-          ></button>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => handlePageClick(index + 1)}
-              className={`doctor-list__page-button ${
-                currentPage === index + 1 ? "active" : ""
-              }`}
-            >
-              {index + 1}
-            </button>
-          ))}
-          <button
-            onClick={handleNextPage}
-            disabled={currentPage === totalPages}
-            className="doctor-list__next-button"
-          ></button>
-        </div>
+        {loading && <div>Загрузка данных...</div>}
+        {!hasMore && <div className="no-more-data">Данные закончились</div>}
       </div>
     </section>
   );
 }
 
-export default DoctorList;
+export default DoctorList

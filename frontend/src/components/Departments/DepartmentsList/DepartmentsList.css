@@ -96,3 +96,20 @@
   padding: 8px 12px;
   margin-left: 8px;
 }
+
+.departments-list__item {
+  color: #1348ba;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-decoration: none;
+	cursor: pointer;
+	transition: 0.7s;
+	opacity: 1;
+}
+
+.departments-list__item:hover {
+	opacity: 0.7;
+}

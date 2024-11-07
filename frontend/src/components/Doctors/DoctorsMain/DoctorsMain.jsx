@@ -21,15 +21,23 @@ function DoctorsMain() {
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
   const currentIndexRef = useRef(currentIndex);
 
-  const doctorsToDisplay = doctors.slice(0, 4);
-
   useEffect(() => {
     const loadDoctors = async () => {
       try {
-        const data = await fetchDoctors();
-        setDoctors(data);
+        const response = await fetchDoctors();
+
+        if (Array.isArray(response.data)) {
+          setDoctors(response.data);
+        } else {
+          console.error(
+            "Ошибка: полученные данные о врачах не являются массивом",
+            response
+          );
+          setDoctors([]);
+        }
       } catch (error) {
         console.error("Ошибка загрузки данных врачей:", error);
+        setDoctors([]);
       }
     };
 
@@ -40,6 +48,8 @@ function DoctorsMain() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const doctorsToDisplay = Array.isArray(doctors) ? doctors.slice(0, 4) : [];
 
   useEffect(() => {
     currentIndexRef.current = currentIndex;

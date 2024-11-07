@@ -9,10 +9,15 @@ const app = express();
 const employersRoutes = require("./routes/employersRoutes");
 const departmentsRoutes = require("./routes/departmentsRoutes");
 
-// Настройка CORS для доменного имени
+
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? ["http://24gkb.ru", "http://www.24gkb.ru"]
+    : ["http://localhost:5173"]; // Локальный источник для разработки
+
 app.use(
   cors({
-    origin: ["http://24gkb.ru", "http://www.24gkb.ru"],
+    origin: allowedOrigins,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })

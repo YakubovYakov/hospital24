@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 function Preview() {
   const searchButtonRef = useRef(null);
-  const [selectedOption, setSelectedOption] = useState("services");
+  const [selectedOption, setSelectedOption] = useState("doctors");
   const [isButtonFocused, setIsButtonFocused] = useState(false);
   const [isSummaryVisible, setIsSummaryVisible] = useState(true);
   const [isMobileView, setIsMobileView] = useState(false);

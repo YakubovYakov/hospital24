@@ -1,10 +1,13 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002';
-export async function fetchDoctors() {
-  const response = await fetch(`${API_URL}/employers`);
+
+export async function fetchDoctors(page = 1, limit = 5) {
+  const response = await fetch(`${API_URL}/employers?page=${page}&limit=${limit}`);
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
   return data;
 }
+
+
 
 export async function fetchDoctorById(id) {
   const response = await fetch(`${API_URL}/employers/${id}`);
