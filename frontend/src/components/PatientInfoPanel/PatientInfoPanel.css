@@ -234,7 +234,8 @@
 }
 
 .patient-info__departments-image {
-  width: 552px;
+	width: 100%;
+  max-width: 552px;
   height: 470px;
 }
 

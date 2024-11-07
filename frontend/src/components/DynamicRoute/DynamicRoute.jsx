@@ -16,6 +16,9 @@ function DynamicRoute() {
   const isContactsPage = location.pathname.includes("/contacts");
   const isVisitorPage = location.pathname.includes("/visitors");
   const isPatientInfoPage = location.pathname.includes("/patient-info");
+  const isOutOfTownPatientsPage = location.pathname.includes(
+    "/out-of-town-patients"
+  );
 
   const [doctorName, setDoctorName] = useState("");
   const [departmentName, setDepartmentName] = useState("");
@@ -122,6 +125,16 @@ function DynamicRoute() {
               to="/patient-info"
             >
               Пациентам
+            </Link>
+          </>
+        )}
+        {isOutOfTownPatientsPage && (
+          <>
+            <Link
+              className="dynamic-route__link-privacy-policy"
+              to="/out-of-town-patients"
+            >
+              Иногородним пациентам
             </Link>
           </>
         )}

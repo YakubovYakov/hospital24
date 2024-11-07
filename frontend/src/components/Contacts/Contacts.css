@@ -156,7 +156,7 @@
 }
 
 .white-text {
-  color: #fff;
+  color: #fff !important;
 }
 
 .phones {
