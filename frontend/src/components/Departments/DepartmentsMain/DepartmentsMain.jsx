@@ -152,7 +152,7 @@ function DepartmentsMain() {
           <div className="departments-main__button-container">
             <h1 className="departments-main__title">Наши отделения</h1>
             <Button to="/departments" size="small">
-              Посмотреть все
+              Все
             </Button>
           </div>
           <div className="departments-main__button-container">

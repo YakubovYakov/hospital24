@@ -207,31 +207,32 @@ function Department() {
             </div>
           </div>
         </div>
-        <div className="department__doctor-cards-container">
-          <div className="departments__select-wrapper">
-            <div className="departments__select">
-              <button
-                className={`departments__select-button ${
-                  activeButton === "doctors" ? "active_select" : ""
-                }`}
-                onClick={() => handleButtonClick("doctors")}
-              >
-                Врачи
-              </button>
-              <button
-                className={`departments__select-button ${
-                  activeButton === "nurses" ? "active_select" : ""
-                }`}
-                onClick={() => handleButtonClick("nurses")}
-              >
-                Медсестры
-              </button>
-            </div>
-          </div>
-        </div>
+
         {doctors.length > 0 && (
           <div className="department__carousel-container">
             <div className="department__carousel-header">
+              <div className="department__doctor-cards-container">
+                <div className="departments__select-wrapper">
+                  <div className="departments__select">
+                    <button
+                      className={`departments__select-button ${
+                        activeButton === "doctors" ? "active_select" : ""
+                      }`}
+                      onClick={() => handleButtonClick("doctors")}
+                    >
+                      Врачи
+                    </button>
+                    <button
+                      className={`departments__select-button ${
+                        activeButton === "nurses" ? "active_select" : ""
+                      }`}
+                      onClick={() => handleButtonClick("nurses")}
+                    >
+                      Медсестры
+                    </button>
+                  </div>
+                </div>
+              </div>
               <div className="department__carousel-buttons">
                 <button
                   className="department__prev-button"

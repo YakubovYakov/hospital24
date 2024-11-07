@@ -11,7 +11,7 @@
 .main-photo {
   max-width: 100%;
   height: auto;
-  min-width: 544px;
+  width: 544px;
   height: 504px;
   border-radius: 32px;
   object-fit: cover;

@@ -11,11 +11,13 @@
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.6s ease, color 0.6s ease,
-    border-color 0.3s ease;
+	border-color 0.3s ease;
 }
 
 .btn--small {
-  padding: 8px;
+	padding: 8px;
+	width: 111px;
+	font-weight: 500;
 }
 
 .btn--medium {

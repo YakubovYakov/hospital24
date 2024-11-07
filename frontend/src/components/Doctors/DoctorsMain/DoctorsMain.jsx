@@ -145,7 +145,7 @@ function DoctorsMain() {
           <div className="doctors-main__button-container">
             <h1 className="doctors-main__title">Наши врачи</h1>
             <Button to="/our-doctors" size="small">
-              Посмотреть всех
+              Все
             </Button>
           </div>
           <div className="doctors-main__button-container">
