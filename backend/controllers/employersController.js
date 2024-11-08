@@ -43,17 +43,13 @@ const getAllEmployers = async (req, res) => {
 
     res.json({
       data: result.rows,
-      totalItems: result.rows.length, // Количество элементов в результате
+      totalItems: result.rows.length,   
     });
   } catch (error) {
     console.error("Ошибка при получении списка врачей:", error);
     res.status(500).json({ error: "Ошибка при получении списка врачей" });
   }
 };
-
-
-
-
 
 const getEmployerById = async (req, res) => {
   const { id } = req.params;

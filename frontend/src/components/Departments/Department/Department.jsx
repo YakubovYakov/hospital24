@@ -19,8 +19,8 @@ function Department() {
   const [department, setDepartment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isMobileView, setIsMobileView] = useState(false);
   const [activeButton, setActiveButton] = useState("doctors");
+	const [isMobileView, setIsMobileView] = useState(false);
 
   // Логика карусели
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -34,12 +34,54 @@ function Department() {
   const slidesToShow = 4;
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
-  const currentIndexRef = useRef(currentIndex);
+
+  // Получение данных
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchData = async () => {
+      try {
+        const [departmentData, headDoctorData, doctorsData] = await Promise.all([
+          fetchDepartmentsById(departmentId),
+          fetchDepartmentHead(departmentId),
+          fetchDepartmentDoctors(departmentId),
+        ]);
+
+        if (isMounted) {
+          setDepartment(departmentData);
+          setHeadDoctor(headDoctorData);
+
+          // Убираем главного врача из списка врачей для карусели
+          const filteredDoctors = doctorsData.filter(
+            (doctor) => doctor.doctor_id !== headDoctorData?.id
+          );
+
+          setDoctors(filteredDoctors);
+          setLoading(false);
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error("Ошибка при загрузке данных:", error);
+          setError("Не удалось загрузить данные отделения.");
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [departmentId]);
 
   useEffect(() => {
-    currentIndexRef.current = currentIndex;
-  }, [currentIndex]);
+    window.scrollTo(0, 0);
+  }, []);
 
+  const handleButtonClick = (buttonType) => setActiveButton(buttonType);
+
+  // Логика карусели
   const extendedDoctors = useMemo(() => {
     if (doctors.length === 0) return [];
     return [
@@ -52,51 +94,9 @@ function Department() {
   useEffect(() => {
     const track = trackRef.current;
     if (track) {
-      if (isTransitioning) {
-        track.classList.remove("no-transition");
-      } else {
-        track.classList.add("no-transition");
-      }
       track.style.transform = `translateX(-${currentIndex * cardTotalWidth}px)`;
     }
-  }, [currentIndex, isTransitioning, cardTotalWidth]);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (track) {
-      const handleTransitionEnd = () => {
-        if (currentIndex >= extendedDoctors.length - slidesToShow) {
-          track.classList.add("no-transition");
-          const newIndex = slidesToShow;
-          setCurrentIndex(newIndex);
-          track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
-
-          requestAnimationFrame(() => {
-            track.classList.remove("no-transition");
-            setIsTransitioning(false);
-          });
-        } else if (currentIndex <= slidesToShow - 1) {
-          track.classList.add("no-transition");
-          const newIndex = extendedDoctors.length - slidesToShow * 2;
-          setCurrentIndex(newIndex);
-          track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
-
-          requestAnimationFrame(() => {
-            track.classList.remove("no-transition");
-            setIsTransitioning(false);
-          });
-        } else {
-          setIsTransitioning(false);
-        }
-      };
-
-      track.addEventListener("transitionend", handleTransitionEnd);
-
-      return () => {
-        track.removeEventListener("transitionend", handleTransitionEnd);
-      };
-    }
-  }, [currentIndex, extendedDoctors.length, slidesToShow, cardTotalWidth]);
+  }, [currentIndex, cardTotalWidth]);
 
   const handleNextClick = () => {
     if (!isTransitioning) {
@@ -112,56 +112,29 @@ function Department() {
     }
   };
 
-  // Получение данных о врачах и отделении
   useEffect(() => {
-    let isMounted = true;
-
-    const fetchHeadDoctorData = async () => {
-      try {
-        const data = await fetchDepartmentHead(departmentId);
-        if (isMounted) {
-          setHeadDoctor(data);
+    const track = trackRef.current;
+    if (track) {
+      const handleTransitionEnd = () => {
+        setIsTransitioning(false);
+        if (currentIndex >= extendedDoctors.length - slidesToShow) {
+          const newIndex = slidesToShow;
+          setCurrentIndex(newIndex);
+          track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
+        } else if (currentIndex <= slidesToShow - 1) {
+          const newIndex = extendedDoctors.length - slidesToShow * 2;
+          setCurrentIndex(newIndex);
+          track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
         }
-      } catch (error) {
-        if (isMounted) {
-          console.error("Ошибка при загрузке главного врача:", error);
-        }
-      }
-    };
+      };
 
-    fetchHeadDoctorData();
+      track.addEventListener("transitionend", handleTransitionEnd);
 
-    return () => {
-      isMounted = false;
-    };
-  }, [departmentId]);
-
-  useEffect(() => {
-    fetchDepartmentDoctors(departmentId)
-      .then((data) => setDoctors(data))
-      .catch((error) =>
-        console.error("Ошибка при загрузке врачей отдела:", error)
-      );
-  }, [departmentId]);
-
-  useEffect(() => {
-    fetchDepartmentsById(departmentId)
-      .then((data) => {
-        setDepartment(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Ошибка при загрузке данных отделения:", err);
-        setError("Не удалось загрузить данные отделения.");
-        setLoading(false);
-      });
-  }, [departmentId]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const handleButtonClick = (buttonType) => setActiveButton(buttonType);
+      return () => {
+        track.removeEventListener("transitionend", handleTransitionEnd);
+      };
+    }
+  }, [currentIndex, extendedDoctors.length, slidesToShow, cardTotalWidth]);
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>{error}</div>;
@@ -187,8 +160,7 @@ function Department() {
                 {department.location || "Не указано"}
               </span>
               <div className="department__description">
-                {department.descriptions &&
-                department.descriptions.length > 0 ? (
+                {department.descriptions && department.descriptions.length > 0 ? (
                   department.descriptions.map((desc, index) => (
                     <p key={index} className="department__description-item">
                       {desc}
@@ -210,7 +182,9 @@ function Department() {
                       <img
                         className="department__head-doctor-card-image"
                         src={headDoctor.head_doctor_photo}
-                        alt={headDoctor.head_doctor_title || "Фото отсутствует"}
+                        alt={
+                          headDoctor.head_doctor_title || "Фото отсутствует"
+                        }
                       />
                     </div>
                   ) : (
@@ -282,29 +256,29 @@ function Department() {
                 {extendedDoctors.map((doctor, index) => {
                   const originalIndex =
                     (index - slidesToShow + doctors.length) % doctors.length;
+                  const currentDoctor = doctors[originalIndex];
+
                   return (
-                    <div key={index} className="department__doctor-card">
+                    <div
+                      key={`${currentDoctor.doctor_id}-${index}`}
+                      className="department__doctor-card"
+                    >
                       <div className="department__doctor-card-img-wrapper">
                         <img
                           className="department__doctor-card-image"
-                          src={
-                            doctors[originalIndex].doctor_card_photo ||
-                            doctor.doctor_card_photo
-                          }
-                          alt={`Фото доктора ${doctors[originalIndex].doctor_card_title}`}
+                          src={currentDoctor.doctor_card_photo}
+                          alt={`Фото доктора ${currentDoctor.doctor_card_title}`}
                         />
                       </div>
                       <h3 className="department__doctor-card-title">
-                        {doctors[originalIndex].doctor_card_title}
+                        {currentDoctor.doctor_card_title}
                       </h3>
                       <p className="department__doctor-card-description">
-                        {doctors[originalIndex].doctor_card_description?.join(
-                          ", "
-                        )}
+                        {currentDoctor.doctor_card_description?.join(", ")}
                       </p>
                       <div className="department__button-container">
                         <Button
-                          to={`/doctor/${doctors[originalIndex].doctor_id}`}
+                          to={`/doctor/${currentDoctor.doctor_id}`}
                           color="secondary"
                           minWidth={true}
                         >
@@ -326,7 +300,7 @@ function Department() {
           )}
           <FeedbackButtons
             title="Оставить отзыв"
-            description={`${department.name || ""} будет вам очень благодарно!`}
+            // description={`${department.name || ""} будет вам очень благодарно!`}
           />
         </div>
       </div>

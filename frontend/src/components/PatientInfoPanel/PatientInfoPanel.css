@@ -11,7 +11,8 @@
 }
 
 .patient-info__title {
-  width: 552px;
+  width: 100%;
+	max-width: 552px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 32px;

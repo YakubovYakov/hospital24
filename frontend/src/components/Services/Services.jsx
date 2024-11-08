@@ -19,8 +19,8 @@ function Services() {
               У вас направление к нам?
             </h2>
             <p className="services__card-text">
-              Консультация / плановая госпитализация пациентов возможна при
-              наличии направления в ЕМИАС или формы 057у
+              Консультация и плановая госпитализация пациентов при наличии
+              направления в ЕМИАС или формы 057у
             </p>
             <div className="services__card-button_container">
               <Link
@@ -57,7 +57,7 @@ function Services() {
           </div>
           <div className="services__card">
             <img
-              className="services__card-image"
+              className="services__card-image services-image-3"
               src={reception}
               alt="Фото сервиса"
             />
@@ -65,7 +65,7 @@ function Services() {
               Хотите пройти лечение платно?
             </h2>
             <p className="services__card-text">
-              Консультации врачей, высокотехнологичные операции, различная
+              Консультации врачей, операции, различная
               диагностика, палаты повышенной комфортности
             </p>
             <div className="services__card-button_container">

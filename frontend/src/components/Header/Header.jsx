@@ -52,13 +52,14 @@ function Header() {
             >
               Отделения
             </Link>
-            <button
+            <Link
+							to="/services"
               className={`header__button ${
                 isActive("/services") ? "active-button" : ""
               }`}
             >
               Услуги
-            </button>
+            </Link>
             <Link
               to="/contacts"
               className={`header__button ${

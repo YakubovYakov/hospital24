@@ -25,19 +25,22 @@
 }
 
 .btn--big {
-  max-width: 528px;
+	max-width: 528px;
   width: 100%;
 }
 
 .btn--min-width {
-  width: 238px;
+	width: 238px;
 }
 
 .btn--max-width {
-  max-width: 75px;
+	max-width: 75px;
 }
 
-
+.btn--large {
+	padding: 12px;
+	
+}
 
 .btn--primary {
   background-color: #1348ba;
@@ -47,7 +50,8 @@
 
 .btn--secondary {
   background-color: transparent;
-  color: #1e1e1e;
+  color: #757575;
+	font-weight: 500;
   border: 1px solid #1348ba;
 }
 

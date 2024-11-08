@@ -81,24 +81,39 @@ const getDepartmentDoctors = async (req, res) => {
   const { departmentId } = req.params;
   try {
     const result = await pool.query(
-      `SELECT 
-			e.id AS doctor_id,
-			e.full_name AS doctor_card_title,
-			p.photo_url AS doctor_card_photo,
-			ARRAY_AGG(DISTINCT post.name) AS doctor_card_description
-		FROM employers e
-		LEFT JOIN employers_photo p ON e.id = p.employers_id AND p.is_main = true
-		LEFT JOIN employers_post ep ON e.id = ep.employers_id
-		LEFT JOIN post ON ep.post_id = post.id
-		WHERE e.dept_id = $1
-		GROUP BY e.id, p.photo_url`,
+      `
+      SELECT 
+        e.id AS doctor_id,
+        e.full_name AS doctor_card_title,
+        e.start_experience,
+        -- Positions
+        COALESCE(
+          (
+            SELECT ARRAY_AGG(p.name ORDER BY ep2.ord)
+            FROM employers_post ep2
+            JOIN post p ON p.id = ep2.post_id
+            WHERE ep2.employers_id = e.id
+          ),
+          '{}'
+        ) AS doctor_card_description,
+        -- Photos
+        COALESCE(
+          (
+            SELECT ep.photo_url
+            FROM employers_photo ep
+            WHERE ep.employers_id = e.id AND ep.is_main = true
+            ORDER BY ep.id ASC
+            LIMIT 1
+          ),
+          ''
+        ) AS doctor_card_photo
+      FROM employers e
+      LEFT JOIN department_head dh ON e.id = dh.employer_id AND dh.department_id = $1
+      WHERE e.dept_id = $1 AND e.archived = false AND dh.employer_id IS NULL
+      ORDER BY e.id;
+      `,
       [departmentId]
     );
-
-    if (result.rows.length === 0) {
-      // Отправляем пустой массив, если врачи не найдены
-      return res.json([]);
-    }
 
     res.json(result.rows);
   } catch (error) {

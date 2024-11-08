@@ -24,6 +24,7 @@ import PrivacyPolicy from "./components/InfoPage/PrivacyPolicy";
 import VisitorInfo from "./components/VisitorInfo/VisitorInfo";
 import PatientInfoPanel from "./components/PatientInfoPanel/PatientInfoPanel";
 import OutOfTownPatients from "./components/OutOfTownPatients/OutOfTownPatients";
+import PaidServices from "./components/PaidServices/PaidServices";
 
 // Основная логика для маршрутизации и адаптации
 function App() {
@@ -128,6 +129,15 @@ function App() {
             <>
               <DynamicRoute />
               <OutOfTownPatients />
+            </>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <>
+              <DynamicRoute />
+              <PaidServices />
             </>
           }
         />
