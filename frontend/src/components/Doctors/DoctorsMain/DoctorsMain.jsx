@@ -201,11 +201,15 @@ function DoctorsMain() {
                     )}
 
                     <h2 className="doctors__card-title">{doctor.full_name}</h2>
-                    <p className="doctors__card-position">
-                      {Array.isArray(doctor.position_main)
-                        ? doctor.position_main.join(", ")
-                        : doctor.position_main}
-                    </p>
+                    {doctor.positions && doctor.positions.length > 0 ? (
+                      <p className="doctor-preview-card__positions">
+                        {doctor.positions.join(", ")}
+                      </p>
+                    ) : (
+                      <p className="doctor-preview-card__positions">
+                        Должность не указана
+                      </p>
+                    )}
 
                     <Button
                       to={`/doctor/${doctor.id}`}

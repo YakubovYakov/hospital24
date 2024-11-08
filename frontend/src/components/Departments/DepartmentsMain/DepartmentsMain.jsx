@@ -1,28 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { fetchDepartments } from "../../../utils/api"; // Импорт функции для получения данных из API
 import "./DepartmentsMain.css";
-import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
-import { departments } from "../../../data/departmentsData";
 
 function DepartmentsMain() {
-  const departments = [
-    {
-      id: 1,
-      title: "Колопроктология",
-      description: "Описание отделения Колопроктологии...",
-    },
-    {
-      id: 2,
-      title: "Гинекология",
-      description: "Описание отделения Гинекологии...",
-    },
-    {
-      id: 3,
-      title: "Аллергология",
-      description: "Описание отделения Аллергологии...",
-    },
-  ];
-
+  const [departments, setDepartments] = useState([]);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -41,6 +23,25 @@ function DepartmentsMain() {
   useEffect(() => {
     currentIndexRef.current = currentIndex;
   }, [currentIndex]);
+
+  // Загружаем отделения из базы данных
+  useEffect(() => {
+    const loadDepartments = async () => {
+      try {
+        const data = await fetchDepartments();
+        // Сортируем отделения: сначала с контентом, потом без
+        const sortedDepartments = data.sort((a, b) => {
+          const aHasContent = a.descriptions && a.descriptions.length > 0;
+          const bHasContent = b.descriptions && b.descriptions.length > 0;
+          return bHasContent - aHasContent;
+        });
+        setDepartments(sortedDepartments);
+      } catch (error) {
+        console.error("Ошибка при загрузке отделений:", error);
+      }
+    };
+    loadDepartments();
+  }, []);
 
   useEffect(() => {
     const updateContainerWidth = () => {
@@ -132,7 +133,7 @@ function DepartmentsMain() {
     }
   }, [currentIndex, extendedDepartments.length, slidesToShow]);
 
-  const handleNextClick = ({ departments = [] }) => {
+  const handleNextClick = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -145,6 +146,7 @@ function DepartmentsMain() {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
+
   return (
     <section className="departments-main">
       <div className="departments-main__container">
@@ -156,7 +158,7 @@ function DepartmentsMain() {
             </Button>
           </div>
           <div className="departments-main__button-container">
-					<button
+            <button
               className="feedback__prev-button"
               onClick={handlePrevClick}
             />
@@ -184,17 +186,19 @@ function DepartmentsMain() {
                 const originalIndex =
                   (index - slidesToShow + departments.length) %
                   departments.length;
+                const currentDepartment = departments[originalIndex];
+
                 return (
                   <div key={index} className="departments-main__card">
                     <h2 className="departments-main__card-title">
-                      {department.title}
+                      {currentDepartment.name}
                     </h2>
                     <p className="departments-main__card-text">
-                      {department.description}
+                      
                     </p>
                     <div className="departments-main__card-button_container">
                       <Button
-                        to={`/departments/${department.id}`}
+                        to={`/departments/${currentDepartment.id}`}
                         color="secondary"
                       >
                         Подробнее
