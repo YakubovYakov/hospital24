@@ -18,6 +18,13 @@ function DoctorPreviewCard({ doctor }) {
 
       <h2 className="doctor-preview-card__name">{doctor.full_name}</h2>
 
+      {doctor.positions && doctor.positions.length > 0 ? (
+        <p className="doctor-preview-card__positions">
+          {doctor.positions.join(", ")}
+        </p>
+      ) : (
+        <p className="doctor-preview-card__positions">Должность не указана</p>
+      )}
       <Button to={`/doctor/${doctor.id}`} color="secondary">
         Подробнее
       </Button>

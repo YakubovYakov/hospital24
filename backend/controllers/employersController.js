@@ -2,10 +2,6 @@
 const pool = require("../config/db");
 
 const getAllEmployers = async (req, res) => {
-  const page = parseInt(req.query.page) || 1; // Номер страницы из запроса, по умолчанию 1
-  const limit = parseInt(req.query.limit) || 5; // Лимит записей на странице, по умолчанию 5
-  const offset = (page - 1) * limit; // Смещение для SQL-запроса
-
   try {
     const result = await pool.query(
       `
@@ -15,7 +11,18 @@ const getAllEmployers = async (req, res) => {
         e.start_experience, 
         d.name AS department_name,
 
-        -- Photos: Get photos in the correct order
+        -- Positions
+        COALESCE(
+          (
+            SELECT ARRAY_AGG(p.name ORDER BY ep2.ord)
+            FROM employers_post ep2
+            JOIN post p ON p.id = ep2.post_id
+            WHERE ep2.employers_id = e.id
+          ),
+          '{}'
+        ) AS positions,
+
+        -- Photos
         COALESCE(
           (
             SELECT ARRAY_AGG(ep.photo_url ORDER BY ep.is_main DESC, ep.id ASC)
@@ -28,32 +35,22 @@ const getAllEmployers = async (req, res) => {
       FROM employers e
       LEFT JOIN dept d ON e.dept_id = d.id
 
-      WHERE e.archived = false -- Exclude archived records
+      WHERE e.archived = false
       GROUP BY e.id, d.name
-      ORDER BY e.id
-      LIMIT $1 OFFSET $2;
-      `,
-      [limit, offset]
-    );
-
-    // Получаем общее количество записей для определения конца списка
-    const countResult = await pool.query(
-      `
-      SELECT COUNT(*) FROM employers e
-      WHERE e.archived = false;
+      ORDER BY e.id;
       `
     );
-    const totalItems = parseInt(countResult.rows[0].count);
 
     res.json({
       data: result.rows,
-      totalItems,
+      totalItems: result.rows.length, // Количество элементов в результате
     });
   } catch (error) {
     console.error("Ошибка при получении списка врачей:", error);
     res.status(500).json({ error: "Ошибка при получении списка врачей" });
   }
 };
+
 
 
 

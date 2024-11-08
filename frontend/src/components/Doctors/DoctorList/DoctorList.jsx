@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./DoctorList.css";
-import Button from "../../Button/Button";
 import DoctorPreviewCard from "../../Doctors/DoctorPreviewCard/DoctorPreviewCard";
-import search from "../../../images/svg/Search.svg";
-
+import searchIcon from "../../../images/svg/Search.svg";
 import { fetchDoctors } from "../../../utils/api";
 
 const ITEMS_PER_PAGE = 3;
 
 function DoctorList() {
   const [doctors, setDoctors] = useState([]);
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true); // Флаг наличия дополнительных данных
+  const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const observerRef = useRef();
   const lastDoctorRef = useRef();
 
@@ -34,7 +34,6 @@ function DoctorList() {
           return uniqueDoctors;
         });
 
-        // Проверяем, есть ли еще данные для загрузки
         const totalLoaded = currentPage * ITEMS_PER_PAGE;
         if (totalLoaded >= result.totalItems) {
           setHasMore(false);
@@ -73,29 +72,62 @@ function DoctorList() {
     };
   }, [doctors, loading, hasMore]);
 
+  useEffect(() => {
+    if (searchTerm === "") {
+      setFilteredDoctors(doctors);
+    } else {
+      const filtered = doctors.filter((doctor) =>
+        doctor.full_name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredDoctors(filtered);
+    }
+  }, [searchTerm, doctors]);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1); // Сбрасываем текущую страницу при новом поиске
+  };
+
   if (error) return <div>{error}</div>;
 
   return (
     <section className="doctor-list">
       <div className="doctor-list__container">
+        <form
+          className="doctor-list__form"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <div className="doctor-list__search-wrapper">
+            <input
+              className="doctor-list__search-input"
+              placeholder="Поиск"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <img
+              src={searchIcon}
+              alt="Search Icon"
+              className="doctor-list__search-icon"
+            />
+          </div>
+        </form>
         <div className="doctor-list__card-container">
-          {doctors.map((doctor, index) => {
-            const isLastDoctor = index === doctors.length - 1;
+          {filteredDoctors.map((doctor, index) => {
+            const isLastDoctor = index === filteredDoctors.length - 1;
             return (
-              <div
-                key={doctor.id}
-                ref={isLastDoctor ? lastDoctorRef : null}
-              >
+              <div key={doctor.id} ref={isLastDoctor ? lastDoctorRef : null}>
                 <DoctorPreviewCard doctor={doctor} />
               </div>
             );
           })}
         </div>
         {loading && <div>Загрузка данных...</div>}
-        {!hasMore && <div className="no-more-data">Данные закончились</div>}
+        {!hasMore && !loading && filteredDoctors.length === 0 && (
+          <div className="no-more-data">Врачи не найдены</div>
+        )}
       </div>
     </section>
   );
 }
 
-export default DoctorList
+export default DoctorList;

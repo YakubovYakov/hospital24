@@ -2,7 +2,7 @@ import React from "react";
 import "./Services.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-
+import reception from "../../images/svg/reception.svg";
 
 function Services() {
   return (
@@ -15,14 +15,20 @@ function Services() {
               src={"https://i.postimg.cc/zDkCxRK2/services1.png"}
               alt="Фото сервиса"
             />
-            <h2 className="services__card-title">У вас направление к нам?</h2>
+            <h2 className="services__card-title services-title-1">
+              У вас направление к нам?
+            </h2>
             <p className="services__card-text">
-              Body text for whatever you d like to say. Add main takeaway
-              points, quotes, anecdotes, or even a very very short story.
+              Консультация / плановая госпитализация пациентов возможна при
+              наличии направления в ЕМИАС или формы 057у
             </p>
             <div className="services__card-button_container">
-              <Link to="/patient-info" className="services__card-button" color="secondary">
-                Записаться по направлению
+              <Link
+                to="/patient-info"
+                className="services__card-button"
+                color="secondary"
+              >
+                Узнать больше
               </Link>
             </div>
           </div>
@@ -36,31 +42,35 @@ function Services() {
               Вы из региона и хотите лечиться у нас по ОМС?
             </h2>
             <p className="services__card-text">
-              Body text for whatever you d like to say. Add main takeaway
-              points, quotes, anecdotes, or even a very very short story.
+              Консультации, лечение, операции для жителей из регионов и про
+              проект "Москва - столица здоровья"
             </p>
             <div className="services__card-button_container">
-              <Link to="/out-of-town-patients"  className="services__card-button" color="secondary">
-                Лечиться по ОМС
+              <Link
+                to="/out-of-town-patients"
+                className="services__card-button"
+                color="secondary"
+              >
+                Узнать больше
               </Link>
             </div>
           </div>
           <div className="services__card">
             <img
               className="services__card-image"
-              src={"https://i.postimg.cc/cCTfCVdG/services3.png"}
+              src={reception}
               alt="Фото сервиса"
             />
             <h2 className="services__card-title">
               Хотите пройти лечение платно?
             </h2>
             <p className="services__card-text">
-              Body text for whatever you d like to say. Add main takeaway
-              points, quotes, anecdotes, or even a very very short story.
+              Консультации врачей, высокотехнологичные операции, различная
+              диагностика, палаты повышенной комфортности
             </p>
             <div className="services__card-button_container">
               <Link to="/" className="services__card-button" color="secondary">
-                Пройти лечение
+                Узнать больше
               </Link>
             </div>
           </div>

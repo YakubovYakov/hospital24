@@ -18,7 +18,7 @@
 
 .doctor-list__form {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .doctor-list__search-wrapper {

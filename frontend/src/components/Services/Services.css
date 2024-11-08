@@ -59,6 +59,10 @@
   margin: 24px 0 8px;
 }
 
+.services-title-1 {
+	width: 212px;
+}
+
 .services__card-text {
   color: #757575;
   font-family: "Cera Round", sans-serif;
@@ -78,9 +82,9 @@
 
 .services__card-button {
   color: #1e1e1e;
-  background: #e3e3e3;
+  background: transparent;
   border-radius: 8px;
-  border: 1px solid #767676;
+  border: 1px solid #1348BA;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;

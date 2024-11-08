@@ -46,9 +46,9 @@
 }
 
 .btn--secondary {
-  background-color: #e3e3e3;
+  background-color: transparent;
   color: #1e1e1e;
-  border: 1px solid #767676;
+  border: 1px solid #1348ba;
 }
 
 .btn--third {

@@ -398,6 +398,8 @@
 }
 
 .department__doctor-card-title {
+	width: 100%;
+	max-width: 225px;
   font-size: 20px;
   font-weight: 400;
   color: #1e1e1e;

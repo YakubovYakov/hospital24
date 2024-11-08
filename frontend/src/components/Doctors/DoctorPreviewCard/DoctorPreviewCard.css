@@ -1,4 +1,5 @@
 .doctor-preview-card {
+  height: 462px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -8,27 +9,40 @@
 }
 
 .doctor-preview-card__photo {
-  width: 238px;
+	width: 100%;
+  max-width: 238px;
   height: 238px;
-	border-radius: 32px;
+  border-radius: 32px;
   object-position: top;
   object-fit: cover;
   margin-bottom: 16px;
 }
 
 .doctor-preview-card__name {
+	width: 100%;
+  max-width: 218px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  margin-bottom: 88px;
-	width: 218px;
+  /* margin-bottom: 88px; */
 }
 
 .doctor-preview-card__button {
 }
 
 .doctor-preview-card__photo-placeholder {
+}
+
+.doctor-preview-card__positions {
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  /* margin-bottom: 52px; */
+  flex-grow: 1;
 }
