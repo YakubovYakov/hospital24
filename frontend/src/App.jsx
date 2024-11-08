@@ -26,15 +26,17 @@ import PatientInfoPanel from "./components/PatientInfoPanel/PatientInfoPanel";
 import OutOfTownPatients from "./components/OutOfTownPatients/OutOfTownPatients";
 import PaidServices from "./components/PaidServices/PaidServices";
 
-// Основная логика для маршрутизации и адаптации
 function App() {
   const location = useLocation();
 
   useEffect(() => {
     const metaViewport = document.querySelector('meta[name="viewport"]');
-    const desktopOnlyRoutes = ["/patient-info", "/visitors"];
-
-    // Изменение мета-тега в зависимости от маршрута
+    const desktopOnlyRoutes = [
+      "/patient-info",
+      "/visitors",
+      "/paid-services",
+      "/out-of-town-patients",
+    ];
     if (desktopOnlyRoutes.includes(location.pathname)) {
       metaViewport.setAttribute("content", "width=1200, initial-scale=1");
     } else {
@@ -133,7 +135,7 @@ function App() {
           }
         />
         <Route
-          path="/services"
+          path="/paid-services"
           element={
             <>
               <DynamicRoute />
@@ -147,7 +149,7 @@ function App() {
   );
 }
 
-// Обернем приложение в BrowserRouter для корректной работы useLocation
+// Обертка в BrowserRouter для корректной работы useLocation
 export default function AppWrapper() {
   return (
     <Router>

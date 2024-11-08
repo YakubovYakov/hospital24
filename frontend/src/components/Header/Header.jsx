@@ -53,9 +53,9 @@ function Header() {
               Отделения
             </Link>
             <Link
-							to="/services"
+							to="/paid-services"
               className={`header__button ${
-                isActive("/services") ? "active-button" : ""
+                isActive("/paid-services") ? "active-button" : ""
               }`}
             >
               Услуги

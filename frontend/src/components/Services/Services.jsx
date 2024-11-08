@@ -69,7 +69,7 @@ function Services() {
               диагностика, палаты повышенной комфортности
             </p>
             <div className="services__card-button_container">
-              <Link to="/" className="services__card-button" color="secondary">
+              <Link to="/paid-services" className="services__card-button" color="secondary">
                 Узнать больше
               </Link>
             </div>
