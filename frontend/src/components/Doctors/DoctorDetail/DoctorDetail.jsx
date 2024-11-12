@@ -55,9 +55,9 @@ function DoctorDetail() {
         />
       </div>
       {isMobileView ? (
-        <FeedbackMobile feedbacks={doctor.feedbacks || []} />
+        <FeedbackMobile empId={doctor.id} />
       ) : (
-        <Feedback feedbacks={doctor.feedbacks || []} />
+        <Feedback empId={doctor.id} />
       )}
       <FeedbackButtons
         title="Оставить отзыв"

@@ -51,7 +51,7 @@ function PatientInfoPanel() {
           <img
             className="patient-info__content-image"
             alt="Картинка Ресепшна"
-            src="https://i.postimg.cc/8cQj6pmS/reception-kdc.png"
+            src="http://24gkb.ru/images-svg/reception-kdc.png"
           />
         </div>
         <div className="patient-info__cards-container">
@@ -110,7 +110,7 @@ function PatientInfoPanel() {
               <img
                 className="patient-info__image"
                 alt="Логотип московского здоровья"
-                src="https://i.postimg.cc/Kvh0ZtL9/image-179.png"
+                src="http://24gkb.ru/images-svg/image%20179.png"
               />
             </div>
             <div className="patient-info__card-footer">
@@ -133,7 +133,7 @@ function PatientInfoPanel() {
               <img
                 className="patient-info__departments-image"
                 alt="Картинка с врачами"
-                src="https://i.postimg.cc/6QTQy2RS/doctors-image.png"
+                src="http://24gkb.ru/images-svg/doctors-image-2.jpg"
               />
             </div>
             <div className="patient-info__departments-list">
@@ -189,7 +189,7 @@ function PatientInfoPanel() {
           <img
             className="patient-info__content-image"
             alt="Картинка Ресепшна"
-            src="https://i.postimg.cc/G27JvsSy/Group-5.png"
+            src="http://24gkb.ru/images-svg/reception-2.svg"
           />
         </div>
         <div className="patient-info__cards-container">

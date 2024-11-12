@@ -1,0 +1,72 @@
+.about-hospital {
+}
+
+.about-hospital__container {
+  width: 100%;
+  max-width: 1152px;
+  margin: 48px auto 0 auto;
+}
+
+.about-hospital__top {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-hospital__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.about-hospital__content-text {
+	width: 100%;
+	max-width: 552px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.about-hospital__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.about-hospital__text {
+  color: #1e1e1e;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.about-hospital__link {
+  color: #1348ba;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+	text-decoration: none;
+	margin: 16px 0 0;
+	opacity: 1;
+	transition: 0.5s;
+}
+
+.about-hospital__link:hover {
+	opacity: 0.7;
+}
+
+.about-hospital__link::after {
+	content: url(../../images/Icon-right-bluesvg.svg);
+	padding: 5px 0;
+	margin-left: 16px;
+}
+
+.about-hospital__image {
+  max-width: 552px;
+  min-height: 418px;
+}

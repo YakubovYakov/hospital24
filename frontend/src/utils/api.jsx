@@ -1,13 +1,13 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3002";
 
 export async function fetchDoctors(page = 1, limit = 5) {
-  const response = await fetch(`${API_URL}/employers?page=${page}&limit=${limit}`);
+  const response = await fetch(
+    `${API_URL}/employers?page=${page}&limit=${limit}`
+  );
   if (!response.ok) throw new Error("Ошибка загрузки данных");
   const data = await response.json();
   return data;
 }
-
-
 
 export async function fetchDoctorById(id) {
   const response = await fetch(`${API_URL}/employers/${id}`);
@@ -61,7 +61,22 @@ export async function fetchDepartmentDoctors(departmentId) {
   const text = await response.text();
   try {
     return JSON.parse(text);
-  } catch (e) {
+  } catch (error) {
     throw new Error("Ошибка обработки ответа сервера");
   }
 }
+
+export async function fetchFeedbacks() {
+  const response = await fetch(`${API_URL}/feedbacks`);
+  if (!response.ok) throw new Error("Ошибка загрузки данных");
+  const data = await response.json();
+  return Array.isArray(data) ? data : [];
+}
+
+export async function fetchDepartmentFeedback(deptId) {
+  const response = await fetch(`${API_URL}/feedbacks/${deptId}`);
+  if (!response.ok) throw new Error("Ошибка загрузки данных");
+  const data = await response.json();
+  return Array.isArray(data) ? data : [];
+}
+

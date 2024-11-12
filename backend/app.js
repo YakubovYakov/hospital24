@@ -1,5 +1,5 @@
 // app.js
-require("dotenv").config(); 
+require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
@@ -8,12 +8,12 @@ const cors = require("cors");
 const app = express();
 const employersRoutes = require("./routes/employersRoutes");
 const departmentsRoutes = require("./routes/departmentsRoutes");
-
+const feedbackRoutes = require("./routes/feedbackRoutes");
 
 const allowedOrigins =
   process.env.NODE_ENV === "production"
     ? ["http://24gkb.ru", "http://www.24gkb.ru"]
-    : ["http://localhost:5173"]; // Локальный источник для разработки
+    : ["http://localhost:5173"];
 
 app.use(
   cors({
@@ -28,6 +28,7 @@ app.use(express.json());
 // Роуты API
 app.use("/api/employers", employersRoutes);
 app.use("/api/departments", departmentsRoutes);
+app.use("/api/feedbacks", feedbackRoutes);
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 

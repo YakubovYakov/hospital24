@@ -238,6 +238,7 @@
 	width: 100%;
   max-width: 552px;
   height: 470px;
+	object-fit: cover;
 }
 
 .patient-info__departments-list {

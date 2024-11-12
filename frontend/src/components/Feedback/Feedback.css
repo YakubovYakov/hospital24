@@ -1,24 +1,24 @@
 .feedback {
   /* padding: 24px 64px 48px;  */
-  padding: 24px 0; 
+  padding: 24px 0;
   margin-bottom: 24px;
 }
 
 .feedback__container {
-	max-width: 1152px;
+  max-width: 1152px;
   margin: 0 auto;
 }
 
 .feedback__top {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .feedback__buttons-carousel-container {
-	display: flex;
-	gap: 16px;
+  display: flex;
+  gap: 16px;
 }
 
 .feedback__title {
@@ -33,7 +33,7 @@
 }
 
 .feedback__wrapper {
-	position: relative;
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -48,7 +48,7 @@
   transition: transform 0.5s ease-in-out;
   will-change: transform;
   gap: 48px;
-	align-items: flex-start;
+  align-items: flex-start;
 }
 
 .feedback__track.no-transition {
@@ -73,13 +73,16 @@
 }
 
 .feedback__card {
+  width: 100%;
+  max-width: 352px;
+  height: 100%;
+  min-height: 302px;
   box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid #d9d9d9;
   background: #fff;
   padding: 25px;
-	width: 352px;
-	flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 
 .feedback__card:last-child {
@@ -98,23 +101,20 @@
 
 .feedback__card-text {
   color: #1e1e1e;
-  max-height: 102px;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-  max-height: 85px;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-	color: #1e1e1e;
-  max-height: 85px; 
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
+  max-height: none;
+  max-height: 100px;
+  overflow: hidden; 
+  transition: max-height 0.6s ease;
 }
 
 .feedback__card-text.expanded {
-  max-height: 500px;
+  max-height: 1000px;
+  overflow: visible;
 }
 
 .feedback__more_button {
@@ -127,13 +127,13 @@
   border: 0;
   background: transparent;
   margin: 4px 0 24px;
-	opacity: 1;
-	transition: 0.7s;
-	cursor: pointer;
+  opacity: 1;
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 .feedback__more_button:hover {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .feedback__card-author {
@@ -160,29 +160,27 @@
   background-repeat: no-repeat;
   border: 0;
   padding: 10px;
-	transition: 0.7s;
-	
+  transition: 0.7s;
 }
 
-
 .feedback__prev-button {
-	background: url(../../images/button-prev.svg);
-	background-repeat: no-repeat;
-	opacity: 0.8;
+  background: url(../../images/button-prev.svg);
+  background-repeat: no-repeat;
+  opacity: 0.8;
 }
 
 .feedback__next-button {
-	background: url(../../images/button-next.svg);
-	background-repeat: no-repeat;
-	opacity: 0.8;
+  background: url(../../images/button-next.svg);
+  background-repeat: no-repeat;
+  opacity: 0.8;
 }
 
 .feedback__prev-button:hover {
-	opacity: 1;
+  opacity: 1;
 }
 
 .feedback__next-button:hover {
-	opacity: 1;
+  opacity: 1;
 }
 
 .feedback__buttons-container {
@@ -241,7 +239,7 @@
   border: 1px solid #1348ba;
   background-color: #1348ba !important;
   color: #d8edff;
-  font-family: 'Cera Round', sans-serif;
+  font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -280,25 +278,25 @@
 }
 
 @media (max-width: 768px) {
-	.feedback__container {
-		padding: 24px 32px;
-	}
-	.feedback__mobile-card-container {
-		display: flex;
+  .feedback__container {
+    padding: 24px 32px;
+  }
+  .feedback__mobile-card-container {
+    display: flex;
     flex-direction: row;
     gap: 16px;
-		max-width: 1152px;
-		margin: 0 auto;
-		user-select: none;
-		scroll-snap-type: x;
-		overflow-x: auto;
-		scroll-behavior: smooth;
-		scrollbar-width: none;
-	}
+    max-width: 1152px;
+    margin: 0 auto;
+    user-select: none;
+    scroll-snap-type: x;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
 
-	.feedback__title {
-		margin: 0 0 24px 0;
-	}
+  .feedback__title {
+    margin: 0 0 24px 0;
+  }
 }
 
 @media (max-width: 576px) {

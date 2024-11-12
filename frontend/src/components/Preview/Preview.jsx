@@ -11,6 +11,11 @@ function Preview() {
 
   const [transitioning, setTransitioning] = useState(false);
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
 

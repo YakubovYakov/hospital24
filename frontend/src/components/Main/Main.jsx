@@ -43,7 +43,7 @@ function Main({ doctors }) {
       {isMobileView ? (
         <FeedbackMobile feedbacks={departmentFeedbacks} />
       ) : (
-        <Feedback feedbacks={departmentFeedbacks} />
+        <Feedback />
       )}
     </>
   );

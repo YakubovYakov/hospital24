@@ -37,12 +37,13 @@
 }
 
 .doctor-preview-card__positions {
+	width: 100%;
+	max-width: 238px;
   color: #757575;
   font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
-  /* margin-bottom: 52px; */
   flex-grow: 1;
 }

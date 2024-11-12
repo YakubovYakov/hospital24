@@ -116,11 +116,10 @@
 
   .help-main__text {
     max-width: auto;
+		margin: 0;
   }
 
-  .help-main__banner {
-    max-width: 327px;
-  }
+
 
   .hidden-button {
     display: none;
@@ -129,5 +128,8 @@
   .help-main__button {
     max-width: none;
     width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 0;
   }
 }

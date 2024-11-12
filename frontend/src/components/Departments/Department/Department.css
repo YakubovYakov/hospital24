@@ -156,7 +156,7 @@
 .department__head-doctor-card-img-wrapper {
   width: 100%;
   width: 304px;
-  height: 304px;
+  /* height: 304px; */
   overflow: hidden;
   display: flex;
   align-items: start;
@@ -169,7 +169,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  margin-top: -20px;
+  /* margin-top: -20px; */
 }
 
 .department__head-doctor-card-name {
@@ -254,9 +254,12 @@
 
 .department__doctor-card-image {
   width: 100%;
-  height: auto;
+  /* height: 100%; */
+	max-height: 238px;
+	border-radius: 32px;
   object-fit: cover;
-  margin-top: -10px;
+	/* object-position: top; */
+  /* margin-top: -10px; */
 }
 
 .department__doctor-card-title {

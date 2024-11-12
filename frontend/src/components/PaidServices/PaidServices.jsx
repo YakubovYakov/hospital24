@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import { fetchDoctorById, fetchDoctors } from "../../utils/api";
 import "./PaidServices.css";
-import paid_services from "../../images/svg/paid-services.svg";
-import doctors_services from "../../images/svg/doctors-services.svg";
-import dms from "../../images/svg/dms.svg";
 import Button from "../Button/Button";
+
+// import paid_services from "http://24gkb.ru/images-svg/paid-services.svg";
+// import doctors_services from "../../images/svg/doctors-services.svg";
+// import dms from "../../images/svg/dms.svg";
 
 function PaidServices() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -249,7 +250,7 @@ function PaidServices() {
           </div>
           <img
             className="paid-services__image"
-            src={paid_services}
+            src={"http://24gkb.ru/images-svg/paid-services.svg"}
             alt="Иллюстрация платных услуг"
           />
         </div>
@@ -271,7 +272,7 @@ function PaidServices() {
           <div className="paid-services__our-content">
             <img
               className="paid-services__our-image"
-              src={doctors_services}
+              src={"http://24gkb.ru/images-svg/doctors-services.svg"}
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">
@@ -452,7 +453,7 @@ function PaidServices() {
           <div className="paid-services__dms-content">
             <img
               className="paid-services__dms-image"
-              src={dms}
+              src={"http://24gkb.ru/images-svg/dms.svg"}
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">

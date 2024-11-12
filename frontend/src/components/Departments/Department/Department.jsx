@@ -14,15 +14,16 @@ import FeedbackButtons from "../../Feedback/FeedbackButtons/FeedbackButtons";
 
 function Department() {
   const { id: departmentId } = useParams();
+
   const [headDoctor, setHeadDoctor] = useState(null);
   const [doctors, setDoctors] = useState([]);
   const [department, setDepartment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeButton, setActiveButton] = useState("doctors");
-	const [isMobileView, setIsMobileView] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
 
-  // Логика карусели
+  // Carousel logic
   const [isTransitioning, setIsTransitioning] = useState(false);
   const carouselRef = useRef(null);
   const trackRef = useRef(null);
@@ -35,26 +36,28 @@ function Department() {
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
 
-  // Получение данных
   useEffect(() => {
     let isMounted = true;
 
     const fetchData = async () => {
       try {
-        const [departmentData, headDoctorData, doctorsData] = await Promise.all([
-          fetchDepartmentsById(departmentId),
-          fetchDepartmentHead(departmentId),
-          fetchDepartmentDoctors(departmentId),
-        ]);
+        const [departmentData, headDoctorData, doctorsData] = await Promise.all(
+          [
+            fetchDepartmentsById(departmentId),
+            fetchDepartmentHead(departmentId),
+            fetchDepartmentDoctors(departmentId),
+          ]
+        );
 
         if (isMounted) {
           setDepartment(departmentData);
           setHeadDoctor(headDoctorData);
 
-          // Убираем главного врача из списка врачей для карусели
-          const filteredDoctors = doctorsData.filter(
-            (doctor) => doctor.doctor_id !== headDoctorData?.id
-          );
+          const filteredDoctors = headDoctorData
+            ? doctorsData.filter(
+                (doctor) => doctor.doctor_id !== headDoctorData.id
+              )
+            : doctorsData;
 
           setDoctors(filteredDoctors);
           setLoading(false);
@@ -79,9 +82,22 @@ function Department() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const handleMediaQueryChange = (e) => {
+      setIsMobileView(e.matches);
+    };
+
+    handleMediaQueryChange(mediaQuery);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   const handleButtonClick = (buttonType) => setActiveButton(buttonType);
 
-  // Логика карусели
   const extendedDoctors = useMemo(() => {
     if (doctors.length === 0) return [];
     return [
@@ -89,7 +105,7 @@ function Department() {
       ...doctors,
       ...doctors.slice(0, slidesToShow),
     ];
-  }, [doctors]);
+  }, [doctors, slidesToShow]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -160,7 +176,8 @@ function Department() {
                 {department.location || "Не указано"}
               </span>
               <div className="department__description">
-                {department.descriptions && department.descriptions.length > 0 ? (
+                {department.descriptions &&
+                department.descriptions.length > 0 ? (
                   department.descriptions.map((desc, index) => (
                     <p key={index} className="department__description-item">
                       {desc}
@@ -182,9 +199,7 @@ function Department() {
                       <img
                         className="department__head-doctor-card-image"
                         src={headDoctor.head_doctor_photo}
-                        alt={
-                          headDoctor.head_doctor_title || "Фото отсутствует"
-                        }
+                        alt={headDoctor.head_doctor_title || "Фото отсутствует"}
                       />
                     </div>
                   ) : (
@@ -258,23 +273,35 @@ function Department() {
                     (index - slidesToShow + doctors.length) % doctors.length;
                   const currentDoctor = doctors[originalIndex];
 
+                  if (!currentDoctor) {
+                    console.warn(
+                      `currentDoctor is undefined at index ${index}`
+                    );
+                    return null; // Или отобразить заглушку
+                  }
+
                   return (
                     <div
                       key={`${currentDoctor.doctor_id}-${index}`}
                       className="department__doctor-card"
                     >
-                      <div className="department__doctor-card-img-wrapper">
+                      {currentDoctor.doctor_card_photo ? (
                         <img
                           className="department__doctor-card-image"
                           src={currentDoctor.doctor_card_photo}
                           alt={`Фото доктора ${currentDoctor.doctor_card_title}`}
                         />
-                      </div>
+                      ) : (
+                        <div className="no-photo-placeholder">
+                          Фото отсутствует
+                        </div>
+                      )}
                       <h3 className="department__doctor-card-title">
-                        {currentDoctor.doctor_card_title}
+                        {currentDoctor.doctor_card_title || "Имя не указано"}
                       </h3>
                       <p className="department__doctor-card-description">
-                        {currentDoctor.doctor_card_description?.join(", ")}
+                        {currentDoctor.doctor_card_description?.join(", ") ||
+                          "Описание отсутствует"}
                       </p>
                       <div className="department__button-container">
                         <Button
@@ -292,17 +319,12 @@ function Department() {
             </div>
           </div>
         )}
-        <div>
-          {isMobileView ? (
-            <FeedbackMobile feedbacks={[]} />
-          ) : (
-            <Feedback feedbacks={[]} />
-          )}
-          <FeedbackButtons
-            title="Оставить отзыв"
-            // description={`${department.name || ""} будет вам очень благодарно!`}
-          />
-        </div>
+        {isMobileView ? (
+          <FeedbackMobile deptId={departmentId} />
+        ) : (
+          <Feedback deptId={departmentId} />
+        )}
+        <FeedbackButtons title="Оставить отзыв" />
       </div>
     </section>
   );

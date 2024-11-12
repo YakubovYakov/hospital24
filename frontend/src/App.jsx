@@ -25,6 +25,7 @@ import VisitorInfo from "./components/VisitorInfo/VisitorInfo";
 import PatientInfoPanel from "./components/PatientInfoPanel/PatientInfoPanel";
 import OutOfTownPatients from "./components/OutOfTownPatients/OutOfTownPatients";
 import PaidServices from "./components/PaidServices/PaidServices";
+import AboutHospital from "./components/AboutHospital/AboutHospital";
 
 function App() {
   const location = useLocation();
@@ -140,6 +141,15 @@ function App() {
             <>
               <DynamicRoute />
               <PaidServices />
+            </>
+          }
+        />
+        <Route
+          path="/about-hospital"
+          element={
+            <>
+              <DynamicRoute />
+              <AboutHospital />
             </>
           }
         />

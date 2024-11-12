@@ -68,13 +68,14 @@ function Header() {
             >
               Контакты
             </Link>
-            <button
+            <Link
+							to="/about-hospital"
               className={`header__button ${
-                isActive("/about") ? "active-button" : ""
+                isActive("/about-hospital") ? "active-button" : ""
               }`}
             >
               О больнице
-            </button>
+            </Link>
           </div>
         </div>
         <div className="header__date-content">

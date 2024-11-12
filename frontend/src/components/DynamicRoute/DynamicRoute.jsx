@@ -82,10 +82,12 @@ function DynamicRoute() {
         )}
 
         {isDepartmentPage && (
-          <>
+					<>
             <Link className="dynamic-route__link-departments" to="/departments">
               Отделения
             </Link>
+
+					<span className="dynamic-route__current">{departmentName}</span>
           </>
         )}
 
@@ -140,7 +142,7 @@ function DynamicRoute() {
               className="dynamic-route__link-privacy-policy"
               to="/paid-services"
             >
-              Иногородним пациентам
+              Платные услуги
             </Link>
           </>
         )}
