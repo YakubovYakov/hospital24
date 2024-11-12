@@ -12,6 +12,34 @@ function DepartmentsList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const categoryOrder = [
+    "Экстренная помощь",
+    "Консультации",
+    "Хирургия",
+    "Терапия",
+    "Диагностика",
+  ];
+
+	const groupedDepartments = departments.reduce((acc, dept) => {
+    if (!dept.category) {
+      dept.category = " ";
+    }
+    if (!acc[dept.category]) {
+      acc[dept.category] = [];
+    }
+    acc[dept.category].push(dept);
+    return acc;
+  }, {});
+
+  const sortedCategory = Object.keys(groupedDepartments).sort((a, b) => {
+    const indexA = categoryOrder.indexOf(a);
+    const indexB = categoryOrder.indexOf(b);
+
+    return (
+      (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB)
+    );
+  });
+
   useEffect(() => {
     const loadDepartments = async () => {
       try {
@@ -26,6 +54,8 @@ function DepartmentsList() {
     };
     loadDepartments();
   }, []);
+
+
 
   const filteredDepartments = departments.filter(
     (dept) =>
@@ -57,20 +87,28 @@ function DepartmentsList() {
           </div>
         </form>
         <div className="departments-list__list">
-          {filteredDepartments.length > 0 ? (
-            filteredDepartments.map((dept) => (
-              <div key={dept.id} className="departments-list__item-container">
-                <Link
-                  className="departments-list__item"
-                  to={`/departments/${dept.id}`}
-                >
-                  {dept.name}
-                </Link>
-              </div>
-            ))
-          ) : (
-            <p>Отделение не найдено</p>
-          )}
+          {sortedCategory.map((category) => (
+            <div key={category} className={`departments-list__category ${category === " " ? "departments-list__no-category" : ""}`}>
+              <h2 className="departments-list__category-title">{category || " "}</h2>
+              {groupedDepartments[category]
+                .filter((dept) =>
+                  dept.name.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .map((dept) => (
+                  <div
+                    key={dept.id}
+                    className="departments-list__item-container"
+                  >
+                    <Link
+                      className="departments-list__item"
+                      to={`/departments/${dept.id}`}
+                    >
+                      {dept.name}
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

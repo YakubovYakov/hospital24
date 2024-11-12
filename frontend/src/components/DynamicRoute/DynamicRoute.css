@@ -36,7 +36,7 @@
 .dynamic-route__link::after {
 	content: "";
   display: inline-block;
-  background: url(../../images/svg/arrow-right-gray.svg) no-repeat center;
+  background: url(../../images2/svg/arrow-right-gray.svg) no-repeat center;
   width: 16px;
   height: 16px;
 	margin: 0 12px;
@@ -58,7 +58,7 @@
 .dynamic-route__link-home::before {
   content: "";
   display: inline-block;
-  background: url(../../images/svg/Home.svg) no-repeat center;
+  background: url(../../images2/svg/Home.svg) no-repeat center;
   width: 16px;
   height: 16px;
   margin-right: 12px;
@@ -66,7 +66,7 @@
 .dynamic-route__link-home::after {
   content: "";
   display: inline-block;
-  background: url(../../images/svg/arrow-right-gray.svg) no-repeat center;
+  background: url(../../images2/svg/arrow-right-gray.svg) no-repeat center;
   width: 16px;
   height: 16px;
   margin: 0 12px;
@@ -101,7 +101,7 @@
 .dynamic-route__link-doctors::after {
 	content: "";
   display: inline-block;
-  background: url(../../images/svg/arrow-right-gray.svg) no-repeat center;
+  background: url(../../images2/svg/arrow-right-gray.svg) no-repeat center;
   width: 16px;
   height: 16px;
   margin: 0 12px;
@@ -137,7 +137,7 @@
 .dynamic-route__link-departments::after {
 	content: "";
   display: inline-block;
-  background: url(../../images/svg/arrow-right-gray.svg) no-repeat center;
+  background: url(../../images2/svg/arrow-right-gray.svg) no-repeat center;
   width: 16px;
   height: 16px;
   margin: 0 12px;
@@ -149,7 +149,7 @@
 .dynamic-route__link-our-doctors::after {
   content: "";
   display: inline-block;
-  background: url(../../images/svg/arrow-right-gray.svg) no-repeat center;
+  background: url(../../images2/svg/arrow-right-gray.svg) no-repeat center;
   width: 16px;
   height: 16px;
   margin-left: 12px;

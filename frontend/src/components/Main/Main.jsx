@@ -11,7 +11,7 @@ import FeedbackMobile from "../Feedback/FeedbackMobile/FeedbackMobile";
 import FeedbackButtons from "../../components/Feedback/FeedbackButtons/FeedbackButtons";
 import { departmentFeedbacks } from "../../feedbacks/departmentReviews";
 
-function Main({ doctors }) {
+function Main({ doctors, feedbacks }) {
   const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
@@ -29,6 +29,8 @@ function Main({ doctors }) {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  console.log(departmentFeedbacks);
   return (
     <>
       <Preview />
@@ -43,8 +45,10 @@ function Main({ doctors }) {
       {isMobileView ? (
         <FeedbackMobile feedbacks={departmentFeedbacks} />
       ) : (
-        <Feedback />
+        <Feedback feedbacks={departmentFeedbacks} />
       )}
+
+      {/* <FeedbackMobile feedbacks={departmentFeedbacks} /> */}
     </>
   );
 }
