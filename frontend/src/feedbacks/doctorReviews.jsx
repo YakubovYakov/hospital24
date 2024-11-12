@@ -1,6 +1,6 @@
-import icon1 from "../images/icon-feedback/icon1.png"
-import icon2 from "../images/icon-feedback/icon2.png"
-import icon3 from "../images/icon-feedback/icon3.png"
+import icon1 from "../images2/icon-feedback/icon1.png"
+import icon2 from "../images2/icon-feedback/icon2.png"
+import icon3 from "../images2/icon-feedback/icon3.png"
 
 export const feedbacks = [
   {

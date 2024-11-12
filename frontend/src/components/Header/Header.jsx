@@ -2,10 +2,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Header.css";
-import search from "../../images/svg/Search.svg";
-import logo from "../../images/Logotype.png";
-import map from "../../images/svg/Map.svg";
-import eye from "../../images/svg/Eye.svg";
+import search from "../../images2/svg/Search.svg";
+import logo from "../../images2/Logotype.png";
+import map from "../../images2/svg/Map.svg";
+import eye from "../../images2/svg/Eye.svg";
 
 function Header() {
   const location = useLocation();

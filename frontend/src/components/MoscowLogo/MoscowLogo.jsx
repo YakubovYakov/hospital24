@@ -1,6 +1,6 @@
 import React from "react";
 import "./MoscowLogo.css";
-import moscow_logo from "../../images/moscow-medecine/logo-moscow-medecine.svg";
+import moscow_logo from "../../images2/moscow-medecine/logo-moscow-medecine.svg";
 
 function MoscowLogo() {
   return (

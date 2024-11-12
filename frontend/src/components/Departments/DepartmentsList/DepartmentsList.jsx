@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchDepartments } from "../../../utils/api";
 import "./DepartmentsList.css";
-import search from "../../../images/svg/Search.svg";
+import search from "../../../images2/svg/Search.svg";
 import { Link } from "react-router-dom";
 
 const ITEMS_PER_PAGE = 5;

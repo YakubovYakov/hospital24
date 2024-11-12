@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./PatientInfoPanel.css";
-import exclamation_mark from "../../images/svg/exclamation-mark-2.svg";
+import exclamation_mark from "../../images2/svg/exclamation-mark-2.svg";
 
 function PatientInfoPanel() {
   useEffect(() => {

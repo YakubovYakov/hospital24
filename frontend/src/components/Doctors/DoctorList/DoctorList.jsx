@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./DoctorList.css";
 import DoctorPreviewCard from "../../Doctors/DoctorPreviewCard/DoctorPreviewCard";
-import searchIcon from "../../../images/svg/Search.svg";
+import searchIcon from "../../../images2/svg/Search.svg";
 import { fetchDoctors } from "../../../utils/api";
 
 const ITEMS_PER_PAGE = 3;

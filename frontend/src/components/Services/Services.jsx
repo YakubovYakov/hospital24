@@ -2,7 +2,7 @@ import React from "react";
 import "./Services.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import reception from "../../images/svg/reception.svg";
+import reception from "../../images2/svg/reception.svg";
 
 function Services() {
   return (

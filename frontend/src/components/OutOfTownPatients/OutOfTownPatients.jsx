@@ -1,8 +1,8 @@
 import React from "react";
 import "./OutOfTownPatients.css";
-import exclamation_mark from "../../images/svg/exclamation-mark-2.svg";
-import capital_image from "../../images/svg/capital-image.svg";
-import operation from "../../images/svg/operation.svg";
+import exclamation_mark from "../../images2/svg/exclamation-mark-2.svg";
+import capital_image from "../../images2/svg/capital-image.svg";
+import operation from "../../images2/svg/operation.svg";
 import { Link } from "react-router-dom";
 import MapCard from "../Map/MapCard/MapCard";
 import Feedback from "../../components/Feedback/Feedback";
