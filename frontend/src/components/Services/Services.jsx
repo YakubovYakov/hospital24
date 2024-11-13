@@ -8,6 +8,17 @@ function Services() {
   return (
     <section className="services">
       <div className="services__container">
+        <div className="services__top">
+          <h1 className="services__title">Наши услуги</h1>
+          <Button
+            to="/patient-info"
+            className="services__button"
+            color="primary"
+						size="small"
+          >
+            Все
+          </Button>
+        </div>
         <div className="services__cards">
           <div className="services__card">
             <img
@@ -65,11 +76,15 @@ function Services() {
               Хотите пройти лечение платно?
             </h2>
             <p className="services__card-text">
-              Консультации врачей, операции, различная
-              диагностика, палаты повышенной комфортности
+              Консультации врачей, операции, различная диагностика, палаты
+              повышенной комфортности
             </p>
             <div className="services__card-button_container">
-              <Link to="/paid-services" className="services__card-button" color="secondary">
+              <Link
+                to="/paid-services"
+                className="services__card-button"
+                color="secondary"
+              >
                 Узнать больше
               </Link>
             </div>

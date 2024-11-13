@@ -6,8 +6,9 @@
 }
 
 .preview__background {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   width: 100%;
+	position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column-reverse;
@@ -16,7 +17,7 @@
       rgba(30, 30, 30, 0.14) 0%,
       rgba(30, 30, 30, 0.14) 100%
     ),
-    url("../../images/panorama.jpg") lightgray 50% / cover
+    url("http://24gkb.ru/images-svg/panorama.jpg") lightgray 50% / cover
       no-repeat;
   height: 547px;
   background-repeat: no-repeat;
@@ -29,11 +30,12 @@
 .preview__search {
   max-width: 1152px;
   width: 100%;
-  /* width: 1152px; */
+  position: absolute;
+	top: 413px;
   border-radius: 8px;
   background: rgba(245, 245, 245, 0.74);
   backdrop-filter: blur(10px);
-  margin-bottom: 31px;
+  /* margin-bottom: 31px; */
 }
 
 .preview__title {
