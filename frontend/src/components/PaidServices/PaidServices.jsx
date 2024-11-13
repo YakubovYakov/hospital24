@@ -209,12 +209,9 @@ function PaidServices() {
   return (
     <section className="paid-services">
       <div className="paid-services__container">
-        <h1 className="paid-services__title">Платные услуги</h1>
         <div className="paid-services__content">
           <div className="paid-services__content-text-container">
-            <h2 className="paid-services__content-title">
-              Отделение платных услуг
-            </h2>
+            <h1 className="paid-services__title">Платные услуги</h1>
             <p className="paid-services__content-text">
               Уважаемые пациенты! Информируем вас, что запись или перенос приема
               на консультацию и диагностику в отделение платных услуг ГКБ №24,
@@ -223,6 +220,9 @@ function PaidServices() {
             <div className="paid-services__content-cards">
               <div className="paid-services__content-card">
                 <h3 className="paid-services__content-card-title">Телефон</h3>
+                <p className="paid-services__content-card-text">
+                  +7 (495) 613-63-10 доб.1
+                </p>
                 <p className="paid-services__content-card-text">
                   +7 (495) 685-17-94
                 </p>
@@ -235,7 +235,7 @@ function PaidServices() {
                   с 08:00 до 20:00 — будни, суббота
                 </p>
                 <p className="paid-services__content-card-text">
-                  воскресенье — выходной
+                  не рабочий день — воскресенье
                 </p>
               </div>
               <div className="paid-services__content-card">
@@ -259,8 +259,8 @@ function PaidServices() {
           <div className="paid-services__top">
             <p className="paid-services__text">
               В ГКБ №24 Вы можете получить консультацию специалистов, имеющих
-              большой опыт в распознавания и лечения сложных медицинских
-              проблем, следующих отделений
+              большой опыт распознавания и лечения сложных медицинских
+              заболеваний
             </p>
             <div className="paid-services__button-container">
               <Button size="small">Записаться</Button>
@@ -295,19 +295,15 @@ function PaidServices() {
           </div>
         </div>
         <div className="paid-services__directions">
-          <h2 className="paid-services__title">Направления</h2>
           <div className="paid-services__top">
-            <p className="paid-services__text">
-              В ГКБ №24 Вы можете получить консультацию специалистов, имеющих
-              большой опыт в распознавания и лечения сложных медицинских
-              проблем, следующих отделений
-            </p>
+          <h2 className="paid-services__directions-title">Направления</h2>
             <div className="paid-services__button-container">
               <Button size="small">Записаться</Button>
               <Button size="large" color="secondary">
                 Скачать прайс услуг
               </Button>
             </div>
+            
           </div>
           <div className="paid-services__details-container">
             <h2 className="paid-services__details-title">

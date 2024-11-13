@@ -215,6 +215,7 @@ function DoctorsMain() {
                       to={`/doctor/${doctor.id}`}
                       className="doctors__card-button"
                       type="button"
+											color="secondary"
                     >
                       Подробнее
                     </Button>

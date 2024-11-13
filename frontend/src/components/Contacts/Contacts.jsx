@@ -40,7 +40,7 @@ function Contacts() {
                     с 08:00 до 20:00 — будни
                   </p>
                   <p className="contacts__card-info-text">
-                    с 08:00 до 16:00 — в выходные
+                    с 08:00 до 16:00 — суббота, воскресенье
                   </p>
                 </div>
 
@@ -61,96 +61,54 @@ function Contacts() {
           <div className="contacts__card card-2">
             <div className="contacts__card-container">
               <h2 className="contacts__card-title white-text">
-                Директор ГБУЗ «ГКБ № 24» Тимохин Д.И
+                Консультативно — диагностическое отделение
               </h2>
 
-              <div className="contacts__card-content">
-                <h3 className="contacts__card-info-subtitle white-text">
-                  Почта
-                </h3>
-                <p className="contacts__card-info-text white-text">
-                  gkb24@zdrav.mos.ru
-                </p>
-              </div>
-
-              <h4 className="contacts__director-card-subtitle">Заместители</h4>
-              <div className="contacts__card-content">
-                <div>
+              <div className="contacts__card-text-container">
+                <div className="contacts__card-content">
                   <h3 className="contacts__card-info-subtitle white-text">
-                    Часы приема посетителей
+                    Часы приема пациентов
                   </h3>
                   <p className="contacts__card-info-text white-text">
-                    с 14:00 до 15:00 — вторник
+                    с 08:00 до 20:00 — будни, суббота
+                  </p>
+                  <p className="contacts__card-info-text white-text">
+                    не рабочий день — воскресенье
                   </p>
                 </div>
-                <div>
+
+                <div className="contacts__card-content">
+                  <h3 className="contacts__card-info-subtitle white-text">
+                    Часы записи на прием
+                  </h3>
+                  <p className="contacts__card-info-text white-text">
+                    с 08:00 до 20:00 — будни
+                  </p>
+                  <p className="contacts__card-info-text white-text">
+                    с 08:00 до 16:00 — суббота, воскресенье
+                  </p>
+                </div>
+                <div className="contacts__card-content">
                   <h3 className="contacts__card-info-subtitle white-text">
                     Телефон
                   </h3>
                   <p className="contacts__card-info-text white-text">
-                    +7 (495) 613-04-08
+                    +7 (495) 685-17-94
                   </p>
                 </div>
-              </div>
-
-              <h4 className="contacts__director-card-subtitle">
-                Отдел по связям с общественностью
-              </h4>
-              <div className="contacts__card-content">
-                <h3 className="contacts__card-info-subtitle white-text">
-                  Почта
-                </h3>
-                <p className="contacts__card-info-text white-text">
-                  gkb24@zdrav.mos.ru
-                </p>
+                <div className="contacts__card-content">
+                  <h3 className="contacts__card-info-subtitle white-text">
+                    Почта
+                  </h3>
+                  <p className="contacts__card-info-text white-text">
+                    gkb24@zdrav.mos.ru
+                  </p>
+                </div>
               </div>
             </div>
           </div>
           {/* карточка 3 */}
-          <div className="contacts__card card-3">
-            <div className="contacts__card-container card-container-3">
-              <h2 className="contacts__card-title title-card-3">
-                Консультативно — диагностицеский центр
-              </h2>
 
-              <div className="contacts__card-info">
-                <div className="contacts__information">
-                  <h3 className="contacts__card-info-subtitle">
-                    Часы приема пациентов
-                  </h3>
-                  <p className="contacts__card-info-text">
-                    с 08:00 до 20:00 — будни
-                  </p>
-                  <p className="contacts__card-info-text">
-                    с 08:00 до 20:00 — суббота
-                  </p>
-                </div>
-
-                <div className="contacts__information">
-                  <h3 className="contacts__card-info-subtitle">
-                    Часы записи на прием
-                  </h3>
-                  <p className="contacts__card-info-text">
-                    с 08:00 до 20:00 — будни
-                  </p>
-                  <p className="contacts__card-info-text">
-                    с 08:00 до 16:00 — в выходные
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="contacts__card-info-subtitle phones">
-                    Телефоны
-                  </h3>
-                  <p className="contacts__card-info-text">+7 (495) 685-17-94</p>
-                </div>
-                <div>
-                  <h3 className="contacts__card-info-subtitle phones">Почта</h3>
-                  <p className="contacts__card-info-text">gkb24@zdrav.mos.ru</p>
-                </div>
-              </div>
-            </div>
-          </div>
           {/* карточка 4 */}
           <div className="contacts__card card-4">
             <div className="contacts__card-container card-container-4">
@@ -180,7 +138,7 @@ function Contacts() {
 
                 <div className="contacts__card-content">
                   <h3 className="contacts__card-info-subtitle phones">
-                    Телефоны
+                    Телефон
                   </h3>
                   <p className="contacts__card-info-text">+7 (495) 613-27-01</p>
                   <p className="contacts__card-info-text">+7 (495) 613-27-45</p>
@@ -219,13 +177,19 @@ function Contacts() {
 
                 <div className="contacts__card-content">
                   <h3 className="contacts__card-info-subtitle phones">
-                    Телефоны
+                    Телефон
                   </h3>
                   <p className="contacts__card-info-text">+7 (495) 613-04-08</p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {/* <FAQ /> */}
+      <Map />
+      <div className="contacts__container">
+        <div className="contacts__cards-container">
           {/* карточка 6 */}
           <div className="contacts__card card-6">
             <div className="contacts__card-container">
@@ -247,8 +211,6 @@ function Contacts() {
           </div>
         </div>
       </div>
-      <FAQ />
-			<Map />
     </section>
   );
 }

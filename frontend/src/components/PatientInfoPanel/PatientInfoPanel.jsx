@@ -9,15 +9,15 @@ function PatientInfoPanel() {
   return (
     <section className="patient-info">
       <div className="patient-info__container">
-        <h1 className="patient-info__title">Пациентам</h1>
+        <h1 className="patient-info__title">У Вас направление к нам</h1>
         <div className="patient-info__content">
           <div className="patient-info__content-text-container">
             <h2 className="patient-info__content-subtitle">
-              Консультативно — диагностический центр
+              Консультативно — диагностическое отделение
             </h2>
             <p className="patient-info__content-text">
               Уважаемые пациенты! Информируем вас, что запись или перенос приема
-              в КДЦ ГКБ №24 без направления и с направлением по форме 057у,
+              в КДО ГКБ №24 без направления и с направлением по форме 057у,
               осуществляется через Единый контакт-центр
             </p>
             <div className="patient-info__content-cards">
@@ -35,7 +35,7 @@ function PatientInfoPanel() {
                   с 08:00 до 20:00 — будни, суббота
                 </p>
                 <p className="patient-info__content-card-text">
-                  воскресенье — выходной
+                  не рабочий день — воскресенье
                 </p>
               </div>
               <div className="patient-info__content-card">
@@ -62,7 +62,7 @@ function PatientInfoPanel() {
                 Информация для пациентов
               </h4>
               <p className="patient-info__card-text">
-                Уважаемые пациенты! При первичном посещении КДЦ, просьба
+                Уважаемые пациенты! При первичном посещении КДО, просьба
                 приходить за 15-20 минут до начала приема для оформления
                 медицинской кары в регистратуре
               </p>
@@ -84,7 +84,7 @@ function PatientInfoPanel() {
                 <span className="patient-info__marker">
                   <img src={exclamation_mark} alt="!" />
                 </span>
-                <p>Документы можно предоставить электронном виде</p>
+                <p>Документы можно предоставить в электронном виде</p>
               </div>
             </div>
           </div>
@@ -117,18 +117,18 @@ function PatientInfoPanel() {
               <span className="patient-info__marker">
                 <img src={exclamation_mark} alt="!" />
               </span>
-              <p>Документы можно предоставить электронном виде</p>
+              <p>Документы можно предоставить в электронном виде</p>
             </div>
           </div>
         </div>
         <div className="patient-info__departments">
-          <h2 className="patient-info__content-subtitle">Отделения</h2>
+          <h2 className="patient-info__content-subtitle">Консультации</h2>
           <div className="patient-info__departments-container">
             <div className="patient-info__departments-content">
               <p className="patient-info__departments-text">
                 В ГКБ №24 Вы можете получить консультацию специалистов, имеющих
-                большой опыт в распознавания и лечения сложных медицинских
-                проблем, следующих отделений
+                большой опыт распознавания и лечения сложных медицинских
+                заболеваний
               </p>
               <img
                 className="patient-info__departments-image"
@@ -137,13 +137,13 @@ function PatientInfoPanel() {
               />
             </div>
             <div className="patient-info__departments-list">
-              <p className="patient-info__departments-item">Аллергология</p>
-              <p className="patient-info__departments-item">Гнойная хирургия</p>
-              <p className="patient-info__departments-item">Колопроктология</p>
-              <p className="patient-info__departments-item">Неврология</p>
-              <p className="patient-info__departments-item">Терапия</p>
-              <p className="patient-info__departments-item">Урология</p>
-              <p className="patient-info__departments-item">Хирургия</p>
+              <p className="patient-info__departments-item">Аллерголог</p>
+              <p className="patient-info__departments-item">Гинеколог</p>
+              <p className="patient-info__departments-item">Колопроктолог</p>
+              <p className="patient-info__departments-item">Невролог</p>
+              <p className="patient-info__departments-item">Терапевт</p>
+              <p className="patient-info__departments-item">Уролог</p>
+              <p className="patient-info__departments-item">Хирург</p>
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@ function PatientInfoPanel() {
                   с 08:00 до 16:00 — будни
                 </p>
                 <p className="patient-info__content-card-text">
-                  суббота, воскресенье — выходной
+                  не рабочие дни — суббота, воскресенье
                 </p>
               </div>
               <div className="patient-info__content-card">

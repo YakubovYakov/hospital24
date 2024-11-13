@@ -122,9 +122,29 @@ const getDepartmentDoctors = async (req, res) => {
   }
 };
 
+const searchDepartments = async (req, res) => {
+  try {
+    const searchTerm = req.query.query;
+    if (!searchTerm) {
+      return res.json([]);
+    }
+    const result = await pool.query(
+      `SELECT id, name FROM dept WHERE name ILIKE $1`,
+      [`%${searchTerm}%`]
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Ошибка при поиске отделений:", error);
+    res.status(500).json({ error: "Ошибка сервера" });
+  }
+};
+
+
+
 module.exports = {
   getAllDepartments,
   getDepartmentById,
   getDepartmentHead,
   getDepartmentDoctors,
+	searchDepartments
 };

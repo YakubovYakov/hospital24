@@ -158,7 +158,7 @@
 }
 
 .patient-info__card-item::before {
-  content: url("../../images/svg/marker.svg");
+  content: url("../../images2/svg/marker.svg");
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -267,7 +267,7 @@
 }
 
 .patient-info__departments-item::before {
-  content: url("../../images/svg/marker.svg");
+  content: url("../../images2/svg/marker.svg");
   width: 20px;
   height: 20px;
   margin-right: 8px;

@@ -33,6 +33,12 @@ function App() {
   useEffect(() => {
     const metaViewport = document.querySelector('meta[name="viewport"]');
     const desktopOnlyRoutes = [
+			"/",
+			"/our-doctors",
+			"/departments",
+			"/contacts",
+			"/about-hospital",
+			// "/"
       "/patient-info",
       "/visitors",
       "/paid-services",

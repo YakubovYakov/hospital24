@@ -53,8 +53,9 @@
 
 .map__card-text-container {
   display: flex;
-  flex-direction: row;
-  align-items: end;
+  flex-direction: column;
+	gap: 16px;
+  /* align-items: end; */
 }
 
 .map__card-address {

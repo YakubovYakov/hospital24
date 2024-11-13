@@ -21,15 +21,13 @@ function DoctorAppointmentModal({ onClose }) {
               Запись на прием к специалистам больницы
             </h1>
             <p className="appointment-modal__text">
-              Уважаемые пользователи, вы можете выбрать удобный для вас способ
-              записи к нашим специалистам либо через оператора контак-центра
-              либо через форму обратной связи
+						Уважаемые пациенты, вы можете выбрать удобный для вас способ записи к нашим специалистам либо через оператора контак-центра либо через форму обратной связи
             </p>
           </div>
           <div>
             <img
               className="appointment-modal__image"
-              src={"https://i.postimg.cc/MTBsM18Q/photo-telephon.png"}
+              src={"http://24gkb.ru/images-svg/mobile.svg"}
               alt="Картинка телефона"
             />
           </div>
@@ -38,10 +36,10 @@ function DoctorAppointmentModal({ onClose }) {
           <button
             className={`appointment-modal__button ${
               activeForm === "online" ? "active-modal" : ""
-            }`}
+            }`}ч
             onClick={() => handleFormSwitch("online")}
           >
-            Записаться онлайн
+            Оставить заявку
           </button>
           <button
             className={`appointment-modal__button ${
@@ -131,7 +129,7 @@ function DoctorAppointmentModal({ onClose }) {
             </div>
             <div className="appointment-modal__contacts-ul">
               <p className="appointment-modal__contacts-paragraph list-paragraph">
-                Записаться на прием в КДЦ
+                Записаться на прием в КДО
               </p>
               <p className="appointment-modal__contacts-paragraph list-paragraph">
                 Узнать об оказании платных услугах

@@ -43,7 +43,7 @@ const getAllEmployers = async (req, res) => {
 
     res.json({
       data: result.rows,
-      totalItems: result.rows.length,   
+      totalItems: result.rows.length,
     });
   } catch (error) {
     console.error("Ошибка при получении списка врачей:", error);
@@ -134,6 +134,23 @@ const getEmployerById = async (req, res) => {
   }
 };
 
+const searchEmployers = async (req, res) => {
+  try {
+    const searchTerm = req.query.query;
+    if (!searchTerm) {
+      // Если поисковый запрос пустой, возвращаем пустой массив
+      return res.json([]);
+    }
+    const result = await pool.query(
+      `SELECT id, full_name FROM employers WHERE full_name ILIKE $1`,
+      [`%${searchTerm}%`]
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Ошибка при поиске врачей:", error);
+    res.status(500).json({ error: "Ошибка при поиске врачей" });
+  }
+};
 
 
-module.exports = { getEmployerById, getAllEmployers };
+module.exports = { getEmployerById, getAllEmployers, searchEmployers };

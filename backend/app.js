@@ -28,6 +28,7 @@ app.use(express.json());
 // Роуты API
 app.use("/api/employers", employersRoutes);
 app.use("/api/departments", departmentsRoutes);
+
 app.use("/api/feedbacks", feedbackRoutes);
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));

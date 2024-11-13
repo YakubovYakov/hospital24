@@ -19,7 +19,19 @@
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
-  margin: 49px 0 0;
+  margin: 48px 0 0;
+}
+
+.paid-services__directions-title {
+	width: 100%;
+	max-width: 552px;
+	color: #1e1e1e;
+	font-family: "Cera Round", sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+
 }
 
 .paid-services__content {
@@ -33,11 +45,13 @@
   max-width: 552px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+	
+  /* justify-content: end; */
 }
 
 .paid-services__content-title {
-  width: 270px;
+	width: 100%;
+  max-width: 270px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 28px;
@@ -53,7 +67,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
-  margin: 24px 0;
+  margin: 48px 0 24px 0;
 }
 
 .paid-services__content-cards {
@@ -162,7 +176,7 @@
 }
 
 .paid-services__our-item::before {
-  content: url("../../images/svg/marker.svg");
+  content: url("../../images2/svg/marker.svg");
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -192,14 +206,13 @@
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
-  margin: 16px 0 8px 0;
+  margin: 24px 0 8px 0;
 }
 
 .paid-services__details-subtitle {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 16px;
   font-family: "Cera Round", sans-serif;
   color: #1e1e1e;
   font-size: 20px;
@@ -213,7 +226,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url(../../images/svg/arrow-down.svg);
+  background-image: url(../../images2/svg/arrow-down.svg);
   background-repeat: no-repeat;
   background-size: contain;
   transition: transform 0.3s ease;

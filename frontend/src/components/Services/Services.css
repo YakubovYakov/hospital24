@@ -99,9 +99,9 @@
 }
 
 .services__card-button:hover {
-  background-color: #767676;
+  background-color: #F6F6F6;
   color: #000000;
-  border-color: #5a5a5a;
+  border-color: #154CC1;
 }
 
 @media (hover: none) {

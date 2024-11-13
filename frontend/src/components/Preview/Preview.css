@@ -8,7 +8,7 @@
 .preview__background {
   /* max-width: 1280px; */
   width: 100%;
-	position: relative;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column-reverse;
@@ -31,7 +31,7 @@
   max-width: 1152px;
   width: 100%;
   position: absolute;
-	top: 413px;
+  top: 413px;
   border-radius: 8px;
   background: rgba(245, 245, 245, 0.74);
   backdrop-filter: blur(10px);
@@ -75,8 +75,6 @@
   position: relative;
   user-select: none;
 }
-
-
 
 .preview__input-container {
   display: flex;
@@ -264,20 +262,6 @@ details[open] .preview__details-marker {
   transform: translateY(-50%) scale(1);
 }
 
-.preview__input {
-  width: 100%;
-  background: #fff;
-  color: #b3b3b3;
-  border-radius: 8px;
-  border: 1px solid #d9d9d9;
-  font-family: "Cera Round", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 100%;
-  padding: 12px 16px;
-  transition: border 0.6s ease, box-shadow 0.6s ease;
-}
-
 .preview__input:focus {
   border-color: #1348ba;
   box-shadow: 0 0 10px rgba(19, 72, 186, 0.5);
@@ -300,6 +284,50 @@ details[open] .preview__details-marker {
   font-size: 18px;
   background-color: #002d62;
   color: #ffffff;
+}
+
+.preview__input-container {
+  position: relative;
+}
+
+.preview__results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-width: 631px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preview__results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.preview__results-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.preview__results-item:last-child {
+  border-bottom: none;
+}
+
+.preview__results-item a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.preview__results-item a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -364,7 +392,7 @@ details[open] .preview__details-marker {
   }
   .preview__radio {
     margin-right: 12px;
-		display: none;
+    display: none;
   }
   .preview__options {
     display: grid;

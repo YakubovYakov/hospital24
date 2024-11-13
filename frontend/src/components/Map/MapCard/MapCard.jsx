@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 function MapCard({
   title,
   address,
+  tel,
   coordinates,
   description,
   cardStyle,
@@ -54,9 +55,13 @@ function MapCard({
           <h3 className="map__card-address">Адрес</h3>
           <span className="map__card-span">{address}</span>
         </div>
-        <a href={link} className="map__card-button" target="_blank">
-          Построить маршрут
-        </a>
+        <div>
+          <h3 className="map__card-address">Телефон</h3>
+          <span className="map__card-span">{tel}</span>
+          <a href={link} className="map__card-button" target="_blank">
+            Построить маршрут
+          </a>
+        </div>
       </div>
       <div className="map__card-container">
         <div

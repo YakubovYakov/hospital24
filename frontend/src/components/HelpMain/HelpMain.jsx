@@ -15,15 +15,14 @@ function HelpMain() {
         <div className="help-main__text-container">
           <h1 className="help-main__title">Если ваш близкий у нас</h1>
           <p className="help-main__text">
-            Body text for whatever you d like to say. Add main takeaway points,
-            quotes, anecdotes, or even a very very short story. Body text for
-            whatever you d like to say. Add main takeaway points, quotes,
-            anecdotes, or even a very very short story. Body text for whatever
-            you d like to say.
+            Важные телефоны, график и правила посещения пациентов в отделениях и
+            ОРИТ, проезд и пропуск транспорта на территорию больницы
           </p>
-					<div className="help-main__button-container">
-					<Link to="/visitors" className="help-main__button">Узнать</Link>
-					</div>
+          <div className="help-main__button-container">
+            <Link to="/visitors" className="help-main__button">
+              Узнать больше
+            </Link>
+          </div>
         </div>
       </div>
     </section>

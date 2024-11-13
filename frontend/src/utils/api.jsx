@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3002";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchDoctors(page = 1, limit = 5) {
   const response = await fetch(
@@ -80,3 +80,20 @@ export async function fetchDepartmentFeedback(deptId) {
   return Array.isArray(data) ? data : [];
 }
 
+export async function searchEntities(query, type) {
+  try {
+    const response = await fetch(
+      `${API_URL}/${type}/search?query=${encodeURIComponent(query)}`
+    );
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Ошибка ответа от сервера:", errorText);
+      throw new Error("Ошибка загрузки данных");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Ошибка в функции searchEntities:", error);
+    throw error;
+  }
+}

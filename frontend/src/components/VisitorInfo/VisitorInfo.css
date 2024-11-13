@@ -2,6 +2,8 @@
 }
 
 .visitor-info__title {
+	width: 100%;
+	max-width: 335px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 32px;
@@ -37,7 +39,7 @@
 }
 
 .visitor-info__card-2 {
-  background: url("https://i.postimg.cc/rm1RZwzz/map-doctors.png");
+  background: url("http://24gkb.ru/images-svg/map%20doctors.png");
 }
 
 .visitor-info__card-container {
@@ -109,7 +111,7 @@
 }
 
 .visitor-info__footer::before {
-  content: url("../../images/svg/attention.svg");
+  content: url("../../images2/svg/attention.svg");
   margin-right: 8px;
   flex-shrink: 0;
   width: 20px;
@@ -137,7 +139,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 16px;
   font-family: "Cera Round", sans-serif;
   color: #1e1e1e;
   font-size: 16px;
@@ -151,7 +152,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url(../../images/svg/arrow-down.svg);
+  background-image: url(../../images2/svg/arrow-down.svg);
   background-repeat: no-repeat;
   background-size: contain;
   transition: transform 0.3s ease;

@@ -12,15 +12,15 @@ function VisitorInfo() {
   };
   const visitorInfoData = [
     {
-      question: "В каком отделении находится пациент?",
+      question: "Прием передач",
       answer: "Здесь находится ответ на первый вопрос.",
     },
     {
-      question: "Пускают ли на территорию личный транспорт/такси?",
+      question: "Места комфортабельного пребывания для встречи с близкими",
       answer: "Ответ на второй вопрос.",
     },
     {
-      question: "Время посещения пациентов?",
+      question: "Правила въезда",
       answer: "Ответ на третий вопрос.",
     },
   ];
@@ -32,7 +32,9 @@ function VisitorInfo() {
   return (
     <section className="visitor-info">
       <div className="visitor-info__container">
-        <h1 className="visitor-info__title">Посетителям</h1>
+        <h1 className="visitor-info__title">
+          Если Ваш близкий находится у нас
+        </h1>
         <div className="visitor-info__cards-container">
           {/* карточка 1 */}
           <div className="visitor-info__card">
@@ -108,7 +110,7 @@ function VisitorInfo() {
                     с 08:00 до 20:00 — будни
                   </p>
                   <p className="visitor-info__info-text white-text">
-                    с 08:00 до 16:00 — в выходные
+                    с 08:00 до 16:00 — суббота, воскресенье
                   </p>
                 </div>
                 <div className="visitor-info__info-text-container">
@@ -159,7 +161,7 @@ function VisitorInfo() {
           </div>
           <img
             className="visitor-info__modal-image"
-            src="https://i.postimg.cc/pLB2S5Jw/map-hospital-room.png"
+            src="http://24gkb.ru/images-svg/hospital.svg"
             alt="Иллюстрация операционной"
           />
         </div>

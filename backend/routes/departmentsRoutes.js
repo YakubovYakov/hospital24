@@ -6,6 +6,7 @@ const departmentsController = require("../controllers/departmentsController");
 // } = require("");
 
 router.get("/", departmentsController.getAllDepartments);
+router.get("/search", departmentsController.searchDepartments);
 router.get("/:id", departmentsController.getDepartmentById);
 router.get("/:departmentId/head", departmentsController.getDepartmentHead);
 router.get(

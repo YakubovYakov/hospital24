@@ -8,10 +8,18 @@ const employersExperienceController = require("../controllers/employersExperienc
 const employersPostController = require("../controllers/employersPostController");
 
 router.get("/", employersController.getAllEmployers);
+router.get("/search", employersController.searchEmployers);
 router.get("/:id", employersController.getEmployerById);
-router.get("/:id/description", employersDescriptionController.getEmployerDescriptionById);
+router.get(
+  "/:id/description",
+  employersDescriptionController.getEmployerDescriptionById
+);
 router.get("/:id/photos", employersPhotoController.getEmployerPhotosById);
-router.get("/:id/experience", employersExperienceController.getEmployerExperienceById);
+router.get(
+  "/:id/experience",
+  employersExperienceController.getEmployerExperienceById
+);
 router.get("/:id/posts", employersPostController.getEmployerPostsById);
+
 
 module.exports = router;

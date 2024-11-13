@@ -16,12 +16,14 @@
   align-items: center;
   justify-content: space-between;
   max-width: 1200px;
-	width: 100%;
-	padding: 0 16px;
-	box-sizing: border-box;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .moscow-logo__logo {
+  background: url(../../images2/moscow-medecine/logo-moscow-medecine.svg);
+	width: 100%;
   max-width: 218px;
   min-height: 28px;
 }
@@ -38,12 +40,12 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .moscow-logo__button-version::before {
   margin-right: 8px;
-  content: url(../../images/moscow-medecine/eye.svg);
+  content: url(../../images2/moscow-medecine/eye.svg);
 }
 
 @media (max-width: 988px) {
@@ -58,6 +60,5 @@
   }
 
   .moscow-logo__logo {
-   
   }
 }

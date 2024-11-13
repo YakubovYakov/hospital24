@@ -1,24 +1,27 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Preview.css";
 import Button from "../Button/Button";
+import { searchEntities } from "../../utils/api";
 
 function Preview() {
   const searchButtonRef = useRef(null);
-  const [selectedOption, setSelectedOption] = useState("doctors");
+  const [selectedOption, setSelectedOption] = useState("employers");
   const [isButtonFocused, setIsButtonFocused] = useState(false);
   const [isSummaryVisible, setIsSummaryVisible] = useState(true);
   const [isMobileView, setIsMobileView] = useState(false);
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [transitioning, setTransitioning] = useState(false);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+  const mediaQuery = window.matchMedia("(max-width: 768px)");
 
+  useEffect(() => {
     const handleMediaQueryChange = (e) => {
       setIsMobileView(e.matches);
     };
@@ -37,7 +40,33 @@ function Preview() {
     setTimeout(() => {
       setSelectedOption(event.target.value);
       setTransitioning(false);
+      setResults([]);
+      setSearchTerm("");
     }, 300);
+  };
+
+  const handleInputChange = async (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (value.length > 2) {
+      setLoading(true);
+      try {
+        const searchResults = await searchEntities(value, selectedOption); 
+        setResults(searchResults);
+      } catch (error) {
+        console.error("Ошибка при поиске:", error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      setResults([]);
+    }
+  };
+
+  const handleButtonClick = () => {
+    setIsButtonFocused(true);
+    setTimeout(() => setIsButtonFocused(false), 500);
   };
 
   useEffect(() => {
@@ -57,7 +86,7 @@ function Preview() {
     switch (selectedOption) {
       case "services":
         return "Введите название услуги";
-      case "doctors":
+      case "employers":
         return "Введите фамилию врача";
       case "department":
         return "Введите название отделения";
@@ -72,7 +101,7 @@ function Preview() {
     switch (selectedOption) {
       case "services":
         return "Выберите услугу";
-      case "doctors":
+      case "employers":
         return "Выберите врача";
       case "department":
         return "Выберите отделение";
@@ -83,20 +112,18 @@ function Preview() {
     }
   };
 
-  const handleButtonClick = () => {
-    setIsButtonFocused(true);
-    setTimeout(() => setIsButtonFocused(false), 500);
-  };
+  console.log("Параметр поиска:", searchTerm);
 
   return (
     <section className="preview">
       {isMobileView ? (
         <div className="preview__mobile">
+          {/* Мобильная версия */}
           <div className="preview__background-mobile">
             <div className="preview__image-mobile"></div>
           </div>
           <div className="preview__search-mobile">
-            <form action="/submit" className="preview__form-mobile">
+            <form className="preview__form-mobile">
               <h1 className="preview__title">Хочу найти</h1>
               <fieldset className="preview__options">
                 <label className="preview__label">
@@ -105,7 +132,7 @@ function Preview() {
                     name="searchOption"
                     value="doctors"
                     className="preview__radio"
-                    checked={selectedOption === "doctors"}
+                    checked={selectedOption === "employers"}
                     onChange={handleOptionChange}
                   />
                   Врача
@@ -114,9 +141,9 @@ function Preview() {
                   <input
                     type="radio"
                     name="searchOption"
-                    value="department"
+                    value="departments"
                     className="preview__radio"
-                    checked={selectedOption === "department"}
+                    checked={selectedOption === "departments"}
                     onChange={handleOptionChange}
                   />
                   Отделение
@@ -137,7 +164,19 @@ function Preview() {
                 <input
                   className="preview__input"
                   placeholder={getPlaceholder()}
+                  value={searchTerm}
+                  onChange={handleInputChange}
                 />
+                {loading && <div className="preview__loading">Загрузка...</div>}
+                {results.length > 0 && (
+                  <ul className="preview__results-list">
+                    {results.map((result) => (
+                      <li key={result.id} className="preview__results-item">
+                        {result.full_name || result.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 {!isButtonFocused && (
                   <details
                     className={`preview__details ${
@@ -154,7 +193,7 @@ function Preview() {
                   className={`preview__search-button ${
                     isButtonFocused ? "expanded" : ""
                   }`}
-                  type="submit"
+                  type="button"
                   ref={searchButtonRef}
                   onClick={handleButtonClick}
                 >
@@ -166,41 +205,39 @@ function Preview() {
         </div>
       ) : (
         <div className="preview__background">
+          {/* Десктопная версия */}
           <div className="preview__search">
-            <form action="/submit" className="preview__form">
+            <form className="preview__form">
               <h1 className="preview__title">Хочу найти</h1>
-
               <fieldset className="preview__options">
                 <div className="preview__radio-group">
                   <input
                     type="radio"
-                    id="doctors"
+                    id="employers"
                     name="searchOption"
-                    value="doctors"
+                    value="employers"
                     className="preview__radio-input"
-                    checked={selectedOption === "doctors"}
+                    checked={selectedOption === "employers"}
                     onChange={handleOptionChange}
                   />
-                  <label htmlFor="doctors" className="preview__label">
+                  <label htmlFor="employers" className="preview__label">
                     Врача
                   </label>
                 </div>
-
                 <div className="preview__radio-group">
                   <input
                     type="radio"
                     id="department"
                     name="searchOption"
-                    value="department"
+                    value="departments"
                     className="preview__radio-input"
-                    checked={selectedOption === "department"}
+                    checked={selectedOption === "departments"}
                     onChange={handleOptionChange}
                   />
                   <label htmlFor="department" className="preview__label">
                     Отделение
                   </label>
                 </div>
-
                 <div className="preview__radio-group">
                   <input
                     type="radio"
@@ -216,7 +253,6 @@ function Preview() {
                   </label>
                 </div>
               </fieldset>
-
               <div
                 className={`preview__input-container ${
                   transitioning ? "transitioning" : ""
@@ -225,7 +261,23 @@ function Preview() {
                 <input
                   className="preview__input"
                   placeholder={getPlaceholder()}
+                  value={searchTerm}
+                  onChange={handleInputChange}
                 />
+                {loading && <div className="preview__loading">Загрузка...</div>}
+                {results.length > 0 && (
+                  <div className="preview__results">
+                    <ul className="preview__results-list">
+                      {results.map((result) => (
+                        <li key={result.id} className="preview__results-item">
+                          <Link to={`/${selectedOption}/${result.id}`}>
+                            {result.full_name || result.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 {!isButtonFocused && (
                   <details
                     className={`preview__details ${
@@ -242,7 +294,7 @@ function Preview() {
                   className={`preview__search-button ${
                     isButtonFocused ? "expanded" : ""
                   }`}
-                  type="submit"
+                  type="button"
                   ref={searchButtonRef}
                   onClick={handleButtonClick}
                 >

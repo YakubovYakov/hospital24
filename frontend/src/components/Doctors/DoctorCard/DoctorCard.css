@@ -34,7 +34,7 @@
 }
 
 .doctor-card__position {
-  color: #757575;
+  color: #1E1E1E;
 	font-family: 'Cera Round', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -43,7 +43,7 @@
 }
 
 .doctor-card__description {
-  color: #1348ba;
+  color: #1E1E1E;
   font-family: 'Cera Round', sans-serif;
   text-wrap: balance;
   font-size: 16px;

@@ -11,7 +11,9 @@ function OutOfTownPatients() {
   return (
     <section className="out-of-the-town">
       <div className="out-of-the-town__container">
-        <h1 className="out-of-the-town__title">Иногородним пациентам</h1>
+        <h1 className="out-of-the-town__title">
+          Пройти лечение бесплатно по полису ОМС
+        </h1>
         <div className="out-of-the-town__cards">
           {/* карточка 1 */}
           <div className="out-of-the-town__card">
@@ -37,17 +39,17 @@ function OutOfTownPatients() {
             </div>
             <p className="out-of-the-town__card-exclamation-footer">
               Пациенты из других областей РФ должны взять направление по форме
-              057у для получения бесплатной консультации в КДЦ ГКБ №24
+              057у для получения бесплатной консультации в КДО ГКБ №24
             </p>
           </div>
           {/* карточка 2 */}
           <div className="out-of-the-town__card out-of-the-town__card-2">
             <h2 className="out-of-the-town__card-title white-text">
-              Консультативно — диагностический центр
+              Консультативно — диагностическое отделение
             </h2>
             <p className="out-of-the-town__card-text white-text">
               Уважаемые пациенты из регионов РФ! Информируем вас, что запись или
-              перенос приема в КДЦ ГКБ №24 без направления и с направлением по
+              перенос приема в КДО ГКБ №24 без направления и с направлением по
               форме 057у, осуществляется через Единый контакт-центр
             </p>
             <div className="out-of-the-town__info__container">
@@ -67,7 +69,7 @@ function OutOfTownPatients() {
                   с 08:00 до 20:00 — будни, суббота
                 </p>
                 <p className="out-of-the-town__info-text white-text">
-                  воскресенье — выходной
+                  не рабочие дни — воскресенье
                 </p>
               </div>
               <div className="out-of-the-town__info-text-container">
@@ -88,7 +90,7 @@ function OutOfTownPatients() {
                 Информация для пациентов
               </h4>
               <p className="out-of-the-town__card-text">
-                Уважаемые пациенты! При первичном посещении КДЦ, просьба
+                Уважаемые пациенты! При первичном посещении КДО, просьба
                 приходить за 15-20 минут до начала приема для оформления
                 медицинской кары в регистратуре
               </p>
@@ -112,7 +114,7 @@ function OutOfTownPatients() {
                 <span className="out-of-the-town__marker">
                   <img src={exclamation_mark} alt="!" />
                 </span>
-                <p>Документы можно предоставить электронном виде</p>
+                <p>Документы можно предоставить в электронном виде </p>
               </div>
             </div>
           </div>
@@ -140,14 +142,14 @@ function OutOfTownPatients() {
               <img
                 className="out-of-the-town__image"
                 alt="Логотип московского здоровья"
-                src="https://i.postimg.cc/Kvh0ZtL9/image-179.png"
+                src="http://24gkb.ru/images-svg/image%20179.png"
               />
             </div>
             <div className="out-of-the-town__card-footer">
               <span className="out-of-the-town__marker">
                 <img src={exclamation_mark} alt="!" />
               </span>
-              <p>Документы можно предоставить электронном виде</p>
+              <p>Документы можно предоставить в электронном виде</p>
             </div>
           </div>
         </div>
@@ -156,20 +158,20 @@ function OutOfTownPatients() {
           <div className="out-of-the-town__departments-container">
             <div className="out-of-the-town__departments-content">
               <p className="out-of-the-town__departments-text">
-                В ГКБ №24 Вы можете получить консультацию специалистов, имеющих
-                большой опыт в распознавания и лечения сложных медицинских
-                проблем, следующих отделений
+                В ГКБ №24 Вы можете получить консультацию, лечение или Вам
+                сделают операцию специалисты, имеющих большой опыт распознавания
+                и лечения сложных медицинских заболеваний
               </p>
               <img
                 className="out-of-the-town__departments-content-image"
-                src="https://i.postimg.cc/pLqmYwx3/Group-37218.png"
+                src="http://24gkb.ru/images-svg/Group-37218.png"
                 alt="Иллюстрация врачей"
               />
             </div>
             <div className="out-of-the-town__departments-list">
               <p className="out-of-the-town__departments-item">Аллергология</p>
               <p className="out-of-the-town__departments-item">
-                Гнойная хирургия
+							Гинекология
               </p>
               <p className="out-of-the-town__departments-item">
                 Колопроктология
@@ -188,14 +190,14 @@ function OutOfTownPatients() {
                 Москва — столица здоровья
               </h2>
               <p className="out-of-the-town__capital-top-text">
-                Проект «Москва – столица здоровья» помогает иногородним
+                Проект «Москва — столица здоровья» помогает иногородним
                 пациентам получить информацию о медицинской помощи в московских
                 стационарах бесплатно по полису ОМС
               </p>
             </div>
             <img
               className="out-of-the-town__capital-top-image"
-              src="https://i.postimg.cc/xjvT3w3g/Group-2.png"
+              src="http://24gkb.ru/images-svg/Group-2.png"
               alt="Картинка Москва Столица-здоровья"
             />
           </div>
@@ -333,8 +335,9 @@ function OutOfTownPatients() {
           <div className="out-of-the-town__contact">
             <div className="out-of-the-town__cards">
               <MapCard
-                title="Стационар ГБУЗ «ГКБ № 24»"
+                title="Контакты"
                 address="127015, Москва, Писцовая, д. 10"
+								tel="+7 (495) 685-17-94"
                 coordinates={[55.798814, 37.578785]}
                 description="От станции метро «Савёловская» (первый вагон из центра, выход №1) нужно перейти начало Бутырской улицы по подземному переходу и на улицу через правую лестницу, на улице сразу налево на 2-ю Квессинскую улицу. Перейти перекресток на светофоре наискось и двигаться по Вятской улице вверх до первого поворота направо, на Писцовую улицу. Дальше двигаетесь прямо до главного входа в больницу."
                 link="https://yandex.ru/maps/-/CDhar445"
