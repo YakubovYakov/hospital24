@@ -123,7 +123,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url("../../../images/svg/arrow-down.svg");
+  background-image: url("../../../images2/svg/arrow-down.svg");
   background-repeat: no-repeat;
   background-size: contain;
   transition: transform 0.3s ease; 
@@ -132,7 +132,7 @@
 details[open] .doctor-card__details-marker {
   width: 20px;
   height: 20px;
-  background-image: url("../../../images/svg/arrow-up.svg");
+  background-image: url("../../../images2/svg/arrow-up.svg");
 }
 
 

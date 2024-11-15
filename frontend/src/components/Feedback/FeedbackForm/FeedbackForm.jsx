@@ -1,3 +1,6 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 import React, { useState } from "react";
 import "./FeedbackForm.css";
 import { Link } from "react-router-dom";
@@ -5,6 +8,63 @@ import Button from "../../Button/Button";
 import logo from "../../../images2/Logotype.png";
 
 function FeedbackForm({ onClose }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    type: "feedback",
+  });
+  const [consentGiven, setConsentGiven] = useState(false);
+  const [formStatus, setFormStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    setConsentGiven(e.target.checked);
+  };
+
+  const handleSubmit = async (e) => {
+		e.preventDefault();
+	
+		if (!consentGiven) {
+			alert("Пожалуйста, дайте согласие на обработку персональных данных.");
+			return;
+		}
+	
+		try {
+			console.log("Отправка данных формы:", formData)
+	
+			const response = await fetch(`${API_URL}/feedbacks/send-feedback`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			});
+	
+			if (response.ok) {
+				console.log("Ответ от сервера:", await response.json());
+				setFormStatus("success");
+				alert("Ваше сообщение успешно отправлено!");
+				onClose();
+			} else {
+				console.error("Ошибка от сервера:", response.statusText); 
+				setFormStatus("error");
+				alert("Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.");
+			}
+		} catch (error) {
+			console.error("Произошла ошибка при отправке сообщения:", error);
+			setFormStatus("error");
+			alert(
+				"Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз."
+			);
+		}
+	};
+
   const [activeButton, setActiveButton] = useState("thanks");
 
   const handleFormSwitch = (formType) => {
@@ -58,24 +118,49 @@ function FeedbackForm({ onClose }) {
             Жалоба
           </button>
         </div>
-        <form className="feedback-form__form">
+        <form className="feedback-form__form" onSubmit={handleSubmit}>
           <input
             className="feedback-form__input"
+            name="name"
             placeholder="Фамилия, Имя, Отчество"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
           />
           <input
             className="feedback-form__input"
+            name="email"
+            type="email"
             placeholder="Электронная почта"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
           />
-          <input className="feedback-form__input" placeholder="Телефон" />
+          <input
+            className="feedback-form__input"
+            name="phone"
+            placeholder="Телефон"
+            value={formData.phone}
+            onChange={handleInputChange}
+            required
+          />
           <textarea
             className="feedback-form__textarea"
+            name="message"
             placeholder="Написать сообщение"
+            value={formData.message}
+            onChange={handleInputChange}
+            required
           />
 
           <div className="feedback-form__label-checkbox">
             <label>
-              <input className="feedback-form__checkbox" type="checkbox" />
+              <input
+                className="feedback-form__checkbox"
+                type="checkbox"
+                checked={consentGiven}
+								onChange={handleCheckboxChange}
+              />
               <span className="feedback-form__custom-checkbox"></span>
             </label>
             <span>
@@ -86,7 +171,7 @@ function FeedbackForm({ onClose }) {
               ГБУЗ «ГКБ № 24»
             </span>
           </div>
-          <Button onClick={onClose} size="big">
+          <Button type="submit" size="big">
             Отправить
           </Button>
         </form>

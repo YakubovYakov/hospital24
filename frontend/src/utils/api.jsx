@@ -97,3 +97,10 @@ export async function searchEntities(query, type) {
     throw error;
   }
 }
+
+export async function fetchMainEmployerPost(employerId) {
+  const response = await fetch(`${API_URL}/employers/${employerId}/main-post`);
+  if (!response.ok) throw new Error("Ошибка загрузки данных");
+  const data = await response.json();
+  return data;
+}

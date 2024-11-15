@@ -1,11 +1,16 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
-import { fetchDoctorById, fetchDoctors } from "../../../utils/api";
+import {
+  fetchDoctorById,
+  fetchDoctors,
+  fetchMainEmployerPost,
+} from "../../../utils/api";
 import "./DoctorsMain.css";
 
 function DoctorsMain() {
   const [doctors, setDoctors] = useState([]);
+  const [doctorsWithMainPost, setDoctorsWithMainPost] = useState([]);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -27,17 +32,35 @@ function DoctorsMain() {
         const response = await fetchDoctors();
 
         if (Array.isArray(response.data)) {
-          setDoctors(response.data);
+          const doctorsWithPosts = await Promise.all(
+            response.data.map(async (doctor) => {
+              try {
+                const mainPost = await fetchMainEmployerPost(doctor.id);
+                return {
+                  ...doctor,
+                  main_post: mainPost.post_name || "Должность не указана",
+                };
+              } catch (error) {
+                console.error(
+                  `Ошибка при получении должности врача с ID ${doctor.id}:`,
+                  error
+                );
+                return { ...doctor, main_post: "Должность не указана" };
+              }
+            })
+          );
+
+          setDoctorsWithMainPost(doctorsWithPosts);
         } else {
           console.error(
             "Ошибка: полученные данные о врачах не являются массивом",
             response
           );
-          setDoctors([]);
+          setDoctorsWithMainPost([]);
         }
       } catch (error) {
         console.error("Ошибка загрузки данных врачей:", error);
-        setDoctors([]);
+        setDoctorsWithMainPost([]);
       }
     };
 
@@ -49,7 +72,13 @@ function DoctorsMain() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const doctorsToDisplay = Array.isArray(doctors) ? doctors.slice(0, 4) : [];
+  const extendedDoctors = useMemo(() => {
+    return [
+      ...doctorsWithMainPost.slice(-slidesToShow),
+      ...doctorsWithMainPost,
+      ...doctorsWithMainPost.slice(0, slidesToShow),
+    ];
+  }, [doctorsWithMainPost, slidesToShow]);
 
   useEffect(() => {
     currentIndexRef.current = currentIndex;
@@ -77,14 +106,6 @@ function DoctorsMain() {
       setCurrentIndex(slides);
     }
   }, [containerWidth, cardGap, cardTotalWidth, slidesToShow]);
-
-  const extendedDoctors = useMemo(() => {
-    return [
-      ...doctors.slice(-slidesToShow),
-      ...doctors,
-      ...doctors.slice(0, slidesToShow),
-    ];
-  }, [doctors, slidesToShow]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -201,9 +222,9 @@ function DoctorsMain() {
                     )}
 
                     <h2 className="doctors__card-title">{doctor.full_name}</h2>
-                    {doctor.positions && doctor.positions.length > 0 ? (
+                    {doctor.main_post ? (
                       <p className="doctor-preview-card__positions">
-                        {doctor.positions.join(", ")}
+                        {doctor.main_post}
                       </p>
                     ) : (
                       <p className="doctor-preview-card__positions">
@@ -215,7 +236,7 @@ function DoctorsMain() {
                       to={`/doctor/${doctor.id}`}
                       className="doctors__card-button"
                       type="button"
-											color="secondary"
+                      color="secondary"
                     >
                       Подробнее
                     </Button>

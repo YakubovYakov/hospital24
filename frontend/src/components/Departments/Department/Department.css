@@ -360,12 +360,12 @@
 }
 
 .department__prev-button {
-  background-image: url('../../../images/button-prev.svg');
+  background-image: url('../../../images2/button-prev.svg');
   background-repeat: no-repeat;
 }
 
 .department__next-button {
-  background-image: url('../../../images/button-next.svg');
+  background-image: url('../../../images2/button-next.svg');
   background-repeat: no-repeat;
 }
 

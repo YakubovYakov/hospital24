@@ -1,4 +1,3 @@
-// routes/employersRoutes.js
 const express = require("express");
 const router = express.Router();
 const employersController = require("../controllers/employersController");
@@ -7,6 +6,7 @@ const employersPhotoController = require("../controllers/employersPhotoControlle
 const employersExperienceController = require("../controllers/employersExperienceController");
 const employersPostController = require("../controllers/employersPostController");
 
+// Используем метод из импортированного контроллера
 router.get("/", employersController.getAllEmployers);
 router.get("/search", employersController.searchEmployers);
 router.get("/:id", employersController.getEmployerById);
@@ -21,5 +21,6 @@ router.get(
 );
 router.get("/:id/posts", employersPostController.getEmployerPostsById);
 
+router.get("/:id/main-post", employersPostController.getMainEmployerPostById);
 
 module.exports = router;

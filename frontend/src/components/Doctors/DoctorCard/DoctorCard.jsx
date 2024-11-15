@@ -45,7 +45,12 @@ function DoctorCard({
           <Button size="big" onClick={openModal}>
             Записаться на прием
           </Button>
-          {isModalOpen && <DoctorAppointmentModal onClose={closeModal} />}
+          {isModalOpen && (
+            <DoctorAppointmentModal
+              onClose={closeModal}
+              doctorName={full_name}
+            />
+          )}
           <div className="doctor-card__details-wrapper">
             {/* Образование */}
             <details className="doctor-card__details">

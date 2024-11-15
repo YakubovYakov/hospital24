@@ -30,16 +30,14 @@ function Main({ doctors, feedbacks }) {
     };
   }, []);
 
-  console.log(departmentFeedbacks);
+  // console.log(departmentFeedbacks);
   return (
     <>
       <Preview />
       <Services />
-      {isMobileView ? (
-        <DoctorsMainMobile doctors={doctors} />
-      ) : (
-        <DoctorsMain doctors={doctors} />
-      )}
+
+      <DoctorsMain doctors={doctors} />
+
       {isMobileView ? <DepartmentsMainMobile /> : <DepartmentsMain />}
       <HelpMain />
       {isMobileView ? (

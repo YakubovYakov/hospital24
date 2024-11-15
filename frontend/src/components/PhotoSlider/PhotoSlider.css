@@ -59,12 +59,12 @@
 }
 
 .prev-button {
-  background: url(../../images/button-prev.svg);
+  background: url(../../images2/button-prev.svg);
   margin-right: 8px;
 }
 
 .next-button {
-  background: url(../../images/button-next.svg);
+  background: url(../../images2/button-next.svg);
   margin-left: 8px;
 }
 

@@ -11,9 +11,11 @@ import Button from "../../Button/Button";
 import Feedback from "../../Feedback/Feedback";
 import FeedbackMobile from "../../Feedback/FeedbackMobile/FeedbackMobile";
 import FeedbackButtons from "../../Feedback/FeedbackButtons/FeedbackButtons";
+import DoctorAppointmentModal from "../../Doctors/DoctorAppointmentModal/DoctorAppointmentModal";
 
 function Department() {
   const { id: departmentId } = useParams();
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [headDoctor, setHeadDoctor] = useState(null);
   const [doctors, setDoctors] = useState([]);
@@ -35,6 +37,9 @@ function Department() {
   const slidesToShow = 4;
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
+
+	const openModal = () => setIsModalOpen(true);
+	const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -212,9 +217,10 @@ function Department() {
                     {headDoctor.head_doctor_positions?.join(", ") ||
                       "Данные отсутствуют"}
                   </p>
-                  <Button to="/" color="primary">
+                  <Button color="primary" onClick={openModal}>
                     Записаться на прием
                   </Button>
+									{isModalOpen && <DoctorAppointmentModal onClose={closeModal} />}
                 </>
               ) : (
                 <p>Информация о заведующем отделением временно недоступна</p>
@@ -223,102 +229,103 @@ function Department() {
           </div>
         </div>
 
-        {doctors.length > 0 && (
-          <div className="department__carousel-container">
-            <div className="department__carousel-header">
-              <div className="department__doctor-cards-container">
-                <div className="departments__select-wrapper">
-                  <div className="departments__select">
-                    <button
-                      className={`departments__select-button ${
-                        activeButton === "doctors" ? "active_select" : ""
-                      }`}
-                      onClick={() => handleButtonClick("doctors")}
-                    >
-                      Врачи
-                    </button>
-                    <button
-                      className={`departments__select-button ${
-                        activeButton === "nurses" ? "active_select" : ""
-                      }`}
-                      onClick={() => handleButtonClick("nurses")}
-                    >
-                      Медсестры
-                    </button>
-                  </div>
+        <div className="department__carousel-container">
+          <div className="department__carousel-header">
+            <div className="department__doctor-cards-container">
+              <div className="departments__select-wrapper">
+                <div className="departments__select">
+                  <button
+                    className={`departments__select-button ${
+                      activeButton === "doctors" ? "active_select" : ""
+                    }`}
+                    onClick={() => handleButtonClick("doctors")}
+                  >
+                    Врачи
+                  </button>
+                  <button
+                    className={`departments__select-button ${
+                      activeButton === "nurses" ? "active_select" : ""
+                    }`}
+                    onClick={() => handleButtonClick("nurses")}
+                  >
+                    Медсестры
+                  </button>
                 </div>
               </div>
-              <div className="department__carousel-buttons">
-                <button
-                  className="department__prev-button"
-                  onClick={handlePrevClick}
-                />
-                <button
-                  className="department__next-button"
-                  onClick={handleNextClick}
-                />
-              </div>
             </div>
-            <div className="department__carousel" ref={carouselRef}>
-              <div
-                className="department__carousel-track"
-                ref={trackRef}
-                style={{
-                  transform: `translateX(-${currentIndex * cardTotalWidth}px)`,
-                  width: `${extendedDoctors.length * cardTotalWidth}px`,
-                }}
-              >
-                {extendedDoctors.map((doctor, index) => {
-                  const originalIndex =
-                    (index - slidesToShow + doctors.length) % doctors.length;
-                  const currentDoctor = doctors[originalIndex];
-
-                  if (!currentDoctor) {
-                    console.warn(
-                      `currentDoctor is undefined at index ${index}`
-                    );
-                    return null; // Или отобразить заглушку
-                  }
-
-                  return (
-                    <div
-                      key={`${currentDoctor.doctor_id}-${index}`}
-                      className="department__doctor-card"
-                    >
-                      {currentDoctor.doctor_card_photo ? (
-                        <img
-                          className="department__doctor-card-image"
-                          src={currentDoctor.doctor_card_photo}
-                          alt={`Фото доктора ${currentDoctor.doctor_card_title}`}
-                        />
-                      ) : (
-                        <div className="no-photo-placeholder">
-                          Фото отсутствует
-                        </div>
-                      )}
-                      <h3 className="department__doctor-card-title">
-                        {currentDoctor.doctor_card_title || "Имя не указано"}
-                      </h3>
-                      <p className="department__doctor-card-description">
-                        {currentDoctor.doctor_card_description?.join(", ") ||
-                          "Описание отсутствует"}
-                      </p>
-                      <div className="department__button-container">
-                        <Button
-                          to={`/doctor/${currentDoctor.doctor_id}`}
-                          color="secondary"
-                          minWidth={true}
-                        >
-                          Подробнее
-                        </Button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="department__carousel-buttons">
+              {doctors.length > slidesToShow && (
+                <>
+                  <button
+                    className="department__prev-button"
+                    onClick={handlePrevClick}
+                  />
+                  <button
+                    className="department__next-button"
+                    onClick={handleNextClick}
+                  />
+                </>
+              )}
             </div>
           </div>
-        )}
+          <div className="department__carousel" ref={carouselRef}>
+            <div
+              className="department__carousel-track"
+              ref={trackRef}
+              style={{
+                transform: `translateX(-${currentIndex * cardTotalWidth}px)`,
+                width: `${extendedDoctors.length * cardTotalWidth}px`,
+              }}
+            >
+              {extendedDoctors.map((doctor, index) => {
+                const originalIndex =
+                  (index - slidesToShow + doctors.length) % doctors.length;
+                const currentDoctor = doctors[originalIndex];
+
+                if (!currentDoctor) {
+                  console.warn(`currentDoctor is undefined at index ${index}`);
+                  return null; // Или отобразить заглушку
+                }
+
+                return (
+                  <div
+                    key={`${currentDoctor.doctor_id}-${index}`}
+                    className="department__doctor-card"
+                  >
+                    {currentDoctor.doctor_card_photo ? (
+                      <img
+                        className="department__doctor-card-image"
+                        src={currentDoctor.doctor_card_photo}
+                        alt={`Фото доктора ${currentDoctor.doctor_card_title}`}
+                      />
+                    ) : (
+                      <div className="no-photo-placeholder">
+                        Фото отсутствует
+                      </div>
+                    )}
+                    <h3 className="department__doctor-card-title">
+                      {currentDoctor.doctor_card_title || "Имя не указано"}
+                    </h3>
+                    <p className="department__doctor-card-description">
+                      {currentDoctor.doctor_card_description?.join(", ") ||
+                        "Описание отсутствует"}
+                    </p>
+                    <div className="department__button-container">
+                      <Button
+                        to={`/doctor/${currentDoctor.doctor_id}`}
+                        color="secondary"
+                        minWidth={true}
+                      >
+                        Подробнее
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         {isMobileView ? (
           <FeedbackMobile deptId={departmentId} />
         ) : (

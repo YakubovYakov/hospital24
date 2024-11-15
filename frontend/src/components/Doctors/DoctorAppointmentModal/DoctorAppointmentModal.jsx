@@ -1,13 +1,64 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 import React, { useState } from "react";
 import "./DoctorAppointmentModal.css";
 import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
 
-function DoctorAppointmentModal({ onClose }) {
+function DoctorAppointmentModal({ onClose, doctorName }) {
   const [activeForm, setActiveForm] = useState("online");
-
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    doctor: doctorName || "",
+  });
+  const [consentGiven, setConsentGiven] = useState(false);
+  const [formStatus, setFormStatus] = useState(null);
   const handleFormSwitch = (formType) => {
     setActiveForm(formType);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    setConsentGiven(e.target.checked);
+  };
+
+  const handleSubmit = async (e) => {
+    if (!consentGiven) {
+      alert("Пожалуйста, дайте согласие на обработку персональных данных.");
+      return;
+    }
+
+    try {
+      console.log("Отправка данных формы:", formData);
+
+      const response = await fetch(`${API_URL}/feedbacks/send-feedback`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, type: "appointment" }),
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        alert("Запись успешно отправлена!");
+        onClose();
+      } else {
+        setFormStatus("error");
+        alert("Ошибка при отправке записи. Пожалуйста, попробуйте еще раз.");
+      }
+    } catch (error) {
+      console.error("Ошибка при отправке данных:", error);
+      setFormStatus("error");
+      alert("Ошибка при отправке записи. Пожалуйста, попробуйте еще раз.");
+    }
   };
 
   return (
@@ -21,7 +72,9 @@ function DoctorAppointmentModal({ onClose }) {
               Запись на прием к специалистам больницы
             </h1>
             <p className="appointment-modal__text">
-						Уважаемые пациенты, вы можете выбрать удобный для вас способ записи к нашим специалистам либо через оператора контак-центра либо через форму обратной связи
+              Уважаемые пациенты, вы можете выбрать удобный для вас способ
+              записи к нашим специалистам либо через оператора контак-центра
+              либо через форму обратной связи
             </p>
           </div>
           <div>
@@ -36,7 +89,7 @@ function DoctorAppointmentModal({ onClose }) {
           <button
             className={`appointment-modal__button ${
               activeForm === "online" ? "active-modal" : ""
-            }`}ч
+            }`}
             onClick={() => handleFormSwitch("online")}
           >
             Оставить заявку
@@ -51,19 +104,38 @@ function DoctorAppointmentModal({ onClose }) {
           </button>
         </div>
         {activeForm === "online" && (
-          <form className="appointment-modal__form">
+          <form className="appointment-modal__form" onSubmit={handleSubmit}>
             <input
               className="appointment-modal__input"
+              name="name"
               placeholder="Фамилия, Имя, Отчество"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
             />
             <input
               className="appointment-modal__input"
+              name="email"
+              type="email"
               placeholder="Электронная почта"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
             />
-            <input className="appointment-modal__input" placeholder="Телефон" />
+            <input
+              className="appointment-modal__input"
+              name="phone"
+              placeholder="Телефон"
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
+            />
             <textarea
               className="appointment-modal__textarea"
+              name="message"
               placeholder="Написать сообщение"
+              value={formData.message}
+              onChange={handleInputChange}
             />
 
             <div className="appointment-modal__label-checkbox">
@@ -71,6 +143,8 @@ function DoctorAppointmentModal({ onClose }) {
                 <input
                   className="appointment-modal__checkbox"
                   type="checkbox"
+									checked={consentGiven}
+									onChange={handleCheckboxChange}
                 />
                 <span className="appointment-modal__custom-checkbox"></span>
               </label>
@@ -85,7 +159,7 @@ function DoctorAppointmentModal({ onClose }) {
                 ГБУЗ «ГКБ № 24»
               </span>
             </div>
-            <Button onClick={onClose} size="big">
+            <Button type="submit" size="big">
               Отправить
             </Button>
           </form>

@@ -112,8 +112,6 @@ function Preview() {
     }
   };
 
-  console.log("Параметр поиска:", searchTerm);
-
   return (
     <section className="preview">
       {isMobileView ? (

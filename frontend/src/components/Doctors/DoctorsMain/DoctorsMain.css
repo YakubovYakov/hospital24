@@ -111,11 +111,11 @@
 }
 
 .doctors-main__prev-button {
-  background: url("../../../images/button-prev.svg") no-repeat;
+  background: url("../../../images2/button-prev.svg") no-repeat;
 }
 
 .doctors-main__next-button {
-  background: url("../../../images/button-next.svg") no-repeat;
+  background: url("../../../images2/button-next.svg") no-repeat;
 }
 
 .doctors__card {

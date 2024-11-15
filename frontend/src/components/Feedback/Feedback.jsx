@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Feedback.css";
 import { fetchFeedbacks, fetchDepartmentFeedback } from "../../utils/api";
 
-function Feedback({ empId, deptId }) {
+function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,29 +28,32 @@ function Feedback({ empId, deptId }) {
   );
 
   useEffect(() => {
-    const loadFeedbacks = async () => {
-      try {
-        let data = [];
-        if (empId) {
-          data = await fetchFeedbacks();
-          console.log("Все отзывы:", data);
-          data = data.filter((feedback) => feedback.emp_id === empId);
-          console.log("Отфильтрованные отзывы для врача:", data);
-        } else if (deptId) {
-          data = await fetchDepartmentFeedback(deptId);
+    if (propFeedbacks && propFeedbacks.length > 0) {
+      setFeedbacks(propFeedbacks);
+      setLoading(false);
+    } else {
+      const loadFeedbacks = async () => {
+        try {
+          let data = [];
+          if (empId) {
+            data = await fetchFeedbacks();
+            data = data.filter((feedback) => feedback.emp_id === empId);
+          } else if (deptId) {
+            data = await fetchDepartmentFeedback(deptId);
+          }
+
+          setFeedbacks(data || []);
+          setLoading(false);
+        } catch (error) {
+          console.error("Ошибка при загрузке отзывов:", error);
+          setError("Ошибка при загрузке отзывов");
+          setLoading(false);
         }
+      };
 
-        setFeedbacks(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Ошибка при загрузке отзывов:", error);
-        setError("Ошибка при загрузке отзывов");
-        setLoading(false);
-      }
-    };
-
-    loadFeedbacks();
-  }, [empId, deptId]);
+      loadFeedbacks();
+    }
+  }, [empId, deptId, propFeedbacks]);
 
   useEffect(() => {
     setExpanded(Array(feedbacks.length).fill(false));
@@ -257,7 +260,14 @@ function Feedback({ empId, deptId }) {
                     >
                       {expanded[originalIndex] ? "Скрыть" : "Ещё"}
                     </button>
-                    <p className="feedback__card-author">{feedback.author}</p>
+                    <p
+                      className={`feedback__card-author ${
+                        feedback.author ? "" : "empty"
+                      }`}
+                    >
+                      {feedback.author || " "}
+                    </p>
+
                     <span className="feedback__card-date">
                       {feedback.feedback_date}
                     </span>

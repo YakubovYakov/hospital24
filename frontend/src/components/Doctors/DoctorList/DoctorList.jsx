@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./DoctorList.css";
 import DoctorPreviewCard from "../../Doctors/DoctorPreviewCard/DoctorPreviewCard";
 import searchIcon from "../../../images2/svg/Search.svg";
-import { fetchDoctors } from "../../../utils/api";
+import { fetchDoctors, fetchMainEmployerPost } from "../../../utils/api";
 
 const ITEMS_PER_PAGE = 3;
 
@@ -24,18 +24,37 @@ function DoctorList() {
         const result = await fetchDoctors(currentPage, ITEMS_PER_PAGE);
         const data = result.data;
 
+        // Загружаем главную должность для каждого врача
+        const doctorsWithPosts = await Promise.all(
+          data.map(async (doctor) => {
+            try {
+              const mainPost = await fetchMainEmployerPost(doctor.id);
+              return {
+                ...doctor,
+                main_post: mainPost.post_name, // Добавляем главную должность
+              };
+            } catch (error) {
+              console.error(
+                `Ошибка при получении должности врача с ID ${doctor.id}:`,
+                error
+              );
+              return { ...doctor, main_post: "Должность не указана" };
+            }
+          })
+        );
+
         setDoctors((prevDoctors) => {
           const uniqueDoctors = [
             ...prevDoctors,
-            ...data.filter(
-              (newDoctor) => !prevDoctors.some((doc) => doc.id === newDoctor.id)
+            ...doctorsWithPosts.filter(
+              (newDoctor) =>
+                !prevDoctors.some((doc) => doc.id === newDoctor.id)
             ),
           ];
           return uniqueDoctors;
         });
 
-        const totalLoaded = currentPage * ITEMS_PER_PAGE;
-        if (totalLoaded >= result.totalItems) {
+        if (data.length < ITEMS_PER_PAGE) {
           setHasMore(false);
         }
 
@@ -86,6 +105,8 @@ function DoctorList() {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
     setCurrentPage(1); // Сбрасываем текущую страницу при новом поиске
+    setDoctors([]); // Сбрасываем список врачей для новой выборки
+    setHasMore(true); // Сбрасываем состояние hasMore для новой выборки
   };
 
   if (error) return <div>{error}</div>;
