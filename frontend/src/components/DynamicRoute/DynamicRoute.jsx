@@ -9,7 +9,7 @@ function DynamicRoute() {
   const { id } = useParams();
   const location = useLocation();
 
-  const isDoctorPage = location.pathname.includes("/doctor");
+  const isDoctorPage = location.pathname.includes("/employers");
   const isOurDoctorsPage = location.pathname === "/our-doctors";
   const isDepartmentPage = location.pathname.includes("/departments");
   const isPrivacyPolicyPage = location.pathname.includes("/privacy-policy");

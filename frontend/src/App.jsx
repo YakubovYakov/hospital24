@@ -70,7 +70,7 @@ function App() {
           }
         />
         <Route
-          path="/doctor/:id"
+          path="/employers/:id"
           element={
             <>
               <DynamicRoute />
