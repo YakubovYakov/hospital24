@@ -233,7 +233,7 @@ function DoctorsMain() {
                     )}
 
                     <Button
-                      to={`/doctor/${doctor.id}`}
+                      to={`/employers/${doctor.id}`}
                       className="doctors__card-button"
                       type="button"
                       color="secondary"

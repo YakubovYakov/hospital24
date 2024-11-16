@@ -156,7 +156,7 @@
 .departments-main__card-button_container {
   margin-top: auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .departments-main__prev-button,

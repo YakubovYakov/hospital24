@@ -26,7 +26,7 @@ function DoctorPreviewCard({ doctor }) {
         <p className="doctor-preview-card__positions">Должность не указана</p>
       )}
 
-      <Button to={`/doctor/${doctor.id}`} color="secondary">
+      <Button to={`/employers/${doctor.id}`} color="secondary">
         Подробнее
       </Button>
     </div>

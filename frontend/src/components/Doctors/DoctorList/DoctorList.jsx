@@ -104,9 +104,9 @@ function DoctorList() {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    setCurrentPage(1); // Сбрасываем текущую страницу при новом поиске
-    setDoctors([]); // Сбрасываем список врачей для новой выборки
-    setHasMore(true); // Сбрасываем состояние hasMore для новой выборки
+    setCurrentPage(1);
+    setDoctors([]);
+    setHasMore(true); 
   };
 
   if (error) return <div>{error}</div>;

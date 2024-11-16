@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { fetchDepartments } from "../../../utils/api"; // Импорт функции для получения данных из API
+import { fetchDepartments } from "../../../utils/api";
 import "./DepartmentsMain.css";
 import Button from "../../Button/Button";
+import dept_image from "../../../images2/svg/dept_image.png";
 
 function DepartmentsMain() {
   const [departments, setDepartments] = useState([]);
@@ -24,16 +25,16 @@ function DepartmentsMain() {
     currentIndexRef.current = currentIndex;
   }, [currentIndex]);
 
-  // Загружаем отделения из базы данных
   useEffect(() => {
     const loadDepartments = async () => {
       try {
         const data = await fetchDepartments();
-        // Сортируем отделения: сначала с контентом, потом без
-        const sortedDepartments = data.sort((a, b) => {
-          const aHasContent = a.descriptions && a.descriptions.length > 0;
-          const bHasContent = b.descriptions && b.descriptions.length > 0;
-          return bHasContent - aHasContent;
+				const allowedIds = [27, 12, 47, 13, 3, 32];
+        const filteredDepartments = data.filter((department) => {
+          return allowedIds.includes(department.id);
+        });
+        const sortedDepartments = filteredDepartments.sort((a, b) => {
+          return allowedIds.indexOf(a.id) - allowedIds.indexOf(b.id);
         });
         setDepartments(sortedDepartments);
       } catch (error) {
@@ -147,6 +148,8 @@ function DepartmentsMain() {
     }
   };
 
+  
+
   return (
     <section className="departments-main">
       <div className="departments-main__container">
@@ -193,10 +196,13 @@ function DepartmentsMain() {
                     <h2 className="departments-main__card-title">
                       {currentDepartment.name}
                     </h2>
-                    <p className="departments-main__card-text">
-                      
-                    </p>
+                    <p className="departments-main__card-text"></p>
                     <div className="departments-main__card-button_container">
+                      <img
+                        className="departments-main__card-image"
+                        src={currentDepartment.photo_url} // Используем currentDepartment.photo_url
+                        alt={`Фото отделения ${currentDepartment.name}`}
+                      />
                       <Button
                         to={`/departments/${currentDepartment.id}`}
                         color="secondary"

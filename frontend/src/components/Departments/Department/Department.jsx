@@ -15,10 +15,11 @@ import DoctorAppointmentModal from "../../Doctors/DoctorAppointmentModal/DoctorA
 
 function Department() {
   const { id: departmentId } = useParams();
-	const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [headDoctor, setHeadDoctor] = useState(null);
   const [doctors, setDoctors] = useState([]);
+	const [nurses, setNurses] = useState([]);
   const [department, setDepartment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -38,8 +39,8 @@ function Department() {
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
 
-	const openModal = () => setIsModalOpen(true);
-	const closeModal = () => setIsModalOpen(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -220,7 +221,9 @@ function Department() {
                   <Button color="primary" onClick={openModal}>
                     Записаться на прием
                   </Button>
-									{isModalOpen && <DoctorAppointmentModal onClose={closeModal} />}
+                  {isModalOpen && (
+                    <DoctorAppointmentModal onClose={closeModal} />
+                  )}
                 </>
               ) : (
                 <p>Информация о заведующем отделением временно недоступна</p>
@@ -232,26 +235,33 @@ function Department() {
         <div className="department__carousel-container">
           <div className="department__carousel-header">
             <div className="department__doctor-cards-container">
-              <div className="departments__select-wrapper">
-                <div className="departments__select">
-                  <button
-                    className={`departments__select-button ${
-                      activeButton === "doctors" ? "active_select" : ""
-                    }`}
-                    onClick={() => handleButtonClick("doctors")}
-                  >
-                    Врачи
-                  </button>
-                  <button
-                    className={`departments__select-button ${
-                      activeButton === "nurses" ? "active_select" : ""
-                    }`}
-                    onClick={() => handleButtonClick("nurses")}
-                  >
-                    Медсестры
-                  </button>
+              {(doctors && doctors.length > 0) ||
+              (nurses && nurses.length > 0) ? (
+                <div className="departments__select-wrapper">
+                  <div className="departments__select">
+                    {doctors && doctors.length > 0 && (
+                      <button
+                        className={`departments__select-button ${
+                          activeButton === "doctors" ? "active_select" : ""
+                        }`}
+                        onClick={() => handleButtonClick("doctors")}
+                      >
+                        Врачи
+                      </button>
+                    )}
+                    {nurses && nurses.length > 0 && (
+                      <button
+                        className={`departments__select-button ${
+                          activeButton === "nurses" ? "active_select" : ""
+                        }`}
+                        onClick={() => handleButtonClick("nurses")}
+                      >
+                        Медсестры
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
             <div className="department__carousel-buttons">
               {doctors.length > slidesToShow && (

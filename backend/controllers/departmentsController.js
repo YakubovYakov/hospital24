@@ -2,7 +2,7 @@ const pool = require("../config/db");
 
 const getAllDepartments = async (req, res) => {
   try {
-    const result = await pool.query("SELECT id, name, category FROM dept ORDER BY category, name");
+    const result = await pool.query("SELECT id, name, category, photo_url FROM dept ORDER BY category, name");
     res.json(result.rows);
   } catch (error) {
     console.error("Ошибка при получении отделений:", error);
@@ -14,10 +14,11 @@ const getDepartmentById = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await pool.query(
-      ` SELECT 
+      `SELECT 
 			d.id,
 			d.name,
 			d.location,
+			d.photo_url,
 			COALESCE(
 				ARRAY_AGG(dd.description ORDER BY dd.id) FILTER (WHERE dd.description IS NOT NULL), 
 				'{}'
