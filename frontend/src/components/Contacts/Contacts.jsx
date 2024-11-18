@@ -209,6 +209,24 @@ function Contacts() {
               </div>
             </div>
           </div>
+          <div className="contacts__card">
+            <div className="contacts__card-container">
+              <h2 className="contacts__card-title">
+                Консультации в ГКБ №24
+              </h2>
+              <p className="contacts__card-text black-text">
+                ГБУЗ «ГКБ № 24» — команда лучших специалистов в своей области,
+                которая сосредоточена на решение ваших проблем со здоровьем, не
+                зависимо от сложности и серьезности проблемы
+              </p>
+              <div className="contacts__button-container">
+                <button className="contacts__button">Узнать больше</button>
+                <button className="contacts__button second-button">
+								Скачать прайс услуг
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -219,7 +219,7 @@ function Department() {
                       "Данные отсутствуют"}
                   </p>
                   <Button color="primary" onClick={openModal}>
-                    Записаться на прием
+                    Подробнее
                   </Button>
                   {isModalOpen && (
                     <DoctorAppointmentModal onClose={closeModal} />
@@ -322,7 +322,7 @@ function Department() {
                     </p>
                     <div className="department__button-container">
                       <Button
-                        to={`/doctor/${currentDoctor.doctor_id}`}
+                        to={`/employers/${currentDoctor.doctor_id}`}
                         color="secondary"
                         minWidth={true}
                       >

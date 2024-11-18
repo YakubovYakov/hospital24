@@ -2,13 +2,14 @@ import React, { useRef, useState, useEffect, useMemo } from "react";
 import { fetchDoctorById, fetchDoctors } from "../../utils/api";
 import "./PaidServices.css";
 import Button from "../Button/Button";
-
-// import paid_services from "http://24gkb.ru/images-svg/paid-services.svg";
-// import doctors_services from "../../images/svg/doctors-services.svg";
-// import dms from "../../images/svg/dms.svg";
+import DoctorAppointmentModal from "../Doctors/DoctorAppointmentModal/DoctorAppointmentModal";
 
 function PaidServices() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const toggleDetails = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -263,7 +264,15 @@ function PaidServices() {
               заболеваний
             </p>
             <div className="paid-services__button-container">
-              <Button size="small">Записаться</Button>
+              <Button size="small" onClick={openModal}>
+                Записаться
+              </Button>
+              {isModalOpen && (
+                <DoctorAppointmentModal
+                  onClose={closeModal}
+                  // doctorName={full_name}
+                />
+              )}
               <Button size="large" color="secondary">
                 Скачать прайс услуг
               </Button>
@@ -296,14 +305,21 @@ function PaidServices() {
         </div>
         <div className="paid-services__directions">
           <div className="paid-services__top">
-          <h2 className="paid-services__directions-title">Направления</h2>
+            <h2 className="paid-services__directions-title">Направления</h2>
             <div className="paid-services__button-container">
-              <Button size="small">Записаться</Button>
+              <Button size="small" onClick={openModal}>
+                Записаться
+              </Button>
+              {isModalOpen && (
+                <DoctorAppointmentModal
+                  onClose={closeModal}
+                  // doctorName={full_name}
+                />
+              )}
               <Button size="large" color="secondary">
                 Скачать прайс услуг
               </Button>
             </div>
-            
           </div>
           <div className="paid-services__details-container">
             <h2 className="paid-services__details-title">
@@ -352,7 +368,15 @@ function PaidServices() {
       <div className="paid-services__doctors-top">
         <h2 className="paid-services__title">Наши врачи</h2>
         <div className="paid-services__button-container">
-          <Button size="small">Записаться</Button>
+          <Button size="small" onClick={openModal}>
+            Записаться
+          </Button>
+          {isModalOpen && (
+            <DoctorAppointmentModal
+              onClose={closeModal}
+              // doctorName={full_name}
+            />
+          )}
           <Button size="large" color="secondary">
             Скачать прайс услуг
           </Button>

@@ -52,16 +52,20 @@ function MapCard({
       <h2 className={`map__card-title ${cardStyle}`}>{title}</h2>
       <div className="map__card-text-container">
         <div>
-          <h3 className="map__card-address">Адрес</h3>
-          <span className="map__card-span">{address}</span>
+          <div>
+            <h3 className="map__card-address">Адрес</h3>
+            <span className="map__card-span">{address}</span>
+          </div>
+          {tel && (
+            <div>
+              <h3 className="map__card-address">Телефон</h3>
+              <span className="map__card-span">{tel}</span>
+            </div>
+          )}
         </div>
-        <div>
-          <h3 className="map__card-address">Телефон</h3>
-          <span className="map__card-span">{tel}</span>
           <a href={link} className="map__card-button" target="_blank">
             Построить маршрут
           </a>
-        </div>
       </div>
       <div className="map__card-container">
         <div

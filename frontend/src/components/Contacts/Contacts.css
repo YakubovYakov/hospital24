@@ -158,7 +158,14 @@
 }
 
 .white-text {
-  color: #fff !important;
+	color: #fff !important;
+}
+
+.black-text {
+	color: #1e1e1e;
+	width: 488px;
+	font-size: 28px;
+	font-weight: 400;
 }
 
 .phones {
