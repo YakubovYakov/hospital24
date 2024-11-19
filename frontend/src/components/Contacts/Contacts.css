@@ -25,7 +25,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 48px;
-	margin-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 .contacts__card {
@@ -83,8 +83,7 @@
 }
 
 .contacts__card-info-text {
-	
-	width: 394px;
+  width: 394px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
@@ -143,29 +142,28 @@
 }
 
 .second-button {
-	color: #757575;
+  color: #757575;
   background: #fff;
 }
 
 .second-button:hover {
-	background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .second-button:active {
-	background: #fff;
-	color: #1e1e1e;
-	
+  background: #fff;
+  color: #1e1e1e;
 }
 
 .white-text {
-	color: #fff !important;
+  color: #fff !important;
 }
 
 .black-text {
-	color: #1e1e1e;
-	width: 488px;
-	font-size: 28px;
-	font-weight: 400;
+  color: #1e1e1e;
+  width: 488px;
+  font-size: 28px;
+  font-weight: 400;
 }
 
 .phones {
@@ -208,7 +206,7 @@
 }
 
 .title-card-5 {
-  width: 154px;
+  width: 333px;
 }
 
 .card-container-3 {

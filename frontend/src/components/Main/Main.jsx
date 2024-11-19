@@ -45,6 +45,7 @@ function Main({ doctors, feedbacks }) {
       ) : (
         <Feedback feedbacks={departmentFeedbacks} />
       )}
+      <FeedbackButtons title="Оставить отзыв" description={"Команда ГКБ 24 будет вам очень благодарна за оставленный отзыв!"}/>
 
       {/* <FeedbackMobile feedbacks={departmentFeedbacks} /> */}
     </>

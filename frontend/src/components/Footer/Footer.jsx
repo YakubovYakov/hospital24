@@ -19,7 +19,7 @@ function Footer() {
             <div className="footer__social-links">
               <Link
                 className="footer__social-link tg"
-                to="https://t.me/yourchannel"
+                to="https://t.me/gkb24dzm/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -32,7 +32,7 @@ function Footer() {
 
               <Link
                 className="footer__social-link vk"
-                to="https://vk.com/yourpage"
+                to="https://vk.com/gkb24dzm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -50,15 +50,27 @@ function Footer() {
           <Link className="footer__link" to="/departments">
             Отделения
           </Link>
-          <Link className="footer__link">Услуги</Link>
+          <Link to="/paid-services" className="footer__link">
+            Услуги
+          </Link>
           <Link className="footer__link">Контакты</Link>
-          <Link className="footer__link">О больнице</Link>
+          <Link to="/about-hospital" className="footer__link">
+            О больнице
+          </Link>
         </div>
         <div className="footer__container footer__text-container">
-          <Link className="footer__link">Общая информация</Link>
-          <Link className="footer__link">Нормативные документы</Link>
-          <Link className="footer__link">Образование</Link>
-          <Link className="footer__link">Вакансии</Link>
+          <Link to="/general-information" className="footer__link">
+            Общая информация
+          </Link>
+          <Link to="/regulatory-documents" className="footer__link">
+            Нормативные документы
+          </Link>
+          <Link to="/education" className="footer__link">
+            Образование
+          </Link>
+          <Link to="/vacancies" className="footer__link">
+            Вакансии
+          </Link>
           <Link to="/privacy-policy" className="footer__link">
             Политика обработки
             <br /> персональных данных

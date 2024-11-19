@@ -2,7 +2,7 @@ import React from "react";
 import "./Services.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import reception from "../../images2/svg/reception.svg";
+
 
 function Services() {
   return (
@@ -69,7 +69,7 @@ function Services() {
           <div className="services__card">
             <img
               className="services__card-image services-image-3"
-              src={reception}
+              src="http://24gkb.ru/images-svg/reception-main.svg"
               alt="Фото сервиса"
             />
             <h2 className="services__card-title">

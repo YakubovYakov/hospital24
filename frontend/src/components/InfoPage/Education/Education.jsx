@@ -1,8 +1,9 @@
+
 import React, {useEffect} from "react";
-import "./AboutHospital.css";
+// import "./AboutHospital.css";
 import { Link } from "react-router-dom";
 
-function AboutHospital() {
+function Education() {
 	useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -11,7 +12,7 @@ function AboutHospital() {
       <div className="about-hospital__container">
         <div className="about-hospital__content">
           <div className="about-hospital__top">
-            <h1 className="about-hospital__title">О больнице</h1>
+            <h1 className="about-hospital__title">Образование</h1>
             <div className="about-hospital__content-text">
               <p className="about-hospital__text">
                 Уважаемые пациенты и посетители сайта 24 Московской больницы!
@@ -37,4 +38,4 @@ function AboutHospital() {
   );
 }
 
-export default AboutHospital;
+export default Education;

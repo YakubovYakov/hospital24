@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contacts.css";
 import FAQ from "../InfoPage/FAQ/FAQ";
 import Map from "../Map/Map";
 import Button from "../Button/Button";
+import FeedbackForm from "../../components/Feedback/FeedbackForm/FeedbackForm";
 
 function Contacts() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <section className="contacts">
       <div className="contacts__container">
@@ -154,7 +164,7 @@ function Contacts() {
           <div className="contacts__card card-5">
             <div className="contacts__card-container">
               <h2 className="contacts__card-title title-card-5">
-                Учебный центр
+                Научно — образовательный центр
               </h2>
 
               <div className="contacts__card-info">
@@ -202,18 +212,20 @@ function Contacts() {
                 обратной связи
               </p>
               <div className="contacts__button-container">
-                <button className="contacts__button">Оставить отзыв</button>
-                <button className="contacts__button second-button">
+                <button onClick={openModal} className="contacts__button">
+                  Оставить отзыв
+                </button>
+								{isModalOpen && <FeedbackForm onClose={closeModal} />}
+                <button onClick={openModal} className="contacts__button second-button">
                   Задать вопрос
                 </button>
+								{isModalOpen && <FeedbackForm onClose={closeModal} />}
               </div>
             </div>
           </div>
           <div className="contacts__card">
             <div className="contacts__card-container">
-              <h2 className="contacts__card-title">
-                Консультации в ГКБ №24
-              </h2>
+              <h2 className="contacts__card-title">Консультации в ГКБ №24</h2>
               <p className="contacts__card-text black-text">
                 ГБУЗ «ГКБ № 24» — команда лучших специалистов в своей области,
                 которая сосредоточена на решение ваших проблем со здоровьем, не
@@ -222,7 +234,7 @@ function Contacts() {
               <div className="contacts__button-container">
                 <button className="contacts__button">Узнать больше</button>
                 <button className="contacts__button second-button">
-								Скачать прайс услуг
+                  Скачать прайс услуг
                 </button>
               </div>
             </div>

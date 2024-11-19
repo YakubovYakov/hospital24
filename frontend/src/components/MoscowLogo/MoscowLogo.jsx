@@ -13,10 +13,17 @@ function MoscowLogo() {
           // src={moscow_logo}
           alt="Логотип московской медицины"
         />
-
-        <button className="moscow-logo__button-version">
-          Версия для слабовидящих
-        </button>
+        <div className="moscow-logo__button-container">
+          <Link
+            to="https://vsn.gkb-24.ru/"
+            className="moscow-logo__button-version"
+          >
+            Версия для слабовидящих
+          </Link>
+          <Link to="/" className="moscow-logo__button-old-site">
+            Старая версия сайта
+          </Link>
+        </div>
       </div>
     </section>
   );

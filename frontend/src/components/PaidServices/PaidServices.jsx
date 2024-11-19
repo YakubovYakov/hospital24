@@ -11,6 +11,10 @@ function PaidServices() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const toggleDetails = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -46,7 +50,9 @@ function PaidServices() {
   const PaidServicesInfoData3 = [
     {
       question: "Лицензия",
-      answer: "Ответ",
+      answer: "Выписка из реестра 14.11.2024",
+      pdfLink:
+        "http://24gkb.ru/images-svg/%D0%B2%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0-%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F14-11.pdf",
     },
     {
       question:
@@ -57,11 +63,7 @@ function PaidServices() {
       question: "Образец договора",
       answer: "Ответ",
     },
-    {
-      question:
-        "Перечень категорий граждан, которым предоставляются скидки на платные медицинские услуги",
-      answer: "Ответ",
-    },
+   
   ];
 
   const [doctors, setDoctors] = useState([]);
@@ -216,7 +218,7 @@ function PaidServices() {
             <p className="paid-services__content-text">
               Уважаемые пациенты! Информируем вас, что запись или перенос приема
               на консультацию и диагностику в отделение платных услуг ГКБ №24,
-              осуществляется через регистратуру
+              осуществляется по телефону
             </p>
             <div className="paid-services__content-cards">
               <div className="paid-services__content-card">
@@ -313,7 +315,6 @@ function PaidServices() {
               {isModalOpen && (
                 <DoctorAppointmentModal
                   onClose={closeModal}
-                  // doctorName={full_name}
                 />
               )}
               <Button size="large" color="secondary">
@@ -431,7 +432,8 @@ function PaidServices() {
                         </h2>
                         {doctor.positions && doctor.positions.length > 0 ? (
                           <p className="doctor-preview-card__positions">
-                            {doctor.positions.join(", ")}
+                            {doctor.positions[0]}{" "}
+                            {/* Отображаем только первую должность */}
                           </p>
                         ) : (
                           <p className="doctor-preview-card__positions">
@@ -440,7 +442,7 @@ function PaidServices() {
                         )}
 
                         <Button
-                          to={`/doctor/${doctor.id}`}
+                          to={`/employers/${doctor.id}`}
                           className="doctors__card-button"
                           type="button"
                         >
@@ -478,11 +480,24 @@ function PaidServices() {
             />
             <div className="paid-services__our-list">
               <h3 className="paid-services__dms-title">Страховые компании</h3>
-              <p className="paid-services__our-item">Альфа-Страхование</p>
-              <p className="paid-services__our-item">Росгосстрах</p>
-              <p className="paid-services__our-item">Ингосстрах</p>
-              <p className="paid-services__our-item">Ресо-Гарантия</p>
-              <p className="paid-services__our-item">СОГАЗ</p>
+              <p className="paid-services__our-item">СПАО «РЕСО-Гарантия»</p>
+              <p className="paid-services__our-item">АО «СОГАЗ»</p>
+              <p className="paid-services__our-item">
+                ПАО Группа Ренессанс Страхование
+              </p>
+              <p className="paid-services__our-item">САО «ВСК»</p>
+              <p className="paid-services__our-item">ПАО СК «РОСГОССТРАХ»</p>
+              <p className="paid-services__our-item">ООО «СОГЛАСИЕ»</p>
+              <p className="paid-services__our-item">
+                ООО «Абсолют Страхование»
+              </p>
+              <p className="paid-services__our-item">АО «Альфа Страхование»</p>
+              <p className="paid-services__our-item">
+                ООО «ИННОВАЦИОННАЯ МЕДИЦИНА»
+              </p>
+              <p className="paid-services__our-item">
+                ООО СК «Сбербанк Страхование»
+              </p>
             </div>
           </div>
         </div>
@@ -493,7 +508,7 @@ function PaidServices() {
             </h2>
             <div className="paid-services__button-container">
               <Button>Подать заявку на вычет</Button>
-              <Button color="secondary">Узнать больше</Button>
+              <Button to="https://www.gkb-24.ru/platnye-uslugi/nalogoviy-vichet/" color="secondary">Узнать больше</Button>
             </div>
           </div>
           <p className="paid-services__tax-text">
@@ -521,7 +536,20 @@ function PaidServices() {
                 ></span>
               </div>
               {openIndex === index && (
-                <p className="paid-services_details-text">{item.answer}</p>
+                <div className="paid-services__details-content">
+                  {item.pdfLink ? (
+                    <a
+                      href={item.pdfLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="paid-services__pdf-link"
+                    >
+                      {item.answer}
+                    </a>
+                  ) : (
+                    <p className="paid-services__details-text">{item.answer}</p>
+                  )}
+                </div>
               )}
             </div>
           ))}

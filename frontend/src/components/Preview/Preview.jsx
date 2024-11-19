@@ -102,7 +102,7 @@ function Preview() {
       case "services":
         return "Выберите услугу";
       case "employers":
-        return "Выберите врача";
+        return "Выберите специальность";
       case "department":
         return "Выберите отделение";
       case "on-the-website":

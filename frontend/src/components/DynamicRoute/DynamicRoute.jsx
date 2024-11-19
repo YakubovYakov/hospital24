@@ -54,6 +54,10 @@ function DynamicRoute() {
           );
       }
     }
+    return () => {
+      setDoctorName("");
+      setDepartmentName("");
+    };
   }, [isDoctorPage, isDepartmentPage, id]);
 
   return (

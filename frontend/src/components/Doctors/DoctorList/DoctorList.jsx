@@ -17,6 +17,10 @@ function DoctorList() {
   const observerRef = useRef();
   const lastDoctorRef = useRef();
 
+	useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const loadDoctors = async () => {
       setLoading(true);
@@ -103,11 +107,17 @@ function DoctorList() {
   }, [searchTerm, doctors]);
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setCurrentPage(1);
-    setDoctors([]);
-    setHasMore(true); 
-  };
+		setSearchTerm(e.target.value);
+	
+		if (e.target.value === "") {
+			setFilteredDoctors(doctors);
+		} else {
+			const filtered = doctors.filter((doctor) =>
+				doctor.full_name.toLowerCase().includes(e.target.value.toLowerCase())
+			);
+			setFilteredDoctors(filtered);
+		}
+	};
 
   if (error) return <div>{error}</div>;
 

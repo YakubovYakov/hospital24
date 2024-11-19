@@ -19,7 +19,7 @@ function Department() {
 
   const [headDoctor, setHeadDoctor] = useState(null);
   const [doctors, setDoctors] = useState([]);
-	const [nurses, setNurses] = useState([]);
+  const [nurses, setNurses] = useState([]);
   const [department, setDepartment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -177,10 +177,15 @@ function Department() {
           </div>
           <div className="department__container">
             <div className="department__text-container">
-              <p className="department__location">Расположение отделения</p>
-              <span className="department__detailed-location">
-                {department.location || "Не указано"}
-              </span>
+              {department.location ? (
+                <>
+                  <p className="department__location">Расположение отделения</p>
+                  <span className="department__detailed-location">
+                    {department.location}
+                  </span>
+                </>
+              ) : null}
+
               <div className="department__description">
                 {department.descriptions &&
                 department.descriptions.length > 0 ? (
@@ -215,15 +220,13 @@ function Department() {
                     {headDoctor.head_doctor_title || "Данные отсутствуют"}
                   </h3>
                   <p className="department__head-doctor-card-description">
-                    {headDoctor.head_doctor_positions?.join(", ") ||
-                      "Данные отсутствуют"}
+                    {headDoctor.head_doctor_positions &&
+                    headDoctor.head_doctor_positions.length > 0
+                      ? headDoctor.head_doctor_positions[0]
+                      : "Данные отсутствуют"}
                   </p>
-                  <Button color="primary" onClick={openModal}>
-                    Подробнее
-                  </Button>
-                  {isModalOpen && (
-                    <DoctorAppointmentModal onClose={closeModal} />
-                  )}
+
+                  <Button to={`/employers/${headDoctor.id}`}>Подробнее</Button>
                 </>
               ) : (
                 <p>Информация о заведующем отделением временно недоступна</p>
@@ -317,9 +320,12 @@ function Department() {
                       {currentDoctor.doctor_card_title || "Имя не указано"}
                     </h3>
                     <p className="department__doctor-card-description">
-                      {currentDoctor.doctor_card_description?.join(", ") ||
-                        "Описание отсутствует"}
+                      {currentDoctor.doctor_card_description &&
+                      currentDoctor.doctor_card_description.length > 0
+                        ? currentDoctor.doctor_card_description[0] // Берем только первую должность
+                        : "Описание отсутствует"}
                     </p>
+
                     <div className="department__button-container">
                       <Button
                         to={`/employers/${currentDoctor.doctor_id}`}

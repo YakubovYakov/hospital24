@@ -12,6 +12,10 @@ function DepartmentsList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+	useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const categoryOrder = [
     "Экстренная помощь",
     "Консультации",

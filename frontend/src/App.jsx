@@ -26,6 +26,10 @@ import PatientInfoPanel from "./components/PatientInfoPanel/PatientInfoPanel";
 import OutOfTownPatients from "./components/OutOfTownPatients/OutOfTownPatients";
 import PaidServices from "./components/PaidServices/PaidServices";
 import AboutHospital from "./components/AboutHospital/AboutHospital";
+import GeneralInformation from "./components/GeneralInformation/GeneralInformation";
+import RegulatoryDocuments from "./components/InfoPage/RegulatoryDocuments/RegulatoryDocuments";
+import Education from "./components/InfoPage/Education/Education";
+import Vacancies from "./components/Vacancies/Vacancies";
 
 function App() {
   const location = useLocation();
@@ -156,6 +160,42 @@ function App() {
             <>
               <DynamicRoute />
               <AboutHospital />
+            </>
+          }
+        />
+        <Route
+          path="/general-information"
+          element={
+            <>
+              <DynamicRoute />
+              <GeneralInformation />
+            </>
+          }
+        />
+        <Route
+          path="/regulatory-documents"
+          element={
+            <>
+              <DynamicRoute />
+              <RegulatoryDocuments />
+            </>
+          }
+        />
+        <Route
+          path="/education"
+          element={
+            <>
+              <DynamicRoute />
+              <Education />
+            </>
+          }
+        />
+        <Route
+          path="/vacancies"
+          element={
+            <>
+              <DynamicRoute />
+              <Vacancies />
             </>
           }
         />

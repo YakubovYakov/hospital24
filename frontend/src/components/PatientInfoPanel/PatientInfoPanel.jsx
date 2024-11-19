@@ -9,12 +9,9 @@ function PatientInfoPanel() {
   return (
     <section className="patient-info">
       <div className="patient-info__container">
-        <h1 className="patient-info__title">У Вас направление к нам</h1>
         <div className="patient-info__content">
           <div className="patient-info__content-text-container">
-            <h2 className="patient-info__content-subtitle">
-              Консультативно — диагностическое отделение
-            </h2>
+        <h1 className="patient-info__title">У Вас направление к нам</h1>
             <p className="patient-info__content-text">
               Уважаемые пациенты! Информируем вас, что запись или перенос приема
               в КДО ГКБ №24 без направления и с направлением по форме 057у,

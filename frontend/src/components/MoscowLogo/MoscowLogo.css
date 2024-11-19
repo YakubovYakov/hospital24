@@ -28,6 +28,13 @@
   min-height: 28px;
 }
 
+.moscow-logo__button-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 24px;
+}
+
 .moscow-logo__button-version {
   border: 0;
   background: transparent;
@@ -41,11 +48,28 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+	text-decoration: none;
 }
 
 .moscow-logo__button-version::before {
   margin-right: 8px;
   content: url(../../images2/moscow-medecine/eye.svg);
+}
+
+.moscow-logo__button-old-site {
+	border: 0;
+	border: 1px solid #fff;
+	border-radius: 8px;
+	background: transparent;
+	color: #fff;
+	font-family: "Cera Round", sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 100%;
+	cursor: pointer;
+	padding: 8px;
+	text-decoration: none;
 }
 
 @media (max-width: 988px) {
