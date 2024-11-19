@@ -63,7 +63,6 @@ function PaidServices() {
       question: "Образец договора",
       answer: "Ответ",
     },
-   
   ];
 
   const [doctors, setDoctors] = useState([]);
@@ -275,9 +274,13 @@ function PaidServices() {
                   // doctorName={full_name}
                 />
               )}
-              <Button size="large" color="secondary">
+              <a
+                href="http://24gkb.ru/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
+                target="_blank"
+								className="paid-services__button-download"
+              >
                 Скачать прайс услуг
-              </Button>
+              </a>
             </div>
           </div>
           <div className="paid-services__our-content">
@@ -308,19 +311,7 @@ function PaidServices() {
         <div className="paid-services__directions">
           <div className="paid-services__top">
             <h2 className="paid-services__directions-title">Направления</h2>
-            <div className="paid-services__button-container">
-              <Button size="small" onClick={openModal}>
-                Записаться
-              </Button>
-              {isModalOpen && (
-                <DoctorAppointmentModal
-                  onClose={closeModal}
-                />
-              )}
-              <Button size="large" color="secondary">
-                Скачать прайс услуг
-              </Button>
-            </div>
+            <div className="paid-services__button-container"></div>
           </div>
           <div className="paid-services__details-container">
             <h2 className="paid-services__details-title">
@@ -378,9 +369,13 @@ function PaidServices() {
               // doctorName={full_name}
             />
           )}
-          <Button size="large" color="secondary">
+          <a
+            href="http://24gkb.ru/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
+            target="_blank"
+						className="paid-services__button-download"
+          >
             Скачать прайс услуг
-          </Button>
+          </a>
         </div>
       </div>
       <div className="paid-services__doctors-main">
@@ -508,7 +503,12 @@ function PaidServices() {
             </h2>
             <div className="paid-services__button-container">
               <Button>Подать заявку на вычет</Button>
-              <Button to="https://www.gkb-24.ru/platnye-uslugi/nalogoviy-vichet/" color="secondary">Узнать больше</Button>
+              <Button
+                to="https://www.gkb-24.ru/platnye-uslugi/nalogoviy-vichet/"
+                color="secondary"
+              >
+                Узнать больше
+              </Button>
             </div>
           </div>
           <p className="paid-services__tax-text">

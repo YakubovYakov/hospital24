@@ -41,37 +41,22 @@
 }
 
 .departments-list__item-container {
-  padding: 24px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #d9d9d9;
-}
-
-.departmets-list__item {
-  width: 100%;
-  color: #1348ba;
-  font-family: "Cera Round", sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  text-decoration: none;
 }
 
 .departments-list__item {
   color: #00277B;
   font-family: "Cera Round", sans-serif;
-  font-size: 15.875px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 140%;
   text-decoration: none;
   cursor: pointer;
   transition: 0.7s;
   opacity: 1;
 }
-
-/* .departments-list__item-container:last-child {
-	border-bottom: none;
-} */
 
 .departments-list__item:hover {
   opacity: 0.7;

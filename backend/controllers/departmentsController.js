@@ -2,7 +2,9 @@ const pool = require("../config/db");
 
 const getAllDepartments = async (req, res) => {
   try {
-    const result = await pool.query("SELECT id, name, category, photo_url FROM dept ORDER BY category, name");
+    const result = await pool.query(
+      "SELECT id, name, category, photo_url FROM dept ORDER BY category, name"
+    );
     res.json(result.rows);
   } catch (error) {
     console.error("Ошибка при получении отделений:", error);
@@ -47,27 +49,32 @@ const getDepartmentHead = async (req, res) => {
     const result = await pool.query(
       `
 			SELECT 
-        e.id, 
-        e.full_name AS head_doctor_title, 
-        ep.photo_url AS head_doctor_photo, 
-        ed.description AS head_doctor_description,
-        ARRAY_AGG(DISTINCT p.name) AS head_doctor_positions  -- собираем должности в массив
-      FROM 
-        department_head dh
-      JOIN 
-        employers e ON dh.employer_id = e.id
-      LEFT JOIN 
-        employers_photo ep ON e.id = ep.employers_id AND ep.is_main = true
-      LEFT JOIN 
-        dept_description ed ON dh.department_id = ed.dept_id
-      LEFT JOIN 
-        employers_post epo ON e.id = epo.employers_id  -- подключаем таблицу с должностями
-      LEFT JOIN 
-        post p ON epo.post_id = p.id  -- подключаем таблицу с названиями должностей
-      WHERE 
-        dh.department_id = $1
-      GROUP BY 
-        e.id, ep.photo_url, ed.description;
+			e.id, 
+			e.full_name AS head_doctor_title, 
+			ep.photo_url AS head_doctor_photo, 
+			ed.description AS head_doctor_description,
+			p_main.name AS main_post, -- Извлекаем главную должность
+			ARRAY_AGG(DISTINCT p.name) AS head_doctor_positions -- Собираем все должности в массив
+			FROM 
+				department_head dh
+			JOIN 
+				employers e ON dh.employer_id = e.id
+			LEFT JOIN 
+				employers_photo ep ON e.id = ep.employers_id AND ep.is_main = true
+			LEFT JOIN 
+				dept_description ed ON dh.department_id = ed.dept_id
+			LEFT JOIN 
+				employers_post epo ON e.id = epo.employers_id -- Присоединяем все должности
+			LEFT JOIN 
+				post p ON epo.post_id = p.id -- Названия всех должностей
+			LEFT JOIN 
+				employers_post epo_main ON e.id = epo_main.employers_id AND epo_main.is_main = true -- Главная должность
+			LEFT JOIN 
+				post p_main ON epo_main.post_id = p_main.id -- Название главной должности
+			WHERE 
+				dh.department_id = $1
+			GROUP BY 
+			e.id, ep.photo_url, ed.description, p_main.name;
 			`,
       [departmentId]
     );
@@ -140,12 +147,10 @@ const searchDepartments = async (req, res) => {
   }
 };
 
-
-
 module.exports = {
   getAllDepartments,
   getDepartmentById,
   getDepartmentHead,
   getDepartmentDoctors,
-	searchDepartments
+  searchDepartments,
 };

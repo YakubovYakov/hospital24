@@ -64,26 +64,21 @@ function DoctorAppointmentModal({ onClose, doctorName }) {
   return (
     <div className="appointment-modal">
       <div className="appointment-modal__container">
-        <button onClick={onClose} className="appointment-modal__close-button" />
-
         <div className="appointment-modal__text-content">
-          <div>
+          <div className="appointment-modal__title-container">
             <h1 className="appointment-modal__title">
               Запись на прием к специалистам больницы
             </h1>
-            <p className="appointment-modal__text">
-              Уважаемые пациенты, вы можете выбрать удобный для вас способ
-              записи к нашим специалистам либо через оператора контак-центра
-              либо через форму обратной связи
-            </p>
-          </div>
-          <div>
-            <img
-              className="appointment-modal__image"
-              src={"http://24gkb.ru/images-svg/mobile.svg"}
-              alt="Картинка телефона"
+            <button
+              onClick={onClose}
+              className="appointment-modal__close-button"
             />
           </div>
+          <p className="appointment-modal__text">
+            Уважаемые пациенты, вы можете выбрать удобный для вас способ записи
+            к нашим специалистам либо через оператора контак-центра либо через
+            форму обратной связи
+          </p>
         </div>
         <div className="appointment-modal__buttons-container">
           <button
@@ -143,8 +138,8 @@ function DoctorAppointmentModal({ onClose, doctorName }) {
                 <input
                   className="appointment-modal__checkbox"
                   type="checkbox"
-									checked={consentGiven}
-									onChange={handleCheckboxChange}
+                  checked={consentGiven}
+                  onChange={handleCheckboxChange}
                 />
                 <span className="appointment-modal__custom-checkbox"></span>
               </label>

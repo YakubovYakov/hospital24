@@ -11,27 +11,30 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  overflow: auto;
+}
+
+.appointment-modal__title-container {
+	display: flex;
+	flex-direction: row;
 }
 
 .appointment-modal__container {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  width: 576px;
+	background: #fff;
+  width: 90%; 
+  max-width: 576px;
+  max-height: 90vh; 
   padding: 24px 24px 32px 24px;
   border-radius: 8px;
-  /* width: 400px; */
-  max-width: 90%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  overflow-y: auto;
 }
 
 .appointment-modal__close-button {
-  position: absolute;
+  /* position: absolute; */
   top: 16px;
   right: 16px;
   border: 0;
@@ -55,7 +58,8 @@
 
 .appointment-modal__text-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Вертикальная компоновка для компактности */
+  gap: 16px;
 }
 
 .appointment-modal__title {

@@ -220,10 +220,7 @@ function Department() {
                     {headDoctor.head_doctor_title || "Данные отсутствуют"}
                   </h3>
                   <p className="department__head-doctor-card-description">
-                    {headDoctor.head_doctor_positions &&
-                    headDoctor.head_doctor_positions.length > 0
-                      ? headDoctor.head_doctor_positions[0]
-                      : "Данные отсутствуют"}
+                    {headDoctor.main_post || "Данные отсутствуют"}
                   </p>
 
                   <Button to={`/employers/${headDoctor.id}`}>Подробнее</Button>

@@ -23,15 +23,14 @@
 }
 
 .paid-services__directions-title {
-	width: 100%;
-	max-width: 552px;
-	color: #1e1e1e;
-	font-family: "Cera Round", sans-serif;
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 120%;
-
+  width: 100%;
+  max-width: 552px;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
 }
 
 .paid-services__content {
@@ -45,12 +44,12 @@
   max-width: 552px;
   display: flex;
   flex-direction: column;
-	
+
   /* justify-content: end; */
 }
 
 .paid-services__content-title {
-	width: 100%;
+  width: 100%;
   max-width: 270px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
@@ -67,7 +66,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
-  margin: 48px 0 24px 0;
+  margin: 24px 0;
 }
 
 .paid-services__content-cards {
@@ -135,6 +134,26 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
+}
+
+.paid-services__button-download {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  color: #757575;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  text-decoration: none;
+  padding: 8px;
+	transition: all 0.3s ease;
+}
+
+.paid-services__button-download:hover {
+	/* border: 1px solid #1348ba; */
+	background: #f6f6f6;
+	color: #000;
 }
 
 .paid-services__our-content {
@@ -247,19 +266,19 @@
 }
 
 .paid-services__pdf-link {
-	font-family: "Cera Round", sans-serif;
+  font-family: "Cera Round", sans-serif;
   color: #1348ba;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .paid-services__doctors-main {
   border-radius: 8px;
   background: #f6f6f6;
-	padding: 0 0 48px;
+  padding: 0 0 48px;
 }
 
 .paid-services__doctors {

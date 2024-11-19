@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
-  margin: 0 0 48px 0 ;
+  margin: 0 0 24px 0 ;
 }
 
 .patient-info__content {
@@ -88,7 +88,7 @@
 
 .patient-info__content-image {
   max-width: 552px;
-  min-height: 418px;
+  min-height: 400px;
 }
 
 .patient-info__cards-container {

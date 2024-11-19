@@ -8,7 +8,7 @@ function Services() {
   return (
     <section className="services">
       <div className="services__container">
-        <div className="services__top">
+        {/* <div className="services__top">
           <h1 className="services__title">Наши услуги</h1>
           <Button
             to="/patient-info"
@@ -18,7 +18,7 @@ function Services() {
           >
             Все
           </Button>
-        </div>
+        </div> */}
         <div className="services__cards">
           <div className="services__card">
             <img
