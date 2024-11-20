@@ -252,7 +252,7 @@ function PaidServices() {
           </div>
           <img
             className="paid-services__image"
-            src={"https://62.3.58.57/static/images-svg/paid-services.svg"}
+            src={"https://www.gkb-24.ru/static/images-svg/paid-services.svg"}
             alt="Иллюстрация платных услуг"
           />
         </div>
@@ -470,7 +470,7 @@ function PaidServices() {
           <div className="paid-services__dms-content">
             <img
               className="paid-services__dms-image"
-              src={"https://62.3.58.57/static/images-svg/dms.svg"}
+              src={"https://www.gkb-24.ru/static/images-svg/paid-services.svg"}
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">
