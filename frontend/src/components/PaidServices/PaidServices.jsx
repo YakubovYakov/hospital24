@@ -52,7 +52,7 @@ function PaidServices() {
       question: "Лицензия",
       answer: "Выписка из реестра 14.11.2024",
       pdfLink:
-        "http://24gkb.ru/images-svg/%D0%B2%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0-%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F14-11.pdf",
+        "https://62.3.58.57/static/images-svg/%D0%B2%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0-%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F14-11.pdf",
     },
     {
       question:
@@ -252,7 +252,7 @@ function PaidServices() {
           </div>
           <img
             className="paid-services__image"
-            src={"http://24gkb.ru/images-svg/paid-services.svg"}
+            src={"https://62.3.58.57/static/images-svg/paid-services.svg"}
             alt="Иллюстрация платных услуг"
           />
         </div>
@@ -275,7 +275,7 @@ function PaidServices() {
                 />
               )}
               <a
-                href="http://24gkb.ru/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
+                href="https://62.3.58.57/static/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
                 target="_blank"
 								className="paid-services__button-download"
               >
@@ -286,7 +286,7 @@ function PaidServices() {
           <div className="paid-services__our-content">
             <img
               className="paid-services__our-image"
-              src={"http://24gkb.ru/images-svg/doctors-services.svg"}
+              src={"https://62.3.58.57/static/images-svg/doctors-services.svg"}
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">
@@ -370,7 +370,7 @@ function PaidServices() {
             />
           )}
           <a
-            href="http://24gkb.ru/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
+            href="https://62.3.58.57/static/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
             target="_blank"
 						className="paid-services__button-download"
           >
@@ -470,7 +470,7 @@ function PaidServices() {
           <div className="paid-services__dms-content">
             <img
               className="paid-services__dms-image"
-              src={"http://24gkb.ru/images-svg/dms.svg"}
+              src={"https://62.3.58.57/static/images-svg/dms.svg"}
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">

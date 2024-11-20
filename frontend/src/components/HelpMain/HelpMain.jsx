@@ -9,7 +9,7 @@ function HelpMain() {
       <div className="help-main__container">
         <img
           className="help-main__banner"
-          src={"http://24gkb.ru/images-svg/help-main.png"}
+          src={"https://62.3.58.57/static/images-svg/help-main.png"}
           alt="Баннер блока для родственников"
         />
         <div className="help-main__text-container">

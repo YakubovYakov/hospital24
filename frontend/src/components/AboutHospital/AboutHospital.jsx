@@ -28,7 +28,7 @@ function AboutHospital() {
           </div>
           <img
             className="about-hospital__image"
-            src={"http://24gkb.ru/images-svg/about-hospital.svg"}
+            src={"https://62.3.58.57/static/images-svg/about-hospital.svg"}
             alt="Иллюстрация программиста"
           />
         </div>

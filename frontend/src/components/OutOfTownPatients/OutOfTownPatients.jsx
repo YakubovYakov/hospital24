@@ -142,7 +142,7 @@ function OutOfTownPatients() {
               <img
                 className="out-of-the-town__image"
                 alt="Логотип московского здоровья"
-                src="http://24gkb.ru/images-svg/image%20179.png"
+                src="https://62.3.58.57/static/images-svg/image%20179.png"
               />
             </div>
             <div className="out-of-the-town__card-footer">
@@ -164,7 +164,7 @@ function OutOfTownPatients() {
               </p>
               <img
                 className="out-of-the-town__departments-content-image"
-                src="http://24gkb.ru/images-svg/Group-37218.png"
+                src="https://62.3.58.57/static/images-svg/Group-37218.png"
                 alt="Иллюстрация врачей"
               />
             </div>
@@ -197,7 +197,7 @@ function OutOfTownPatients() {
             </div>
             <img
               className="out-of-the-town__capital-top-image"
-              src="http://24gkb.ru/images-svg/Group-2.png"
+              src="https://62.3.58.57/static/images-svg/Group-2.png"
               alt="Картинка Москва Столица-здоровья"
             />
           </div>
