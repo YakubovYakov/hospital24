@@ -161,7 +161,7 @@ function VisitorInfo() {
           </div>
           <img
             className="visitor-info__modal-image"
-            src="https://62.3.58.57/static/images-svg/hospital.svg"
+            src="https://www.gkb-24.ru/static/images-svg/hospital.svg"
             alt="Иллюстрация операционной"
           />
         </div>

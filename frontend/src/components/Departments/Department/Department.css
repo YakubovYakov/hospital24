@@ -98,11 +98,7 @@
 	padding: 12px 0;
 }
 
-/* .department__description-item::before {
-  content: url("../../../images/svg/arrow-right.svg");
-  margin-right: 8px;
-  flex-shrink: 0;
-} */
+
 
 .departments__select-wrapper {
   display: flex;

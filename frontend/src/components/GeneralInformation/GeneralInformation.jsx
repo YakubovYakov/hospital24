@@ -28,7 +28,7 @@ function GeneralInformation() {
           </div>
           <img
             className="about-hospital__image"
-            src={"https://62.3.58.57/static/images-svg/about-hospital.svg"}
+            src={"https://www.gkb-24.ru/static/images-svg/about-hospital.svg"}
             alt="Иллюстрация программиста"
           />
         </div>

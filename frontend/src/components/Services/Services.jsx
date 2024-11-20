@@ -23,7 +23,7 @@ function Services() {
           <div className="services__card">
             <img
               className="services__card-image"
-              src={"https://62.3.58.57/static/images-svg/services1.png"}
+              src={"https://www.gkb-24.ru/static/images-svg/services1.png"}
               alt="Фото сервиса"
             />
             <h2 className="services__card-title services-title-1">
@@ -46,7 +46,7 @@ function Services() {
           <div className="services__card">
             <img
               className="services__card-image"
-              src={"https://62.3.58.57/static/images-svg/services2.png"}
+              src={"https://www.gkb-24.ru/static/images-svg/services2.png"}
               alt="Фото сервиса"
             />
             <h2 className="services__card-title">
@@ -69,7 +69,7 @@ function Services() {
           <div className="services__card">
             <img
               className="services__card-image services-image-3"
-              src="https://62.3.58.57/static/images-svg/reception-main.svg"
+              src="https://www.gkb-24.ru/static/images-svg/reception-main.svg"
               alt="Фото сервиса"
             />
             <h2 className="services__card-title">
