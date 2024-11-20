@@ -12,8 +12,9 @@ const feedbackRoutes = require("./routes/feedbackRoutes");
 
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? ["http://24gkb.ru", "http://www.24gkb.ru"]
+    ? ["http://gkb-24.ru", "http://www.gkb-24.ru", "https://gkb-24.ru", "https://www.gkb-24.ru"]
     : ["http://localhost:5173"];
+
 
 app.use(
   cors({
