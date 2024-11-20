@@ -12,7 +12,7 @@
 
 .patient-info__title {
   width: 100%;
-	max-width: 552px;
+	max-width: 427px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 32px;
@@ -138,13 +138,13 @@
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .patient-info__card-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .patient-info__card-item {

@@ -83,13 +83,12 @@ function Header() {
             <span className="header__number">+ 7 495 685-17-94</span>
             <span className="header__number">+ 7 495 613-63-10</span>
           </div>
+          <div className="header__address-container">
           <img
             className="header__address-img"
             src={map}
             alt="Указатель времени работы больницы"
           />
-          <div className="header__address-container">
-            <p className="header__address-time">Круглосуточно</p>
             <p className="header__address">ул. Писцовая 10</p>
           </div>
         </div>

@@ -51,7 +51,7 @@ function MapCard({
     <div className="map__card">
       <h2 className={`map__card-title ${cardStyle}`}>{title}</h2>
       <div className="map__card-text-container">
-        <div>
+        <div className="map__card-address-container">
           <div>
             <h3 className="map__card-address">Адрес</h3>
             <span className="map__card-span">{address}</span>

@@ -142,7 +142,7 @@ function OutOfTownPatients() {
               <img
                 className="out-of-the-town__image"
                 alt="Логотип московского здоровья"
-                src="https://www.gkb-24.ru7/static/images-svg/image%20179.png"
+                src="https://www.gkb-24.ru/static/images-svg/heart.svg"
               />
             </div>
             <div className="out-of-the-town__card-footer">
@@ -164,7 +164,7 @@ function OutOfTownPatients() {
               </p>
               <img
                 className="out-of-the-town__departments-content-image"
-                src="https://www.gkb-24.ru/images-svg/Group-37218.png"
+                src="https://www.gkb-24.ru/static/images-svg/Group-37218.png"
                 alt="Иллюстрация врачей"
               />
             </div>
@@ -203,7 +203,7 @@ function OutOfTownPatients() {
           </div>
           <div className="out-of-the-town__cards">
             {/* карточка 1 */}
-            <div className="out-of-the-town__card">
+            <div className="out-of-the-town__card card-capital">
               <p className="out-of-the-town__card-text">
                 Для получения подробной информации о бесплатной плановой
                 госпитализации по полису ОМС оставьте заявку на официальном
@@ -252,7 +252,7 @@ function OutOfTownPatients() {
               </div>
             </div>
             {/* карточка 2 */}
-            <div className="out-of-the-town__card">
+            <div className="out-of-the-town__card card-capital">
               <p className="out-of-the-town__card-text">
                 При обращении на горячую линию или официальный сайт проекта
                 «Москва – столица здоровья» через форму «Оставить заявку» за
@@ -348,7 +348,7 @@ function OutOfTownPatients() {
                 </h2>
                 <p className="out-of-the-town__card-contact-text white-text">
                   Связаться с нами Остались еще вопросы? Заполните, пожалуйста,
-                  форму обратной связи и мы свяжемся с вами Написать
+                  форму обратной связи и мы свяжемся с вами
                 </p>
                 <button className="out-of-the-town__card-button">
                   Написать

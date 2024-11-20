@@ -27,7 +27,7 @@ function Services() {
               alt="Фото сервиса"
             />
             <h2 className="services__card-title services-title-1">
-              У вас направление к нам?
+              У вас направление к нам из поликлинники?
             </h2>
             <p className="services__card-text">
               Вас направили на консультацию, плановую госпитализацию и есть

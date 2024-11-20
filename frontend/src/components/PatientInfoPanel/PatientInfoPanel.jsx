@@ -11,7 +11,9 @@ function PatientInfoPanel() {
       <div className="patient-info__container">
         <div className="patient-info__content">
           <div className="patient-info__content-text-container">
-        <h1 className="patient-info__title">У Вас направление к нам</h1>
+            <h1 className="patient-info__title">
+              У Вас направление к нам из поликлинники
+            </h1>
             <p className="patient-info__content-text">
               Уважаемые пациенты! Информируем вас, что запись или перенос приема
               в КДО ГКБ №24 без направления и с направлением по форме 057у,
@@ -215,7 +217,7 @@ function PatientInfoPanel() {
                 <p className="patient-info__card-item">СНИЛС</p>
                 <p className="patient-info__card-item">Снимки МРТ — диски</p>
                 <p className="patient-info__card-item">
-                  Другугая медицинскую документацию по вашему заболеванию
+                  Другая медицинская документация по вашему заболеванию
                 </p>
               </div>
 
@@ -243,7 +245,7 @@ function PatientInfoPanel() {
               <p className="patient-info__card-item">СНИЛС</p>
               <p className="patient-info__card-item">Снимки МРТ — диски</p>
               <p className="patient-info__card-item">
-                Другугая медицинскую документацию по вашему заболеванию
+                Другая медицинская документация по вашему заболеванию
               </p>
             </div>
 

@@ -7,7 +7,7 @@
   justify-content: center;
   width: 100%;
   max-width: 1152px;
-  margin: 0 auto 48px auto;
+  margin: 0 auto 96px auto;
 }
 
 .paid-services__title {
@@ -96,7 +96,7 @@
 }
 
 .paid-services__our {
-  margin: 48px 0;
+  margin: 96px 0;
 }
 
 .paid-services__title {
@@ -147,13 +147,13 @@
   line-height: 140%;
   text-decoration: none;
   padding: 8px;
-	transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .paid-services__button-download:hover {
-	/* border: 1px solid #1348ba; */
-	background: #f6f6f6;
-	color: #000;
+  /* border: 1px solid #1348ba; */
+  background: #f6f6f6;
+  color: #000;
 }
 
 .paid-services__our-content {
@@ -205,13 +205,13 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
 }
 
 .paid-services__details {
   border-radius: 8px;
   background: #f6f6f6;
-  padding: 32px;
+  padding: 24px;
   cursor: pointer;
   position: relative;
   align-self: start;
@@ -238,6 +238,20 @@
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
+}
+
+.paid-services__details-answer {
+  font-family: "Cera Round", sans-serif;
+  color: #1e1e1e;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  padding: 8px 0;
+}
+
+.paid-services__details-answer:first-of-type {
+  padding-top: 16px;
 }
 
 .paid-services__details-marker {
@@ -292,7 +306,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
-  margin: 24px auto;
+  margin: 0 auto;
 }
 
 .paid-services__doctors-wrapper {

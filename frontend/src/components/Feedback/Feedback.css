@@ -121,11 +121,11 @@
 }
 
 .feedback__card-author {
-	min-height: 20px; /* Минимальная высота для автора */
+	min-height: 20px;
 }
 
 .feedback__card-author.empty {
-	visibility: hidden; /* Скрываем элемент, если автора нет */
+	visibility: hidden; 
 }
 
 
@@ -282,18 +282,6 @@
     margin: 0 32px 28px 0;
   }
 
-  /* .feedback__prev_table-button {
-    background: url(../../images/button-prev.svg);
-    background-repeat: no-repeat;
-    border: 0;
-    padding: 10px;
-  }
-  .feedback__next_table-button {
-    background: url(../../images/button-next.svg);
-    background-repeat: no-repeat;
-    border: 0;
-    padding: 10px;
-  } */
 }
 
 @media (max-width: 768px) {
@@ -349,6 +337,5 @@
     text-wrap: balance;
   }
 
-  .active {
-  }
+  
 }

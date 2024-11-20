@@ -22,29 +22,74 @@ function PaidServices() {
   const PaidServicesInfoData1 = [
     {
       question: "Колопроктология",
-      answer: "Ответ",
+      answers: [
+				"Операции по лечению геморроя, свищей и трещин с применением лазерных технологий ",
+				"Сложные операции на промежности: аносфинктеролеваторопластики, перинеопластики",
+				"Удаление параректальных кист: лапароскопические и комбинированные доступы ",
+				"Реконструктивные операции: ликвидация колостомы, илеостомы, кишечных свищей",
+			],
     },
     {
-      question: "Хирургия",
-      answer: "Ответ",
+			question: "Хирургия",
+      answers: [
+				"Лапароскопическая хирургия при остром аппендиците, холецистите, кишечной непроходимости, перфорациях, желчекаменной болезни, грыжах",
+				"Пластические операции на брюшной стенке и лапароскопические вмешательства при доброкачественных новообразованиях",
+				"Современные технологии для лечения варикозной болезни",
+			],
     },
     {
-      question: "Урология",
-      answer: "Ответ",
+			question: "Урология",
+			answers: [
+				"Все виды лечения мочекаменной болезни ",
+				"Доброкачественная гиперплазия предстательной железы: терапия и хирургическое вмешательство",
+				"Кисты и доброкачественные опухоли почки: наблюдение и оперативное лечение ",
+				"Стриктуры мочеточников и уретры: реставрация и расширение сужений",
+				"Гидронефроз: лечение, направленное на восстановление оттока мочи",
+				"Доброкачественные опухоли и дивертикулы мочевого пузыря: диагностика и хирургическая коррекция ",
+				"Гидроцеле и варикоцеле: консервативное и хирургическое лечение",
+				"Фимоз: применение различных методов коррекции ",
+			],
     },
   ];
   const PaidServicesInfoData2 = [
-    {
-      question: "Магнитно-резонансная томография (МРТ)",
-      answer: "Ответ",
+		{
+			question: "Магнитно-резонансная томография (МРТ)",
+			answers: [
+				"МРТ головного мозга — с контрастом и без",
+				"МРТ гипофиза — с контрастом и без",
+				"МРТ сосудов и артерий — венография, артериография",
+				"МРТ брюшной полости и забрюшинного пространства — с контрастом и без",
+				"МРТ предстательной железы — с контрастом",
+				"МРТ органов малого таза",
+				"МРТ всех отделов позвоночника",
+				"МРТ всех видов суставов",
+				"МРТ всех отделов позвоночника — с контрастом и без",
+			],
+      
     },
     {
       question: "Компьютерная томография (КТ)",
-      answer: "Ответ",
+      answers: [
+				"КТ головного мозга — с контрастом и без",
+				"КТ околоносовых пазух",
+				"КТ органов грудной клетки — с контрастом и без",
+				"КТ органов брюшных органов — с контрастом и без ",
+				"КТ  тонкой кишки с контрастированием per os и с внутривенным введением контрастного вещества — Энтерография",
+				"КТ почек и мочевыводящих путей — с контрастом и без",
+				"КТ органов малого таза — с контрастом и без",
+				"КТ всех отделов позвоночника",
+				"КТ ангиография сосудов — с контрастом",
+				"КТ ангиография брахиоцефальных артерий — с контрастом",
+				"КТ ангиография аорты — с контрастом",
+			],
     },
     {
       question: "Ультразвуковое исследование",
-      answer: "Ответ",
+      answers: [
+				"",
+				"",
+				"",
+			],
     },
   ];
   const PaidServicesInfoData3 = [
@@ -57,11 +102,11 @@ function PaidServices() {
     {
       question:
         "Правила предоставления медицинскими организациями платных медицинских услуг",
-      answer: "Ответ",
+      answer: "",
     },
     {
       question: "Образец договора",
-      answer: "Ответ",
+      answer: "",
     },
   ];
 
@@ -252,12 +297,12 @@ function PaidServices() {
           </div>
           <img
             className="paid-services__image"
-            src={"https://www.gkb-24.ru/static/images-svg/dms.svg"}
+            src={"https://www.gkb-24.ru/static/images-svg/paid-services.svg"}
             alt="Иллюстрация платных услуг"
           />
         </div>
         <div className="paid-services__our">
-          <h2 className="paid-services__title">Наши услуги</h2>
+         
           <div className="paid-services__top">
             <p className="paid-services__text">
               В ГКБ №24 Вы можете получить консультацию специалистов, имеющих
@@ -286,7 +331,9 @@ function PaidServices() {
           <div className="paid-services__our-content">
             <img
               className="paid-services__our-image"
-              src={"https://www.gkb-24.ru/static/images-svg/doctors-services.svg"}
+              src={
+                "https://www.gkb-24.ru/static/images-svg/doctors-services.svg"
+              }
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">
@@ -331,12 +378,18 @@ function PaidServices() {
                   ></span>
                 </div>
                 {openIndex === index && (
-                  <p className="paid-services_details-text">{item.answer}</p>
+                  <div className="paid-services__details-text">
+                    {item.answers.map((answer, i) => (
+                      <p key={i} className="paid-services__details-answer">
+                        {answer}
+                      </p>
+                    ))}
+                  </div>
                 )}
               </div>
             ))}
             <h2 className="paid-services__details-title">Диагностика</h2>
-            {PaidServicesInfoData2.map((item, index) => (
+						{PaidServicesInfoData2.map((item, index) => (
               <div key={index} className="paid-services__details">
                 <div
                   className="paid-services__details-subtitle"
@@ -350,7 +403,13 @@ function PaidServices() {
                   ></span>
                 </div>
                 {openIndex === index && (
-                  <p className="paid-services_details-text">{item.answer}</p>
+                  <div className="paid-services__details-text">
+                    {item.answers.map((answer, i) => (
+                      <p key={i} className="paid-services__details-answer">
+                        {answer}
+                      </p>
+                    ))}
+                  </div>
                 )}
               </div>
             ))}
@@ -470,7 +529,7 @@ function PaidServices() {
           <div className="paid-services__dms-content">
             <img
               className="paid-services__dms-image"
-              src={"https://www.gkb-24.ru/static/images-svg/paid-services.svg"}
+              src={"https://www.gkb-24.ru/static/images-svg/dms.svg"}
               alt="Иллюстрация врачей"
             />
             <div className="paid-services__our-list">
