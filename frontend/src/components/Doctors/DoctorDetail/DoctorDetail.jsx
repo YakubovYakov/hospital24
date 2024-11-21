@@ -14,12 +14,12 @@ function DoctorDetail() {
   const [doctor, setDoctor] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isMobileView, setIsMobileView] = useState(false);
+  // const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleMediaQueryChange = (e) => setIsMobileView(e.matches);
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    // const mediaQuery = window.matchMedia("(max-width: 768px)");
+    // const handleMediaQueryChange = (e) => setIsMobileView(e.matches);
+    // mediaQuery.addEventListener("change", handleMediaQueryChange);
 
     setLoading(true);
     fetchDoctorById(id)
@@ -33,9 +33,11 @@ function DoctorDetail() {
         setLoading(false);
       });
 
-    return () =>
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    // return () =>
+    //   mediaQuery.removeEventListener("change", handleMediaQueryChange);
   }, [id]);
+
+ 
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>{error}</div>;
@@ -54,11 +56,11 @@ function DoctorDetail() {
           photos={doctor.photos}
         />
       </div>
-      {isMobileView ? (
+      {/* {isMobileView ? (
         <FeedbackMobile empId={doctor.id} />
       ) : (
-        <Feedback empId={doctor.id} />
-      )}
+			)} */}
+      <Feedback empId={doctor.id} />
       <FeedbackButtons
         title="Оставить отзыв"
         description={`${doctor.full_name} будет вам очень благодарен!`}

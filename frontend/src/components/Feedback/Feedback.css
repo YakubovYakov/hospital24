@@ -100,24 +100,29 @@
 }
 
 .feedback__card {
-	width: 100%;
-	max-width: 352px;
-	height: 100%;
-	box-sizing: border-box;
-	border-radius: 8px;
-	border: 1px solid #d9d9d9;
-	background: #fff;
-	padding: 25px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	overflow: hidden; /* Предотвращаем выход элементов за границы */
+  width: 100%;
+  max-width: 352px;
+	/* height: 320px;
+  max-height: 400px; */
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Предотвращаем выход элементов за границы */
 }
 
 .feedback__card-text {
-	flex: 1;
-	margin-bottom: 10px;
-	overflow: hidden; /* Скрываем лишний текст */
+ 
+  line-height: 1.5; /* Регулируем высоту строки для более аккуратного отображения */
+}
+
+.feedback__card-text.expanded {
+  max-height: none; /* Убираем ограничение по высоте при раскрытии */
+  overflow: auto; /* Добавляем прокрутку, если текст длинный */
 }
 
 .feedback__card-author {
@@ -143,6 +148,9 @@
   opacity: 1;
   transition: 0.7s;
   cursor: pointer;
+	flex-shrink: 0;
+  margin-top: auto; /* Размещаем кнопку внизу */
+  margin-bottom: 10px;
 }
 
 .feedback__more_button:hover {

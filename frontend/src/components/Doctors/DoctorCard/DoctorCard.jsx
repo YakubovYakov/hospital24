@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./DoctorCard.css";
 import PhotoSlider from "../../../components/PhotoSlider/PhotoSlider";
 import Button from "../../Button/Button";
@@ -18,8 +18,9 @@ function DoctorCard({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const yearsOfExperience = experience ? new Date().getFullYear() - new Date(experience).getFullYear() : null;
-
+  const yearsOfExperience = experience
+    ? new Date().getFullYear() - new Date(experience).getFullYear()
+    : null;
 
   return (
     <section className="doctor-card">
@@ -37,14 +38,14 @@ function DoctorCard({
           </ul>
           <p className="doctor-card__description">{description}</p>
           {/* Отображение стажа работы, если есть данные */}
-        {yearsOfExperience !== null && (
-          <p className="doctor-card__experience">
-            Стаж работы:
-            <span className="doctor-card__experience-number">
-              {yearsOfExperience} лет
-            </span>
-          </p>
-        )}
+          {yearsOfExperience !== null && (
+            <p className="doctor-card__experience">
+              Стаж работы:
+              <span className="doctor-card__experience-number">
+                {yearsOfExperience} лет
+              </span>
+            </p>
+          )}
 
           <Button size="big" onClick={openModal}>
             Записаться на прием
@@ -58,21 +59,21 @@ function DoctorCard({
           <div className="doctor-card__details-wrapper">
             {/* Образование */}
             {education && education.length > 0 && (
-            <details className="doctor-card__details">
-              <summary className="doctor-card__details-title">
-                Образование
-                <span className="doctor-card__details-marker"></span>
-              </summary>
-              {education.map((edu, index) => (
-                <p key={index} className="doctor-card__details-text">
-                  <span className="doctor-card__details-year">
-                    {edu.year}
-                  </span>
-                  {edu.text}
-                </p>
-              ))}
-            </details>
-          )}
+              <details className="doctor-card__details">
+                <summary className="doctor-card__details-title">
+                  Образование
+                  <span className="doctor-card__details-marker"></span>
+                </summary>
+                {education.map((edu, index) => (
+                  <p key={index} className="doctor-card__details-text">
+                    <span className="doctor-card__details-year">
+                      {edu.year}
+                    </span>
+                    {edu.text}
+                  </p>
+                ))}
+              </details>
+            )}
 
             {/* Профессиональный опыт */}
             {professional_experience && professional_experience.length > 0 && (

@@ -37,18 +37,23 @@ function App() {
   useEffect(() => {
     const metaViewport = document.querySelector('meta[name="viewport"]');
     const desktopOnlyRoutes = [
-			"/",
-			"/our-doctors",
-			"/departments",
-			"/contacts",
-			"/about-hospital",
-			// "/"
+      "/",
+      "/our-doctors",
+      "/departments",
+      "/contacts",
+      "/about-hospital",
       "/patient-info",
       "/visitors",
       "/paid-services",
       "/out-of-town-patients",
     ];
-    if (desktopOnlyRoutes.includes(location.pathname)) {
+
+    const isDesktopRoute =
+      desktopOnlyRoutes.includes(location.pathname) || // Проверка для статических маршрутов
+      location.pathname.startsWith("/employers/") || // Проверка для страницы врача
+      location.pathname.startsWith("/departments/"); // Проверка для страницы отделения
+
+    if (isDesktopRoute) {
       metaViewport.setAttribute("content", "width=1200, initial-scale=1");
     } else {
       metaViewport.setAttribute(

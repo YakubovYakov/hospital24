@@ -34,9 +34,7 @@ function DynamicRoute() {
       : null;
 
   useEffect(() => {
-    console.log("ID:", id);
-    console.log("isDoctorPage:", isDoctorPage);
-    console.log("isDepartmentPage:", isDepartmentPage);
+   
 
     if (id) {
       if (isDoctorPage) {

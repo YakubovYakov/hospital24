@@ -107,7 +107,10 @@ const getEmployerById = async (req, res) => {
         -- Experiences
         COALESCE(
           (
-            SELECT ARRAY_AGG(JSON_BUILD_OBJECT('date', ex.date_period, 'text', ex.experience) ORDER BY ex.date_period)
+            SELECT ARRAY_AGG(
+              JSON_BUILD_OBJECT('date', ex.date_period, 'text', ex.experience)
+              ORDER BY ex.ord ASC -- Изменили сортировку здесь
+            )
             FROM employers_experience ex
             WHERE ex.employers_id = e.id
           ),
