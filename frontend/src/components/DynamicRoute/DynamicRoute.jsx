@@ -11,7 +11,8 @@ function DynamicRoute() {
 
   const isDoctorPage = location.pathname.includes("/employers");
   const isOurDoctorsPage = location.pathname === "/our-doctors";
-  const isDepartmentPage = location.pathname.includes("/departments");
+  const isDepartmentsPage = location.pathname === "/departments";
+  const isDepartmentPage = /^\/departments\/\d+$/.test(location.pathname);
   const isPrivacyPolicyPage = location.pathname.includes("/privacy-policy");
   const isContactsPage = location.pathname.includes("/contacts");
   const isVisitorPage = location.pathname.includes("/visitors");
@@ -33,6 +34,10 @@ function DynamicRoute() {
       : null;
 
   useEffect(() => {
+    console.log("ID:", id);
+    console.log("isDoctorPage:", isDoctorPage);
+    console.log("isDepartmentPage:", isDepartmentPage);
+
     if (id) {
       if (isDoctorPage) {
         fetchDoctorById(id)
@@ -54,11 +59,7 @@ function DynamicRoute() {
           );
       }
     }
-    return () => {
-      setDoctorName("");
-      setDepartmentName("");
-    };
-  }, [isDoctorPage, isDepartmentPage, id]);
+  }, [id, isDoctorPage, isDepartmentPage]);
 
   return (
     <section className="dynamic-route">
@@ -77,7 +78,10 @@ function DynamicRoute() {
 
         {isDoctorPage && (
           <>
-            <Link className="dynamic-route__link" to="/our-doctors">
+            <Link
+              className="dynamic-route__link doctors-route"
+              to="/our-doctors"
+            >
               Наши врачи
             </Link>
 
@@ -85,13 +89,23 @@ function DynamicRoute() {
           </>
         )}
 
-        {isDepartmentPage && (
+        {isDepartmentsPage && (
           <>
-            <Link className="dynamic-route__link-departments" to="/departments">
+            <Link className="dynamic-route__link" to="/departments">
               Отделения
             </Link>
+          </>
+        )}
 
-            <span className="dynamic-route__current">{departmentName}</span>
+        {isDepartmentPage && (
+          <>
+            <Link className="dynamic-route__link" to="/departments">
+              Отделения
+            </Link>
+            <span className="dynamic-route__arrow"></span>
+            <span className="dynamic-route__current-dept">
+              {departmentName}
+            </span>
           </>
         )}
 

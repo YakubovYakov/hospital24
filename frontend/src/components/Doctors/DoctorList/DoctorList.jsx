@@ -17,7 +17,7 @@ function DoctorList() {
   const observerRef = useRef();
   const lastDoctorRef = useRef();
 
-	useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -28,14 +28,13 @@ function DoctorList() {
         const result = await fetchDoctors(currentPage, ITEMS_PER_PAGE);
         const data = result.data;
 
-        // Загружаем главную должность для каждого врача
         const doctorsWithPosts = await Promise.all(
           data.map(async (doctor) => {
             try {
               const mainPost = await fetchMainEmployerPost(doctor.id);
               return {
                 ...doctor,
-                main_post: mainPost.post_name, // Добавляем главную должность
+                main_post: mainPost.post_name,
               };
             } catch (error) {
               console.error(
@@ -47,12 +46,15 @@ function DoctorList() {
           })
         );
 
+        const sortedDoctors = [...doctorsWithPosts].sort((a, b) =>
+          a.full_name.localeCompare(b.full_name)
+        );
+
         setDoctors((prevDoctors) => {
           const uniqueDoctors = [
             ...prevDoctors,
-            ...doctorsWithPosts.filter(
-              (newDoctor) =>
-                !prevDoctors.some((doc) => doc.id === newDoctor.id)
+            ...sortedDoctors.filter(
+              (newDoctor) => !prevDoctors.some((doc) => doc.id === newDoctor.id)
             ),
           ];
           return uniqueDoctors;
@@ -107,17 +109,17 @@ function DoctorList() {
   }, [searchTerm, doctors]);
 
   const handleSearchChange = (e) => {
-		setSearchTerm(e.target.value);
-	
-		if (e.target.value === "") {
-			setFilteredDoctors(doctors);
-		} else {
-			const filtered = doctors.filter((doctor) =>
-				doctor.full_name.toLowerCase().includes(e.target.value.toLowerCase())
-			);
-			setFilteredDoctors(filtered);
-		}
-	};
+    setSearchTerm(e.target.value);
+
+    if (e.target.value === "") {
+      setFilteredDoctors(doctors);
+    } else {
+      const filtered = doctors.filter((doctor) =>
+        doctor.full_name.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setFilteredDoctors(filtered);
+    }
+  };
 
   if (error) return <div>{error}</div>;
 
