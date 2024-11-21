@@ -30,6 +30,8 @@ function DoctorAppointmentModal({ onClose, doctorName }) {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (!consentGiven) {
       alert("Пожалуйста, дайте согласие на обработку персональных данных.");
       return;

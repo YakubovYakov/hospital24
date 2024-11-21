@@ -12,14 +12,12 @@ router.post('/send-feedback', async (req, res) => {
   let recipientEmail;
   if (type === 'feedback') {
     recipientEmail = 'gkb24@zdrav.mos.ru';
-    // recipientEmail = 'yaks1331@yandex.ru';
   } else if (type === 'appointment') {
     recipientEmail = 'gkb24-pmu@zdrav.mos.ru';
-    // recipientEmail = 'yaks1331@yandex.ru';
 	} else {
     return res.status(400).json({ error: 'Неверный тип запроса' });
   }
-
+	console.log(`Отправка письма на адрес: ${recipientEmail}`);
   try {
     await sendEmail(
       recipientEmail,

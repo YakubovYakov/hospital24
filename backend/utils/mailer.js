@@ -14,6 +14,7 @@ const transporter = nodemailer.createTransport({
 // Функция для отправки письма
 async function sendEmail(to, subject, text) {
   try {
+		console.log(`Отправка письма от ${process.env.YANDEX_USER} к ${to}`);
     const info = await transporter.sendMail({
       from: `"Форма обратной связи" <${process.env.YANDEX_USER}>`,
       to: to,
