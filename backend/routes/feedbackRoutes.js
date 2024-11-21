@@ -11,11 +11,11 @@ router.post('/send-feedback', async (req, res) => {
   const { name, email, phone, message, doctor, type } = req.body;
   let recipientEmail;
   if (type === 'feedback') {
-    // recipientEmail = 'gkb24@zdrav.mos.ru';
-    recipientEmail = 'yaks1331@yandex.ru';
+    recipientEmail = 'gkb24@zdrav.mos.ru';
+    // recipientEmail = 'yaks1331@yandex.ru';
   } else if (type === 'appointment') {
-    // recipientEmail = 'gkb24-pmu@zdrav.mos.ru';
-    recipientEmail = 'yaks1331@yandex.ru';
+    recipientEmail = 'gkb24-pmu@zdrav.mos.ru';
+    // recipientEmail = 'yaks1331@yandex.ru';
 	} else {
     return res.status(400).json({ error: 'Неверный тип запроса' });
   }

@@ -306,7 +306,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
-  margin: 0 auto;
+  margin: 0 auto 24px auto;
 }
 
 .paid-services__doctors-wrapper {
