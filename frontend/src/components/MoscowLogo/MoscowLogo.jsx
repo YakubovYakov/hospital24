@@ -15,12 +15,12 @@ function MoscowLogo() {
         />
         <div className="moscow-logo__button-container">
           <Link
-            to="https://vsn.gkb-24.ru/"
+            to="http://vsn.24gkb.ru"
             className="moscow-logo__button-version"
           >
             Версия для слабовидящих
           </Link>
-          <Link to="/" className="moscow-logo__button-old-site">
+          <Link to="http://www.24gkb.ru" className="moscow-logo__button-old-site">
             Старая версия сайта
           </Link>
         </div>
