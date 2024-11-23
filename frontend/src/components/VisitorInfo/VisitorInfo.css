@@ -2,8 +2,8 @@
 }
 
 .visitor-info__title {
-	width: 100%;
-	max-width: 335px;
+  width: 100%;
+  max-width: 335px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 32px;
@@ -39,10 +39,13 @@
 }
 
 .visitor-info__card-2 {
-  background: url("https://www.gkb-24.ru/static/images-svg/map%20doctors.png");
+  background: linear-gradient(rgba(30, 30, 30, 0.62), rgba(30, 30, 30, 0.62)),
+      url("https://www.gkb-24.ru/static/images-svg/map-doctors.svg") bottom
+      right / auto no-repeat;
 }
 
 .visitor-info__card-container {
+  z-index: 1;
 }
 
 .visitor-info__card-title {
@@ -98,7 +101,7 @@
 
 .visitor-info__footer {
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
@@ -169,10 +172,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-	padding: 8px 0;
+  padding: 8px 0;
 }
 
-.visitor-info_details-text:first-of-type {
+.paid-services__details-answer:first-of-type {
   padding-top: 16px;
 }
 

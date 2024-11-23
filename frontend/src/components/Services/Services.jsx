@@ -3,27 +3,15 @@ import "./Services.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
-
 function Services() {
   return (
     <section className="services">
       <div className="services__container">
-        {/* <div className="services__top">
-          <h1 className="services__title">Наши услуги</h1>
-          <Button
-            to="/patient-info"
-            className="services__button"
-            color="primary"
-            size="small"
-          >
-            Все
-          </Button>
-        </div> */}
         <div className="services__cards">
           <div className="services__card">
             <img
               className="services__card-image"
-              src={"https://www.gkb-24.ru/static/images-svg/services1.png"}
+              src={"https://www.gkb-24.ru/static/images-svg/services1.svg"}
               alt="Фото сервиса"
             />
             <h2 className="services__card-title services-title-1">
@@ -46,7 +34,7 @@ function Services() {
           <div className="services__card">
             <img
               className="services__card-image"
-              src={"https://www.gkb-24.ru/static/images-svg/services2.png"}
+              src={"https://www.gkb-24.ru/static/images-svg/services2.svg"}
               alt="Фото сервиса"
             />
             <h2 className="services__card-title">
@@ -69,7 +57,7 @@ function Services() {
           <div className="services__card">
             <img
               className="services__card-image services-image-3"
-              src="https://www.gkb-24.ru/static/images-svg/reception-main.svg"
+              src="https://www.gkb-24.ru/static/images-svg/reception_main.svg"
               alt="Фото сервиса"
             />
             <h2 className="services__card-title">

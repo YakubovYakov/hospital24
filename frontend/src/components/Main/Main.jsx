@@ -30,7 +30,6 @@ function Main({ doctors, feedbacks }) {
     };
   }, []);
 
-  // console.log(departmentFeedbacks);
   return (
     <>
       <Preview />

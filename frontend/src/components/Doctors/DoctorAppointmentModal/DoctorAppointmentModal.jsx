@@ -170,7 +170,7 @@ function DoctorAppointmentModal({ onClose, doctorName }) {
                   +7 (495) 685-17-94
                 </p>
                 <p className="appointment-modal__contacts-paragraph">
-                  +7 (495) 613-87-01
+                  +7 (495) 613-63-10
                 </p>
               </div>
             </div>
