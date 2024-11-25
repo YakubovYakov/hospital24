@@ -276,7 +276,7 @@
   font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 140%;
   padding: 8px 16px;
   cursor: pointer;
@@ -289,9 +289,9 @@
 }
 
 .second-button {
-  color: #757575;
+  color: #1e1e1e;
   background: #fff;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #1348ba;
 }
 
 .second-button:hover {
@@ -314,7 +314,7 @@
 
 .visitor-info__window-text {
   max-width: 1152px;
-  color: #757575;
+  color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 20px;
   font-style: normal;

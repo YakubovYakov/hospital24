@@ -50,7 +50,7 @@ function Contacts() {
                     с 08:00 до 20:00 — будни
                   </p>
                   <p className="contacts__card-info-text">
-                    с 08:00 до 16:00 — суббота, воскресенье
+                    с 08:00 до 16:00 — выходные дни
                   </p>
                 </div>
 
@@ -61,6 +61,7 @@ function Contacts() {
                 </div>
 
                 <div className="contacts__card-content">
+                  <h3 className="contacts__card-info-subtitle">Почта</h3>
                   <p className="contacts__card-info-text">gkb24@zdrav.mos.ru</p>
                 </div>
               </div>
@@ -207,19 +208,22 @@ function Contacts() {
                 Связаться с нами
               </h2>
               <p className="contacts__card-text">
-                Хотите нас похвалить, выразить обеспокоилось по поводу качества
-                лечения или остались еще вопросы. Заполните, пожалуйста, форму
-                обратной связи
+                Хотите нас похвалить, выразить обеспокоенность по поводу
+                качества лечения или остались еще вопросы. Заполните,
+                пожалуйста, форму обратной связи
               </p>
               <div className="contacts__button-container">
                 <button onClick={openModal} className="contacts__button">
                   Оставить отзыв
                 </button>
-								{isModalOpen && <FeedbackForm onClose={closeModal} />}
-                <button onClick={openModal} className="contacts__button second-button">
+                {isModalOpen && <FeedbackForm onClose={closeModal} />}
+                <button
+                  onClick={openModal}
+                  className="contacts__button second-button"
+                >
                   Задать вопрос
                 </button>
-								{isModalOpen && <FeedbackForm onClose={closeModal} />}
+                {isModalOpen && <FeedbackForm onClose={closeModal} />}
               </div>
             </div>
           </div>
@@ -229,7 +233,7 @@ function Contacts() {
               <p className="contacts__card-text black-text">
                 ГБУЗ «ГКБ № 24» — команда лучших специалистов в своей области,
                 которая сосредоточена на решение ваших проблем со здоровьем, не
-                зависимо от сложности и серьезности проблемы
+                зависимо от сложности и серьезности заболевания
               </p>
               <div className="contacts__button-container">
                 <button className="contacts__button">Узнать больше</button>

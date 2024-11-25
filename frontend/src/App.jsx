@@ -30,6 +30,7 @@ import GeneralInformation from "./components/GeneralInformation/GeneralInformati
 import RegulatoryDocuments from "./components/InfoPage/RegulatoryDocuments/RegulatoryDocuments";
 import Education from "./components/InfoPage/Education/Education";
 import Vacancies from "./components/Vacancies/Vacancies";
+import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 
 function App() {
   const location = useLocation();
@@ -40,7 +41,7 @@ function App() {
       "/",
       "/our-doctors",
       "/departments",
-      "/contacts",
+      // "/contacts",
       "/about-hospital",
       "/patient-info",
       "/visitors",
@@ -204,6 +205,7 @@ function App() {
             </>
           }
         />
+				<Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </div>

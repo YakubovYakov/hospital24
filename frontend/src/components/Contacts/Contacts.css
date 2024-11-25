@@ -29,10 +29,11 @@
 }
 
 .contacts__card {
+  width: 100%;
   border-radius: 16px;
   background: #f6f6f6;
   display: flex;
-  width: 552px;
+  max-width: 552px;
   padding: 32px 0 32px 32px;
   height: 640px;
 }
@@ -93,7 +94,8 @@
 }
 
 .contacts__card-subtitle {
-  min-width: 300px;
+  width: 100%;
+  max-width: 300px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 20px;
@@ -129,7 +131,7 @@
   font-family: "Cera Round", sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 140%;
   padding: 8px 16px;
   cursor: pointer;
@@ -142,7 +144,7 @@
 }
 
 .second-button {
-  color: #757575;
+  color: #1e1e1e;
   background: #fff;
 }
 
@@ -160,8 +162,9 @@
 }
 
 .black-text {
+	width: 100%;
   color: #1e1e1e;
-  width: 488px;
+  max-width: 488px;
   font-size: 28px;
   font-weight: 400;
 }
@@ -215,4 +218,72 @@
 
 .card-container-4 {
   padding-right: 147px;
+}
+
+@media (max-width: 768px) {
+  .contacts__title {
+		width: 100%;
+		max-width: 327px;
+    margin: 24px auto;
+  }
+
+  .contacts__cards-container {
+    display: flex;
+    flex-direction: column;
+		margin: 0 auto;
+  }
+
+  .contacts__card-container {
+    padding: 0;
+  }
+
+  .contacts__card {
+    max-width: 327px;
+    padding: 32px 24px 32px 24px;
+    height: auto;
+  }
+
+  .contacts__card-title {
+    max-width: 279px;
+    font-size: 24px;
+  }
+
+  .contacts__card-subtitle {
+    max-width: 279px;
+  }
+
+	.contacts__card-info-text {
+		max-width: 279px;
+	}
+
+	.contacts__card-text {
+		font-size: 20px;
+		margin-bottom: 24px;
+	}
+
+	.card-2 {
+		height: 523px;
+	}
+
+	.card-6 {
+		margin-top: 48px;
+	}
+
+
+	.title-card-4 {
+		min-width: auto;
+	}
+
+	.black-text {
+
+	}
+
+	.contacts__button-container {
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.contacts__button {
+		margin: 0;
+	}
 }

@@ -11,7 +11,9 @@ function Footer() {
       <div className="footer__wrapper">
         <div className="footer__container">
           <div className="footer__content">
-            <img className="footer__logo" src={logo} alt="Логотип больницы" />
+            <Link to="/">
+              <img className="footer__logo" src={logo} alt="Логотип больницы" />
+            </Link>
             <div className="footer__text-container">
               <p className="footer__address">+7 (495) 685-17-94</p>
               <p className="footer__address">г.Москва, ул.Писцовая, д.10</p>

@@ -2,7 +2,7 @@
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 100%;
   padding: 12px;
   border-radius: 8px;
@@ -50,7 +50,7 @@
 
 .btn--secondary {
   background-color: transparent;
-  color: #757575;
+  color: #1e1e1e;
 	font-weight: 500;
   border: 1px solid #1348ba;
 }

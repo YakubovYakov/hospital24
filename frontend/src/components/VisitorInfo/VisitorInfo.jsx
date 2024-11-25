@@ -200,7 +200,7 @@ function VisitorInfo() {
               }`}
               onClick={() => handleButtonClick("intensive-care-unit")}
             >
-              Отделении реанимации и интенсивной терапии
+              Отделение реанимации и интенсивной терапии
             </button>
           </div>
         </div>
