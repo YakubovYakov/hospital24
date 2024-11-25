@@ -104,3 +104,31 @@ export async function fetchMainEmployerPost(employerId) {
   const data = await response.json();
   return data;
 }
+
+export async function fetchPaidServicesEmployersById(employerId) {
+	try {
+		const response = await fetch(`${API_URL}/employers/${employerId}/paid-services`);
+		if (!response.ok) {
+			throw new Error("Ошибка загрузки данных");
+		}
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error("Ошибка при загрузке врачей платных услуг:", error);
+		throw error;
+	}
+}
+
+export async function fetchAllPaidServicesEmployers() {
+	try {
+		const response = await fetch(`${API_URL}/employers/paid-services`);
+		if (!response.ok) {
+			throw new Error("Ошибка загрузки данных");
+		}
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error("Ошибка при загрузке врачей платных услуг:", error);
+		throw error;
+	}
+}

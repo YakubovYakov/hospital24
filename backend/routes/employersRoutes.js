@@ -5,8 +5,10 @@ const employersDescriptionController = require("../controllers/employersDescript
 const employersPhotoController = require("../controllers/employersPhotoController");
 const employersExperienceController = require("../controllers/employersExperienceController");
 const employersPostController = require("../controllers/employersPostController");
+const paidServicesEmployers = require("../controllers/paidServicesEmployers");
 
 // Используем метод из импортированного контроллера
+router.get("/paid-services", paidServicesEmployers.getAllPaidServicesEmployers);
 router.get("/", employersController.getAllEmployers);
 router.get("/search", employersController.searchEmployers);
 router.get("/:id", employersController.getEmployerById);
@@ -22,5 +24,7 @@ router.get(
 router.get("/:id/posts", employersPostController.getEmployerPostsById);
 
 router.get("/:id/main-post", employersPostController.getMainEmployerPostById);
+
+router.get("/:id/paid-services",  paidServicesEmployers.getPaidServicesEmployers);
 
 module.exports = router;

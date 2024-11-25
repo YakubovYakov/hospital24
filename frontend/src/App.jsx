@@ -40,11 +40,11 @@ function App() {
     const desktopOnlyRoutes = [
       "/",
       "/our-doctors",
-      "/departments",
+      // "/departments",
       // "/contacts",
       "/about-hospital",
       "/patient-info",
-      "/visitors",
+      // "/visitors",
       "/paid-services",
       "/out-of-town-patients",
     ];

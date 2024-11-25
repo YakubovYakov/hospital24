@@ -70,9 +70,28 @@
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
-	padding-bottom: 15px;
+	padding-bottom: 16px;
 }
 
 .departments-list__no-category {
-  margin-top: 48px;
+  /* margin-top: 48px; */
+}
+
+@media (max-width: 768px) {
+	.departments-list__category-title {
+		font-size: 20px;
+	}
+
+	.departments-list__container {
+		max-width: 327px;
+	}
+	.departments-list__item-container {
+		padding: 12px 0;
+	}
+	.departments-list__item {
+		display: flex;
+		width: 100%;
+		max-width: 327px;
+		font-size: 16px;
+	}
 }

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
-import { fetchDoctorById, fetchDoctors } from "../../utils/api";
+// import { fetchDoctorById, fetchDoctors } from "../../utils/api";
+import { fetchAllPaidServicesEmployers } from "../../utils/api";
 import "./PaidServices.css";
 import Button from "../Button/Button";
 import DoctorAppointmentModal from "../Doctors/DoctorAppointmentModal/DoctorAppointmentModal";
@@ -129,10 +130,10 @@ function PaidServices() {
   useEffect(() => {
     const loadDoctors = async () => {
       try {
-        const response = await fetchDoctors();
+        const response = await fetchAllPaidServicesEmployers();
 
-        if (Array.isArray(response.data)) {
-          setDoctors(response.data);
+        if (Array.isArray(response)) {
+          setDoctors(response);
         } else {
           console.error(
             "Ошибка: полученные данные о врачах не являются массивом",
@@ -469,10 +470,10 @@ function PaidServices() {
 
                     return (
                       <div key={index} className="doctors__card">
-                        {mainPhoto ? (
+                        {doctor.main_photo ? (
                           <img
                             className="doctors__card-image"
-                            src={mainPhoto}
+                            src={doctor.main_photo}
                             alt={`Фото ${doctor.full_name}`}
                           />
                         ) : (
@@ -486,7 +487,7 @@ function PaidServices() {
                         </h2>
                         {doctor.positions && doctor.positions.length > 0 ? (
                           <p className="doctor-preview-card__positions">
-                            {doctor.positions[0]}{" "}
+                            {doctor.main_position}
                             {/* Отображаем только первую должность */}
                           </p>
                         ) : (

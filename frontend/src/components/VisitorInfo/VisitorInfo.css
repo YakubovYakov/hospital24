@@ -30,10 +30,11 @@
 }
 
 .visitor-info__card {
+	width: 100%;
   border-radius: 16px;
   background: #f6f6f6;
   display: flex;
-  width: 552px;
+  max-width: 552px;
   padding: 32px 32px 32px 32px;
   height: 640px;
 }
@@ -49,7 +50,8 @@
 }
 
 .visitor-info__card-title {
-  width: 351px;
+	width: 100%;
+  max-width: 351px;
   color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 28px;
@@ -320,4 +322,29 @@
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
+}
+
+@media (max-width: 768px) {
+	.visitor-info__cards-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.visitor-info__title {
+		margin: 49px auto 24px auto;
+	}
+
+	.visitor-info__card {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.visitor-info__cards-container {
+		gap: 24px;
+	}
+
+	.visitor-info__card-title {
+		max-width: 303px;
+		font-size: 24px;
+	}
 }

@@ -139,6 +139,7 @@
   }
 
   .footer__container {
+		width: auto;
     margin-bottom: 8px;
   }
 
