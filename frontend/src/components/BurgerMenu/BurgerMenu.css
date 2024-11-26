@@ -18,17 +18,17 @@
 }
 
 .menu__top {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 22px 0;
+	margin: 0 auto;
 }
 
 .menu__logo {
   width: 176px;
-  margin-left: 24px;
 }
 
 .menu__close-button {
@@ -58,10 +58,11 @@
   padding: 8px 0 8px 8px;
 }
 .menu__foter {
+	width: 90%;
   display: flex;
   flex-direction: row;
   gap: 43px;
-  margin: 0 24px;
+  margin: 0 auto;
 }
 
 .menu__span {

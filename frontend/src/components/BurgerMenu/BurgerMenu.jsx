@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BurgerMenu.css";
-import logo from "../../images2/svg/logo_burger.svg";
+import logo from "../../images2/Logotype.png";
 import tgIcon from "../../images2/footer-img/tg.svg";
 import vkIcon from "../../images2/footer-img/vk.svg";
 
@@ -18,11 +18,12 @@ function BurgerMenu({ isBurgerMenuOpen, setIsBurgerMenuOpen }) {
               to="/"
               className="moscow-logo__logo"
               alt="Логотип московской медицины"
+							onClick={handleLinkClick}
             />
           </div>
         </div>
         <div className="menu__top">
-          <Link className="header__logo" to="/">
+          <Link className="header__logo" to="/" onClick={handleLinkClick}>
             <img
               className="header__logo-img menu__logo"
               src={logo}
