@@ -108,10 +108,6 @@
   transition: 0.7s;
 }
 
-.departments-list__filter-button:hover {
-  opacity: 0.7;
-}
-
 .departments-list__filter {
   display: flex;
   flex-direction: column;
@@ -121,7 +117,6 @@
   background: #fff;
   padding: 16px;
   border-radius: 12px;
-  transition: all 0.3s ease-in-out;
 }
 
 .departments-list__filter.scrolled {
@@ -130,6 +125,7 @@
 
 .departments-list__filter-button {
   border-radius: 9999px;
+	border: 1px solid transparent;
   border: 0;
   background: #f6f6f6;
   color: #1e1e1e;
@@ -140,19 +136,22 @@
   line-height: 140%;
   padding: 8px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  /* transition: 0.1s; */
 }
 
 .departments-list__filter-button:hover {
   background: #fff; 
-  border: 1px solid #1348ba;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  border-color: #ccc; 
 }
 
 .departments-list__filter-button.active-button {
-  border: 1px solid #1348ba;
+  /* border: 1px solid #000;  */
   background: #fff;
+	transform: scale(0.95); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
+
+
 
 .departments-list__list {
   display: flex;
