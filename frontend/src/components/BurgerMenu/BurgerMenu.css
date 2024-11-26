@@ -32,11 +32,20 @@
 }
 
 .menu__close-button {
-  width: 16px;
-  height: 16px;
+  width: 25px;
+  height: 25px;
   background: url(../../images2/svg/close-icon.svg);
+	background-repeat: no-repeat;
   border: none;
   margin-right: 24px;
+}
+
+.menu__close-button span:first-child {
+  transform: rotate(45deg); /* Верхняя линия под углом */
+}
+
+.menu__close-button span:last-child {
+  transform: rotate(-45deg); /* Нижняя линия под углом */
 }
 
 .menu__list {

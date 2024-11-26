@@ -11,11 +11,10 @@ import Button from "../../Button/Button";
 import Feedback from "../../Feedback/Feedback";
 import FeedbackMobile from "../../Feedback/FeedbackMobile/FeedbackMobile";
 import FeedbackButtons from "../../Feedback/FeedbackButtons/FeedbackButtons";
-import DoctorAppointmentModal from "../../Doctors/DoctorAppointmentModal/DoctorAppointmentModal";
+
 
 function Department() {
   const { id: departmentId } = useParams();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [headDoctor, setHeadDoctor] = useState(null);
   const [doctors, setDoctors] = useState([]);
