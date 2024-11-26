@@ -42,7 +42,7 @@ function App() {
     const desktopOnlyRoutes = [
       "/",
       "/our-doctors",
-      // "/departments",
+      "/departments",
       // "/contacts",
       "/about-hospital",
       "/patient-info",
