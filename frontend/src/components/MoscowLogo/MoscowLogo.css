@@ -83,6 +83,17 @@
     justify-content: flex-start;
   }
 
+	.moscow-logo__container {
+		align-items: end;
+	}
+
   .moscow-logo__logo {
+		background: url(../../images2/svg/logotype-moscow.svg);
+		background-repeat: no-repeat;
+		max-width: 167px;
   }
+
+	.moscow-logo__button-old-site {
+		font-size: 12px;
+	}
 }

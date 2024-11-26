@@ -6,6 +6,7 @@ import {
   fetchDoctors,
   fetchMainEmployerPost,
 } from "../../../utils/api";
+import { fetchAllPaidServicesEmployers } from "../../../utils/api";
 import "./DoctorsMain.css";
 
 function DoctorsMain() {
@@ -29,38 +30,20 @@ function DoctorsMain() {
   useEffect(() => {
     const loadDoctors = async () => {
       try {
-        const response = await fetchDoctors();
+        const response = await fetchAllPaidServicesEmployers();
 
-        if (Array.isArray(response.data)) {
-          const doctorsWithPosts = await Promise.all(
-            response.data.map(async (doctor) => {
-              try {
-                const mainPost = await fetchMainEmployerPost(doctor.id);
-                return {
-                  ...doctor,
-                  main_post: mainPost.post_name || "Должность не указана",
-                };
-              } catch (error) {
-                console.error(
-                  `Ошибка при получении должности врача с ID ${doctor.id}:`,
-                  error
-                );
-                return { ...doctor, main_post: "Должность не указана" };
-              }
-            })
-          );
-
-          setDoctorsWithMainPost(doctorsWithPosts);
+        if (Array.isArray(response)) {
+          setDoctors(response);
         } else {
           console.error(
             "Ошибка: полученные данные о врачах не являются массивом",
             response
           );
-          setDoctorsWithMainPost([]);
+          setDoctors([]);
         }
       } catch (error) {
         console.error("Ошибка загрузки данных врачей:", error);
-        setDoctorsWithMainPost([]);
+        setDoctors([]);
       }
     };
 
@@ -74,11 +57,11 @@ function DoctorsMain() {
 
   const extendedDoctors = useMemo(() => {
     return [
-      ...doctorsWithMainPost.slice(-slidesToShow),
-      ...doctorsWithMainPost,
-      ...doctorsWithMainPost.slice(0, slidesToShow),
+      ...doctors.slice(-slidesToShow),
+      ...doctors,
+      ...doctors.slice(0, slidesToShow),
     ];
-  }, [doctorsWithMainPost, slidesToShow]);
+  }, [doctors, slidesToShow]);
 
   useEffect(() => {
     currentIndexRef.current = currentIndex;
@@ -205,14 +188,13 @@ function DoctorsMain() {
               }}
             >
               {extendedDoctors.map((doctor, index) => {
-                const mainPhoto = doctor.photos?.[0];
-
+                // const mainPhoto = doctor.photos?.[0];
                 return (
                   <div key={index} className="doctors__card">
-                    {mainPhoto ? (
+                    {doctor.main_photo ? (
                       <img
                         className="doctors__card-image"
-                        src={mainPhoto}
+                        src={doctor.main_photo}
                         alt={`Фото ${doctor.full_name}`}
                       />
                     ) : (
@@ -222,9 +204,10 @@ function DoctorsMain() {
                     )}
 
                     <h2 className="doctors__card-title">{doctor.full_name}</h2>
-                    {doctor.main_post ? (
+                    {doctor.positions && doctor.positions.length > 0 ? (
                       <p className="doctor-preview-card__positions">
-                        {doctor.main_post}
+                        {doctor.main_position}
+                        {/* Отображаем только первую должность */}
                       </p>
                     ) : (
                       <p className="doctor-preview-card__positions">
@@ -236,7 +219,6 @@ function DoctorsMain() {
                       to={`/employers/${doctor.id}`}
                       className="doctors__card-button"
                       type="button"
-                      color="secondary"
                     >
                       Подробнее
                     </Button>

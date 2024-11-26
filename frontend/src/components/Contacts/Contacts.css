@@ -30,7 +30,7 @@
 
 .contacts__card {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 8px;
   background: #f6f6f6;
   display: flex;
   max-width: 552px;
@@ -38,9 +38,9 @@
   height: 640px;
 }
 
-.contacts__card-container {
+/* .contacts__card-container {
   padding-right: 214px;
-}
+} */
 
 .contacts__card-title {
   color: #1e1e1e;
@@ -162,11 +162,15 @@
 }
 
 .black-text {
+	display: block;
 	width: 100%;
-  color: #1e1e1e;
-  max-width: 488px;
-  font-size: 28px;
-  font-weight: 400;
+	max-width: 488px;
+	color: #1e1e1e;
+	font-size: 28px;
+	font-weight: 400;
+	box-sizing: border-box;
+	word-wrap: break-word;
+	white-space: normal;
 }
 
 .phones {

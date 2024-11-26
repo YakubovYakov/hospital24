@@ -253,7 +253,7 @@ function PaidServices() {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
-
+	
   return (
     <section className="paid-services">
       <div className="paid-services__container">
@@ -466,7 +466,7 @@ function PaidServices() {
                   }}
                 >
                   {extendedDoctors.map((doctor, index) => {
-                    const mainPhoto = doctor.photos?.[0];
+                    // const mainPhoto = doctor.photos?.[0];
 
                     return (
                       <div key={index} className="doctors__card">
