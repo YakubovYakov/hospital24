@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,9 +31,11 @@ import RegulatoryDocuments from "./components/InfoPage/RegulatoryDocuments/Regul
 import Education from "./components/InfoPage/Education/Education";
 import Vacancies from "./components/Vacancies/Vacancies";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
+import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 
 function App() {
   const location = useLocation();
+	const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   useEffect(() => {
     const metaViewport = document.querySelector('meta[name="viewport"]');
@@ -67,7 +69,11 @@ function App() {
   return (
     <div className="app">
       <MoscowLogo />
-      <Header />
+      <Header setIsBurgerMenuOpen={setIsBurgerMenuOpen} />
+      <BurgerMenu
+        isBurgerMenuOpen={isBurgerMenuOpen}
+        setIsBurgerMenuOpen={setIsBurgerMenuOpen}
+      />
       <Routes>
         <Route path="/" element={<Main doctors={doctors} />} />
         <Route

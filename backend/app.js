@@ -15,27 +15,27 @@ const allowedOrigins =
     ? ["http://gkb-24.ru", "http://www.gkb-24.ru", "https://gkb-24.ru", "https://www.gkb-24.ru"]
     : ["http://localhost:5173"];
 
-		// app.use(
-		// 	cors({
-		// 		origin: (origin, callback) => {
-		// 			if (!origin || allowedOrigins.includes(origin)) {
-		// 				callback(null, true);
-		// 			} else {
-		// 				callback(new Error("Not allowed by CORS"));
-		// 			}
-		// 		},
-		// 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-		// 		credentials: true,
-		// 	})
-		// );
-
 		app.use(
 			cors({
-				origin: "*",
+				origin: (origin, callback) => {
+					if (!origin || allowedOrigins.includes(origin)) {
+						callback(null, true);
+					} else {
+						callback(new Error("Not allowed by CORS"));
+					}
+				},
 				methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 				credentials: true,
 			})
 		);
+
+		// app.use(
+		// 	cors({
+		// 		origin: "*",
+		// 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+		// 		credentials: true,
+		// 	})
+		// );
 app.use(express.json());
 
 // Роуты API

@@ -1,34 +1,79 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BurgerMenu.css";
+import logo from "../../images2/svg/logo_burger.svg";
+import tgIcon from "../../images2/footer-img/tg.svg";
+import vkIcon from "../../images2/footer-img/vk.svg";
 
-function BurgerMenu() {
-  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-
+function BurgerMenu({ isBurgerMenuOpen, setIsBurgerMenuOpen }) {
+  const handleLinkClick = () => {
+    setIsBurgerMenuOpen(false);
+  };
   return (
-    <div className="menu">
+    <div className={`menu ${isBurgerMenuOpen ? "open" : ""}`}>
       <div className="menu__container">
-        <div>
-          <Link className="header__logo" to="/">
-            <img className="header__logo-img" src={logo} alt="logo" />
-          </Link>
+        <div className="moscow-logo">
+          <div className="moscow-logo__container">
+            <Link
+              to="/"
+              className="moscow-logo__logo"
+              alt="Логотип московской медицины"
+            />
+          </div>
         </div>
-        <button className="menu__close-button" type="button" />
+        <div className="menu__top">
+          <Link className="header__logo" to="/">
+            <img
+              className="header__logo-img menu__logo"
+              src={logo}
+              alt="logo"
+            />
+          </Link>
+          <button
+            className="menu__close-button"
+            type="button"
+            onClick={() => setIsBurgerMenuOpen(false)}
+          />
+        </div>
         <div className="menu__list">
-          <Link className="menu__item">Врачи</Link>
-          <Link className="menu__item">Отделения</Link>
-          <Link className="menu__item">Услуги</Link>
-          <Link className="menu__item">Контакты</Link>
-          <Link className="menu__item">О больнице</Link>
+          <Link to="/our-doctors" className="menu__item" onClick={handleLinkClick}>
+            Врачи
+          </Link>
+          <Link
+            to="/departments"
+            className="menu__item"
+            onClick={handleLinkClick}
+          >
+            Отделения
+          </Link>
+          <Link
+            to="/paid-services"
+            className="menu__item"
+            onClick={handleLinkClick}
+          >
+            Услуги
+          </Link>
+          <Link to="/contacts" className="menu__item" onClick={handleLinkClick}>
+            Контакты
+          </Link>
+          <Link
+            to="/about-hospital"
+            className="menu__item"
+            onClick={handleLinkClick}
+          >
+            О больнице
+          </Link>
         </div>
         <div className="menu__foter">
           <div>
             <span className="menu__span">Адрес</span>
-            <p className="menu__text">127015, Москва,</p>
-            <p className="menu__text">Писцовая, д. 10</p>
+            <div className="menu__text-container">
+              <p className="menu__text">127015, Москва,</p>
+              <p className="menu__text">Писцовая, д. 10</p>
+            </div>
             <div className="footer__social-links">
               <Link
-                className="footer__social-link tg"
+                className="menu__social-link tg"
                 to="https://t.me/gkb24dzm/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -41,7 +86,7 @@ function BurgerMenu() {
               </Link>
 
               <Link
-                className="footer__social-link vk"
+                className="menu__social-link vk"
                 to="https://vk.com/gkb24dzm"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -53,12 +98,16 @@ function BurgerMenu() {
 
           <div>
             <span className="menu__span">Связаться с нами</span>
-            <p className="menu__text">+7 (495) 613-87-01</p>
-            <p className="menu__text">+7 (495) 685-17-94</p>
-            <p className="menu__text">gkb24@zdrav.mos.ru</p>
+            <div className="menu__text-container">
+              <p className="menu__text">+7 (495) 613-87-01</p>
+              <p className="menu__text">+7 (495) 685-17-94</p>
+              <p className="menu__text">gkb24@zdrav.mos.ru</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default BurgerMenu;

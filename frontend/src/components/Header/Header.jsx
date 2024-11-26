@@ -7,7 +7,7 @@ import logo from "../../images2/Logotype.png";
 import map from "../../images2/svg/Map.svg";
 import eye from "../../images2/svg/Eye.svg";
 
-function Header() {
+function Header({ setIsBurgerMenuOpen }) {
   const location = useLocation();
   const [activePath, setActivePath] = useState(location.pathname);
 
@@ -27,7 +27,10 @@ function Header() {
             <img className="header__logo-img" src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="header__menu-button">
+        <div
+          className="header__menu-button"
+          onClick={() => setIsBurgerMenuOpen(true)}
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -53,7 +56,7 @@ function Header() {
               Отделения
             </Link>
             <Link
-							to="/paid-services"
+              to="/paid-services"
               className={`header__button ${
                 isActive("/paid-services") ? "active-button" : ""
               }`}
@@ -69,7 +72,7 @@ function Header() {
               Контакты
             </Link>
             <Link
-							to="/about-hospital"
+              to="/about-hospital"
               className={`header__button ${
                 isActive("/about-hospital") ? "active-button" : ""
               }`}
@@ -84,11 +87,11 @@ function Header() {
             <span className="header__number">+ 7 495 613-63-10</span>
           </div>
           <div className="header__address-container">
-          <img
-            className="header__address-img"
-            src={map}
-            alt="Указатель времени работы больницы"
-          />
+            <img
+              className="header__address-img"
+              src={map}
+              alt="Указатель времени работы больницы"
+            />
             <p className="header__address">ул. Писцовая 10</p>
           </div>
         </div>
