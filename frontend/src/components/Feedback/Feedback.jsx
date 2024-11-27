@@ -27,6 +27,8 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
     [feedbacks]
   );
 
+
+
   useEffect(() => {
     if (propFeedbacks && propFeedbacks.length > 0) {
       setFeedbacks(propFeedbacks);
@@ -105,6 +107,8 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
       ...feedbacks.slice(0, slidesToShow),
     ];
   }, [feedbacks, slidesToShow]);
+
+	const displayedFeedbacks = isMobile ? feedbacks : extendedFeedbacks;
 
   useEffect(() => {
     const track = trackRef.current;
@@ -220,7 +224,7 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
                   : `${extendedFeedbacks.length * cardTotalWidth}px`,
               }}
             >
-              {extendedFeedbacks.map((feedback, index) => {
+              {displayedFeedbacks.map((feedback, index) => {
                 const originalIndex =
                   (index - slidesToShow + feedbacks.length) % feedbacks.length;
 

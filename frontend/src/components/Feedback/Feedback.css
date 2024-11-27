@@ -102,7 +102,7 @@
 .feedback__card {
   width: 100%;
   max-width: 352px;
-	/* height: 320px;
+  /* height: 320px;
   max-height: 400px; */
   box-sizing: border-box;
   border-radius: 8px;
@@ -112,27 +112,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden; /* Предотвращаем выход элементов за границы */
+  overflow: hidden;
 }
 
 .feedback__card-text {
- 
-  line-height: 1.5; /* Регулируем высоту строки для более аккуратного отображения */
+  line-height: 1.5;
 }
 
 .feedback__card-text.expanded {
-  max-height: none; /* Убираем ограничение по высоте при раскрытии */
-  overflow: auto; /* Добавляем прокрутку, если текст длинный */
+  max-height: none;
+  overflow: auto;
 }
 
 .feedback__card-author {
-	min-height: 20px;
+  min-height: 20px;
 }
 
 .feedback__card-author.empty {
-	visibility: hidden; 
+  visibility: hidden;
 }
-
 
 .feedback__more_button {
   color: #757575;
@@ -141,14 +139,14 @@
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-	text-align: start;
+  text-align: start;
   border: 0;
   background: transparent;
   margin: 4px 0 24px;
   opacity: 1;
   transition: 0.7s;
   cursor: pointer;
-	flex-shrink: 0;
+  flex-shrink: 0;
   margin-top: auto; /* Размещаем кнопку внизу */
   margin-bottom: 10px;
 }
@@ -272,9 +270,9 @@
 }
 
 .feedback__mobile-card-container {
-	display: flex;
-	flex-direction: row;
-	gap: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
 }
 
 @media (max-width: 1150px) {
@@ -289,7 +287,6 @@
     gap: 12px;
     margin: 0 32px 28px 0;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -315,22 +312,34 @@
 }
 
 @media (max-width: 576px) {
+	.feedback {
+		padding: 0;
+		margin: 0;
+	}
+  .feedback__container {
+    padding: 0;
+  }
+  .feedback__track.no-transition {
+    transform: none !important;
+		margin-bottom: 12px;
+  }
   .feedback__table_button-container {
     display: none;
   }
 
   .feedback__title {
-    margin: 0 0 16px;
+    margin: 0 0 24px;
   }
 
   .feedback__track {
     display: flex;
     flex-direction: column;
     width: auto;
+		gap: 12px;
   }
 
   .feedback__card {
-    max-width: 240px;
+    max-width: 327px;
   }
 
   .feedback__buttons-container {
@@ -344,6 +353,4 @@
   .feedback__buttons-text {
     text-wrap: balance;
   }
-
-  
 }

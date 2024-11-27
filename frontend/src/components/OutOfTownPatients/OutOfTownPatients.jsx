@@ -6,8 +6,13 @@ import operation from "../../images2/svg/operation.svg";
 import { Link } from "react-router-dom";
 import MapCard from "../Map/MapCard/MapCard";
 import Feedback from "../../components/Feedback/Feedback";
+import { useMediaQuery } from "react-responsive";
+import { departmentFeedbacks } from "../../feedbacks/departmentReviews";
+import FeedbackMobile from "../Feedback/FeedbackMobile/FeedbackMobile";
 
 function OutOfTownPatients() {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isDesctop = useMediaQuery({ query: "(min-width: 769px)" });
   return (
     <section className="out-of-the-town">
       <div className="out-of-the-town__container">
@@ -170,9 +175,7 @@ function OutOfTownPatients() {
             </div>
             <div className="out-of-the-town__departments-list">
               <p className="out-of-the-town__departments-item">Аллергология</p>
-              <p className="out-of-the-town__departments-item">
-							Гинекология
-              </p>
+              <p className="out-of-the-town__departments-item">Гинекология</p>
               <p className="out-of-the-town__departments-item">
                 Колопроктология
               </p>
@@ -184,23 +187,44 @@ function OutOfTownPatients() {
           </div>
         </div>
         <div className="out-of-the-town__capital">
-          <div className="out-of-the-town__capital-top">
-            <div className="out-of-the-town__capital-top-content">
-              <h2 className="out-of-the-town__capital-top-title">
-                Москва — столица здоровья
-              </h2>
+          {isDesctop && (
+            <div className="out-of-the-town__capital-top">
+              <div className="out-of-the-town__capital-top-content">
+                <h2 className="out-of-the-town__capital-top-title">
+                  Москва — столица здоровья
+                </h2>
+                <p className="out-of-the-town__capital-top-text">
+                  Проект «Москва — столица здоровья» помогает иногородним
+                  пациентам получить информацию о медицинской помощи в
+                  московских стационарах бесплатно по полису ОМС
+                </p>
+              </div>
+              <img
+                className="out-of-the-town__capital-top-image"
+                src="https://www.gkb-24.ru/static/images-svg/Group-2.png"
+                alt="Картинка Москва Столица-здоровья"
+              />
+            </div>
+          )}
+          {isMobile && (
+            <div className="out-of-the-town__capital-top">
+              <div className="out-of-the-town__capital-top-content">
+                <h2 className="out-of-the-town__capital-top-title">
+                  Москва — столица здоровья
+                </h2>
+                <img
+                  className="out-of-the-town__capital-top-image"
+                  src="https://www.gkb-24.ru/static/images-svg/Group-2.png"
+                  alt="Картинка Москва Столица-здоровья"
+                />
+              </div>
               <p className="out-of-the-town__capital-top-text">
                 Проект «Москва — столица здоровья» помогает иногородним
                 пациентам получить информацию о медицинской помощи в московских
                 стационарах бесплатно по полису ОМС
               </p>
             </div>
-            <img
-              className="out-of-the-town__capital-top-image"
-              src="https://www.gkb-24.ru/static/images-svg/Group-2.png"
-              alt="Картинка Москва Столица-здоровья"
-            />
-          </div>
+          )}
           <div className="out-of-the-town__cards">
             {/* карточка 1 */}
             <div className="out-of-the-town__card card-capital">
@@ -312,16 +336,22 @@ function OutOfTownPatients() {
                 </p>
                 <div className="out-of-the-town__departments-list">
                   <p className="out-of-the-town__departments-item">
-                    Операции на сердце и сосудах
+                    Рефлюксная болезнь
                   </p>
                   <p className="out-of-the-town__departments-item">
-                    Удаление желчного пузыря
+                    Диафрагмальные грыжи
                   </p>
                   <p className="out-of-the-town__departments-item">
-                    Удаление грыжи
+                    Грыжи брюшной полости
                   </p>
                   <p className="out-of-the-town__departments-item">
-                    Лапароскопия брюшной полости
+                    Заболевания желудка, толстой и тонкой кишки
+                  </p>
+                  <p className="out-of-the-town__departments-item">
+                    Новообразования надпочечников
+                  </p>
+                  <p className="out-of-the-town__departments-item">
+                    Кожные и подкожные образования
                   </p>
                 </div>
               </div>
@@ -337,9 +367,9 @@ function OutOfTownPatients() {
               <MapCard
                 title="Контакты"
                 address="127015, Москва, Писцовая, д. 10"
-								tel="+7 (495) 685-17-94"
+                tel="+7 (495) 685-17-94"
                 coordinates={[55.798814, 37.578785]}
-                description="От станции метро «Савёловская» (первый вагон из центра, выход №1) нужно перейти начало Бутырской улицы по подземному переходу и на улицу через правую лестницу, на улице сразу налево на 2-ю Квессинскую улицу. Перейти перекресток на светофоре наискось и двигаться по Вятской улице вверх до первого поворота направо, на Писцовую улицу. Дальше двигаетесь прямо до главного входа в больницу."
+                description="От станции метро «Савёловская» (первый вагон из центра, выход №1) нужно перейти начало Бутырской улицы по подземному переходу            и на улицу через правую лестницу, на улице сразу налево                     на 2-ю Квессинскую улицу. Перейти перекресток на светофоре наискось и двигаться по Вятской улице вверх до первого поворота направо, на Писцовую улицу. Дальше двигаетесь прямо до главного входа в больницу"
                 link="https://yandex.ru/maps/-/CDhar445"
               />
               <div className="out-of-the-town__card out-of-the-town__card-3">
@@ -347,8 +377,8 @@ function OutOfTownPatients() {
                   Связаться с нами
                 </h2>
                 <p className="out-of-the-town__card-contact-text white-text">
-                  Связаться с нами Остались еще вопросы? Заполните, пожалуйста,
-                  форму обратной связи и мы свяжемся с вами
+                  Остались еще вопросы? Заполните, пожалуйста, форму обратной
+                  связи и мы свяжемся с вами
                 </p>
                 <button className="out-of-the-town__card-button">
                   Написать
@@ -356,7 +386,7 @@ function OutOfTownPatients() {
               </div>
             </div>
           </div>
-          <Feedback />
+          <Feedback feedbacks={departmentFeedbacks} />
         </div>
       </div>
     </section>

@@ -48,7 +48,7 @@ function App() {
       // "/patient-info",
       // "/visitors",
       // "/paid-services",
-      "/out-of-town-patients",
+      // "/out-of-town-patients",
     ];
 
     const isDesktopRoute =

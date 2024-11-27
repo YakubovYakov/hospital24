@@ -519,10 +519,11 @@
   .paid-services__doctors-top {
     display: flex;
 		max-width: 327px;
-		
+		align-items: center;
   }
 
   .paid-services__button-mobile {
+		display: block;
     border-radius: 8px;
     background: #1348ba;
     color: #d1eaf3;
