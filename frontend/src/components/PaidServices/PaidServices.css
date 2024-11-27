@@ -384,3 +384,186 @@
 .details-title {
   margin-bottom: 20px;
 }
+
+.paid-services__button-mobile {
+	display: none;
+}
+
+.paid-services__text-mobile {
+	display: none;
+}
+
+.paid-services__our-button-mobile {
+	display: none;
+}
+
+.paid-services__content-text {
+	display: none;
+}
+
+.paid-services__button-container-mobile {
+	display: none;
+}
+
+@media (max-width: 768px) {
+  .paid-services__container {
+    max-width: 327px;
+    margin-bottom: 48px;
+  }
+  .paid-services__content {
+    flex-direction: column-reverse;
+    margin: 0;
+  }
+
+  .paid-services__image {
+    width: auto;
+    height: auto;
+  }
+
+  .paid-services__our-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .paid-services__button-container {
+    display: none;
+  }
+
+  .paid-services__our-image {
+    width: 327px;
+    height: auto;
+  }
+
+  .paid-services__title {
+    max-width: 327px;
+    margin: 24px auto 24px auto;
+		font-size: 24px;
+		font-weight: 700;
+  }
+
+  .paid-services__text {
+    display: none;
+  }
+
+  .paid-services__text-mobile {
+    width: 100%;
+    max-width: 552px;
+    color: #1e1e1e;
+    font-family: "Cera Round", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  .paid-services__our {
+    margin: 48px 0;
+  }
+
+  .paid-services__our-item {
+    padding: 12px;
+  }
+
+  .paid-services__our-item:first-of-type {
+    border-top: 0;
+  }
+  .paid-services__our-item:last-of-type {
+    border-bottom: 0;
+  }
+
+  .paid-services__our-button-mobile {
+    border: 0;
+    background: transparent;
+    border-radius: 8px;
+    border: 1px solid #1348ba;
+    color: #1e1e1e;
+    font-family: "Cera Round", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    padding: 12px;
+  }
+
+  .paid-services__directions-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .paid-services__details-title {
+    font-size: 24px;
+		font-weight: 700;
+  }
+
+  .paid-services__details {
+    padding: 12px;
+  }
+
+  .paid-services__details-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .paid-services__doctors-button-container {
+    display: none;
+  }
+
+  .doctors-main__carousel {
+    user-select: none;
+    scroll-snap-type: x;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .paid-services__doctors-top {
+    display: flex;
+		max-width: 327px;
+		
+  }
+
+  .paid-services__button-mobile {
+    border-radius: 8px;
+    background: #1348ba;
+    color: #d1eaf3;
+    font-family: "Cera Round", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    text-decoration: none;
+    padding: 12px;
+  }
+
+	.paid-services__dms {
+		margin-top: 24px;
+	}
+
+	.paid-services__dms-content {
+		flex-direction: column;
+		gap: 0;
+		margin: 0;
+	}
+
+	.paid-services__dms-image {
+		width: 327px;
+		height: 308px;
+		margin-bottom: 24px;
+	}
+
+	.paid-services_tax {
+		margin-top: 48px;
+		padding: 24px;
+	}
+
+	.paid-services__tax-text {
+		font-size: 16px;
+	}
+
+	.paid-services__button-container-mobile {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin: 24px 0 0 0;
+	}
+}

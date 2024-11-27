@@ -41,13 +41,13 @@ function App() {
     const metaViewport = document.querySelector('meta[name="viewport"]');
     const desktopOnlyRoutes = [
       "/",
-      "/our-doctors",
-      "/departments",
+      // "/our-doctors",
+      // "/departments",
       // "/contacts",
       "/about-hospital",
-      "/patient-info",
+      // "/patient-info",
       // "/visitors",
-      "/paid-services",
+      // "/paid-services",
       "/out-of-town-patients",
     ];
 

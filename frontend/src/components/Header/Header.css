@@ -161,7 +161,7 @@
 
 @media (max-width: 962px) {
   .header {
-    padding: 20px 0;
+    padding: 24px 0;
   }
   .header__container {
     flex-direction: row;

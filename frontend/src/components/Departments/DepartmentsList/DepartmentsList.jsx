@@ -3,12 +3,12 @@ import { fetchDepartments } from "../../../utils/api";
 import "./DepartmentsList.css";
 import search from "../../../images2/svg/Search.svg";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import DoctorAppointmentModal from "../../Doctors/DoctorAppointmentModal/DoctorAppointmentModal";
 
 function DepartmentsList() {
-
   const [departments, setDepartments] = useState([]);
-	const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -103,6 +103,9 @@ function DepartmentsList() {
     );
   });
 
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isDesctop = useMediaQuery({ query: "(min-width: 769px)" });
+
   if (loading) return <div>Загрузка данных...</div>;
   if (error) return <div>{error}</div>;
 
@@ -110,6 +113,39 @@ function DepartmentsList() {
     <section className="departments-list">
       <div className="departments-list__container">
         {isModalOpen && <DoctorAppointmentModal onClose={closeModal} />}
+        {isMobile && (
+          <div>
+            <div className="departments-list__top">
+              <h1 className="departments-list__title-mobile">Отделения</h1>
+              <button
+                type="button"
+                className="departments-list__form-button-mobile"
+                onClick={openModal}
+              >
+                Записаться
+              </button>
+            </div>
+            <form
+              className="departments-list__form-mobile"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <div className="departments-list__search-wrapper">
+                <input
+                  className="departments-list__search-input-mobile"
+                  placeholder="Поиск"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <img
+                  src={search}
+                  alt="Search Icon"
+                  className="departments-list__search-icon"
+                />
+              </div>
+            </form>
+          </div>
+        )}
+
         <div className="departments-list__filter-container">
           <h1 className="departments-list__title">Отделения</h1>
           <div
@@ -117,7 +153,6 @@ function DepartmentsList() {
               isScrolled ? "scrolled" : ""
             }`}
           >
-            {/* Кнопки всегда видимы */}
             <button
               className={`departments-list__filter-button ${
                 selectedCategory === "Экстренная помощь" ? "active-button" : ""
@@ -192,7 +227,9 @@ function DepartmentsList() {
             </button>
             <button
               className={`departments-list__filter-button ${
-                selectedCategory === "Патологоанатомическое" ? "active-button" : ""
+                selectedCategory === "Патологоанатомическое"
+                  ? "active-button"
+                  : ""
               }`}
               onClick={() => setSelectedCategory("Патологоанатомическое")}
             >
@@ -235,6 +272,7 @@ function DepartmentsList() {
               Записаться
             </button>
           </div>
+
           <div className="departments-list__list">
             {sortedCategory.map((category) => {
               // Если выбрана категория, отображаем только ее
@@ -244,9 +282,7 @@ function DepartmentsList() {
 
               const filteredDepartments = groupedDepartments[category]?.filter(
                 (dept) =>
-                  dept.name
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase())
+                  dept.name.toLowerCase().includes(searchTerm.toLowerCase())
               );
 
               if (!filteredDepartments || filteredDepartments.length === 0) {

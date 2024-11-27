@@ -126,6 +126,7 @@ function DoctorList() {
   return (
     <section className="doctor-list">
       <div className="doctor-list__container">
+				<h1 className="doctor-list__title">Врачи</h1>
         <form
           className="doctor-list__form"
           onSubmit={(e) => e.preventDefault()}
