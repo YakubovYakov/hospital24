@@ -53,9 +53,9 @@ function App() {
 
     const isDesktopRoute =
       desktopOnlyRoutes.includes(location.pathname) || // Проверка для статических маршрутов
-      location.pathname.startsWith("/employers/") || // Проверка для страницы врача
-      location.pathname.startsWith("/departments/"); // Проверка для страницы отделения
-
+      location.pathname.startsWith("/employers/") || 
+      location.pathname.startsWith("/departments/"); 
+			
     if (isDesktopRoute) {
       metaViewport.setAttribute("content", "width=1200, initial-scale=1");
     } else {
