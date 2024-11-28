@@ -177,6 +177,11 @@
   background: url("../../../images2/button-next.svg") no-repeat;
 }
 
+.departments-main__card-image {
+	width: 176px;
+	height: 106px;
+}
+
 @media (max-width: 768px) {
   .departments-main {
     padding: 0;
