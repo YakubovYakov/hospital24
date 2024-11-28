@@ -32,6 +32,7 @@ import Education from "./components/InfoPage/Education/Education";
 import Vacancies from "./components/Vacancies/Vacancies";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import Administration from "./components/Administration/Administration";
 
 function App() {
   const location = useLocation();
@@ -166,15 +167,15 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/about-hospital"
+        {/* <Route
+          path="/administration"
           element={
             <>
               <DynamicRoute />
-              <AboutHospital />
+              <Administration />
             </>
           }
-        />
+        /> */}
         <Route
           path="/general-information"
           element={

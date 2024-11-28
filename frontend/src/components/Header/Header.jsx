@@ -72,9 +72,10 @@ function Header({ setIsBurgerMenuOpen }) {
               Контакты
             </Link>
             <Link
-              to="/about-hospital"
+              // to="/administration"
+							to="/about-hospital"
               className={`header__button ${
-                isActive("/about-hospital") ? "active-button" : ""
+                isActive("/administration") ? "active-button" : ""
               }`}
             >
               О больнице

@@ -132,3 +132,10 @@ export async function fetchAllPaidServicesEmployers() {
 		throw error;
 	}
 }
+
+export async function fetchAdministration() {
+  const response = await fetch(`${API_URL}/administration`);
+  if (!response.ok) throw new Error("Ошибка загрузки данных администрации");
+  const data = await response.json();
+  return data;
+}

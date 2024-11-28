@@ -99,18 +99,6 @@
   margin: 96px 0;
 }
 
-.paid-services__title {
-  width: 100%;
-  max-width: 552px;
-  color: #1e1e1e;
-  font-family: "Cera Round", sans-serif;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-  /* margin: 49px 0 0; */
-}
-
 .paid-services__top {
   display: flex;
   flex-direction: row;
@@ -394,10 +382,6 @@
 }
 
 .paid-services__our-button-mobile {
-	display: none;
-}
-
-.paid-services__content-text {
 	display: none;
 }
 

@@ -35,7 +35,7 @@ const getAllEmployers = async (req, res) => {
       FROM employers e
       LEFT JOIN dept d ON e.dept_id = d.id
 
-      WHERE e.archived = false
+      WHERE e.archived = false AND e.is_administration = false -- Exclude administrators
       GROUP BY e.id, d.name
       ORDER BY e.id;
       `

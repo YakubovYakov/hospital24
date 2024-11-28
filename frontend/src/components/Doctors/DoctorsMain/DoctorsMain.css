@@ -137,6 +137,8 @@
   }
 
   .doctors-main__container {
+		max-width: 327px;
+		margin-left: auto;
     padding: 24px 0;
   }
 
@@ -174,10 +176,10 @@
     display: none;
   }
 
-  .doctors-main__top {
+  /* .doctors-main__top {
     max-width: 327px;
     margin: 0 auto 24px;
-  }
+  } */
 
   .doctors-main__top-container {
     gap: 16px;
