@@ -29,7 +29,7 @@ function DepartmentsMain() {
     const loadDepartments = async () => {
       try {
         const data = await fetchDepartments();
-				const allowedIds = [27, 12, 47, 13, 3, 32];
+				const allowedIds = [27, 28, 12, 47, 13, 3, 32];
         const filteredDepartments = data.filter((department) => {
           return allowedIds.includes(department.id);
         });

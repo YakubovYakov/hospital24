@@ -1,17 +1,10 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
-import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
-import {
-  fetchDoctorById,
-  fetchDoctors,
-  fetchMainEmployerPost,
-} from "../../../utils/api";
 import { fetchAllPaidServicesEmployers } from "../../../utils/api";
 import "./DoctorsMain.css";
 
 function DoctorsMain() {
   const [doctors, setDoctors] = useState([]);
-  const [doctorsWithMainPost, setDoctorsWithMainPost] = useState([]);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -25,7 +18,6 @@ function DoctorsMain() {
   const [slidesToShow, setSlidesToShow] = useState(3);
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
-  const currentIndexRef = useRef(currentIndex);
 
   useEffect(() => {
     const loadDoctors = async () => {
@@ -50,22 +42,28 @@ function DoctorsMain() {
     loadDoctors();
 
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize(); // Устанавливаем начальное значение
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const extendedDoctors = useMemo(() => {
+    if (isMobile || doctors.length === 0) return doctors;
     return [
       ...doctors.slice(-slidesToShow),
       ...doctors,
       ...doctors.slice(0, slidesToShow),
     ];
-  }, [doctors, slidesToShow]);
+  }, [doctors, slidesToShow, isMobile]);
+
+  const displayedDoctors = isMobile ? doctors : extendedDoctors;
 
   useEffect(() => {
-    currentIndexRef.current = currentIndex;
-  }, [currentIndex]);
+    if (isMobile) {
+      setCurrentIndex(0);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     const updateContainerWidth = () => {
@@ -88,9 +86,10 @@ function DoctorsMain() {
       setSlidesToShow(slides);
       setCurrentIndex(slides);
     }
-  }, [containerWidth, cardGap, cardTotalWidth, slidesToShow]);
+  }, [containerWidth, cardGap, cardTotalWidth]);
 
   useEffect(() => {
+    if (isMobile) return; // Не выполняем эффект на мобильной версии
     const track = trackRef.current;
     if (track) {
       if (isTransitioning) {
@@ -100,9 +99,10 @@ function DoctorsMain() {
       }
       track.style.transform = `translateX(-${currentIndex * cardTotalWidth}px)`;
     }
-  }, [currentIndex, isTransitioning, cardTotalWidth]);
+  }, [currentIndex, isTransitioning, cardTotalWidth, isMobile]);
 
   useEffect(() => {
+    if (isMobile) return; // Не выполняем эффект на мобильной версии
     const track = trackRef.current;
     if (track) {
       const handleTransitionEnd = () => {
@@ -121,6 +121,7 @@ function DoctorsMain() {
           const newIndex = extendedDoctors.length - slidesToShow * 2;
           setCurrentIndex(newIndex);
           track.style.transform = `translateX(-${newIndex * cardTotalWidth}px)`;
+
           requestAnimationFrame(() => {
             track.classList.remove("no-transition");
             setIsTransitioning(false);
@@ -136,17 +137,17 @@ function DoctorsMain() {
         track.removeEventListener("transitionend", handleTransitionEnd);
       };
     }
-  }, [currentIndex, extendedDoctors.length, slidesToShow]);
+  }, [currentIndex, extendedDoctors.length, slidesToShow, isMobile]);
 
   const handleNextClick = () => {
-    if (!isTransitioning) {
+    if (!isTransitioning && !isMobile) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
 
   const handlePrevClick = () => {
-    if (!isTransitioning) {
+    if (!isTransitioning && !isMobile) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
@@ -156,22 +157,24 @@ function DoctorsMain() {
     <section className="doctors-main">
       <div className="doctors-main__container">
         <div className="doctors-main__top">
-          <div className="doctors-main__button-container">
+          <div className="doctors-main__top-container">
             <h1 className="doctors-main__title">Наши врачи</h1>
             <Button to="/our-doctors" size="small">
               Все
             </Button>
           </div>
-          <div className="doctors-main__button-container">
-            <button
-              className="feedback__prev-button"
-              onClick={handlePrevClick}
-            />
-            <button
-              className="feedback__next-button"
-              onClick={handleNextClick}
-            />
-          </div>
+          {!isMobile && (
+            <div className="doctors-main__button-container">
+              <button
+                className="feedback__prev-button"
+                onClick={handlePrevClick}
+              />
+              <button
+                className="feedback__next-button"
+                onClick={handleNextClick}
+              />
+            </div>
+          )}
         </div>
         <div className="doctors-main__wrapper">
           <div className="doctors-main__carousel" ref={carouselRef}>
@@ -187,44 +190,40 @@ function DoctorsMain() {
                   : `${extendedDoctors.length * cardTotalWidth}px`,
               }}
             >
-              {extendedDoctors.map((doctor, index) => {
-                // const mainPhoto = doctor.photos?.[0];
-                return (
-                  <div key={index} className="doctors__card">
-                    {doctor.main_photo ? (
-                      <img
-                        className="doctors__card-image"
-                        src={doctor.main_photo}
-                        alt={`Фото ${doctor.full_name}`}
-                      />
-                    ) : (
-                      <div className="doctors__card-image-placeholder">
-                        Фото отсутствует
-                      </div>
-                    )}
+              {displayedDoctors.map((doctor) => (
+                <div key={doctor.id} className="doctors__card">
+                  {doctor.main_photo ? (
+                    <img
+                      className="doctors__card-image"
+                      src={doctor.main_photo}
+                      alt={`Фото ${doctor.full_name}`}
+                    />
+                  ) : (
+                    <div className="doctors__card-image-placeholder">
+                      Фото отсутствует
+                    </div>
+                  )}
 
-                    <h2 className="doctors__card-title">{doctor.full_name}</h2>
-                    {doctor.positions && doctor.positions.length > 0 ? (
-                      <p className="doctor-preview-card__positions">
-                        {doctor.main_position}
-                        {/* Отображаем только первую должность */}
-                      </p>
-                    ) : (
-                      <p className="doctor-preview-card__positions">
-                        Должность не указана
-                      </p>
-                    )}
+                  <h2 className="doctors__card-title">{doctor.full_name}</h2>
+                  {doctor.positions && doctor.positions.length > 0 ? (
+                    <p className="doctor-preview-card__positions">
+                      {doctor.main_position}
+                    </p>
+                  ) : (
+                    <p className="doctor-preview-card__positions">
+                      Должность не указана
+                    </p>
+                  )}
 
-                    <Button
-                      to={`/employers/${doctor.id}`}
-                      className="doctors__card-button"
-                      type="button"
-                    >
-                      Подробнее
-                    </Button>
-                  </div>
-                );
-              })}
+                  <Button
+                    to={`/employers/${doctor.id}`}
+                    className="doctors__card-button"
+                    type="button"
+                  >
+                    Подробнее
+                  </Button>
+                </div>
+              ))}
             </div>
           </div>
         </div>
