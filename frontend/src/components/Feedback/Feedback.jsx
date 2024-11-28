@@ -238,16 +238,14 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
                       {feedback.icon_path && (
                         <img
                           className="feedback__card-icon"
-                          alt={`Иконка для ${feedback.employee_name}`}
+                          alt={`Иконка для ${feedback.feedback_source_name}`}
                           src={feedback.icon_path}
                         />
                       )}
                     </div>
 
                     <h2 className="feedback__card-title">
-                      {feedback.employee_name ||
-                        feedback.department_name ||
-                        "Отзыв"}
+                      {feedback.feedback_source_name || ""}
                     </h2>
                     <p
                       className={`feedback__card-text ${

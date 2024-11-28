@@ -37,14 +37,18 @@ function Main({ doctors, feedbacks }) {
 
       <DoctorsMain doctors={doctors} />
 
-      {isMobileView ? <DepartmentsMainMobile /> : <DepartmentsMain />}
+      {/* {isMobileView ? <DepartmentsMainMobile /> : <DepartmentsMain />} */}
+			<DepartmentsMain />
       <HelpMain />
-      {isMobileView ? (
-        <FeedbackMobile feedbacks={departmentFeedbacks} />
-      ) : (
-        <Feedback feedbacks={departmentFeedbacks} />
-      )}
-      <FeedbackButtons title="Оставить отзыв" description={"Команда ГКБ 24 будет вам очень благодарна за оставленный отзыв!"}/>
+
+      <Feedback feedbacks={departmentFeedbacks} />
+
+      <FeedbackButtons
+        title="Оставить отзыв"
+        description={
+          "Команда ГКБ 24 будет вам очень благодарна за оставленный отзыв!"
+        }
+      />
 
       {/* <FeedbackMobile feedbacks={departmentFeedbacks} /> */}
     </>

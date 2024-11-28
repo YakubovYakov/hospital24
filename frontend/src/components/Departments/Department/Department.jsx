@@ -112,6 +112,8 @@ function Department() {
     ];
   }, [doctors, slidesToShow]);
 
+	const displayedDoctors = isMobileView ? doctors : extendedDoctors
+
   useEffect(() => {
     const track = trackRef.current;
     if (track) {
@@ -286,7 +288,7 @@ function Department() {
                 width: `${extendedDoctors.length * cardTotalWidth}px`,
               }}
             >
-              {extendedDoctors.map((doctor, index) => {
+              {displayedDoctors.map((doctor, index) => {
                 const originalIndex =
                   (index - slidesToShow + doctors.length) % doctors.length;
                 const currentDoctor = doctors[originalIndex];
@@ -338,11 +340,9 @@ function Department() {
           </div>
         </div>
 
-        {isMobileView ? (
-          <FeedbackMobile deptId={departmentId} />
-        ) : (
+       
           <Feedback deptId={departmentId} />
-        )}
+        
         <FeedbackButtons title="Оставить отзыв" />
       </div>
     </section>

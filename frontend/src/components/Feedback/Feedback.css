@@ -147,7 +147,7 @@
   transition: 0.7s;
   cursor: pointer;
   flex-shrink: 0;
-  margin-top: auto; /* Размещаем кнопку внизу */
+  margin-top: auto;
   margin-bottom: 10px;
 }
 
@@ -278,7 +278,7 @@
 @media (max-width: 1150px) {
   .feedback__prev-button,
   .feedback__next-button {
-    /* display: none; */
+    display: none;
   }
 
   .feedback__table_button-container {
@@ -290,8 +290,12 @@
 }
 
 @media (max-width: 768px) {
+	.feedback__top {
+		margin: 24px 0 0;
+	}
   .feedback__container {
-    padding: 24px 32px;
+		max-width: 327px;
+		margin: 0 auto;
   }
   .feedback__mobile-card-container {
     display: flex;

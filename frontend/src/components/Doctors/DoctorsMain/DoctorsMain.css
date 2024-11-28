@@ -125,7 +125,13 @@
 
 @media (max-width: 768px) {
 	.doctors-main {
-		padding: 48px 32px;
+		padding: 0;
+	}
+
+	.doctors-main__container {
+		max-width: 327px;
+		margin: 0 auto 0;
+		padding: 24px  0;
 	}
   .doctors-main__list {
     display: flex;
@@ -149,16 +155,9 @@
     padding: 16px;
   }
 
-  .doctors-main__list {
-  }
+
 
   .doctors__card-image {
     min-width: 238px;
   }
-}
-
-@media (max-width: 576px) {
-	.doctors-main {
-		padding: 24px;
-	}
 }

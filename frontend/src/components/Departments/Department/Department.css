@@ -49,7 +49,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
-	margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .department__text-container {
@@ -86,19 +86,17 @@
 }
 
 .department__description-item {
-	border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid #d9d9d9;
   display: flex;
   align-items: flex-start;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
-	padding: 12px 0;
+  padding: 12px 0;
 }
-
-
 
 .departments__select-wrapper {
   display: flex;
@@ -254,10 +252,10 @@
 .department__doctor-card-image {
   width: 100%;
   /* height: 100%; */
-	max-height: 238px;
-	border-radius: 32px;
+  max-height: 238px;
+  border-radius: 32px;
   object-fit: cover;
-	/* object-position: top; */
+  /* object-position: top; */
   /* margin-top: -10px; */
 }
 
@@ -356,12 +354,12 @@
 }
 
 .department__prev-button {
-  background-image: url('../../../images2/button-prev.svg');
+  background-image: url("../../../images2/button-prev.svg");
   background-repeat: no-repeat;
 }
 
 .department__next-button {
-  background-image: url('../../../images2/button-next.svg');
+  background-image: url("../../../images2/button-next.svg");
   background-repeat: no-repeat;
 }
 
@@ -373,7 +371,7 @@
 .department__carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  gap: 24px; 
+  gap: 24px;
 }
 
 .department__carousel-track.no-transition {
@@ -400,8 +398,8 @@
 }
 
 .department__doctor-card-title {
-	width: 100%;
-	max-width: 225px;
+  width: 100%;
+  max-width: 225px;
   font-size: 20px;
   font-weight: 400;
   color: #1e1e1e;
@@ -420,10 +418,6 @@
   justify-content: center;
 }
 
-
-
-
-
 @media (pointer: fine) {
   .department__doctor-cards-container {
     scrollbar-width: thin;
@@ -439,10 +433,13 @@
 @media (max-width: 767px) {
   .department {
     display: block;
+    margin: 24px 0 0;
   }
 
   .department__content {
-    padding: 0 32px;
+    max-width: 327px;
+    padding: 0;
+    margin: 0 auto;
   }
 
   .department__container {
@@ -478,6 +475,12 @@
     max-width: 353px;
   }
 
+  .department__head-doctor-card {
+    width: 100%;
+    max-width: none;
+    padding: 16px;
+  }
+
   .department__head-doctor-card-img-wrapper {
     max-width: 295px;
     height: 295px;
@@ -485,13 +488,13 @@
 
   .department__location-table {
     display: flex;
-    margin: 24px 0 8px;
     color: #757575;
     font-family: "Cera Round", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
+    margin: 0 0 8px 0;
   }
   .department__detailed-location-table {
     display: flex;
@@ -510,9 +513,6 @@
   .department__detailed-location {
     display: none;
   }
-}
-
-@media (max-width: 576px) {
   .department__container {
     flex-direction: column-reverse;
   }
@@ -527,5 +527,26 @@
     max-width: 208px;
     height: 208px;
     margin: 0;
+  }
+
+	.department__carousel-container {
+		max-width: 327px;
+	}
+
+	.department__carousel-track {
+		transform: none !important;
+		width: auto !important;
+	}
+
+	.department__carousel-buttons {
+		display: none;
+	}
+
+  .department__carousel {
+    user-select: none;
+    scroll-snap-type: x;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
   }
 }

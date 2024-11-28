@@ -101,18 +101,19 @@
   }
 }
 
-@media (max-width: 640px) {
-  .help-main {
-    display: flex;
-    justify-content: center;
-  }
+@media (max-width: 768px) {
+ 
 
   .help-main__container {
-    min-width: auto;
+		max-width: 327px;
     flex-direction: column;
     padding: 0;
     max-width: none;
   }
+
+	.help-main__title {
+		margin: 24px 0 8px 0;
+	}
 
   .help-main__text {
     max-width: auto;

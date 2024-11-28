@@ -178,45 +178,39 @@
 }
 
 @media (max-width: 768px) {
-  .departments__main-mobile {
-    padding: 48px 32px;
-  }
-  .department-main__list-mobile {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    max-width: 1152px;
-    margin: 0 auto;
-    user-select: none;
-    scroll-snap-type: x;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+  .departments-main {
+    padding: 0;
   }
 
+
   .departments-main__container {
-    padding-top: 32px;
+    max-width: 327px;
+		margin: 24px auto 48px;
   }
 
   .departments-main__top {
     margin-bottom: 27px;
   }
 
+	
+
   .departments-main__card {
     max-width: 327px;
+		padding: 12px;
   }
+
+	.departments-main__track {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.departments-main__track.no-transition {
+		transform: none !important;
+	}
 }
 
 @media (max-width: 576px) {
-  .departments__main-mobile {
-    /* display: flex;
-    justify-content: center; */
-    padding: 24px;
-  }
 
-  .department-main__list-mobile {
-    flex-direction: column;
-  }
 
 	.departments-main__card {
 		max-width: none;

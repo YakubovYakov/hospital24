@@ -113,6 +113,7 @@
   }
   .thumbnail-photo {
     max-width: none;
+		border-radius: 8px;
     min-width: 133px;
     height: 94px;
   }
@@ -141,8 +142,13 @@
     display: none;
   }
 
+	.thumbnail-photo:hover, .active-thumbnail {
+		transform: none;
+	}
+
   .thumbnail-photo {
-    min-width: 82px;
+    min-width:auto;
+		max-width: none;
     height: 61px;
     object-fit: cover;
     flex-shrink: 0;

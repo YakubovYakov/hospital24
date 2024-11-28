@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const metaViewport = document.querySelector('meta[name="viewport"]');
     const desktopOnlyRoutes = [
-      "/",
+      // "/",
       // "/our-doctors",
       // "/departments",
       // "/contacts",
@@ -52,9 +52,9 @@ function App() {
     ];
 
     const isDesktopRoute =
-      desktopOnlyRoutes.includes(location.pathname) || // Проверка для статических маршрутов
-      location.pathname.startsWith("/employers/") || 
-      location.pathname.startsWith("/departments/"); 
+      desktopOnlyRoutes.includes(location.pathname) // ||  Проверка для статических маршрутов
+      // location.pathname.startsWith("/employers/") || 
+      // location.pathname.startsWith("/departments/"); 
 			
     if (isDesktopRoute) {
       metaViewport.setAttribute("content", "width=1200, initial-scale=1");

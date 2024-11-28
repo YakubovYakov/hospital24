@@ -173,13 +173,13 @@ summary {
 @media (max-width: 988px) {
   .doctor-card__container {
     flex-direction: column;
-    max-width: 704px;
+    max-width: 327px;
     margin: 24px auto;
     gap: 24px;
   }
 
   .doctor-card__information {
-    margin: 0 24px;
+  
   }
 
   .doctor-card__description {
