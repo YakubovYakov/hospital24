@@ -1,17 +1,10 @@
 .services {
-  
   padding: 134px 64px 64px;
 }
-
 
 .services__container {
   max-width: 1152px;
   margin: 0 auto;
-  /* user-select: none;
-  scroll-snap-type: x;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none; */
 }
 
 .services__top {
@@ -59,8 +52,8 @@
 }
 
 .services-title-1 {
-	width: 100%;
-	max-width: 254px;
+  width: 100%;
+  max-width: 254px;
 }
 
 .services__card-text {
@@ -84,7 +77,7 @@
   color: #1e1e1e;
   background: transparent;
   border-radius: 8px;
-  border: 1px solid #1348BA;
+  border: 1px solid #1348ba;
   font-family: "Cera Round", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -98,9 +91,9 @@
 }
 
 .services__card-button:hover {
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   color: #000000;
-  border-color: #154CC1;
+  border-color: #154cc1;
 }
 
 @media (hover: none) {
@@ -119,27 +112,26 @@
 
 @media (max-width: 768px) {
   .services {
-    
   }
 
-	.services__container {
-		max-width: 327px;
-		margin: 0 auto;
-	}
+  .services__container {
+    max-width: 327px;
+    margin: 0 auto;
+  }
 
-	.services-title-1 {
-		max-width: none;
-	}
+  .services-title-1 {
+    max-width: none;
+  }
 
-	.services__card-text {
-		margin-bottom: 16px;
-	}
+  .services__card-text {
+    margin-bottom: 16px;
+  }
   .services__container {
     overflow-x: hidden;
   }
   .services__cards {
     flex-direction: column;
-		gap: 12px;
+    gap: 12px;
     align-items: center;
   }
 

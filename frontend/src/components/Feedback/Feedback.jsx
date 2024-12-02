@@ -234,6 +234,7 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
                     className="feedback__card"
                     ref={feedbackRefs[index]} // Присваиваем реф из массива
                   >
+										<div className="feedback__icon-container">
                     <div className="feedback__card-icon">
                       {feedback.icon_path && (
                         <img
@@ -247,6 +248,7 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
                     <h2 className="feedback__card-title">
                       {feedback.feedback_source_name || ""}
                     </h2>
+										</div>
                     <p
                       className={`feedback__card-text ${
                         expanded[originalIndex] ? "expanded" : ""

@@ -23,7 +23,7 @@ function FeedbackButtons({ title, description }) {
       {description && <p className="feedback__buttons-text">{description}</p>}
       <div className="feedback__buttons-bar">
         {isHomePage ? (
-          <Button onClick={openModal}>Написать здесь</Button>
+          <Button onClick={openModal}>Написать</Button>
         ) : (
           <>
             <Button

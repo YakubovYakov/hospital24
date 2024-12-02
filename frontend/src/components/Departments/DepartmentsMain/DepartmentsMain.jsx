@@ -29,7 +29,7 @@ function DepartmentsMain() {
     const loadDepartments = async () => {
       try {
         const data = await fetchDepartments();
-				const allowedIds = [27, 28, 12, 47, 13, 3, 32];
+        const allowedIds = [27, 28, 12, 47, 13, 3, 32];
         const filteredDepartments = data.filter((department) => {
           return allowedIds.includes(department.id);
         });
@@ -79,6 +79,7 @@ function DepartmentsMain() {
   }, [containerWidth, cardGap, cardTotalWidth, slidesToShow]);
 
   const extendedDepartments = useMemo(() => {
+    if (isMobile || departments.length === 0) return departments;
     return [
       ...departments.slice(-slidesToShow),
       ...departments,
@@ -147,8 +148,6 @@ function DepartmentsMain() {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   };
-
-  
 
   return (
     <section className="departments-main">

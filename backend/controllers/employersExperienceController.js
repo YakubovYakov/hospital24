@@ -3,7 +3,7 @@ const pool = require("../config/db");
 
 const getEmployerExperienceById = async (req, res) => {
   try {
-		console.log(`Контроллер getEmployerExperienceById вызван с ID: ${req.params.id}`);
+		
     const employerId = req.params.id;
     const result = await pool.query(
       `SELECT experience AS text, date_period AS date, ord

@@ -154,6 +154,12 @@ function DepartmentsList() {
             }`}
           >
             <button
+              className="departments-list__filter-button"
+              onClick={() => setSelectedCategory("")}
+            >
+              Показать все
+            </button>
+            <button
               className={`departments-list__filter-button ${
                 selectedCategory === "Экстренная помощь" ? "active-button" : ""
               }`}
@@ -234,12 +240,6 @@ function DepartmentsList() {
               onClick={() => setSelectedCategory("Патологоанатомическое")}
             >
               Патологоанатомическое
-            </button>
-            <button
-              className="departments-list__filter-button"
-              onClick={() => setSelectedCategory("")}
-            >
-              Показать все
             </button>
           </div>
         </div>
