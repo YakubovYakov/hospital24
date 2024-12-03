@@ -19,6 +19,8 @@ function DoctorsMain() {
 
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
 
+	const prioritizedDoctorId = 70;
+
   useEffect(() => {
     const loadDoctors = async () => {
       try {
@@ -48,16 +50,28 @@ function DoctorsMain() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const extendedDoctors = useMemo(() => {
-    if (isMobile || doctors.length === 0) return doctors;
-    return [
-      ...doctors.slice(-slidesToShow),
-      ...doctors,
-      ...doctors.slice(0, slidesToShow),
-    ];
-  }, [doctors, slidesToShow, isMobile]);
+  const sortedDoctors = useMemo(() => {
+    if (!doctors || doctors.length === 0) return [];
 
-  const displayedDoctors = isMobile ? doctors : extendedDoctors;
+    const prioritizedDoctor = doctors.find(
+      (doctor) => doctor.id === prioritizedDoctorId
+    );
+    const otherDoctors = doctors.filter(
+      (doctor) => doctor.id !== prioritizedDoctorId
+    );
+
+    return prioritizedDoctor ? [prioritizedDoctor, ...otherDoctors] : doctors;
+  }, [doctors, prioritizedDoctorId]);
+
+  const extendedDoctors = useMemo(() => {
+    if (isMobile || sortedDoctors.length === 0) return sortedDoctors;
+
+    return [
+      ...sortedDoctors.slice(-slidesToShow),
+      ...sortedDoctors,
+      ...sortedDoctors.slice(0, slidesToShow),
+    ];
+  }, [sortedDoctors, slidesToShow, isMobile]);
 
   useEffect(() => {
     if (isMobile) {
@@ -190,7 +204,7 @@ function DoctorsMain() {
                   : `${extendedDoctors.length * cardTotalWidth}px`,
               }}
             >
-              {displayedDoctors.map((doctor, index) => (
+              {extendedDoctors.map((doctor, index) => (
                 <div key={`${doctor.id}-${index}`} className="doctors__card">
                   {doctor.main_photo ? (
                     <img

@@ -64,6 +64,13 @@ function BurgerMenu({ isBurgerMenuOpen, setIsBurgerMenuOpen }) {
           >
             О больнице
           </Link>
+          <Link
+            to="/vacancies"
+            className="menu__item"
+            onClick={handleLinkClick}
+          >
+            Вакансии
+          </Link>
         </div>
         <div className="menu__foter">
           <div>

@@ -20,8 +20,9 @@ function DynamicRoute() {
   const isOutOfTownPatientsPage = location.pathname.includes(
     "/out-of-town-patients"
   );
-	const isAdministration = location.pathname.includes("/administration")
+  const isAdministration = location.pathname.includes("/administration");
   const isPaidServicesPage = location.pathname.includes("/paid-services");
+  const isVacanciesPage = location.pathname.includes("/vacancies");
 
   const [doctorName, setDoctorName] = useState("");
   const [departmentName, setDepartmentName] = useState("");
@@ -35,8 +36,6 @@ function DynamicRoute() {
       : null;
 
   useEffect(() => {
-   
-
     if (id) {
       if (isDoctorPage) {
         fetchDoctorById(id)
@@ -165,13 +164,23 @@ function DynamicRoute() {
         )}
         {isAdministration && (
           <>
-					<span className="hosp-route">О больнице</span>
-					<span className="dynamic-route__arrow"></span>
+            <span className="hosp-route">О больнице</span>
+            <span className="dynamic-route__arrow"></span>
             <Link
               className="dynamic-route__link-privacy-policy"
               to="/administration"
             >
               Администрация
+            </Link>
+          </>
+        )}
+        {isVacanciesPage && (
+          <>
+            <Link
+              className="dynamic-route__link-privacy-policy"
+              to="/administration"
+            >
+              Вакансии
             </Link>
           </>
         )}
