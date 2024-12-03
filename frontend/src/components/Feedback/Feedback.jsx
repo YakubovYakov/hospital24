@@ -27,8 +27,6 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
     [feedbacks]
   );
 
-
-
   useEffect(() => {
     if (propFeedbacks && propFeedbacks.length > 0) {
       setFeedbacks(propFeedbacks);
@@ -108,7 +106,7 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
     ];
   }, [feedbacks, slidesToShow]);
 
-	const displayedFeedbacks = isMobile ? feedbacks : extendedFeedbacks;
+  const displayedFeedbacks = isMobile ? feedbacks : extendedFeedbacks;
 
   useEffect(() => {
     const track = trackRef.current;
@@ -234,21 +232,21 @@ function Feedback({ empId, deptId, feedbacks: propFeedbacks }) {
                     className="feedback__card"
                     ref={feedbackRefs[index]} // Присваиваем реф из массива
                   >
-										<div className="feedback__icon-container">
-                    <div className="feedback__card-icon">
-                      {feedback.icon_path && (
-                        <img
-                          className="feedback__card-icon"
-                          alt={`Иконка для ${feedback.feedback_source_name}`}
-                          src={feedback.icon_path}
-                        />
-                      )}
-                    </div>
+                    <div className="feedback__icon-container">
+                      <div className="feedback__card-icon">
+                        {feedback.icon_path && (
+                          <img
+                            className="feedback__card-icon"
+                            alt={`Иконка для ${feedback.feedback_source_name}`}
+                            src={feedback.icon_path}
+                          />
+                        )}
+                      </div>
 
-                    <h2 className="feedback__card-title">
-                      {feedback.feedback_source_name || ""}
-                    </h2>
-										</div>
+                      <h2 className="feedback__card-title">
+                        {feedback.feedback_source_name || ""}
+                      </h2>
+                    </div>
                     <p
                       className={`feedback__card-text ${
                         expanded[originalIndex] ? "expanded" : ""

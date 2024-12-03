@@ -89,7 +89,7 @@ function DoctorsMain() {
   }, [containerWidth, cardGap, cardTotalWidth]);
 
   useEffect(() => {
-    if (isMobile) return; // Не выполняем эффект на мобильной версии
+    if (isMobile) return; 
     const track = trackRef.current;
     if (track) {
       if (isTransitioning) {
@@ -102,7 +102,7 @@ function DoctorsMain() {
   }, [currentIndex, isTransitioning, cardTotalWidth, isMobile]);
 
   useEffect(() => {
-    if (isMobile) return; // Не выполняем эффект на мобильной версии
+    if (isMobile) return; 
     const track = trackRef.current;
     if (track) {
       const handleTransitionEnd = () => {
@@ -190,8 +190,8 @@ function DoctorsMain() {
                   : `${extendedDoctors.length * cardTotalWidth}px`,
               }}
             >
-              {displayedDoctors.map((doctor) => (
-                <div key={doctor.id} className="doctors__card">
+              {displayedDoctors.map((doctor, index) => (
+                <div key={`${doctor.id}-${index}`} className="doctors__card">
                   {doctor.main_photo ? (
                     <img
                       className="doctors__card-image"

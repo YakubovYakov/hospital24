@@ -1,0 +1,324 @@
+.vacancies__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto 48px auto;
+}
+
+.vacancies__top {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0 24px 0;
+}
+
+.vacancies__text-container {
+  max-width: 552px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vacancies__title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 48px 0 48px;
+}
+
+.vacancies__subtitle {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin: 0 0 24px 0;
+}
+
+.vacancies__text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.vacancies__advantages-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 48px;
+  margin: 0 0 48px 0;
+}
+
+.vacancies__advantages-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 0 0 24px 0;
+}
+
+.vacancies__advantages-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vacancies__advantages-card-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.vacancies__advantages-card-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.vacancies__advantages-card-text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.vacancies__list-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.vacancies__list-subtitle {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.vacancies__list-item-description {
+  width: 100%;
+  max-width: 434px;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.vacancies__list-item-text {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.vacancies__list-item-text:first-of-type {
+  margin-right: 32px;
+}
+
+.vacancies__category-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 24px 0;
+}
+
+.vacancies__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vacancies__list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 16px;
+  border-radius: 8px;
+  background: #f6f6f6;
+  text-decoration: none;
+  transition: 0.7s;
+}
+
+.vacancies__list-item-icon {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  width: 24px;
+  height: 24px;
+}
+
+.vacancies__list-item:hover {
+  opacity: 0.7;
+}
+
+.vacancies__list-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  gap: 8px;
+}
+.vacancies__contacts {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 48px 0 0;
+}
+
+.vacancies__contacts-text {
+  width: 100%;
+  width: 100%;
+  max-width: 552px;
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 0 0 24px 0;
+}
+
+.vacancies__contacts-text span {
+  text-decoration: underline;
+  color: #1348ba;
+  cursor: pointer;
+  padding-left: 4px;
+}
+
+.vacancies__contacts-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vacancies__contacts-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 0 0 24px 0;
+}
+
+.vacancies__contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vacancies__contacts-container-title {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 0 0 12px 0;
+}
+.vacancies__contacts-container-span {
+  color: #1e1e1e;
+  font-family: "Cera Round", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.vacancies__contacts-image {
+  width: 100%;
+  max-width: 552px;
+  height: 378.043px;
+}
+
+@media (max-width: 768px) {
+  .vacancies__top {
+    flex-direction: column;
+  }
+
+  .vacancies__title {
+    margin: 24px 0;
+  }
+
+  .vacancies__container {
+    max-width: 327px;
+    margin: 0 auto;
+  }
+
+  .vacancies__advantages-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vacancies__list-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 8px 10px;
+    padding: 16px;
+    align-items: normal;
+  }
+
+  .vacancies__list-item-description {
+    width: 100%;
+    max-width: 263px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .vacancies__category-title {
+    margin: 16px 0;
+  }
+
+  .vacancies__list-item-container {
+    gap: 4px;
+  }
+
+  .vacancies__list-item-text {
+    font-size: 10px;
+  }
+
+  .vacancies__list-item-icon {
+    justify-self: end;
+  }
+
+  .vacancies__contacts {
+    flex-direction: column;
+  }
+
+	.vacancies__contacts-image {
+		height: auto;
+	}
+
+	.vacancies__contacts {
+		margin: 48px 0 24px 0;
+	}
+}

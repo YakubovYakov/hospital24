@@ -197,7 +197,6 @@ function Contacts() {
           </div>
         </div>
       </div>
-      {/* <FAQ /> */}
       <Map />
       <div className="contacts__container">
         <div className="contacts__cards-container">

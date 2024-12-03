@@ -4,7 +4,7 @@ import { fetchAllPaidServicesEmployers } from "../../utils/api";
 import "./PaidServices.css";
 import Button from "../Button/Button";
 import DoctorAppointmentModal from "../Doctors/DoctorAppointmentModal/DoctorAppointmentModal";
-import { Link } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 
 function PaidServices() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -97,8 +97,7 @@ function PaidServices() {
         "https://www.gkb-24.ru/static/images-svg/%D0%B2%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0-%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F14-11.pdf",
     },
     {
-      question:
-        "Правила",
+      question: "Правила",
       answer: "",
     },
     {
@@ -123,6 +122,8 @@ function PaidServices() {
   const [currentIndex, setCurrentIndex] = useState(slidesToShow);
   const currentIndexRef = useRef(currentIndex);
 
+  const prioritizedDoctorId = 70;
+
   useEffect(() => {
     const loadDoctors = async () => {
       try {
@@ -146,16 +147,11 @@ function PaidServices() {
     loadDoctors();
 
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const doctorsToDisplay = Array.isArray(doctors) ? doctors.slice(0, 4) : [];
-
-  useEffect(() => {
-    currentIndexRef.current = currentIndex;
-  }, [currentIndex]);
 
   useEffect(() => {
     const updateContainerWidth = () => {
@@ -169,24 +165,28 @@ function PaidServices() {
     return () => window.removeEventListener("resize", updateContainerWidth);
   }, []);
 
-  useEffect(() => {
-    const slides = Math.max(
-      Math.floor((containerWidth + cardGap) / cardTotalWidth),
-      1
+  const sortedDoctors = useMemo(() => {
+    if (!doctors || doctors.length === 0) return [];
+
+    const prioritizedDoctor = doctors.find(
+      (doctor) => doctor.id === prioritizedDoctorId
     );
-    if (slides !== slidesToShow) {
-      setSlidesToShow(slides);
-      setCurrentIndex(slides);
-    }
-  }, [containerWidth, cardGap, cardTotalWidth, slidesToShow]);
+    const otherDoctors = doctors.filter(
+      (doctor) => doctor.id !== prioritizedDoctorId
+    );
+
+    return prioritizedDoctor ? [prioritizedDoctor, ...otherDoctors] : doctors;
+  }, [doctors, prioritizedDoctorId]);
 
   const extendedDoctors = useMemo(() => {
+    if (isMobile || sortedDoctors.length === 0) return sortedDoctors;
+
     return [
-      ...doctors.slice(-slidesToShow),
-      ...doctors,
-      ...doctors.slice(0, slidesToShow),
+      ...sortedDoctors.slice(-slidesToShow),
+      ...sortedDoctors,
+      ...sortedDoctors.slice(0, slidesToShow),
     ];
-  }, [doctors, slidesToShow]);
+  }, [sortedDoctors, slidesToShow, isMobile]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -309,11 +309,7 @@ function PaidServices() {
               <Button size="small" onClick={openModal}>
                 Записаться
               </Button>
-              {isModalOpen && (
-                <DoctorAppointmentModal
-                  onClose={closeModal}
-                />
-              )}
+              {isModalOpen && <DoctorAppointmentModal onClose={closeModal} />}
               <a
                 href="https://www.gkb-24.ru/static/files/%D0%BF%D1%80%D0%B0%D0%B9%D1%81.pdf"
                 target="_blank"
@@ -421,7 +417,9 @@ function PaidServices() {
       </div>
       <div className="paid-services__doctors-top">
         <h2 className="paid-services__title">Наши врачи</h2>
-				<Link to="/our-doctors" className="paid-services__button-mobile">Все</Link>
+        <Link to="/our-doctors" className="paid-services__button-mobile">
+          Все
+        </Link>
         <div className="paid-services__button-container">
           <Button size="small" onClick={openModal}>
             Записаться
@@ -465,7 +463,10 @@ function PaidServices() {
                 >
                   {extendedDoctors.map((doctor, index) => {
                     return (
-                      <div key={index} className="doctors__card">
+                      <div
+                        key={`${doctor.id}-${index}`}
+                        className="doctors__card"
+                      >
                         {doctor.main_photo ? (
                           <img
                             className="doctors__card-image"
@@ -492,7 +493,7 @@ function PaidServices() {
                         )}
                         <Button
                           to={`/employers/${doctor.id}`}
-													color="secondary"
+                          color="secondary"
                           className="doctors__card-button"
                           type="button"
                         >
@@ -517,11 +518,11 @@ function PaidServices() {
                 добровольного медицинского страхования (ДМС) и по прямому
                 договору с физическим лицом за наличный расчет
               </p>
-							<p className="paid-services__content-text">
-              Платная медицинская помощь доступна в рамках программы
+              <p className="paid-services__content-text">
+                Платная медицинская помощь доступна в рамках программы
                 добровольного медицинского страхования (ДМС) и по прямому
                 договору с физическим лицом за наличный расчет
-            </p>
+              </p>
             </div>
             <div className="paid-services__button-container">
               <Button>Полный перечень страховых компаний</Button>
@@ -577,15 +578,15 @@ function PaidServices() {
             возмещения налогового вычета за оплату медицинских услуг. Это
             поможет вернуть часть потраченных на лечение денежных средств
           </p>
-					<div className="paid-services__button-container-mobile">
-              <Button>Подать заявку на вычет</Button>
-              <Button
-                to="https://www.gkb-24.ru/platnye-uslugi/nalogoviy-vichet/"
-                color="secondary"
-              >
-                Узнать больше
-              </Button>
-            </div>
+          <div className="paid-services__button-container-mobile">
+            <Button>Подать заявку на вычет</Button>
+            <Button
+              to="https://www.gkb-24.ru/platnye-uslugi/nalogoviy-vichet/"
+              color="secondary"
+            >
+              Узнать больше
+            </Button>
+          </div>
         </div>
         <h2 className="paid-services__title details-title">
           Информация для пациентов

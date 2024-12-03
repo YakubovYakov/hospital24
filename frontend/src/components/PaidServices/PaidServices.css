@@ -44,8 +44,6 @@
   max-width: 552px;
   display: flex;
   flex-direction: column;
-
-  /* justify-content: end; */
 }
 
 .paid-services__content-title {
@@ -139,7 +137,6 @@
 }
 
 .paid-services__button-download:hover {
-  /* border: 1px solid #1348ba; */
   background: #f6f6f6;
   color: #000;
 }
@@ -193,7 +190,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  /* margin-bottom: 48px; */
 }
 
 .paid-services__details {
@@ -345,9 +341,6 @@
   margin: 64px 0 0;
 }
 
-.paid-services__tax-top {
-}
-
 .paid-services__tax-title {
   width: 100%;
   max-width: 552px;
@@ -374,19 +367,19 @@
 }
 
 .paid-services__button-mobile {
-	display: none;
+  display: none;
 }
 
 .paid-services__text-mobile {
-	display: none;
+  display: none;
 }
 
 .paid-services__our-button-mobile {
-	display: none;
+  display: none;
 }
 
 .paid-services__button-container-mobile {
-	display: none;
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -421,8 +414,8 @@
   .paid-services__title {
     max-width: 327px;
     margin: 24px auto 24px auto;
-		font-size: 24px;
-		font-weight: 700;
+    font-size: 24px;
+    font-weight: 700;
   }
 
   .paid-services__text {
@@ -476,7 +469,7 @@
 
   .paid-services__details-title {
     font-size: 24px;
-		font-weight: 700;
+    font-weight: 700;
   }
 
   .paid-services__details {
@@ -502,12 +495,12 @@
 
   .paid-services__doctors-top {
     display: flex;
-		max-width: 327px;
-		align-items: center;
+    max-width: 327px;
+    align-items: center;
   }
 
   .paid-services__button-mobile {
-		display: block;
+    display: block;
     border-radius: 8px;
     background: #1348ba;
     color: #d1eaf3;
@@ -520,35 +513,35 @@
     padding: 12px;
   }
 
-	.paid-services__dms {
-		margin-top: 24px;
-	}
+  .paid-services__dms {
+    margin-top: 24px;
+  }
 
-	.paid-services__dms-content {
-		flex-direction: column;
-		gap: 0;
-		margin: 0;
-	}
+  .paid-services__dms-content {
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+  }
 
-	.paid-services__dms-image {
-		width: 327px;
-		height: 308px;
-		margin-bottom: 24px;
-	}
+  .paid-services__dms-image {
+    width: 327px;
+    height: 308px;
+    margin-bottom: 24px;
+  }
 
-	.paid-services_tax {
-		margin-top: 48px;
-		padding: 24px;
-	}
+  .paid-services_tax {
+    margin-top: 48px;
+    padding: 24px;
+  }
 
-	.paid-services__tax-text {
-		font-size: 16px;
-	}
+  .paid-services__tax-text {
+    font-size: 16px;
+  }
 
-	.paid-services__button-container-mobile {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
-		margin: 24px 0 0 0;
-	}
+  .paid-services__button-container-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0 0 0;
+  }
 }
